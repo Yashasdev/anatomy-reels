@@ -1,0 +1,6 @@
+# Blender 4.3 (installed separately: the app on a Mac, the official Linux build on GitHub)
+kokoro-onnx==0.6.1
+soundfile==0.14.0
+numpy
+pillow
+imageio-ffmpeg==0.6.0
