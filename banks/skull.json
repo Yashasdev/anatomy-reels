@@ -1,0 +1,89 @@
+[
+ {
+  "id": "skull-01",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Temporal bone.l"
+  ],
+  "start_degrees": 60,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Parietal",
+   "Occipital",
+   "Sphenoid",
+   "Temporal"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Can you name the glowing skull bone?",
+   "Look at the side of the skull.",
+   "Which bone is it?",
+   "It sits at the side of the head, around the ear.",
+   "Your jaw hinges on it, just in front of your ear.",
+   "It's D. The temporal bone.",
+   "Why it matters: it protects your inner ear, for hearing and balance."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-02",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Mandible"
+  ],
+  "start_degrees": 40,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Maxilla",
+   "Mandible",
+   "Zygomatic",
+   "Temporal"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Only one skull bone really moves. Can you name it?",
+   "It's the bone that's glowing.",
+   "Which bone is it?",
+   "The maxilla holds your upper teeth, and it doesn't move.",
+   "This bone holds the lower teeth and hinges to open your mouth.",
+   "It's B. The mandible.",
+   "Why it matters: it's the largest, strongest bone in your face."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-03",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Zygomatic bone.l"
+  ],
+  "start_degrees": 45,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Maxilla",
+   "Nasal",
+   "Zygomatic",
+   "Frontal"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "You can feel this bone right now. Name it.",
+   "Watch the small bone that's glowing.",
+   "Which bone is it?",
+   "It's not the maxilla, which holds your upper teeth.",
+   "This one forms the bump of your cheek.",
+   "It's C. The zygomatic bone, your cheekbone.",
+   "Why it matters: it shapes your face and guards your eye socket."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

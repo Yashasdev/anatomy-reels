@@ -1,0 +1,60 @@
+[
+ {
+  "id": "abdomen-01",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Liver"
+  ],
+  "start_degrees": 0,
+  "question": "Which organ is glowing?",
+  "choices": [
+   "Liver",
+   "Stomach",
+   "Spleen",
+   "Pancreas"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Can you name this glowing organ?",
+   "These are the organs of the belly, from the front.",
+   "Which organ is it?",
+   "It sits high on the body's right side, under the ribs.",
+   "It's the largest organ inside your body.",
+   "It's A. The liver.",
+   "Why it matters: it clears toxins from blood and makes bile for fat."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "abdomen-02",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Pancreas"
+  ],
+  "start_degrees": 180,
+  "question": "Which organ is glowing?",
+  "choices": [
+   "Spleen",
+   "Gallbladder",
+   "Stomach",
+   "Pancreas"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Most people can't place this organ. Can you?",
+   "We're looking from behind now.",
+   "Which organ is glowing?",
+   "It lies behind the stomach, across the upper belly.",
+   "It makes insulin and digestive enzymes.",
+   "It's D. The pancreas.",
+   "Why it matters: type 1 diabetes destroys its insulin-making cells."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

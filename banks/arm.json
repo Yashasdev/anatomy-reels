@@ -1,0 +1,62 @@
+[
+ {
+  "id": "arm-01",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Radius.r"
+  ],
+  "start_degrees": -30,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Ulna",
+   "Radius",
+   "Humerus",
+   "Clavicle"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Two bones, one forearm. Which one is glowing?",
+   "This is the right arm, shoulder to wrist.",
+   "Which bone is it?",
+   "Two bones run along the forearm.",
+   "The glowing one is on the thumb side.",
+   "It's B. The radius.",
+   "Why it matters: a fall on your hand often breaks it near the wrist."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 3.0
+ },
+ {
+  "id": "arm-02",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Humerus.r"
+  ],
+  "start_degrees": -30,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Femur",
+   "Radius",
+   "Humerus",
+   "Ulna"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Hit this bone's elbow end and it's not funny. Name it.",
+   "Watch the long bone that's glowing.",
+   "Which bone is it?",
+   "It runs from your shoulder to your elbow.",
+   "The femur is its match, but in your thigh.",
+   "It's C. The humerus.",
+   "Why it matters: the funny bone tingle is a nerve, not this bone."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 3.0
+ }
+]

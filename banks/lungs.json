@@ -1,0 +1,61 @@
+[
+ {
+  "id": "lungs-01",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Middle lobe of right lung"
+  ],
+  "start_degrees": 0,
+  "question": "Which lobe is glowing?",
+  "choices": [
+   "Left lower lobe",
+   "Right lower lobe",
+   "Right middle lobe",
+   "Left upper lobe"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Can you name the lobe that's glowing?",
+   "These are the lungs, seen from the front.",
+   "Which lobe is it?",
+   "Facing you, the right lung is on your left.",
+   "Only the right lung has a middle lobe.",
+   "It's C. The right middle lobe.",
+   "Why it matters: a problem here can blur the heart's edge on an X-ray."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "lungs-02",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Superior lobe of left lung",
+   "Inferior lobe of left lung"
+  ],
+  "start_degrees": 0,
+  "question": "How many lobes does it have?",
+  "choices": [
+   "2 lobes",
+   "3 lobes",
+   "4 lobes",
+   "1 lobe"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Your two lungs aren't twins. Here's why.",
+   "Watch the glowing lung: the patient's left one.",
+   "How many lobes does it have?",
+   "The right lung has three lobes.",
+   "The left has only two, and it's smaller to make room for the heart.",
+   "It's A. Two lobes.",
+   "Why it matters: the left lung has a notch shaped around your heart."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

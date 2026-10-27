@@ -27,6 +27,12 @@ parts = [o for o in dst.objects if o and o.type == "MESH" and not o.name.endswit
 for o in parts:
     scene.collection.objects.link(o)
     o.hide_render = o.hide_viewport = False  # the atlas saves most parts hidden
+    import bmesh  # some atlas parts are saved inside out, which renders them black
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    if o.name in ("Stomach", "Duodenum"):  # cap the open ends (where the esophagus and intestine attach)
+        bmesh.ops.holes_fill(bm, edges=[e for e in bm.edges if e.is_boundary], sides=0)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(o.data); bm.free()
 bpy.context.view_layer.update()
 
 
@@ -40,13 +46,32 @@ def material(name, rgb, roughness=0.45, coat=0.35):
     return m
 
 
+# colors by part name (first match wins), so each organ reads as what it is
+COLORS = [("leaflet", (0.80, 0.68, 0.50)), ("papillary", (0.80, 0.68, 0.50)),
+          ("lung", (0.62, 0.22, 0.24)), ("Trachea", (0.75, 0.62, 0.55)),
+          ("Liver", (0.28, 0.05, 0.04)), ("Gallbladder", (0.20, 0.35, 0.12)), ("Stomach", (0.62, 0.30, 0.28)),
+          ("Pancreas", (0.78, 0.58, 0.38)), ("Spleen", (0.32, 0.06, 0.12)), ("Duodenum", (0.60, 0.36, 0.30)),
+          ("colon", (0.55, 0.32, 0.28)),
+          ("bone", (0.82, 0.76, 0.62)), ("Mandible", (0.82, 0.76, 0.62)), ("Maxilla", (0.82, 0.76, 0.62)),
+          ("Vomer", (0.82, 0.76, 0.62)), ("Humerus", (0.82, 0.76, 0.62)), ("Radius", (0.82, 0.76, 0.62)),
+          ("Ulna", (0.82, 0.76, 0.62)), ("Scapula", (0.82, 0.76, 0.62)), ("Clavicle", (0.82, 0.76, 0.62)),
+          ("concha", (0.82, 0.76, 0.62))]
 muscle = material("muscle", (0.30, 0.03, 0.04))
-tissue = material("tissue", (0.80, 0.68, 0.50), roughness=0.55)
-lit = material("lit", (0.52, 0.85, 0.10), roughness=0.35)
+lit = material("lit", (0.30, 0.85, 0.02), roughness=0.35)
+cache = {}
 for o in parts:
     o.data.materials.clear()
-    small = "leaflet" in o.name or "papillary" in o.name
-    o.data.materials.append(lit if o.name == spec.get("highlight") else tissue if small else muscle)
+    hl = spec.get("highlight") or []
+    if o.name in (hl if isinstance(hl, list) else [hl]):
+        o.data.materials.append(lit)
+        continue
+    rgb = next((c for key, c in COLORS if key.lower() in o.name.lower()), None)
+    if rgb is None:
+        o.data.materials.append(muscle)
+        continue
+    if rgb not in cache:
+        cache[rgb] = material(f"m{len(cache)}", rgb, roughness=0.6 if rgb[0] > 0.8 else 0.45)
+    o.data.materials.append(cache[rgb])
 
 points = [o.matrix_world @ mathutils.Vector(c) for o in parts for c in o.bound_box]
 lo = mathutils.Vector([min(p[i] for p in points) for i in range(3)])
@@ -83,7 +108,7 @@ for name, offset, power in [("key", (-1, -1.2, 1.2), 25), ("fill", (1.2, -0.8, 0
     light = bpy.data.lights.new(name, "AREA")
     light.size = size
     v = mathutils.Vector(offset) * size * 2.5
-    light.energy = power * v.length ** 2 / 0.36  # same brightness whatever the organ's real size
+    light.energy = spec.get("light", 0.55) * power * v.length ** 2 / 0.36  # same brightness whatever the organ's real size
     obj = bpy.data.objects.new(name, light)
     scene.collection.objects.link(obj)
     obj.location = center + v
@@ -101,7 +126,8 @@ scene.render.resolution_percentage = 100
 scene.render.film_transparent = True
 scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"
-scene.view_settings.view_transform = "Standard"
+scene.view_settings.view_transform = "AgX"
+scene.view_settings.look = "AgX - Medium High Contrast"
 scene.frame_start, scene.frame_end = 1, frames
 scene.render.fps = fps
 scene.render.filepath = spec["out"] + "/f"
