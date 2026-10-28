@@ -55,7 +55,7 @@ def test_item(name, q):
     letter = "ABCD"[q["answer_index"]]
     assert re.match(rf"It's {letter}\b", lines[q["answer_line"]]), f"the answer line says \"It's {letter}. ...\""
     assert lines[-1].startswith("Why it matters:")
-    assert -180 <= q.get("start_degrees", -20) <= 180 and 2.0 <= q.get("distance", 4.2) <= 6.0
+    assert -180 <= q.get("start_degrees", -20) <= 180 and (1.0 if q.get("focus") else 2.0) <= q.get("distance", 4.2) <= 6.0
 
 
 def test_answer_letters_vary():

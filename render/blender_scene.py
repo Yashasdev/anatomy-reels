@@ -88,6 +88,12 @@ points = [o.matrix_world @ mathutils.Vector(c) for o in parts for c in o.bound_b
 lo = mathutils.Vector([min(p[i] for p in points) for i in range(3)])
 hi = mathutils.Vector([max(p[i] for p in points) for i in range(3)])
 center, size = (lo + hi) / 2, max(hi - lo)
+if spec.get("focus"):  # small parts of a big region: turn around the glowing part and frame it (with a small distance)
+    hl = set(spec.get("highlight") if isinstance(spec.get("highlight"), list) else [spec.get("highlight")])
+    pts = [o.matrix_world @ mathutils.Vector(c) for o in parts if o.name in hl for c in o.bound_box]
+    if pts:
+        center = (mathutils.Vector([min(p[i] for p in pts) for i in range(3)])
+                  + mathutils.Vector([max(p[i] for p in pts) for i in range(3)])) / 2
 
 pivot = bpy.data.objects.new("pivot", None)
 scene.collection.objects.link(pivot)

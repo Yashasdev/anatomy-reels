@@ -193,7 +193,7 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     spec = {"model": str(ROOT / "assets" / "models" / f"{q['model']}.blend"), "out": str(work / "layer"),
             "frames": frames, "fps": LAYER_FPS, "highlight": q["highlight"], "engine": engine,
             "width": MODEL_BOX[2], "height": MODEL_BOX[2], "distance": q.get("distance", 4.2),
-            "degrees_per_second": turn, "start_degrees": q.get("start_degrees", -20)}
+            "degrees_per_second": turn, "start_degrees": q.get("start_degrees", -20), "focus": q.get("focus", False)}
     r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"),
                         "--", json.dumps(spec)], capture_output=True, text=True)
     if r.returncode or not (work / "layer" / "f0001.png").exists():

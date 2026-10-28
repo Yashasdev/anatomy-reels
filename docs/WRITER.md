@@ -15,6 +15,7 @@ where a second answer is tempting.
   "highlight": ["Occipital bone"],  // exact names from assets/models/parts.json (several = one glowing group)
   "start_degrees": 160,             // where the turn starts (0 = front, 180 = back); pick the angle that shows the part
   "distance": 4.2,                  // optional: smaller zooms in (2.0 to 6.0; 4.2 frames the whole region)
+  "focus": false,                   // optional: true turns and frames around the glowing part; use with distance 1.0-2.0
   "question": "Which bone is glowing?",
   "choices": ["Parietal", "Occipital", "Temporal", "Frontal"],
   "answer_index": 1,
@@ -46,8 +47,9 @@ renders each new question from 8 angles and fails it if the glowing part is hard
 - Left and right are the patient's. Say so in the narration when it matters ("the patient's left lung").
 - The question line is short (one line on screen). Choices are short names ("Occipital", not "Occipital bone of skull").
 - Spread answers across A to D; never the same letter three times in a row within a bank.
-- Use parts big enough to see while the region turns (see below). Tiny parts (single finger bones, the lens, a lone
-  rib's cartilage) need `distance` around 2.5 and a good `start_degrees`, or a group highlight.
+- Use parts big enough to see while the region turns (see below). Small parts of a big region (kneecap, heel bone,
+  xiphoid, a single finger bone or vertebra) need `"focus": true` with `distance` 1.2 to 2.0 (the camera turns around
+  the glowing part), a good `start_degrees`, or a group highlight.
 - Mix question types so it doesn't feel repetitive: which part is glowing; which side or which one of a pair; how many
   (lobes, bones in a group, teeth of a type); what the glowing part does; its everyday name (collarbone, kneecap,
   cheekbone, wisdom tooth is not modeled); which group it belongs to (cervical, thoracic, lumbar).

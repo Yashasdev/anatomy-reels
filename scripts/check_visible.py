@@ -37,9 +37,12 @@ def new_ids(ref: str) -> list[str]:
 
 
 def lime_share(path: Path) -> float:
+    """Share of the frame in the highlight's yellow-green (hue 65-115 degrees, saturated, bright). Bone, teeth,
+    muscle and organ colors sit outside that hue band; lit or shaded lime stays inside it."""
     im = Image.open(path).convert("RGBA")
-    px = im.getdata()
-    lime = sum(1 for r, g, b, a in px if a > 128 and g > 150 and g > r + 25 and g > b + 60)
+    hsv = Image.open(path).convert("RGB").convert("HSV").getdata()
+    alpha = im.getchannel("A").getdata()
+    lime = sum(1 for (h, s, v), a in zip(hsv, alpha) if a > 128 and 46 <= h <= 82 and s > 90 and v > 90)
     return lime / (im.width * im.height)
 
 
@@ -47,7 +50,7 @@ def check(q: dict, work: Path) -> tuple[int, list[Path]]:
     turn = 360 / ANGLES
     spec = {"model": str(ROOT / "assets" / "models" / f"{q['model']}.blend"), "out": str(work / q["id"]),
             "frames": ANGLES, "fps": 1, "highlight": q["highlight"], "degrees_per_second": turn,
-            "start_degrees": q.get("start_degrees", -20), "distance": q.get("distance", 4.2),
+            "start_degrees": q.get("start_degrees", -20), "distance": q.get("distance", 4.2), "focus": q.get("focus", False),
             "engine": os.environ.get("ANATOMY_ENGINE", "BLENDER_EEVEE_NEXT"), "samples": 4,
             "width": SIZE, "height": SIZE}
     r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"),
