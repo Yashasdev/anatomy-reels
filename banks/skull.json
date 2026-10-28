@@ -85,5 +85,34 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "skull-04",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Occipital bone"
+  ],
+  "start_degrees": 160,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Parietal",
+   "Occipital",
+   "Temporal",
+   "Frontal"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The back of your skull has its own bone. Do you know it?",
+   "Watch the glowing bone at the back of the head.",
+   "Which bone is glowing?",
+   "The parietal bones sit on top. This one is lower.",
+   "It also has the big opening where the spinal cord passes through.",
+   "It's B. The occipital bone.",
+   "Why it matters: it protects the part of the brain that handles vision."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

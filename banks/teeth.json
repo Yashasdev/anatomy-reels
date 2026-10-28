@@ -1,0 +1,70 @@
+[
+ {
+  "id": "teeth-01",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Upper medial incisor.l",
+   "Upper medial incisor.r",
+   "Upper lateral incisor.l",
+   "Upper lateral incisor.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which type of tooth is it?",
+  "choices": [
+   "Canine",
+   "Incisor",
+   "Premolar",
+   "Molar"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "You use these front teeth to bite into an apple. Name them.",
+   "Watch the glowing teeth at the very front of the upper jaw.",
+   "Which type of tooth is glowing?",
+   "Canines are the pointed teeth right beside them.",
+   "These flat, chisel-shaped teeth are made for cutting.",
+   "It's B. Incisors.",
+   "Why it matters: adults have eight, four on top and four below."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "teeth-02",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Upper first premolar.l",
+   "Upper first premolar.r",
+   "Upper second premolar.l",
+   "Upper second premolar.r",
+   "Lower first premolar.l",
+   "Lower first premolar.r",
+   "Lower second premolar.l",
+   "Lower second premolar.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many of these do adults have?",
+  "choices": [
+   "4",
+   "6",
+   "12",
+   "8"
+  ],
+  "answer_index": 3,
+  "trap_index": 2,
+  "lines": [
+   "Between your pointed and grinding teeth sit the premolars.",
+   "Watch the glowing teeth between the canines and the big molars.",
+   "How many of these teeth does an adult have?",
+   "Adults have 12 molars, counting wisdom teeth, but those are different.",
+   "Two in each quarter of the mouth makes eight.",
+   "It's D. Eight.",
+   "Why it matters: premolars replace the baby molars."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

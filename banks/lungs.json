@@ -57,5 +57,63 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "lungs-03",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Trachea"
+  ],
+  "start_degrees": 0,
+  "question": "Which tube is glowing?",
+  "choices": [
+   "Esophagus",
+   "Bronchiole",
+   "Trachea",
+   "Larynx"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "You breathe through this tube all day. Can you name it?",
+   "Look at the tube above the two lungs.",
+   "Which tube is glowing?",
+   "The esophagus runs just behind it, but that tube carries food.",
+   "This one carries air, and it's also called the windpipe.",
+   "It's C. The trachea.",
+   "Why it matters: C-shaped rings of cartilage keep it open."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "lungs-04",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Inferior lobe of right lung"
+  ],
+  "start_degrees": 180,
+  "question": "Which lobe is glowing?",
+  "choices": [
+   "Left lower lobe",
+   "Right middle lobe",
+   "Right upper lobe",
+   "Right lower lobe"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "One lobe sits low in the patient's right lung. Which one?",
+   "We're looking from behind, so the patient's right is on your right.",
+   "Which lobe is glowing?",
+   "The left lower lobe looks similar, but it's in the other lung.",
+   "The right lung's middle lobe is a small wedge at the front.",
+   "It's D. The right lower lobe.",
+   "Why it matters: most of the lower lobe lies toward your back."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

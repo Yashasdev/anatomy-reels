@@ -1,0 +1,74 @@
+[
+ {
+  "id": "chest-01",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "Which part of the breastbone is it?",
+  "choices": [
+   "Manubrium",
+   "Xiphoid process",
+   "Body",
+   "Costal cartilage"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "The breastbone has three parts. Can you name this one?",
+   "Look at the small tip at the bottom of the breastbone.",
+   "Which part of the breastbone is glowing?",
+   "The manubrium is the wide top, and the body is the long middle.",
+   "This small, pointed tip hangs at the lower end.",
+   "It's B. The xiphoid process.",
+   "Why it matters: the diaphragm and abdominal muscles attach to it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-02",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r",
+   "Second rib.l",
+   "Second rib.r",
+   "Third rib.l",
+   "Third rib.r",
+   "Fourth rib.l",
+   "Fourth rib.r",
+   "Fifth rib.l",
+   "Fifth rib.r",
+   "Sixth rib.l",
+   "Sixth rib.r",
+   "Seventh rib.l",
+   "Seventh rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which group of ribs is glowing?",
+  "choices": [
+   "Floating ribs",
+   "False ribs",
+   "Atypical ribs",
+   "True ribs"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Seven rib pairs attach straight to the breastbone. Which group?",
+   "Watch the glowing ribs in the upper part of the chest.",
+   "Which group of ribs is glowing?",
+   "False ribs reach the breastbone only through shared cartilage.",
+   "Ribs 1 to 7 each have their own cartilage link to the breastbone.",
+   "It's D. The true ribs.",
+   "Why it matters: they form the sturdy upper cage around heart and lungs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

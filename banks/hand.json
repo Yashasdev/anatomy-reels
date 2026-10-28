@@ -1,0 +1,69 @@
+[
+ {
+  "id": "hand-01",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Scaphoid bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "question": "Which wrist bone is glowing?",
+  "choices": [
+   "Lunate",
+   "Scaphoid",
+   "Pisiform",
+   "Hamate"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One tiny wrist bone is named for a boat. Which one?",
+   "Watch the glowing bone on the thumb side of the wrist.",
+   "Which wrist bone is glowing?",
+   "The lunate sits beside it, closer to the middle of the wrist.",
+   "This boat-shaped bone sits on the thumb side, next to the radius.",
+   "It's B. The scaphoid.",
+   "Why it matters: it's the wrist bone people break most often."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "hand-02",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Capitate bone.r",
+   "Hamate bone.r",
+   "Lunate bone.r",
+   "Pisiform bone.r",
+   "Scaphoid bone.r",
+   "Trapezium bone.r",
+   "Trapezoid bone.r",
+   "Triquetrum bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "question": "How many bones are glowing?",
+  "choices": [
+   "5",
+   "10",
+   "8",
+   "14"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your wrist is a puzzle of small bones. How many pieces?",
+   "Watch the group of bones between the hand and the forearm.",
+   "How many bones are in the glowing group?",
+   "Five bones form the palm, but those sit further down.",
+   "The wrist has two rows of four small bones, the carpals.",
+   "It's C. Eight.",
+   "Why it matters: many small joints let your wrist bend and twist."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

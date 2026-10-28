@@ -56,5 +56,63 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "abdomen-03",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Gallbladder"
+  ],
+  "start_degrees": 0,
+  "question": "What does this organ store?",
+  "choices": [
+   "Insulin",
+   "Bile",
+   "Urine",
+   "Stomach acid"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "This small pouch sits right under the liver. What does it hold?",
+   "Look at the small organ tucked beneath the liver.",
+   "What does this organ store?",
+   "The liver makes it, but doesn't keep it.",
+   "This pouch stores it and makes it stronger until a fatty meal.",
+   "It's B. Bile.",
+   "Why it matters: bile helps your gut break up and absorb fat."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "abdomen-04",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Sigmoid colon"
+  ],
+  "start_degrees": 0,
+  "question": "Which part of the colon is it?",
+  "choices": [
+   "Ascending",
+   "Transverse",
+   "Descending",
+   "Sigmoid"
+  ],
+  "answer_index": 3,
+  "trap_index": 2,
+  "lines": [
+   "The colon has four parts. Can you name this one?",
+   "Look at the S-shaped section low in the belly.",
+   "Which part of the colon is glowing?",
+   "The descending colon runs down the patient's left side first.",
+   "This part curves like an S before it reaches the rectum.",
+   "It's D. The sigmoid colon.",
+   "Why it matters: it holds waste briefly before the rectum."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

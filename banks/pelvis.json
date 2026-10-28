@@ -1,0 +1,61 @@
+[
+ {
+  "id": "pelvis-01",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Sacrum"
+  ],
+  "start_degrees": 180,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Coccyx",
+   "Sacrum",
+   "Hip bone",
+   "Vertebra L5"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Five vertebrae fused into one bone. Can you name it?",
+   "We're looking at the pelvis from behind.",
+   "Which bone is glowing?",
+   "The coccyx is the small tail below it, not this triangle.",
+   "This triangular bone wedges between the two hip bones.",
+   "It's B. The sacrum.",
+   "Why it matters: it links your spine to the pelvis."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-02",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Coccyx"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Hip bone",
+   "Pubic bone",
+   "Tailbone",
+   "Sitting bone"
+  ],
+  "answer_index": 2,
+  "trap_index": 3,
+  "lines": [
+   "Humans lost their tails, but this small bone remains.",
+   "Watch the small bone at the very bottom of the spine.",
+   "What's the everyday name of this bone?",
+   "The sitting bone is part of the hip bone, off to each side.",
+   "This one is a few small fused vertebrae below the sacrum.",
+   "It's C. The tailbone, or coccyx.",
+   "Why it matters: pelvic floor muscles and ligaments attach to it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]
