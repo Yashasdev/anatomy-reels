@@ -60,8 +60,14 @@ def due_slots(now: datetime, hist: list[dict]) -> list[datetime]:
     return out
 
 
+def plan_now() -> datetime:
+    """One clock for every job of a run (PLAN_NOW), so the render jobs and the posting job agree on the plan."""
+    fixed = os.environ.get("PLAN_NOW")
+    return datetime.fromisoformat(fixed) if fixed else datetime.now(ZoneInfo("UTC"))
+
+
 def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
-    now = now or datetime.now(ZoneInfo("UTC"))
+    now = now or plan_now()
     hist = history()
     used = [h["id"] for h in hist]
     last = hist[-1]["organ"] if hist else None
@@ -98,6 +104,57 @@ def youtube_title(q: dict) -> str:
 def render(q: dict, out: Path) -> float:
     from .make import build
     return build(q, out)
+
+
+def file_name(at: datetime, q: dict) -> str:
+    return f"{at:%Y-%m-%d-%H%M}-{q['id']}"
+
+
+def render_one(slot: str) -> int:
+    """Render the reel planned for one slot (each runs on its own GitHub machine)."""
+    at, q = next((at, q) for at, q in plan() if at.isoformat() == slot)
+    out = ROOT / "out" / f"{file_name(at, q)}.mp4"
+    seconds = render(q, out)
+    out.with_suffix(".json").write_text(json.dumps({"slot": slot, "id": q["id"], "seconds": seconds}))
+    print(f"rendered {out.name} ({seconds:.1f} s): Day {q['day']} {q['id']} for {at:%a %b %d %I:%M %p} ET")
+    return 0
+
+
+def post() -> int:
+    """Upload and schedule the rendered reels in slot order, stopping at the first one that's missing, so the
+    questions and day numbers stay in order (the next run renders the missing one again)."""
+    from . import buffer, storage
+
+    hist = history()
+    channels = buffer.channels()
+    failed = 0
+    for at, q in plan():
+        out = ROOT / "out" / f"{file_name(at, q)}.mp4"
+        if not out.exists():
+            print(f"::warning::{out.name} wasn't rendered; it and the slots after it wait for the next run")
+            return 1
+        if at < datetime.now(ZoneInfo("UTC")) + timedelta(minutes=5):
+            print(f"::warning::{out.name} is too close to its time to schedule; skipping")
+            continue
+        seconds = json.loads(out.with_suffix(".json").read_text())["seconds"]
+        url = storage.upload_to_r2(out, out.name, CONFIG["r2"])
+        cover_ms = int((seconds - 0.25) * 1000)  # the designed cover frame is the last half second
+        posts = {}
+        for service in CONFIG["platforms"]:
+            try:
+                ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
+                posts[service] = buffer.schedule_video(ch, caption(q), url, at.astimezone(ZoneInfo("UTC")).isoformat(),
+                                                       title=youtube_title(q), thumbnail_ms=cover_ms)
+                print(f"queued Day {q['day']} {q['id']} on {service} for {at:%a %b %d %I:%M %p} ET: {posts[service]}")
+            except Exception as e:  # one network failing shouldn't stop the others
+                failed += 1
+                print(f"::error::{service} failed for {q['id']}: {e}")
+        if not posts:
+            return 1
+        hist.append({"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q["organ"],
+                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts})
+        HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
+    return 1 if failed else 0
 
 
 def publish(dry: bool) -> int:
@@ -143,6 +200,13 @@ def main() -> int:
         for at, q in plan():
             print(f"{at:%a %b %d %I:%M %p}  Day {q['day']}  {q['id']}  {q['title']}: {q['question']}")
         return 0
+    if action == "plan-json":  # for the workflow: one render job per slot
+        print(json.dumps([at.isoformat() for at, _ in plan()]))
+        return 0
+    if action == "render-one":
+        return render_one(sys.argv[2])
+    if action == "post":
+        return post()
     if action in ("render-only", "publish"):
         return publish(dry=action == "render-only")
     from . import buffer, storage

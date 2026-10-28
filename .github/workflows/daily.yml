@@ -21,14 +21,17 @@ concurrency:
 permissions:
   contents: write
 
+env:
+  ACTION: ${{ github.event_name == 'schedule' && (vars.PUBLISHING_ENABLED == 'true' && 'publish' || 'render-only') || inputs.action }}
+
 jobs:
-  reels:
+  # What to render: one job per slot below, all at once (public repos get 4-core machines, free and unlimited)
+  plan:
     runs-on: ubuntu-24.04
-    timeout-minutes: 150
+    outputs:
+      slots: ${{ steps.plan.outputs.slots }}
+      now: ${{ steps.plan.outputs.now }}
     env:
-      ACTION: ${{ github.event_name == 'schedule' && (vars.PUBLISHING_ENABLED == 'true' && 'publish' || 'render-only') || inputs.action }}
-      BLENDER: /home/runner/blender/blender
-      LIMIT: ${{ inputs.limit || '0' }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
       R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
@@ -38,49 +41,100 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - id: plan
+        run: |
+          export PLAN_NOW=$(date -u +%Y-%m-%dT%H:%M:%S+00:00)
+          echo "now=$PLAN_NOW" >> "$GITHUB_OUTPUT"
+          python -m anatomy.publish plan
+          if [ "$ACTION" = render-only ] || [ "$ACTION" = publish ]; then
+            slots=$(python -m anatomy.publish plan-json | python -c "import json,sys,os; s=json.load(sys.stdin); n=int(os.environ.get('LIMIT') or 0); print(json.dumps(s[:n] if n else s))")
+          else
+            pip install -q boto3 requests && python -m anatomy.publish "$ACTION"
+            slots='[]'
+          fi
+          echo "slots=$slots" >> "$GITHUB_OUTPUT"
+          echo "Slots to render: $slots"
+        env:
+          LIMIT: ${{ inputs.limit || '0' }}
+
+  render:
+    needs: plan
+    if: needs.plan.outputs.slots != '[]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        slot: ${{ fromJSON(needs.plan.outputs.slots) }}
+    env:
+      BLENDER: /home/runner/blender/blender
+      ANATOMY_ENGINE: CYCLES   # no graphics chip here; Cycles renders on the CPU
+      PLAN_NOW: ${{ needs.plan.outputs.now }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt boto3 requests
+      - run: pip install -r requirements.txt
       - name: Blender 4.3 (cached)
-        if: env.ACTION == 'render-only' || env.ACTION == 'publish'
         uses: actions/cache@v4
         with:
           path: /home/runner/blender
           key: blender-4.3.2-linux-x64
       - name: Kokoro voice model (cached)
-        if: env.ACTION == 'render-only' || env.ACTION == 'publish'
         uses: actions/cache@v4
         with:
           path: ~/.cache/kokoro
           key: kokoro-v1.0
       - name: Install Blender if not cached
-        if: env.ACTION == 'render-only' || env.ACTION == 'publish'
         run: |
           if [ ! -x "$BLENDER" ]; then
             curl -sSL https://download.blender.org/release/Blender4.3/blender-4.3.2-linux-x64.tar.xz | tar -xJ -C /home/runner
             mv /home/runner/blender-4.3.2-linux-x64 /home/runner/blender
           fi
           "$BLENDER" --version | head -1
-      - name: Run (${{ env.ACTION }})
-        run: |
-          if [ "$ACTION" = render-only ] || [ "$ACTION" = publish ]; then
-            xvfb-run -a -s "-screen 0 1280x1024x24" python -m anatomy.publish "$ACTION"
-          else
-            python -m anatomy.publish "$ACTION"
-          fi
+      - name: Render
+        run: time python -m anatomy.publish render-one "${{ matrix.slot }}"
+      - id: name
+        run: echo "name=reel-$(echo '${{ matrix.slot }}' | tr -dc '0-9')" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.name.outputs.name }}
+          path: out/
+          retention-days: 3
+
+  post:
+    needs: [plan, render]
+    if: always() && needs.plan.outputs.slots != '[]' && github.event_name != 'pull_request' && (github.event_name == 'schedule' && vars.PUBLISHING_ENABLED == 'true' || inputs.action == 'publish')
+    runs-on: ubuntu-24.04
+    env:
+      PLAN_NOW: ${{ needs.plan.outputs.now }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q boto3 requests
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: reel-*
+          path: out
+          merge-multiple: true
+      - name: Upload and schedule
+        run: python -m anatomy.publish post
       - name: Save history
-        if: always() && env.ACTION == 'publish'
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add history.json 2>/dev/null || exit 0
+          [ -f history.json ] || exit 0
+          git add history.json
           git diff --cached --quiet && exit 0
           git commit -m "Record anatomy reels $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
           exit 1
-      - uses: actions/upload-artifact@v4
-        if: always() && (env.ACTION == 'render-only' || env.ACTION == 'publish')
-        with:
-          name: reels
-          path: out/*.mp4
-          retention-days: 3
-          if-no-files-found: ignore

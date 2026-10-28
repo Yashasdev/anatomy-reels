@@ -91,7 +91,7 @@ turn = spec.get("degrees_per_second", 30)  # a slow, steady turn
 pivot.rotation_euler = (0, 0, math.radians(spec.get("start_degrees", -20)))
 pivot.keyframe_insert("rotation_euler", frame=1)
 pivot.rotation_euler = (0, 0, math.radians(spec.get("start_degrees", -20) + turn * frames / fps))
-pivot.keyframe_insert("rotation_euler", frame=frames)
+pivot.keyframe_insert("rotation_euler", frame=frames + 1)  # frame k sits at start + turn * (k - 1) / fps, so a full turn loops
 for fc in pivot.animation_data.action.fcurves:
     for k in fc.keyframe_points:
         k.interpolation = "LINEAR"
@@ -118,9 +118,16 @@ scene.world = bpy.data.worlds.new("world")
 scene.world.use_nodes = True
 scene.world.node_tree.nodes["Background"].inputs[0].default_value = (0, 0, 0, 1)
 scene.render.engine = spec.get("engine", "BLENDER_EEVEE_NEXT")
-if scene.render.engine == "CYCLES":
-    scene.cycles.samples = spec.get("samples", 24)
+if scene.render.engine == "CYCLES":  # GitHub's machines have no graphics chip, so they render with Cycles on the CPU
+    scene.cycles.device = "CPU"
+    scene.cycles.samples = spec.get("samples", 8)
+    scene.cycles.use_adaptive_sampling = True
     scene.cycles.use_denoising = True
+    scene.cycles.denoiser = "OPENIMAGEDENOISE"
+    scene.cycles.max_bounces, scene.cycles.diffuse_bounces, scene.cycles.glossy_bounces = 3, 1, 1
+    scene.cycles.transmission_bounces = scene.cycles.volume_bounces = scene.cycles.transparent_max_bounces = 0
+    scene.cycles.caustics_reflective = scene.cycles.caustics_refractive = False
+    scene.render.use_persistent_data = True  # keep the scene loaded between frames
 scene.render.resolution_x, scene.render.resolution_y = spec.get("width", 1080), spec.get("height", 1920)
 scene.render.resolution_percentage = 100
 scene.render.film_transparent = True

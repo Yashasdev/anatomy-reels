@@ -187,11 +187,13 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     cover_at = starts[ask_line] + lines[ask_line][1]
 
     # the 3D layer, rendered once for the whole length at 15 fps
-    frames = int(length * LAYER_FPS) + 1
+    # one full turn is enough: the model only spins, so later frames repeat it (saves a quarter of the render)
+    turn = q.get("degrees_per_second", 24)
+    frames = min(int(length * LAYER_FPS) + 1, round(360 * LAYER_FPS / turn))
     spec = {"model": str(ROOT / "assets" / "models" / f"{q['model']}.blend"), "out": str(work / "layer"),
             "frames": frames, "fps": LAYER_FPS, "highlight": q["highlight"], "engine": engine,
             "width": MODEL_BOX[2], "height": MODEL_BOX[2], "distance": q.get("distance", 4.2),
-            "degrees_per_second": q.get("degrees_per_second", 24), "start_degrees": q.get("start_degrees", -20)}
+            "degrees_per_second": turn, "start_degrees": q.get("start_degrees", -20)}
     r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"),
                         "--", json.dumps(spec)], capture_output=True, text=True)
     if r.returncode or not (work / "layer" / "f0001.png").exists():
@@ -218,7 +220,7 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     for i in range(n):
         tt = i / FPS
         img = Image.new("RGB", (W, H), (0, 0, 0))
-        layer = Image.open(work / "layer" / f"f{min(int(tt * LAYER_FPS) + 1, frames):04d}.png").convert("RGBA")
+        layer = Image.open(work / "layer" / f"f{int(tt * LAYER_FPS) % frames + 1:04d}.png").convert("RGBA")
         img.paste(layer, MODEL_BOX[:2], layer)
         d = ImageDraw.Draw(img)
         centered(d, 70, q.get("label", "ANATOMY CHECK"), header_title, LIME)
