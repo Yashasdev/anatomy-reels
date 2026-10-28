@@ -57,6 +57,8 @@ def due_slots(now: datetime, hist: list[dict], unused: int) -> list[datetime]:
     tz = ZoneInfo(CONFIG["timezone"])
     taken = {h["slot"] for h in hist}
     waiting = sum(1 for h in hist if datetime.fromisoformat(h["slot"]) > now)
+    # only after the last queued post, so day numbers always go out in order (a ramp-up adds slots to later days)
+    after = max((datetime.fromisoformat(h["slot"]) for h in hist), default=now)
     first = max(date.fromisoformat(CONFIG["start"]), now.astimezone(tz).date())
     times = sorted(CONFIG["slots"][:per_day(unused)])  # slots are listed in the order they're added
     out = []
@@ -64,7 +66,7 @@ def due_slots(now: datetime, hist: list[dict], unused: int) -> list[datetime]:
         day = first + timedelta(days=d)
         for hhmm in times:
             at = datetime.combine(day, datetime.strptime(hhmm, "%H:%M").time(), tz)
-            if at > now + timedelta(minutes=20) and at.isoformat() not in taken:
+            if at > now + timedelta(minutes=20) and at > after and at.isoformat() not in taken:
                 out.append(at)
     return out[: max(0, CONFIG["max_queued"] - waiting)]
 
