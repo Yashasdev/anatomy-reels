@@ -7,7 +7,6 @@
    "Patella.r"
   ],
   "start_degrees": 0,
-  "distance": 3.0,
   "question": "What's its everyday name?",
   "choices": [
    "Shinbone",
@@ -37,7 +36,6 @@
    "Calcaneus.r"
   ],
   "start_degrees": 180,
-  "distance": 3.0,
   "question": "Which bone is glowing?",
   "choices": [
    "Talus",

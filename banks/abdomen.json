@@ -62,26 +62,26 @@
   "model": "abdomen",
   "title": "The Abdomen",
   "highlight": [
-   "Gallbladder"
+   "Stomach"
   ],
   "start_degrees": 0,
-  "question": "What does this organ store?",
+  "question": "Which organ is glowing?",
   "choices": [
-   "Insulin",
-   "Bile",
-   "Urine",
-   "Stomach acid"
+   "Stomach",
+   "Spleen",
+   "Duodenum",
+   "Pancreas"
   ],
-  "answer_index": 1,
-  "trap_index": 0,
+  "answer_index": 0,
+  "trap_index": 1,
   "lines": [
-   "This small pouch sits right under the liver. What does it hold?",
-   "Look at the small organ tucked beneath the liver.",
-   "What does this organ store?",
-   "The liver makes it, but doesn't keep it.",
-   "This pouch stores it and makes it stronger until a fatty meal.",
-   "It's B. Bile.",
-   "Why it matters: bile helps your gut break up and absorb fat."
+   "This J-shaped organ is where your food goes after the esophagus.",
+   "Look at the J-shaped organ on the patient's left side.",
+   "Which organ is glowing?",
+   "The spleen sits behind it and filters blood. It doesn't digest food.",
+   "Its acid and muscle churn food into a thick liquid.",
+   "It's A. The stomach.",
+   "Why it matters: its acid helps break down food and kills many germs."
   ],
   "ask_line": 2,
   "answer_line": 5

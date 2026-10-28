@@ -64,27 +64,27 @@
   "model": "arm",
   "title": "The Arm",
   "highlight": [
-   "Clavicle.r"
+   "Scapula.r"
   ],
-  "start_degrees": 0,
+  "start_degrees": 180,
   "distance": 3.0,
   "question": "What's its everyday name?",
   "choices": [
-   "Collarbone",
    "Shoulder blade",
+   "Collarbone",
    "Breastbone",
    "Funny bone"
   ],
   "answer_index": 0,
   "trap_index": 1,
   "lines": [
-   "You can feel this bone along the top of your chest. Name it.",
-   "It's the long, slim bone glowing at the shoulder.",
-   "What's this bone's everyday name?",
-   "The shoulder blade is a flat bone at the back.",
-   "This one runs from the breastbone out to the shoulder.",
-   "It's A. The collarbone, or clavicle.",
-   "Why it matters: it holds your shoulder away from your chest."
+   "This flat, triangle-shaped bone sits on your upper back.",
+   "We're looking at the right shoulder from behind.",
+   "What's the everyday name of this bone?",
+   "The collarbone is a slim bone at the front of the shoulder.",
+   "This broad, flat bone glides over your ribs when you move your arm.",
+   "It's A. The shoulder blade, or scapula.",
+   "Why it matters: it gives your shoulder muscles a wide anchor."
   ],
   "ask_line": 2,
   "answer_line": 5

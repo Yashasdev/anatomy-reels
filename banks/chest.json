@@ -4,10 +4,9 @@
   "model": "chest",
   "title": "The Rib Cage",
   "highlight": [
-   "Xiphoid process"
+   "Body of sternum"
   ],
   "start_degrees": 0,
-  "distance": 3.0,
   "question": "Which part of the breastbone is it?",
   "choices": [
    "Manubrium",
@@ -15,16 +14,16 @@
    "Body",
    "Costal cartilage"
   ],
-  "answer_index": 1,
-  "trap_index": 2,
+  "answer_index": 2,
+  "trap_index": 0,
   "lines": [
    "The breastbone has three parts. Can you name this one?",
-   "Look at the small tip at the bottom of the breastbone.",
+   "Look at the long, flat part in the middle of the breastbone.",
    "Which part of the breastbone is glowing?",
-   "The manubrium is the wide top, and the body is the long middle.",
-   "This small, pointed tip hangs at the lower end.",
-   "It's B. The xiphoid process.",
-   "Why it matters: the diaphragm and abdominal muscles attach to it."
+   "The manubrium is the wide top, and the xiphoid is the small tip.",
+   "This long, flat part makes up most of the breastbone.",
+   "It's C. The body of the sternum.",
+   "Why it matters: several ribs link to it through cartilage."
   ],
   "ask_line": 2,
   "answer_line": 5
