@@ -169,7 +169,8 @@ def choice_boxes(d, choices: list[str], marks: dict[int, tuple]) -> None:
 
 
 # --- the reel -----------------------------------------------------------------------------------------------
-def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engine: str = "BLENDER_EEVEE_NEXT") -> float:
+def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engine: str = "") -> float:
+    engine = engine or os.environ.get("ANATOMY_ENGINE", "BLENDER_EEVEE_NEXT")
     work = Path(tempfile.mkdtemp(prefix=f"anatomy-{q['id']}-"))
     lines = voice_lines(q["lines"], work / "voice", voice, speed)
     ask_line = q["ask_line"]                      # the narration line that asks the question (choices appear)
@@ -191,8 +192,10 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
             "frames": frames, "fps": LAYER_FPS, "highlight": q["highlight"], "engine": engine,
             "width": MODEL_BOX[2], "height": MODEL_BOX[2], "distance": q.get("distance", 4.2),
             "degrees_per_second": q.get("degrees_per_second", 24), "start_degrees": q.get("start_degrees", -20)}
-    subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"), "--",
-                    json.dumps(spec)], check=True, capture_output=True)
+    r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"),
+                        "--", json.dumps(spec)], capture_output=True, text=True)
+    if r.returncode or not (work / "layer" / "f0001.png").exists():
+        raise RuntimeError(f"Blender failed for {q['id']}:\n{(r.stdout + r.stderr)[-3000:]}")
 
     header_title = SANS(44)
     header_sub = SERIF(42)

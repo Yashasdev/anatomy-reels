@@ -1,0 +1,86 @@
+name: Daily anatomy reels
+
+on:
+  schedule:
+    - cron: "17 13 * * *"   # 9:17 AM Eastern (8:17 in winter); queues today through 2 days ahead
+  workflow_dispatch:
+    inputs:
+      action:
+        description: What to do
+        type: choice
+        default: render-only
+        options: [render-only, publish, check-setup, list-channels, plan]
+      limit:
+        description: Render at most this many (0 = all)
+        default: "0"
+
+concurrency:
+  group: anatomy-reels
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  reels:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    env:
+      ACTION: ${{ github.event_name == 'schedule' && (vars.PUBLISHING_ENABLED == 'true' && 'publish' || 'render-only') || inputs.action }}
+      BLENDER: /home/runner/blender/blender
+      LIMIT: ${{ inputs.limit || '0' }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt boto3 requests
+      - name: Blender 4.3 (cached)
+        if: env.ACTION == 'render-only' || env.ACTION == 'publish'
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/blender
+          key: blender-4.3.2-linux-x64
+      - name: Kokoro voice model (cached)
+        if: env.ACTION == 'render-only' || env.ACTION == 'publish'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/kokoro
+          key: kokoro-v1.0
+      - name: Install Blender if not cached
+        if: env.ACTION == 'render-only' || env.ACTION == 'publish'
+        run: |
+          if [ ! -x "$BLENDER" ]; then
+            curl -sSL https://download.blender.org/release/Blender4.3/blender-4.3.2-linux-x64.tar.xz | tar -xJ -C /home/runner
+            mv /home/runner/blender-4.3.2-linux-x64 /home/runner/blender
+          fi
+          "$BLENDER" --version | head -1
+      - name: Run (${{ env.ACTION }})
+        run: |
+          if [ "$ACTION" = render-only ] || [ "$ACTION" = publish ]; then
+            xvfb-run -a -s "-screen 0 1280x1024x24" python -m anatomy.publish "$ACTION"
+          else
+            python -m anatomy.publish "$ACTION"
+          fi
+      - name: Save history
+        if: always() && env.ACTION == 'publish'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add history.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "Record anatomy reels $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always() && (env.ACTION == 'render-only' || env.ACTION == 'publish')
+        with:
+          name: reels
+          path: out/*.mp4
+          retention-days: 3
+          if-no-files-found: ignore

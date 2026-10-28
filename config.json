@@ -2,12 +2,18 @@
   "name": "Anatomy Ace",
   "handles": {"instagram": "the.anatomy.ace", "tiktok": "the.anatomy.ace", "youtube": "@the_anatomy_ace"},
   "label": "ANATOMY CHECK",
+  "timezone": "America/New_York",
+  "start": "2026-10-28",
+  "slots": ["16:00", "20:00"],
+  "days_ahead": 3,
+  "rotation": ["heart", "lungs", "skull", "abdomen", "arm"],
   "r2": {
     "bucket": "anatomy-ace-reels",
     "public_base_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev",
     "delete_after_days": 30
   },
-  "platforms": [],
+  "platforms": ["instagram", "tiktok", "youtube"],
   "channels": {},
-  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)"
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "hashtags": ["#anatomy", "#anatomyquiz", "#premed", "#medstudent", "#biology"]
 }
