@@ -1,0 +1,13 @@
+{
+  "name": "Anatomy Ace",
+  "handles": {"instagram": "the.anatomy.ace", "tiktok": "the.anatomy.ace", "youtube": "@the_anatomy_ace"},
+  "label": "ANATOMY CHECK",
+  "r2": {
+    "bucket": "anatomy-ace-reels",
+    "public_base_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev",
+    "delete_after_days": 30
+  },
+  "platforms": [],
+  "channels": {},
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)"
+}
