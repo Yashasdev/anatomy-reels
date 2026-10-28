@@ -1,19 +1,46 @@
 {
   "name": "Anatomy Ace",
-  "handles": {"instagram": "the.anatomy.ace", "tiktok": "the.anatomy.ace", "youtube": "@the_anatomy_ace"},
+  "handles": {
+    "instagram": "the.anatomy.ace",
+    "tiktok": "the.anatomy.ace",
+    "youtube": "@the_anatomy_ace"
+  },
   "label": "ANATOMY CHECK",
   "timezone": "America/New_York",
   "start": "2026-10-28",
-  "slots": ["16:00", "20:00"],
+  "slots": [
+    "16:00",
+    "20:00"
+  ],
   "days_ahead": 3,
-  "rotation": ["heart", "lungs", "skull", "abdomen", "arm"],
+  "rotation": [
+    "heart",
+    "lungs",
+    "skull",
+    "abdomen",
+    "arm"
+  ],
   "r2": {
     "bucket": "anatomy-ace-reels",
     "public_base_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev",
     "delete_after_days": 30
   },
-  "platforms": ["instagram", "tiktok", "youtube"],
-  "channels": {},
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "channels": {
+    "instagram": "6ae1203a2f1f5ed648f190d3",
+    "tiktok": "6ae120752f1f5ed648f198f2",
+    "youtube": "6ae120922f1f5ed648f19e1f"
+  },
   "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
-  "hashtags": ["#anatomy", "#anatomyquiz", "#premed", "#medstudent", "#biology"]
+  "hashtags": [
+    "#anatomy",
+    "#anatomyquiz",
+    "#premed",
+    "#medstudent",
+    "#biology"
+  ]
 }
