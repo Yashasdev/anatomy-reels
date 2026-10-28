@@ -21,7 +21,15 @@
     "lungs",
     "skull",
     "abdomen",
-    "arm"
+    "arm",
+    "leg",
+    "pelvis",
+    "spine",
+    "chest",
+    "hand",
+    "eye",
+    "thigh",
+    "teeth"
   ],
   "r2": {
     "bucket": "anatomy-ace-reels",

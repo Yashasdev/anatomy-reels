@@ -1,0 +1,70 @@
+[
+ {
+  "id": "spine-01",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)",
+   "Axis (C2)",
+   "Vertebra C3",
+   "Vertebra C4",
+   "Vertebra C5",
+   "Vertebra C6",
+   "Vertebra C7"
+  ],
+  "start_degrees": 60,
+  "question": "Which part of the spine is it?",
+  "choices": [
+   "Lumbar",
+   "Cervical",
+   "Thoracic",
+   "Sacral"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Seven small bones hold up your head. Which part of the spine?",
+   "Watch the glowing section at the top of the spine.",
+   "Which part of the spine is glowing?",
+   "The lumbar section is the low back, with larger bones.",
+   "The seven glowing vertebrae are in the neck.",
+   "It's B. The cervical spine.",
+   "Why it matters: it lets your head nod, tilt and turn."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-02",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra L1",
+   "Vertebra L2",
+   "Vertebra L3",
+   "Vertebra L4",
+   "Vertebra L5"
+  ],
+  "start_degrees": 90,
+  "question": "How many bones are glowing?",
+  "choices": [
+   "7",
+   "12",
+   "5",
+   "4"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "The low back carries the most weight. How many bones is it?",
+   "Watch the glowing section of the lower spine.",
+   "How many vertebrae are in the glowing section?",
+   "The neck has seven, and the rib-bearing mid-back has twelve.",
+   "The lumbar spine, in the low back, usually has five of the biggest.",
+   "It's C. Five.",
+   "Why it matters: big vertebrae carry much of your upper body's weight."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

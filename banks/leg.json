@@ -1,0 +1,60 @@
+[
+ {
+  "id": "leg-01",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Femur.r"
+  ],
+  "start_degrees": 0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Shinbone",
+   "Thighbone",
+   "Kneecap",
+   "Heel bone"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The longest, strongest bone in your body is in the thigh.",
+   "Watch the long bone that's glowing above the knee.",
+   "What's the everyday name of this bone?",
+   "The shinbone is below the knee, not above it.",
+   "This one runs from the hip down to the knee.",
+   "It's B. The thighbone, or femur.",
+   "Why it matters: it carries your weight with every step."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-02",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Tibia.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Fibula",
+   "Femur",
+   "Patella",
+   "Tibia"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Two bones run below your knee. Which one is glowing?",
+   "Watch the thicker bone at the front of the lower leg.",
+   "Which bone is glowing?",
+   "The fibula is the thin one beside it, and it bears little weight.",
+   "This thicker bone carries your body weight down to the ankle.",
+   "It's D. The tibia, or shinbone.",
+   "Why it matters: you can feel it just under the skin of your shin."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

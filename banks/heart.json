@@ -76,5 +76,63 @@
    "It's B. The pulmonary trunk.",
    "Why it matters: it's an artery that carries oxygen-poor blood."
   ]
+ },
+ {
+  "id": "heart-04",
+  "model": "heart",
+  "title": "The Heart",
+  "highlight": [
+   "Left atrium"
+  ],
+  "start_degrees": 180,
+  "question": "Which chamber is glowing?",
+  "choices": [
+   "Right atrium",
+   "Left atrium",
+   "Right ventricle",
+   "Left ventricle"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "This chamber forms most of the heart's back surface.",
+   "We're looking at the heart from behind.",
+   "Which chamber is glowing?",
+   "It receives oxygen-rich blood returning from the lungs.",
+   "Usually four pulmonary veins drain into it.",
+   "It's B. The left atrium.",
+   "Why it matters: it hands fresh blood to the left ventricle."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "heart-05",
+  "model": "heart",
+  "title": "The Heart",
+  "highlight": [
+   "Right ventricle"
+  ],
+  "start_degrees": 0,
+  "question": "Where does it pump blood?",
+  "choices": [
+   "To the whole body",
+   "To the right atrium",
+   "To the left atrium",
+   "To the lungs"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "This chamber sends blood on a short trip. Where to?",
+   "It forms most of the heart's front surface.",
+   "Where does this chamber pump blood?",
+   "Not the whole body: that's the left ventricle's job.",
+   "Its wall is thinner because the lungs need lower pressure.",
+   "It's D. To the lungs.",
+   "Why it matters: that trip is where blood picks up oxygen."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

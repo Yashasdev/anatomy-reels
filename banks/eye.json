@@ -1,0 +1,60 @@
+[
+ {
+  "id": "eye-01",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Sclera.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which part of the eye is it?",
+  "choices": [
+   "Iris",
+   "Sclera",
+   "Cornea",
+   "Retina"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "This is the white of your eye. What's it called?",
+   "Watch the tough outer layer that's glowing.",
+   "Which part of the eye is glowing?",
+   "The cornea is the clear window at the front, not this layer.",
+   "This tough white coat covers most of the eyeball.",
+   "It's B. The sclera.",
+   "Why it matters: the eye muscles attach to it to turn the eye."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "eye-02",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Lateral rectus muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which way does it turn the eye?",
+  "choices": [
+   "Toward the nose",
+   "Up",
+   "Down",
+   "Away from the nose"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Look right, then left. One muscle does the outward turn.",
+   "The glowing muscle is on the outer side of the right eye.",
+   "Which way does it turn the eye?",
+   "Its partner on the nose side pulls the eye the other way.",
+   "This muscle pulls the eye outward, away from the nose.",
+   "It's D. Away from the nose.",
+   "Why it matters: it's the only eye muscle run by cranial nerve six."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

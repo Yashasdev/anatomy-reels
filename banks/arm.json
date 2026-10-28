@@ -58,5 +58,65 @@
   "ask_line": 2,
   "answer_line": 5,
   "distance": 3.0
+ },
+ {
+  "id": "arm-03",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Scapula.r"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Shoulder blade",
+   "Collarbone",
+   "Breastbone",
+   "Funny bone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "This flat, triangle-shaped bone sits on your upper back.",
+   "We're looking at the right shoulder from behind.",
+   "What's the everyday name of this bone?",
+   "The collarbone is a slim bone at the front of the shoulder.",
+   "This broad, flat bone glides over your ribs when you move your arm.",
+   "It's A. The shoulder blade, or scapula.",
+   "Why it matters: it gives your shoulder muscles a wide anchor."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "arm-04",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Ulna.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "Which bone forms the elbow's point?",
+  "choices": [
+   "Humerus",
+   "Radius",
+   "Scapula",
+   "Ulna"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Lean on your elbow. This glowing bone is what you feel.",
+   "Watch the long forearm bone that's glowing.",
+   "Which bone forms the point of the elbow?",
+   "The humerus meets the elbow, but it ends above the point.",
+   "The point is the olecranon, part of the pinky-side forearm bone.",
+   "It's D. The ulna.",
+   "Why it matters: your triceps pulls on that point to straighten the arm."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

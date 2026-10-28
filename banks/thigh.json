@@ -1,0 +1,60 @@
+[
+ {
+  "id": "thigh-01",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Sartorius muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which muscle is glowing?",
+  "choices": [
+   "Rectus femoris",
+   "Gracilis",
+   "Sartorius",
+   "Gluteus medius"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "This strap-like muscle is the longest in your body.",
+   "Watch the long band crossing the front of the thigh.",
+   "Which muscle is glowing?",
+   "The rectus femoris is thicker and runs straight down the thigh.",
+   "This one slants from the front of the hip to the inner knee.",
+   "It's C. The sartorius.",
+   "Why it matters: its name comes from the Latin word for tailor."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-02",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Gluteus maximus muscle.r"
+  ],
+  "start_degrees": 180,
+  "question": "Which muscle is glowing?",
+  "choices": [
+   "Gluteus medius",
+   "Gluteus maximus",
+   "Semitendinosus",
+   "Vastus lateralis"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "This is the biggest muscle in the human body. Name it.",
+   "We're looking from behind at the hip.",
+   "Which muscle is glowing?",
+   "The gluteus medius lies partly beneath it, higher on the hip.",
+   "This one forms the bulk of your buttock and extends the hip.",
+   "It's B. The gluteus maximus.",
+   "Why it matters: it powers climbing stairs and standing up."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ }
+]

@@ -56,5 +56,63 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "abdomen-03",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Stomach"
+  ],
+  "start_degrees": 0,
+  "question": "Which organ is glowing?",
+  "choices": [
+   "Stomach",
+   "Spleen",
+   "Duodenum",
+   "Pancreas"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "This J-shaped organ is where your food goes after the esophagus.",
+   "Look at the J-shaped organ on the patient's left side.",
+   "Which organ is glowing?",
+   "The spleen sits behind it and filters blood. It doesn't digest food.",
+   "Its acid and muscle churn food into a thick liquid.",
+   "It's A. The stomach.",
+   "Why it matters: its acid helps break down food and kills many germs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "abdomen-04",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Sigmoid colon"
+  ],
+  "start_degrees": 0,
+  "question": "Which part of the colon is it?",
+  "choices": [
+   "Ascending",
+   "Transverse",
+   "Descending",
+   "Sigmoid"
+  ],
+  "answer_index": 3,
+  "trap_index": 2,
+  "lines": [
+   "The colon has four parts. Can you name this one?",
+   "Look at the S-shaped section low in the belly.",
+   "Which part of the colon is glowing?",
+   "The descending colon runs down the patient's left side first.",
+   "This part curves like an S before it reaches the rectum.",
+   "It's D. The sigmoid colon.",
+   "Why it matters: it holds waste briefly before the rectum."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
