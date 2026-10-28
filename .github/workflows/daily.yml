@@ -56,6 +56,18 @@ jobs:
           echo "Slots to render: $slots"
         env:
           LIMIT: ${{ inputs.limit || '0' }}
+      - name: Save status for Reels HQ
+        env:
+          PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
+        run: |
+          python -m anatomy.publish status
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add status.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Anatomy status $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
+          exit 1
 
   render:
     needs: plan
@@ -133,7 +145,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           [ -f history.json ] || exit 0
-          git add history.json
+          PUBLISHING_ENABLED="${{ vars.PUBLISHING_ENABLED }}" python -m anatomy.publish status
+          git add history.json status.json
           git diff --cached --quiet && exit 0
           git commit -m "Record anatomy reels $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done

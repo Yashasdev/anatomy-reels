@@ -206,11 +206,37 @@ def publish(dry: bool) -> int:
     return 1 if failed else 0
 
 
+def write_status() -> None:
+    """status.json: what Reels HQ shows for Anatomy Ace (stock, daily rate, recent and queued posts). The daily
+    workflow commits it, so the dashboard reads one public file instead of every bank."""
+    hist = history()
+    used = {h["id"] for h in hist}
+    all_banks = banks()
+    unused = sum(1 for b in all_banks.values() for q in b if q["id"] not in used)
+    run = os.environ.get("GITHUB_RUN_ID")
+    flag = os.environ.get("PUBLISHING_ENABLED")
+    status = {
+        "generated_at": datetime.now(ZoneInfo("UTC")).replace(microsecond=0).isoformat(),
+        "run_url": f"https://github.com/Yashasdev/anatomy-reels/actions/runs/{run}" if run else None,
+        "publishing": None if flag is None else flag.strip().lower() == "true",
+        "name": CONFIG["name"], "platforms": CONFIG["platforms"],
+        "per_day": per_day(unused), "unused": unused, "total": unused + len(used), "posted": len(hist),
+        "ramp": CONFIG["ramp"],
+        "banks": {n: {"total": len(b), "unused": sum(q["id"] not in used for q in b)} for n, b in all_banks.items()},
+        "posts": [{"slot": h["slot"], "day": h["day"], "id": h["id"], "organ": h["organ"], "title": h["title"],
+                   "video_url": h["video_url"], "platforms": sorted(h["buffer"])} for h in hist[-30:]],
+    }
+    (ROOT / "status.json").write_text(json.dumps(status, indent=1) + "\n")
+
+
 def main() -> int:
     action = sys.argv[1] if len(sys.argv) > 1 else "plan"
     if action == "plan":
         for at, q in plan():
             print(f"{at:%a %b %d %I:%M %p}  Day {q['day']}  {q['id']}  {q['title']}: {q['question']}")
+        return 0
+    if action == "status":
+        write_status()
         return 0
     if action == "plan-json":  # for the workflow: one render job per slot
         print(json.dumps([at.isoformat() for at, _ in plan()]))

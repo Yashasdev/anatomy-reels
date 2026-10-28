@@ -1,0 +1,163 @@
+{
+ "generated_at": "2026-10-28T19:48:43+00:00",
+ "run_url": null,
+ "publishing": true,
+ "name": "Anatomy Ace",
+ "platforms": [
+  "instagram",
+  "tiktok",
+  "youtube"
+ ],
+ "per_day": 3,
+ "unused": 31,
+ "total": 37,
+ "posted": 6,
+ "ramp": [
+  [
+   0,
+   2
+  ],
+  [
+   30,
+   3
+  ],
+  [
+   50,
+   5
+  ]
+ ],
+ "banks": {
+  "heart": {
+   "total": 5,
+   "unused": 3
+  },
+  "lungs": {
+   "total": 4,
+   "unused": 3
+  },
+  "skull": {
+   "total": 4,
+   "unused": 3
+  },
+  "abdomen": {
+   "total": 4,
+   "unused": 3
+  },
+  "arm": {
+   "total": 4,
+   "unused": 3
+  },
+  "leg": {
+   "total": 2,
+   "unused": 2
+  },
+  "pelvis": {
+   "total": 2,
+   "unused": 2
+  },
+  "spine": {
+   "total": 2,
+   "unused": 2
+  },
+  "chest": {
+   "total": 2,
+   "unused": 2
+  },
+  "hand": {
+   "total": 2,
+   "unused": 2
+  },
+  "eye": {
+   "total": 2,
+   "unused": 2
+  },
+  "thigh": {
+   "total": 2,
+   "unused": 2
+  },
+  "teeth": {
+   "total": 2,
+   "unused": 2
+  }
+ },
+ "posts": [
+  {
+   "slot": "2026-10-28T16:00:00-04:00",
+   "day": 1,
+   "id": "heart-01",
+   "organ": "heart",
+   "title": "The Heart",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-28-1600-heart-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-28T20:00:00-04:00",
+   "day": 2,
+   "id": "lungs-01",
+   "organ": "lungs",
+   "title": "The Lungs",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-28-2000-lungs-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-29T16:00:00-04:00",
+   "day": 3,
+   "id": "skull-01",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-29-1600-skull-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-29T20:00:00-04:00",
+   "day": 4,
+   "id": "abdomen-01",
+   "organ": "abdomen",
+   "title": "The Abdomen",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-29-2000-abdomen-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-30T16:00:00-04:00",
+   "day": 5,
+   "id": "arm-01",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-1600-arm-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-30T20:00:00-04:00",
+   "day": 6,
+   "id": "heart-02",
+   "organ": "heart",
+   "title": "The Heart",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-2000-heart-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  }
+ ]
+}
