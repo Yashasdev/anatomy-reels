@@ -1,0 +1,86 @@
+[
+  {
+    "slot": "2026-10-28T16:00:00-04:00",
+    "day": 1,
+    "id": "heart-01",
+    "organ": "heart",
+    "title": "The Heart",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-28-1600-heart-01.mp4",
+    "video_seconds": 18.57,
+    "buffer": {
+      "instagram": "6ae190df1d62943dedc79d86",
+      "tiktok": "6ae190e01e569a96142ca35f",
+      "youtube": "6ae190e11d62943dedc79e0c"
+    }
+  },
+  {
+    "slot": "2026-10-28T20:00:00-04:00",
+    "day": 2,
+    "id": "lungs-01",
+    "organ": "lungs",
+    "title": "The Lungs",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-28-2000-lungs-01.mp4",
+    "video_seconds": 18.1,
+    "buffer": {
+      "instagram": "6ae190e7644db86063bc7353",
+      "tiktok": "6ae190e81d62943dedc79eeb",
+      "youtube": "6ae190eaf94c111d6ebbd8b7"
+    }
+  },
+  {
+    "slot": "2026-10-29T16:00:00-04:00",
+    "day": 3,
+    "id": "skull-01",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-29-1600-skull-01.mp4",
+    "video_seconds": 18.24,
+    "buffer": {
+      "instagram": "6ae190ec1e569a96142ca518",
+      "tiktok": "6ae190ecf2db54e878c563f0",
+      "youtube": "6ae190f6f2db54e878c564d0"
+    }
+  },
+  {
+    "slot": "2026-10-29T20:00:00-04:00",
+    "day": 4,
+    "id": "abdomen-01",
+    "organ": "abdomen",
+    "title": "The Abdomen",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-29-2000-abdomen-01.mp4",
+    "video_seconds": 19.1,
+    "buffer": {
+      "instagram": "6ae190f7f2db54e878c5650d",
+      "tiktok": "6ae190faf94c111d6ebbdb12",
+      "youtube": "6ae190fbf2db54e878c565c8"
+    }
+  },
+  {
+    "slot": "2026-10-30T16:00:00-04:00",
+    "day": 5,
+    "id": "arm-01",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-1600-arm-01.mp4",
+    "video_seconds": 18.11,
+    "buffer": {
+      "instagram": "6ae190fc1e569a96142cae08",
+      "tiktok": "6ae190fef2db54e878c56699",
+      "youtube": "6ae190ff644db86063bc779b"
+    }
+  },
+  {
+    "slot": "2026-10-30T20:00:00-04:00",
+    "day": 6,
+    "id": "heart-02",
+    "organ": "heart",
+    "title": "The Heart",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-2000-heart-02.mp4",
+    "video_seconds": 20.36,
+    "buffer": {
+      "instagram": "6ae19100f94c111d6ebbdc75",
+      "tiktok": "6ae1910152154ef9974f1b99",
+      "youtube": "6ae191021d62943dedc7a579"
+    }
+  }
+]
