@@ -47,7 +47,15 @@ def material(name, rgb, roughness=0.45, coat=0.35):
 
 
 # colors by part name (first match wins), so each organ reads as what it is
+BONE = (0.82, 0.76, 0.62)
 COLORS = [("leaflet", (0.80, 0.68, 0.50)), ("papillary", (0.80, 0.68, 0.50)),
+          ("muscle", (0.30, 0.03, 0.04)), ("Adductor", (0.30, 0.03, 0.04)), ("Tensor", (0.30, 0.03, 0.04)),
+          ("cartilage", (0.70, 0.78, 0.84)), ("incisor", (0.93, 0.90, 0.80)), ("canine", (0.93, 0.90, 0.80)),
+          ("molar", (0.93, 0.90, 0.80)), ("Sclera", (0.92, 0.90, 0.88)), ("Iris", (0.30, 0.18, 0.10)),
+          ("Cornea", (0.85, 0.92, 1.00)), ("Lens", (0.90, 0.88, 0.70)),
+          ("Femur", BONE), ("Patella", BONE), ("Tibia", BONE), ("Fibula", BONE), ("Talus", BONE), ("Calcaneus", BONE),
+          ("metatarsal", BONE), ("metacarpal", BONE), ("phalanx", BONE), ("Sacrum", BONE), ("Coccyx", BONE),
+          ("Vertebra", BONE), ("Atlas", BONE), ("Axis", BONE), (" rib", BONE), ("sternum", BONE), ("Xiphoid", BONE),
           ("lung", (0.62, 0.22, 0.24)), ("Trachea", (0.75, 0.62, 0.55)),
           ("Liver", (0.28, 0.05, 0.04)), ("Gallbladder", (0.20, 0.35, 0.12)), ("Stomach", (0.62, 0.30, 0.28)),
           ("Pancreas", (0.78, 0.58, 0.38)), ("Spleen", (0.32, 0.06, 0.12)), ("Duodenum", (0.60, 0.36, 0.30)),
@@ -68,6 +76,9 @@ for o in parts:
     rgb = next((c for key, c in COLORS if key.lower() in o.name.lower()), None)
     if rgb is None:
         o.data.materials.append(muscle)
+        continue
+    if o.name.split(".")[0] in ("Cornea", "Lens"):  # clear in life; left out so the iris shows
+        o.hide_render = True
         continue
     if rgb not in cache:
         cache[rgb] = material(f"m{len(cache)}", rgb, roughness=0.6 if rgb[0] > 0.8 else 0.45)

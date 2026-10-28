@@ -1,0 +1,45 @@
+name: Check questions
+
+# On every pull request: the format and on-screen fit tests, then a quick render of each new question from 8 angles
+# to prove its glowing part can be seen. The contact sheet is attached to the run as an artifact.
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      BLENDER: /home/runner/blender/blender
+      ANATOMY_ENGINE: CYCLES
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt pytest
+      - run: python -m pytest -q
+      - name: Blender 4.3 (cached)
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/blender
+          key: blender-4.3.2-linux-x64
+      - name: Install Blender if not cached
+        run: |
+          if [ ! -x "$BLENDER" ]; then
+            curl -sSL https://download.blender.org/release/Blender4.3/blender-4.3.2-linux-x64.tar.xz | tar -xJ -C /home/runner
+            mv /home/runner/blender-4.3.2-linux-x64 /home/runner/blender
+          fi
+      - name: Can the glowing part be seen?
+        run: python scripts/check_visible.py --new "origin/${{ github.base_ref || 'main' }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visibility
+          path: out/visibility.png
+          if-no-files-found: ignore
+          retention-days: 14

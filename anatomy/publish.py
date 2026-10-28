@@ -45,19 +45,28 @@ def next_question(used: list[str], last_organ: str | None) -> dict | None:
     return None
 
 
-def due_slots(now: datetime, hist: list[dict]) -> list[datetime]:
-    """Slots from today through days_ahead that are still in the future (20+ minutes) and not queued yet."""
+def per_day(unused: int) -> int:
+    """How many reels a day: config "ramp" steps up as the banks fill ([unused questions needed, reels a day]),
+    and steps back down by itself if the Writer falls behind, so the account never runs dry."""
+    return max(n for need, n in CONFIG["ramp"] if unused >= need)
+
+
+def due_slots(now: datetime, hist: list[dict], unused: int) -> list[datetime]:
+    """Slots from today through days_ahead that are still in the future (20+ minutes) and not queued yet, keeping
+    at most max_queued posts waiting in Buffer (its free plan holds 10 per channel)."""
     tz = ZoneInfo(CONFIG["timezone"])
     taken = {h["slot"] for h in hist}
+    waiting = sum(1 for h in hist if datetime.fromisoformat(h["slot"]) > now)
     first = max(date.fromisoformat(CONFIG["start"]), now.astimezone(tz).date())
+    times = sorted(CONFIG["slots"][:per_day(unused)])  # slots are listed in the order they're added
     out = []
     for d in range(CONFIG["days_ahead"]):
         day = first + timedelta(days=d)
-        for hhmm in CONFIG["slots"]:
+        for hhmm in times:
             at = datetime.combine(day, datetime.strptime(hhmm, "%H:%M").time(), tz)
             if at > now + timedelta(minutes=20) and at.isoformat() not in taken:
                 out.append(at)
-    return out
+    return out[: max(0, CONFIG["max_queued"] - waiting)]
 
 
 def plan_now() -> datetime:
@@ -72,7 +81,8 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
     used = [h["id"] for h in hist]
     last = hist[-1]["organ"] if hist else None
     out = []
-    for at in due_slots(now, hist):
+    unused = sum(len(b) for b in banks().values()) - len(used)
+    for at in due_slots(now, hist, unused):
         q = next_question(used, last)
         if q is None:
             print(f"::warning::the question banks are used up; nothing for {at:%b %d %H:%M}")
@@ -83,8 +93,8 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
         used.append(q["id"])
         last = q["organ"]
     left = sum(len(b) for b in banks().values()) - len(used)
-    if left < 6:
-        print(f"::warning::only {left} unused anatomy questions left (about {left // len(CONFIG['slots'])} days)")
+    if left < 14:
+        print(f"::warning::only {left} unused anatomy questions left (about {left // per_day(left)} days)")
     return out
 
 
