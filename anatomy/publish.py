@@ -132,6 +132,48 @@ def render_one(slot: str) -> int:
     return 0
 
 
+def retry_failed(hist: list[dict], channels: list[dict]) -> int:
+    """Posts from the last 3 days a platform failed to publish: queue each again once, 15 minutes from now (same
+    video and caption). One that fails after its retry is reported once, never looped. Returns failures."""
+    from . import buffer
+    now, failures, changed = datetime.now(ZoneInfo("UTC")), 0, False
+    banks_by_id = {q["id"]: q for b in banks().values() for q in b}
+    for h in hist:
+        if datetime.fromisoformat(h["slot"]) < now - timedelta(days=3):
+            continue
+        for service, pid in list(h["buffer"].items()):
+            try:
+                if buffer.post_status(pid).get("status") != "error":
+                    continue
+            except Exception:
+                continue
+            print(f"Day {h['day']} {h['id']} failed on {service} in Buffer.")
+            if service in h.get("retried", {}):
+                if service not in h.get("gave_up", []):
+                    h.setdefault("gave_up", []).append(service)
+                    print(f"::error::Day {h['day']} on {service} failed again after one retry; check Buffer.")
+                    failures += 1
+                    changed = True
+                continue
+            q = {**banks_by_id[h["id"]], "day": h["day"]}
+            due = (now + timedelta(minutes=15)).isoformat()
+            try:
+                ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
+                new = buffer.schedule_video(ch, caption(q), h["video_url"], due, title=youtube_title(q),
+                                            thumbnail_ms=int((h["video_seconds"] - 0.25) * 1000))
+            except Exception as e:
+                print(f"::error::Retry on {service} failed: {e}")
+                failures += 1
+                continue
+            h.setdefault("retried", {})[service] = pid
+            h["buffer"][service] = new
+            changed = True
+            print(f"  queued again on {service}: {new}")
+    if changed:
+        HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
+    return failures
+
+
 def post() -> int:
     """Upload and schedule the rendered reels in slot order, stopping at the first one that's missing, so the
     questions and day numbers stay in order (the next run renders the missing one again)."""
@@ -166,6 +208,10 @@ def post() -> int:
         hist.append({"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q["organ"],
                      "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts})
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
+    try:
+        failed += retry_failed(hist, channels)
+    except Exception as e:
+        print(f"::warning::Couldn't check for failed posts: {e}")
     return 1 if failed else 0
 
 
