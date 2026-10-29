@@ -45,6 +45,9 @@ jobs:
         run: |
           export PLAN_NOW=$(date -u +%Y-%m-%dT%H:%M:%S+00:00)
           echo "now=$PLAN_NOW" >> "$GITHUB_OUTPUT"
+          # numpy: the plan picks each post's music track (anatomy/music.py imports it). Missing it failed every run
+          # after the music change was merged on Oct 29.
+          pip install -q numpy
           python -m anatomy.publish plan
           if [ "$ACTION" = render-only ] || [ "$ACTION" = publish ]; then
             slots=$(python -m anatomy.publish plan-json | python -c "import json,sys,os; s=json.load(sys.stdin); n=int(os.environ.get('LIMIT') or 0); print(json.dumps(s[:n] if n else s))")
@@ -118,7 +121,7 @@ jobs:
 
   post:
     needs: [plan, render]
-    if: always() && needs.plan.outputs.slots != '[]' && github.event_name != 'pull_request' && (github.event_name == 'schedule' && vars.PUBLISHING_ENABLED == 'true' || inputs.action == 'publish')
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.slots != '[]' && github.event_name != 'pull_request' && (github.event_name == 'schedule' && vars.PUBLISHING_ENABLED == 'true' || inputs.action == 'publish')
     runs-on: ubuntu-24.04
     env:
       PLAN_NOW: ${{ needs.plan.outputs.now }}
@@ -131,7 +134,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q boto3 requests
+      - run: pip install -q boto3 requests numpy
       - uses: actions/download-artifact@v4
         with:
           pattern: reel-*
