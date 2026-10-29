@@ -139,30 +139,50 @@
   "title": "The Rib Cage",
   "highlight": [
    "First rib.l",
-   "First rib.r"
+   "First rib.r",
+   "Second rib.l",
+   "Second rib.r",
+   "Third rib.l",
+   "Third rib.r",
+   "Fourth rib.l",
+   "Fourth rib.r",
+   "Fifth rib.l",
+   "Fifth rib.r",
+   "Sixth rib.l",
+   "Sixth rib.r",
+   "Seventh rib.l",
+   "Seventh rib.r",
+   "Eighth rib.l",
+   "Eighth rib.r",
+   "Ninth rib.l",
+   "Ninth rib.r",
+   "Tenth rib.l",
+   "Tenth rib.r",
+   "Eleventh rib.l",
+   "Eleventh rib.r",
+   "Twelfth rib.l",
+   "Twelfth rib.r"
   ],
   "start_degrees": 0,
-  "distance": 2.0,
-  "question": "Which rib is glowing?",
+  "question": "How many pairs of ribs do we have?",
   "choices": [
-   "Twelfth",
-   "Seventh",
-   "First",
-   "Fifth"
+   "10",
+   "12",
+   "14",
+   "24"
   ],
-  "answer_index": 2,
-  "trap_index": 1,
+  "answer_index": 1,
+  "trap_index": 3,
   "lines": [
-   "One pair of ribs sits right under your collarbones.",
-   "Watch the glowing ribs at the very top of the cage.",
-   "Which rib is glowing?",
-   "The seventh rib is a long one lower down.",
-   "These sit at the top and are short, broad and sharply curved.",
-   "It's C. The first rib.",
-   "Why it matters: it's the top rib, the one the others are counted from."
+   "Your rib cage is built from matching curved bones.",
+   "Watch every glowing rib around the chest.",
+   "How many pairs of ribs do we have?",
+   "Twenty-four is the number of ribs in all, two per pair.",
+   "Twelve pairs, one on each side of the chest.",
+   "It's B. Twelve pairs.",
+   "Why it matters: together they protect the heart and lungs."
   ],
   "ask_line": 2,
-  "answer_line": 5,
-  "focus": true
+  "answer_line": 5
  }
 ]

@@ -62,27 +62,26 @@
   "model": "thigh",
   "title": "Leg Muscles",
   "highlight": [
-   "Semitendinosus muscle.r",
-   "Semimembranosus muscle.r"
+   "Gluteus maximus muscle.r"
   ],
   "start_degrees": 180,
-  "question": "What do the glowing muscles do?",
+  "question": "What does the glowing muscle do?",
   "choices": [
-   "Bend the knee",
-   "Straighten the knee",
-   "Lift the toes up",
-   "Point the toes"
+   "Bends the knee",
+   "Straightens the hip",
+   "Lifts the foot",
+   "Points the toes"
   ],
-  "answer_index": 0,
-  "trap_index": 1,
+  "answer_index": 1,
+  "trap_index": 0,
   "lines": [
-   "The back of your thigh has powerful muscles.",
-   "Watch the glowing muscles on the back of the thigh.",
-   "What do the glowing muscles do?",
-   "Straightening the knee is the job of the front thigh muscles.",
-   "These are hamstring muscles. They pull the heel toward the buttock.",
-   "It's A. They bend the knee.",
-   "Why it matters: they work every time you walk or run."
+   "The biggest muscle in your body is working when you stand up.",
+   "Watch the glowing muscle in the buttock.",
+   "What does the glowing muscle do?",
+   "Bending the knee is the job of the back thigh muscles.",
+   "This one pushes the thigh backward and straightens the hip.",
+   "It's B. It straightens the hip.",
+   "Why it matters: it powers climbing stairs and standing from a chair."
   ],
   "ask_line": 2,
   "answer_line": 5
@@ -146,7 +145,7 @@
   ],
   "ask_line": 2,
   "answer_line": 5,
-  "distance": 2.2,
+  "distance": 1.4,
   "focus": true
  }
 ]
