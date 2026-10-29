@@ -4,3 +4,5 @@ soundfile==0.14.0
 numpy
 pillow
 imageio-ffmpeg==0.6.0
+requests
+boto3
