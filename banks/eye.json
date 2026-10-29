@@ -58,37 +58,6 @@
   "answer_line": 5
  },
  {
-  "id": "eye-03",
-  "model": "eye",
-  "title": "The Eye",
-  "highlight": [
-   "Iris.r"
-  ],
-  "start_degrees": 0,
-  "question": "What does the glowing part do?",
-  "choices": [
-   "Focuses light",
-   "Makes tears",
-   "Controls light entering",
-   "Moves the eye"
-  ],
-  "answer_index": 2,
-  "trap_index": 0,
-  "lines": [
-   "The colored part of your eye is doing a job right now.",
-   "Watch the glowing ring around the dark center.",
-   "What does the glowing part do?",
-   "Focusing is the job of the lens behind it.",
-   "The iris widens or narrows the pupil to let in more or less light.",
-   "It's C. It controls the light entering the eye.",
-   "Why it matters: it makes your pupils shrink in bright light."
-  ],
-  "ask_line": 2,
-  "answer_line": 5,
-  "distance": 1.6,
-  "focus": true
- },
- {
   "id": "eye-04",
   "model": "eye",
   "title": "The Eye",

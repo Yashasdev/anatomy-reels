@@ -58,35 +58,6 @@
   "answer_line": 5
  },
  {
-  "id": "thigh-03",
-  "model": "thigh",
-  "title": "Leg Muscles",
-  "highlight": [
-   "Gluteus maximus muscle.r"
-  ],
-  "start_degrees": 180,
-  "question": "What does the glowing muscle do?",
-  "choices": [
-   "Bends the knee",
-   "Straightens the hip",
-   "Lifts the foot",
-   "Points the toes"
-  ],
-  "answer_index": 1,
-  "trap_index": 0,
-  "lines": [
-   "The biggest muscle in your body is working when you stand up.",
-   "Watch the glowing muscle in the buttock.",
-   "What does the glowing muscle do?",
-   "Bending the knee is the job of the back thigh muscles.",
-   "This one pushes the thigh backward and straightens the hip.",
-   "It's B. It straightens the hip.",
-   "Why it matters: it powers climbing stairs and standing from a chair."
-  ],
-  "ask_line": 2,
-  "answer_line": 5
- },
- {
   "id": "thigh-04",
   "model": "thigh",
   "title": "Leg Muscles",
