@@ -145,7 +145,7 @@
    "Middle phalanx of fifth finger of hand.r"
   ],
   "start_degrees": 0,
-  "question": "How many finger bones are glowing?",
+  "question": "How many middle finger bones glow?",
   "choices": [
    "5",
    "3",
@@ -157,7 +157,7 @@
   "lines": [
    "Each finger has three bones, but not every digit does.",
    "Watch the glowing bones in the middle of the fingers.",
-   "How many finger bones are glowing?",
+   "How many middle finger bones glow?",
    "The thumb has no middle bone, so it is left out.",
    "Four fingers have one each.",
    "It's C. Four middle phalanges.",
