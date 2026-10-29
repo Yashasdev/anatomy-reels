@@ -16,8 +16,10 @@ import zlib
 import numpy as np
 
 SR = 44100
-STYLES = ("lofi", "house", "ambient", "trap", "pop")
-TRACKS = [f"{s}-{i}" for s in STYLES for i in range(1, 6)]  # 25 tracks
+STYLES = ("lofi", "house", "ambient", "trap", "pop", "stadium", "drumline", "phonk", "drill")
+TRACKS = [f"{s}-{i}" for s in STYLES for i in range(1, 6)]  # 45 tracks
+# sports styles: stadium (big drums and brass, a broadcast feel), drumline (marching snare and bass drums),
+# phonk (cowbell lead over 808s, the sound of sports edits), drill (sliding 808s, triplet hats)
 
 # Common progressions as scale degrees (0 = the key's first chord); used by thousands of songs, owned by none.
 MINOR_PROGS = [(0, 5, 2, 6), (0, 3, 5, 4), (0, 6, 5, 6), (0, 5, 3, 4), (0, 3, 6, 2)]
@@ -29,6 +31,10 @@ SETTINGS = {  # tempo range, mode, swing, which parts play
     "ambient": dict(bpm=(64, 76), minor=0.5, swing=0.0, drums=None, keys="pad", lead="bell", bass="sub"),
     "trap": dict(bpm=(136, 148), minor=0.9, swing=0.0, drums="trap", keys="pad", lead="bell", bass="808"),
     "pop": dict(bpm=(96, 108), minor=0.3, swing=0.0, drums="pop", keys="piano", lead="pluck", bass="round"),
+    "stadium": dict(bpm=(96, 108), minor=0.5, swing=0.0, drums="stadium", keys="brass", lead="brass", bass="round"),
+    "drumline": dict(bpm=(104, 116), minor=0.6, swing=0.0, drums="drumline", keys="brass", lead=None, bass=None),
+    "phonk": dict(bpm=(126, 138), minor=1.0, swing=0.0, drums="phonk", keys=None, lead="cowbell", bass="808"),
+    "drill": dict(bpm=(138, 146), minor=1.0, swing=0.0, drums="drill", keys="pad", lead="pluck", bass="808"),
 }
 
 
@@ -106,6 +112,35 @@ def bass(f: float, dur: float, kind: str) -> np.ndarray:
         tone = np.tanh(1.6 * (np.sin(2 * np.pi * f * t) + 0.3 * np.sin(4 * np.pi * f * t)))
         tone *= np.exp(-t * (0.8 if kind == "sub" else 2.5))
     return (tone * _adsr(len(t), 0.005, 0, 1, 0.04)).astype(np.float32)
+
+
+def brass(f: float, dur: float) -> np.ndarray:
+    """A synth brass section: stacked saws whose brightness swells in, like a horn stab."""
+    t = _t(dur)
+    saw = sum(np.sin(2 * np.pi * f * d * k * t) / k for d in (0.997, 1.003) for k in range(1, 9))
+    bright = np.minimum(1, t / 0.06) * np.exp(-t * 2.5) * 0.7 + 0.3
+    tone = saw * (0.35 + 0.65 * bright)
+    return (tone * _adsr(len(t), 0.02, 0.1, 0.8, 0.08) / 6).astype(np.float32)
+
+
+def cowbell(f: float, dur: float) -> np.ndarray:
+    """The classic drum-machine cowbell: two square waves a fifth-ish apart through a fast decay."""
+    t = _t(min(dur, 0.45))
+    tone = np.sign(np.sin(2 * np.pi * f * t)) + np.sign(np.sin(2 * np.pi * f * 1.48 * t))
+    return (tone * np.exp(-t * 9) * _adsr(len(t), 0.001, 0, 1, 0.02) / 2).astype(np.float32)
+
+
+def tom(f: float) -> np.ndarray:
+    t = _t(0.5)
+    pitch = f * (1 + 0.5 * np.exp(-t * 25))
+    return (np.sin(2 * np.pi * np.cumsum(pitch) / SR) * np.exp(-t * 6)).astype(np.float32)
+
+
+def crash(rng) -> np.ndarray:
+    t = _t(1.6)
+    noise = rng.standard_normal(len(t))
+    noise = noise - _lowpass(noise.astype(np.float32), 4000)
+    return (noise * np.exp(-t * 2.2)).astype(np.float32)
 
 
 def kick(soft: bool) -> np.ndarray:
@@ -200,7 +235,13 @@ def render(name: str, seconds: float) -> np.ndarray:
         degree = prog[b % 4]
         intro = b < 1  # the first bar: chords only, then everything comes in
         # chords
-        if cfg["keys"] == "pad":
+        if cfg["keys"] is None:
+            pass
+        elif cfg["keys"] == "brass":  # stabs: on the beat, the "and" of 2, and 4 (drumline: just the downbeat)
+            for hit in ((0,) if style == "drumline" else (0, 1.5, 3)):
+                for f in chord(degree):
+                    mix.add(brass(f, beat * (1.4 if hit == 0 else 0.6)), at + hit * beat, 0.10 if style == "stadium" else 0.07)
+        elif cfg["keys"] == "pad":
             for f in chord(degree):
                 mix.add(pad(f, bar + 0.4), at, 0.10)
         elif cfg["keys"] == "piano":
@@ -212,8 +253,11 @@ def render(name: str, seconds: float) -> np.ndarray:
                 mix.add(epiano(f, bar), at + 0.012 * k + rng.uniform(0, 0.01), 0.10, pan=-0.2 + 0.13 * k)
         # bass
         bf = midi(root - 12 + scale[degree % 7] + (12 if degree >= 7 else 0))
-        if not intro:
-            if cfg["bass"] == "offbeat":
+        if not intro and cfg["bass"]:
+            if cfg["bass"] == "808" and style == "drill":  # sliding 808s: a long note that glides into the next
+                mix.add(bass(bf, beat * 1.4, "808"), at, 0.30)
+                mix.add(bass(bf * 2 ** (rng.choice([-2, 3, 5]) / 12), beat * 1.6, "808"), at + 2.5 * beat, 0.28)
+            elif cfg["bass"] == "offbeat":
                 for k in range(4):
                     mix.add(bass(bf, beat * 0.45, "round"), at + (k + 0.5) * beat, 0.22)
             elif cfg["bass"] == "808":
@@ -225,22 +269,57 @@ def render(name: str, seconds: float) -> np.ndarray:
                 for hit in (0, 2):
                     mix.add(bass(bf, beat * 1.9, "round"), at + hit * beat, 0.22)
         # melody: the motif on bars 2-3, the variation on bars 4-5, resting every third pair (space for the voice)
-        if not intro and (b // 2) % 3 != 2:
+        if not intro and cfg["lead"] and (b // 2) % 3 != 2:
             line = motif if (b // 2) % 2 == 0 else variant
             half = b % 2
             for r, n in line:
                 if half * 4 <= r < half * 4 + 4:
                     f = midi(root + 24 + n)
-                    play = {"epiano": epiano, "pluck": pluck, "bell": bell}[cfg["lead"]]
-                    mix.add(play(f, beat * (1.2 if cfg["lead"] != "bell" else 2.0)),
-                            at + (r - half * 4) * beat, 0.08 if cfg["lead"] == "bell" else 0.09, pan=0.2)
+                    play = {"epiano": epiano, "pluck": pluck, "bell": bell, "brass": brass, "cowbell": cowbell}[cfg["lead"]]
+                    gain = {"bell": 0.08, "cowbell": 0.10, "brass": 0.09}.get(cfg["lead"], 0.09)
+                    mix.add(play(f, beat * (2.0 if cfg["lead"] == "bell" else 1.2)), at + (r - half * 4) * beat, gain, pan=0.2)
         # drums
         if intro or not cfg["drums"]:
             continue
         sw = cfg["swing"] * beat
+        kind = cfg["drums"]
+        if kind in ("stadium", "drumline") and b % 4 == 1:
+            mix.add(crash(rng), at, 0.10)
+        if kind == "drill":  # triplet hats, kick on 1, snare on 3 (half time)
+            for j in range(12):
+                mix.add(hat(rng), at + j * beat / 3, 0.04 if j % 3 else 0.055)
+            mix.add(kick(False), at, 0.40)
+            mix.kicks.append(int(at * SR))
+            mix.add(snare(rng, False), at + 2 * beat, 0.16)
+            continue
         for k in range(steps):  # eighth notes
             t8 = at + k * beat / 2 + (sw if k % 2 else 0)
-            kind = cfg["drums"]
+            if kind == "stadium":  # big kick on 1 and 3, snare and floor tom on 2 and 4, a tom fill every 4th bar
+                if k in (0, 4):
+                    mix.add(kick(False), t8, 0.42)
+                    mix.kicks.append(int(t8 * SR))
+                if k in (2, 6):
+                    mix.add(snare(rng, False), t8, 0.17)
+                    mix.add(tom(90), t8, 0.12)
+                if b % 4 == 0 and k >= 5:
+                    mix.add(tom((180, 140, 110)[k - 5]), t8, 0.16)
+                continue
+            if kind == "drumline":  # bass drums under a marching snare with 16th-note rolls
+                if k in (0, 3, 6):
+                    mix.add(tom((70, 85, 100)[k // 3]), t8, 0.30)
+                    mix.kicks.append(int(t8 * SR))
+                mix.add(snare(rng, False), t8, 0.10 if k % 2 else 0.15)
+                if k in (5, 7):
+                    mix.add(snare(rng, True), t8 + beat / 4, 0.08)
+                continue
+            if kind == "phonk":  # punchy kick, clap on 3, constant hats
+                if k in (0, 3, 6):
+                    mix.add(kick(False), t8, 0.42)
+                    mix.kicks.append(int(t8 * SR))
+                if k == 4:
+                    mix.add(clap(rng), t8, 0.15)
+                mix.add(hat(rng, open_=k == 7), t8, 0.045)
+                continue
             if kind == "four":
                 if k % 2 == 0:
                     mix.add(kick(True), t8, 0.42)
