@@ -144,7 +144,7 @@
    "Lower second molar tooth.r"
   ],
   "start_degrees": 0,
-  "question": "Which teeth do the grinding?",
+  "question": "Which are the broad teeth at the back?",
   "choices": [
    "Incisors",
    "Canines",
@@ -156,7 +156,7 @@
   "lines": [
    "Some of your teeth are built to crush, not cut.",
    "Watch the glowing teeth at the back of the mouth.",
-   "Which teeth do the grinding?",
+   "Which are the broad teeth at the back?",
    "Premolars sit in front of them and do some crushing too.",
    "The broad flat teeth at the back are the molars.",
    "It's D. The molars.",

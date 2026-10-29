@@ -112,7 +112,7 @@
    "Twelfth rib.r"
   ],
   "start_degrees": 180,
-  "question": "How many ribs are glowing?",
+  "question": "How many ribs are glowing in all?",
   "choices": [
    "2",
    "4",
@@ -124,7 +124,7 @@
   "lines": [
    "The lowest ribs don't reach your breastbone at all.",
    "Watch the glowing ribs at the bottom of the cage.",
-   "How many ribs are glowing?",
+   "How many ribs are glowing in all?",
    "These are the floating ribs, ribs 11 and 12 on each side.",
    "Two on the left and two on the right.",
    "It's B. Four floating ribs.",

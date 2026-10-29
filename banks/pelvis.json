@@ -67,7 +67,7 @@
   ],
   "start_degrees": 0,
   "distance": 3.2,
-  "question": "Which side of the body is it?",
+  "question": "Which side of the patient is it?",
   "choices": [
    "Right",
    "Left",
@@ -79,7 +79,7 @@
   "lines": [
    "The pelvis is built from matching left and right halves.",
    "Watch the glowing hip bone on one side.",
-   "Which side of the body is it?",
+   "Which side of the patient is it?",
    "The viewer's left is the patient's right.",
    "So the glowing bone is on the patient's right.",
    "It's A. The patient's right.",
