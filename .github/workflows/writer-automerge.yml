@@ -1,0 +1,87 @@
+name: Writer auto-merge
+
+# Merges the Anatomy Writer's pull requests (branch claude/anatomy-writer-YYYY-MM-DD) once fully checked:
+#   1. "Check questions" passed on the PR's latest commit (tests + the 8-angle visibility render),
+#   2. the PR only appends questions to banks/*.json (and appends new banks to config.json "rotation"),
+#   3. the tests pass on the PR merged into the current main.
+# Anything else waits for Yashas. Runs from main, so a pull request can't change these rules for itself.
+on:
+  workflow_run:
+    workflows: ["Check questions"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: writer-automerge
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      startsWith(github.event.workflow_run.head_branch, 'claude/anatomy-writer-')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      CHECKED_SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Find the pull request
+        id: pr
+        run: |
+          read -r NUM HEAD <<< "$(gh pr list --head "$BRANCH" --state open --json number,headRefOid --jq '.[0] | "\(.number) \(.headRefOid)"')"
+          [ -n "$NUM" ] && [ "$NUM" != "null" ] || { echo "No open pull request for $BRANCH."; exit 1; }
+          [ "$HEAD" = "$CHECKED_SHA" ] || { echo "The pull request changed after its check; waiting for the next one."; exit 1; }
+          echo "num=$NUM" >> "$GITHUB_OUTPUT"
+          git fetch -q origin "$BRANCH"
+      - name: Banks only, append-only
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess, sys
+          head = os.environ["CHECKED_SHA"]
+          git = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout
+          def show(ref, f):
+              try: return json.loads(git("show", f"{ref}:{f}"))
+              except subprocess.CalledProcessError: return None
+          bad = []
+          for f in [x for x in git("diff", "--name-only", f"origin/main...{head}").split() if x]:
+              old, new = show("origin/main", f), show(head, f)
+              if re.fullmatch(r"banks/[a-z_]+\.json", f):
+                  old = old or []
+                  if new is None or new[:len(old)] != old or len(new) <= len(old):
+                      bad.append(f"{f}: existing questions changed, or none added")
+              elif f == "config.json":
+                  rot_o, rot_n = old["rotation"], new["rotation"]
+                  if {k: v for k, v in old.items() if k != "rotation"} != {k: v for k, v in new.items() if k != "rotation"} \
+                          or rot_n[:len(rot_o)] != rot_o:
+                      bad.append("config.json: only new banks may be added to the end of rotation")
+              else:
+                  bad.append(f"{f} isn't a question bank")
+          for b in bad:
+              print(f"::error::{b}")
+          sys.exit(1 if bad else 0)
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt pytest
+      - name: Tests on the pull request merged into main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge -q --no-edit "$CHECKED_SHA"
+          python -m pytest -q
+      - name: Merge
+        run: |
+          gh pr merge "${{ steps.pr.outputs.num }}" --merge --match-head-commit "$CHECKED_SHA"
+          gh pr comment "${{ steps.pr.outputs.num }}" --body "Merged automatically: tests and the visibility render passed, the changes only add questions, and tests pass on the merged result."
