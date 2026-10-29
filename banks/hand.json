@@ -129,7 +129,7 @@
    "The proximal bones are the ones closest to the palm.",
    "These are the last bones in each finger, the tips.",
    "It's A. The distal phalanges.",
-   "Why it matters: the thumb has only two finger bones."
+   "Why it matters: the fingertip bones support your nails."
   ],
   "ask_line": 2,
   "answer_line": 5
@@ -145,7 +145,7 @@
    "Middle phalanx of fifth finger of hand.r"
   ],
   "start_degrees": 0,
-  "question": "How many middle finger bones glow?",
+  "question": "How many middle phalanges glow?",
   "choices": [
    "5",
    "3",
@@ -155,13 +155,13 @@
   "answer_index": 2,
   "trap_index": 1,
   "lines": [
-   "Each finger has three bones, but not every digit does.",
+   "Fingers have three bones each. The thumb has only two.",
    "Watch the glowing bones in the middle of the fingers.",
-   "How many middle finger bones glow?",
+   "How many middle phalanges glow?",
    "The thumb has no middle bone, so it is left out.",
    "Four fingers have one each.",
    "It's C. Four middle phalanges.",
-   "Why it matters: the thumb has only two finger bones."
+   "Why it matters: it adds an extra joint, so fingers can curl and grip."
   ],
   "ask_line": 2,
   "answer_line": 5,
