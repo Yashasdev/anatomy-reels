@@ -139,30 +139,32 @@
   "model": "hand",
   "title": "The Hand",
   "highlight": [
-   "Capitate bone.r"
+   "Middle phalanx of second finger of hand.r",
+   "Middle phalanx of third finger of hand.r",
+   "Middle phalanx of fourth finger of hand.r",
+   "Middle phalanx of fifth finger of hand.r"
   ],
   "start_degrees": 0,
-  "distance": 2.5,
-  "focus": true,
-  "question": "Which is the largest wrist bone?",
+  "question": "How many finger bones are glowing?",
   "choices": [
-   "Scaphoid",
-   "Hamate",
-   "Capitate",
-   "Lunate"
+   "5",
+   "3",
+   "4",
+   "2"
   ],
   "answer_index": 2,
-  "trap_index": 0,
+  "trap_index": 1,
   "lines": [
-   "Eight small bones make up your wrist. One is the biggest.",
-   "Watch the glowing bone in the middle of the wrist.",
-   "Which is the largest wrist bone?",
-   "The scaphoid is a boat-shaped bone on the thumb side.",
-   "It sits at the center of the wrist, in line with the middle finger.",
-   "It's C. The capitate.",
-   "Why it matters: it's the biggest of the eight wrist bones."
+   "Each finger has three bones, but not every digit does.",
+   "Watch the glowing bones in the middle of the fingers.",
+   "How many finger bones are glowing?",
+   "The thumb has no middle bone, so it is left out.",
+   "Four fingers have one each.",
+   "It's C. Four middle phalanges.",
+   "Why it matters: the thumb has only two finger bones."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 2.5
  }
 ]

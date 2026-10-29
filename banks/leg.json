@@ -95,7 +95,7 @@
   "highlight": [
    "Fibula.r"
   ],
-  "start_degrees": 0,
+  "start_degrees": 90,
   "question": "Which side of the shin is it on?",
   "choices": [
    "Outer side",
@@ -115,7 +115,9 @@
    "Why it matters: the fibula carries much less weight than the tibia."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 1.8,
+  "focus": true
  },
  {
   "id": "leg-05",
@@ -129,7 +131,7 @@
    "Fifth metatarsal bone.r"
   ],
   "start_degrees": 0,
-  "distance": 2.8,
+  "distance": 1.6,
   "focus": true,
   "question": "How many metatarsals are glowing?",
   "choices": [

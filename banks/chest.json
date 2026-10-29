@@ -142,7 +142,7 @@
    "First rib.r"
   ],
   "start_degrees": 0,
-  "distance": 3.0,
+  "distance": 2.0,
   "question": "Which rib is glowing?",
   "choices": [
    "Twelfth",
@@ -162,6 +162,7 @@
    "Why it matters: it's the top rib, the one the others are counted from."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "focus": true
  }
 ]

@@ -84,7 +84,9 @@
    "Why it matters: it makes your pupils shrink in bright light."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 2.5,
+  "focus": true
  },
  {
   "id": "eye-04",

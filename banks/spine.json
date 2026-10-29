@@ -112,31 +112,32 @@
   "model": "spine",
   "title": "The Spine",
   "highlight": [
-   "Atlas (C1)"
+   "Atlas (C1)",
+   "Axis (C2)"
   ],
   "start_degrees": 90,
-  "distance": 1.6,
-  "focus": true,
-  "question": "Which vertebra holds up the skull?",
+  "question": "What are the top two vertebrae?",
   "choices": [
-   "Axis",
-   "Atlas",
-   "C7",
-   "L1"
+   "Atlas and axis",
+   "Sacrum and coccyx",
+   "Lumbar and thoracic",
+   "Cervical and sacral"
   ],
-  "answer_index": 1,
-  "trap_index": 0,
+  "answer_index": 0,
+  "trap_index": 3,
   "lines": [
-   "The top bone of your spine carries your head.",
-   "Watch the small glowing ring at the very top.",
-   "Which vertebra holds up the skull?",
-   "The axis is the second vertebra, just below.",
-   "The first vertebra is the atlas, named for the Greek Titan.",
-   "It's B. The atlas, C1.",
-   "Why it matters: it lets your head nod, while the axis lets it turn."
+   "The top of your spine has two specially named bones.",
+   "Watch the two small glowing bones at the top of the spine.",
+   "What are the top two vertebrae?",
+   "The sacrum and coccyx are at the very bottom.",
+   "Atlas is C1 and holds up the head. Axis is C2.",
+   "It's A. Atlas and axis.",
+   "Why it matters: together they let your head nod and turn."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 1.8,
+  "focus": true
  },
  {
   "id": "spine-05",

@@ -120,27 +120,29 @@
   "model": "abdomen",
   "title": "The Abdomen",
   "highlight": [
-   "Gallbladder"
+   "Ascending colon",
+   "Transverse colon",
+   "Descending colon",
+   "Sigmoid colon"
   ],
   "start_degrees": 0,
-  "distance": 3.0,
-  "question": "What does the glowing organ do?",
+  "question": "Which part of the gut is it?",
   "choices": [
-   "Makes bile",
-   "Stores bile",
-   "Makes insulin",
-   "Absorbs water"
+   "Small intestine",
+   "Large intestine",
+   "Stomach",
+   "Esophagus"
   ],
   "answer_index": 1,
   "trap_index": 0,
   "lines": [
-   "A small pouch sits tucked under your liver.",
-   "Watch the glowing green pouch under the liver.",
-   "What does the glowing organ do?",
-   "The liver makes bile. It does not store it.",
-   "The pouch holds bile between meals and releases it when you eat.",
-   "It's B. It stores bile.",
-   "Why it matters: it releases bile to help digest fats."
+   "A wide tube wraps around the inside of your belly.",
+   "Watch the glowing tube that frames the abdomen.",
+   "Which part of the gut is it?",
+   "The small intestine is narrower and coiled in the middle.",
+   "This wide tube is the colon, made of four parts.",
+   "It's B. The large intestine.",
+   "Why it matters: it absorbs water from what's left of your food."
   ],
   "ask_line": 2,
   "answer_line": 5
