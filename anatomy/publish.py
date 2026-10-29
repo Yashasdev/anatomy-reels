@@ -19,7 +19,10 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from . import music
+
 ROOT = Path(__file__).resolve().parent.parent
+MUSIC_FROM = date(2026, 11, 1)  # posts from this day get original music (anatomy/music.py) instead of the old bed
 CONFIG = json.loads((ROOT / "config.json").read_text())
 HISTORY = ROOT / "history.json"
 
@@ -91,6 +94,10 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
             break
         q["day"] = len(hist) + len(out) + 1
         q["label"] = CONFIG["label"]
+        if at.date() >= MUSIC_FROM:  # an original track, never one of the last eight
+            recent = [h["music"] for h in hist if h.get("music")] + [q2.get("music") for _, q2 in out]
+            q["music"] = music.pick(q["day"] * 7919, avoid=[m for m in recent if m][-8:],
+                                    styles=CONFIG.get("music_styles"))
         out.append((at, q))
         used.append(q["id"])
         last = q["organ"]
@@ -206,7 +213,8 @@ def post() -> int:
         if not posts:
             return 1
         hist.append({"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q["organ"],
-                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts})
+                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
+                     **({"music": q["music"]} if q.get("music") else {})})
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     try:
         failed += retry_failed(hist, channels)
@@ -247,7 +255,8 @@ def publish(dry: bool) -> int:
         if not posts:
             continue
         hist.append({"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q["organ"],
-                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts})
+                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
+                     **({"music": q["music"]} if q.get("music") else {})})
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     return 1 if failed else 0
 
