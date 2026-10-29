@@ -82,5 +82,47 @@
       "tiktok": "6ae1910152154ef9974f1b99",
       "youtube": "6ae191021d62943dedc7a579"
     }
+  },
+  {
+    "slot": "2026-10-31T12:30:00-04:00",
+    "day": 7,
+    "id": "lungs-02",
+    "organ": "lungs",
+    "title": "The Lungs",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-1230-lungs-02.mp4",
+    "video_seconds": 19.53,
+    "buffer": {
+      "instagram": "6ae37555041e128612be1389",
+      "tiktok": "6ae375560471a99f44aaac6f",
+      "youtube": "6ae375571b42fad16d9357ce"
+    }
+  },
+  {
+    "slot": "2026-10-31T16:00:00-04:00",
+    "day": 8,
+    "id": "skull-02",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-1600-skull-02.mp4",
+    "video_seconds": 19.78,
+    "buffer": {
+      "instagram": "6ae37559263de333734310e3",
+      "tiktok": "6ae3755a22e5eb36271e2ced",
+      "youtube": "6ae3755a22e5eb36271e2d5e"
+    }
+  },
+  {
+    "slot": "2026-10-31T20:00:00-04:00",
+    "day": 9,
+    "id": "abdomen-02",
+    "organ": "abdomen",
+    "title": "The Abdomen",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-2000-abdomen-02.mp4",
+    "video_seconds": 19.75,
+    "buffer": {
+      "instagram": "6ae3755c263de3337343121c",
+      "tiktok": "6ae3755d1b42fad16d935b8c",
+      "youtube": "6ae3755e1b42fad16d935c1d"
+    }
   }
 ]

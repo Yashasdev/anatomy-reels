@@ -145,9 +145,19 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           [ -f history.json ] || exit 0
+          # history.json first, on its own: the plan job already committed status.json during this run, so
+          # committing a stale status.json with it caused a rebase conflict on Oct 29 and history wasn't saved.
+          git add history.json
+          if ! git diff --cached --quiet; then
+            git commit -q -m "Record anatomy reels $(date -u +%F)"
+            for i in 1 2 3 4 5 6; do git pull --rebase -q && git push -q && break; sleep $((i * 5)); done
+            git status -sb | grep -q ahead && { echo "::error::history.json not saved; posts are queued but unrecorded. Don't rerun publish until it's fixed."; exit 1; }
+          fi
+          # then status.json, rebuilt from the latest main
+          git pull --rebase -q
           PUBLISHING_ENABLED="${{ vars.PUBLISHING_ENABLED }}" python -m anatomy.publish status
-          git add history.json status.json
+          git add status.json
           git diff --cached --quiet && exit 0
-          git commit -m "Record anatomy reels $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
-          exit 1
+          git commit -q -m "Anatomy status $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -q -X theirs && git push -q && exit 0; sleep 5; done
+          echo "::warning::status.json not saved (history is fine)"

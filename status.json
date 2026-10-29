@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-29T15:49:13+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/40905375770",
+ "generated_at": "2026-10-29T16:40:22+00:00",
+ "run_url": null,
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -8,10 +8,10 @@
   "tiktok",
   "youtube"
  ],
- "per_day": 3,
- "unused": 31,
+ "per_day": 2,
+ "unused": 28,
  "total": 37,
- "posted": 6,
+ "posted": 9,
  "ramp": [
   [
    0,
@@ -33,15 +33,15 @@
   },
   "lungs": {
    "total": 4,
-   "unused": 3
+   "unused": 2
   },
   "skull": {
    "total": 4,
-   "unused": 3
+   "unused": 2
   },
   "abdomen": {
    "total": 4,
-   "unused": 3
+   "unused": 2
   },
   "arm": {
    "total": 4,
@@ -153,6 +153,45 @@
    "organ": "heart",
    "title": "The Heart",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-2000-heart-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-31T12:30:00-04:00",
+   "day": 7,
+   "id": "lungs-02",
+   "organ": "lungs",
+   "title": "The Lungs",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-1230-lungs-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-31T16:00:00-04:00",
+   "day": 8,
+   "id": "skull-02",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-1600-skull-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-10-31T20:00:00-04:00",
+   "day": 9,
+   "id": "abdomen-02",
+   "organ": "abdomen",
+   "title": "The Abdomen",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-2000-abdomen-02.mp4",
    "platforms": [
     "instagram",
     "tiktok",
