@@ -56,5 +56,67 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "thigh-03",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Rectus femoris muscle.r",
+   "Vastus lateralis muscle.r",
+   "Vastus medialis muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which muscle group is it?",
+  "choices": [
+   "Hamstrings",
+   "Adductors",
+   "Calf muscles",
+   "Quadriceps"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "The front of your thigh has a big muscle group.",
+   "Watch the glowing muscles on the front of the thigh.",
+   "Which muscle group is it?",
+   "The hamstrings are on the back of the thigh.",
+   "These muscles run down the front and join at the kneecap.",
+   "It's D. The quadriceps.",
+   "Why it matters: they straighten the knee when you stand up or kick."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-04",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Tibialis anterior muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "What does the glowing muscle do?",
+  "choices": [
+   "Points the toes",
+   "Lifts the foot up",
+   "Bends the knee",
+   "Turns the hip"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "A long muscle along the front of your shin moves your foot.",
+   "Watch the glowing muscle beside the shinbone.",
+   "What does the glowing muscle do?",
+   "Pointing the toes down is the job of the calf muscles.",
+   "This one pulls the top of the foot toward the shin.",
+   "It's B. It lifts the foot up.",
+   "Why it matters: it helps your toes clear the ground with every step."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 1.4,
+  "focus": true
  }
 ]

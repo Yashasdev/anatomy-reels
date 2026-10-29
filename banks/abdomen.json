@@ -114,5 +114,37 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "abdomen-05",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Ascending colon",
+   "Transverse colon",
+   "Descending colon",
+   "Sigmoid colon"
+  ],
+  "start_degrees": 0,
+  "question": "Which part of the gut is it?",
+  "choices": [
+   "Small intestine",
+   "Large intestine",
+   "Stomach",
+   "Esophagus"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "A wide tube wraps around the inside of your belly.",
+   "Watch the glowing tube that frames the abdomen.",
+   "Which part of the gut is it?",
+   "The small intestine is narrower and coiled in the middle.",
+   "This wide tube is the colon, made of four parts.",
+   "It's B. The large intestine.",
+   "Why it matters: it absorbs water from what's left of your food."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

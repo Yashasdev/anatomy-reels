@@ -57,5 +57,96 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-03",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.2,
+  "question": "Which side of the patient is it?",
+  "choices": [
+   "Right",
+   "Left",
+   "Both sides",
+   "Center"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "The pelvis is built from matching left and right halves.",
+   "Watch the glowing hip bone on one side.",
+   "Which side of the patient is it?",
+   "Seen from the front, the patient's right is on our left.",
+   "So the glowing bone is on the patient's right.",
+   "It's A. The patient's right.",
+   "Why it matters: anatomy uses the patient's left and right."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-04",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Vertebra L5"
+  ],
+  "start_degrees": 180,
+  "distance": 2.8,
+  "focus": true,
+  "question": "Which vertebra sits on the sacrum?",
+  "choices": [
+   "L1",
+   "L3",
+   "T12",
+   "L5"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "One small back bone rests right on top of the pelvis.",
+   "Watch the glowing bone just above the sacrum.",
+   "Which vertebra sits on the sacrum?",
+   "L3 is higher up in the low back.",
+   "The last lumbar vertebra is L5, and it joins the sacrum.",
+   "It's D. L5, the fifth lumbar vertebra.",
+   "Why it matters: it is the link between the spine and the pelvis."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-05",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "Each hip bone is how many fused bones?",
+  "choices": [
+   "2",
+   "3",
+   "4",
+   "5"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Each hip bone started life as separate pieces.",
+   "Watch the two big glowing hip bones.",
+   "Each hip bone is how many fused bones?",
+   "The ilium, ischium and pubis fuse as you grow.",
+   "That's three bones in each hip bone.",
+   "It's B. Three.",
+   "Why it matters: it explains why the hip bone has three named parts."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

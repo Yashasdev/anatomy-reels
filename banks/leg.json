@@ -56,5 +56,97 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-03",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Calcaneus.r"
+  ],
+  "start_degrees": 90,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Talus",
+   "Calcaneus",
+   "Navicular",
+   "Cuboid"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The largest bone in your foot is at the back.",
+   "Watch the glowing bone under the ankle.",
+   "Which bone is glowing?",
+   "The talus sits on top of it and joins the shin bones.",
+   "The glowing bone forms your heel.",
+   "It's B. The calcaneus, or heel bone.",
+   "Why it matters: it takes your weight every time your heel hits the ground."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-04",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Fibula.r"
+  ],
+  "start_degrees": 90,
+  "question": "Which side of the shin is it on?",
+  "choices": [
+   "Outer side",
+   "Inner side",
+   "Front only",
+   "Above the knee"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Your lower leg has two bones side by side.",
+   "Watch the thin glowing bone beside the shin.",
+   "Which side of the shin is it on?",
+   "The inner bone is the thick tibia, the shinbone.",
+   "This thinner one is the fibula, on the outer side of the leg.",
+   "It's A. The outer side. That's the fibula.",
+   "Why it matters: the fibula carries much less weight than the tibia."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 1.8,
+  "focus": true
+ },
+ {
+  "id": "leg-05",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Tibia.r",
+   "Fibula.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many bones are in the lower leg?",
+  "choices": [
+   "1",
+   "3",
+   "2",
+   "4"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Below the knee, the leg is not just one bone.",
+   "Watch the glowing bones between the knee and the ankle.",
+   "How many bones are in the lower leg?",
+   "People often think of only the shinbone.",
+   "There is the thick tibia and the thin fibula beside it.",
+   "It's C. Two bones.",
+   "Why it matters: the tibia carries most of the body weight."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

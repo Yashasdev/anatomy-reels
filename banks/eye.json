@@ -56,5 +56,69 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "eye-03",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Cornea.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "Which part of the eye is it?",
+  "choices": [
+   "Cornea",
+   "Lens",
+   "Iris",
+   "Retina"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "The front of your eye has a clear window.",
+   "Watch the glowing dome at the front of the eye.",
+   "Which part of the eye is it?",
+   "The iris is the colored ring behind it.",
+   "The glowing part is the transparent dome that covers the iris.",
+   "It's A. The cornea.",
+   "Why it matters: it does most of the eye's focusing."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "eye-04",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Superior rectus muscle.r",
+   "Inferior rectus muscle.r",
+   "Lateral rectus muscle.r",
+   "Medial rectus muscle.r",
+   "Superior oblique muscle.r",
+   "Inferior oblique muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many muscles move each eye?",
+  "choices": [
+   "4",
+   "6",
+   "8",
+   "3"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your eyes move fast, all day long.",
+   "Watch the glowing muscles around the eyeball.",
+   "How many muscles move each eye?",
+   "Four rectus muscles and two oblique muscles.",
+   "That makes six on each eye.",
+   "It's B. Six muscles per eye.",
+   "Why it matters: they work together so both eyes can aim at the same spot."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

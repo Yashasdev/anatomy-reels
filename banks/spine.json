@@ -66,5 +66,107 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "spine-03",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra T1",
+   "Vertebra T2",
+   "Vertebra T3",
+   "Vertebra T4",
+   "Vertebra T5",
+   "Vertebra T6",
+   "Vertebra T7",
+   "Vertebra T8",
+   "Vertebra T9",
+   "Vertebra T10",
+   "Vertebra T11",
+   "Vertebra T12"
+  ],
+  "start_degrees": 90,
+  "question": "Which section of the spine is it?",
+  "choices": [
+   "Cervical",
+   "Lumbar",
+   "Sacral",
+   "Thoracic"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Twelve vertebrae in your spine each carry a pair of ribs.",
+   "Watch the glowing section in the middle of the back.",
+   "Which section of the spine is it?",
+   "The lumbar section is lower and has bigger bones.",
+   "The glowing section is the upper and middle back.",
+   "It's D. The thoracic spine.",
+   "Why it matters: it forms the back of the rib cage."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-04",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)",
+   "Axis (C2)"
+  ],
+  "start_degrees": 90,
+  "question": "What are the top two vertebrae?",
+  "choices": [
+   "Atlas and axis",
+   "Sacrum and coccyx",
+   "Lumbar and thoracic",
+   "Cervical and sacral"
+  ],
+  "answer_index": 0,
+  "trap_index": 3,
+  "lines": [
+   "The top of your spine has two specially named bones.",
+   "Watch the two small glowing bones at the top of the spine.",
+   "What are the top two vertebrae?",
+   "The sacrum and coccyx are at the very bottom.",
+   "Atlas is C1 and holds up the head. Axis is C2.",
+   "It's A. Atlas and axis.",
+   "Why it matters: together they let your head nod and turn."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 1.8,
+  "focus": true
+ },
+ {
+  "id": "spine-05",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Sacrum"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "How many vertebrae form the sacrum?",
+  "choices": [
+   "5",
+   "3",
+   "4",
+   "7"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "One bone at the base of your spine was once separate pieces.",
+   "Watch the glowing triangle at the bottom of the spine.",
+   "How many vertebrae form the sacrum?",
+   "The neck has seven vertebrae, but they stay separate.",
+   "The sacrum forms from five vertebrae that fuse together.",
+   "It's A. Five.",
+   "Why it matters: the sacrum forms the back wall of the pelvis."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

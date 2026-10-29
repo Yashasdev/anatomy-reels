@@ -69,5 +69,120 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "chest-03",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Manubrium of sternum",
+   "Body of sternum",
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Breastbone",
+   "Collarbone",
+   "Shoulder blade",
+   "Backbone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "One long flat bone sits in the middle of your chest.",
+   "Watch the glowing bone down the center of the rib cage.",
+   "What's its everyday name?",
+   "The collarbone is higher up, across the base of the neck.",
+   "This one runs down the middle, joined to the ribs by cartilage.",
+   "It's A. The breastbone, or sternum.",
+   "Why it matters: it anchors the front of the rib cage."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-04",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Eleventh rib.l",
+   "Eleventh rib.r",
+   "Twelfth rib.l",
+   "Twelfth rib.r"
+  ],
+  "start_degrees": 180,
+  "question": "How many ribs are glowing in all?",
+  "choices": [
+   "2",
+   "4",
+   "6",
+   "8"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The lowest ribs don't reach your breastbone at all.",
+   "Watch the glowing ribs at the bottom of the cage.",
+   "How many ribs are glowing in all?",
+   "These are the floating ribs, ribs 11 and 12 on each side.",
+   "Two on the left and two on the right.",
+   "It's B. Four floating ribs.",
+   "Why it matters: their front ends are free, not joined to the breastbone."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-05",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r",
+   "Second rib.l",
+   "Second rib.r",
+   "Third rib.l",
+   "Third rib.r",
+   "Fourth rib.l",
+   "Fourth rib.r",
+   "Fifth rib.l",
+   "Fifth rib.r",
+   "Sixth rib.l",
+   "Sixth rib.r",
+   "Seventh rib.l",
+   "Seventh rib.r",
+   "Eighth rib.l",
+   "Eighth rib.r",
+   "Ninth rib.l",
+   "Ninth rib.r",
+   "Tenth rib.l",
+   "Tenth rib.r",
+   "Eleventh rib.l",
+   "Eleventh rib.r",
+   "Twelfth rib.l",
+   "Twelfth rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many pairs of ribs do we have?",
+  "choices": [
+   "10",
+   "12",
+   "14",
+   "24"
+  ],
+  "answer_index": 1,
+  "trap_index": 3,
+  "lines": [
+   "Your rib cage is built from matching curved bones.",
+   "Watch every glowing rib around the chest.",
+   "How many pairs of ribs do we have?",
+   "Twenty-four is the number of ribs in all, two per pair.",
+   "Twelve pairs, one on each side of the chest.",
+   "It's B. Twelve pairs.",
+   "Why it matters: together they protect the heart and lungs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
