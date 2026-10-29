@@ -114,5 +114,35 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "abdomen-05",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Gallbladder"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "What does the glowing organ do?",
+  "choices": [
+   "Makes bile",
+   "Stores bile",
+   "Makes insulin",
+   "Absorbs water"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "A small pouch sits tucked under your liver.",
+   "Watch the glowing green pouch under the liver.",
+   "What does the glowing organ do?",
+   "The liver makes bile. It does not store it.",
+   "The pouch holds bile between meals and releases it when you eat.",
+   "It's B. It stores bile.",
+   "Why it matters: it releases bile to help digest fats."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

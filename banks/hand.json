@@ -65,5 +65,104 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "hand-03",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "First metacarpal bone.r",
+   "Second metacarpal bone.r",
+   "Third metacarpal bone.r",
+   "Fourth metacarpal bone.r",
+   "Fifth metacarpal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "question": "How many bones form the palm?",
+  "choices": [
+   "8",
+   "14",
+   "10",
+   "5"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Under the skin of your palm is a fan of long bones.",
+   "Watch the glowing bones in the middle of the hand.",
+   "How many bones form the palm?",
+   "The wrist has eight bones, and the fingers have fourteen.",
+   "The palm bones are the metacarpals, one for each finger and the thumb.",
+   "It's D. Five metacarpals.",
+   "Why it matters: they link the wrist to the fingers."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "hand-04",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Distal phalanx of first finger of hand.r",
+   "Distal phalanx of second finger of hand.r",
+   "Distal phalanx of third finger of hand.r",
+   "Distal phalanx of fourth finger of hand.r",
+   "Distal phalanx of fifth finger of hand.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "question": "Which finger bones are glowing?",
+  "choices": [
+   "Distal",
+   "Proximal",
+   "Middle",
+   "Metacarpal"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Every finger is made of small bones, in a row.",
+   "Watch the glowing bones at the fingertips.",
+   "Which finger bones are glowing?",
+   "The proximal bones are the ones closest to the palm.",
+   "These are the last bones in each finger, the tips.",
+   "It's A. The distal phalanges.",
+   "Why it matters: the thumb has only two finger bones."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "hand-05",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Capitate bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "focus": true,
+  "question": "Which is the largest wrist bone?",
+  "choices": [
+   "Scaphoid",
+   "Hamate",
+   "Capitate",
+   "Lunate"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Eight small bones make up your wrist. One is the biggest.",
+   "Watch the glowing bone in the middle of the wrist.",
+   "Which is the largest wrist bone?",
+   "The scaphoid is a boat-shaped bone on the thumb side.",
+   "It sits at the center of the wrist, in line with the middle finger.",
+   "It's C. The capitate.",
+   "Why it matters: it's the biggest of the eight wrist bones."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

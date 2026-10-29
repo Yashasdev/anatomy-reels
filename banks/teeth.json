@@ -66,5 +66,103 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "teeth-03",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Upper canine.l",
+   "Upper canine.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "What's their nickname?",
+  "choices": [
+   "Baby teeth",
+   "Wisdom teeth",
+   "Eyeteeth",
+   "Bicuspids"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Two pointed teeth have a nickname that sounds like the eyes.",
+   "Watch the glowing teeth in the upper jaw.",
+   "What's their nickname?",
+   "Wisdom teeth are the back molars.",
+   "The pointed upper canines are called the eyeteeth.",
+   "It's C. Eyeteeth.",
+   "Why it matters: canines have the longest roots and tear food."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "teeth-04",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Lower medial incisor.l",
+   "Lower medial incisor.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "Which teeth are glowing?",
+  "choices": [
+   "Lower central incisors",
+   "Lower canines",
+   "Upper central incisors",
+   "Lower premolars"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Two small teeth sit right at the front of your lower jaw.",
+   "Watch the glowing teeth at the center of the bottom row.",
+   "Which teeth are glowing?",
+   "The upper central incisors are larger and in the top row.",
+   "These two are in the middle of the lower jaw.",
+   "It's A. The lower central incisors.",
+   "Why it matters: incisors cut food; these are the smallest teeth."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "teeth-05",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Upper first molar tooth.l",
+   "Upper first molar tooth.r",
+   "Upper second molar tooth.l",
+   "Upper second molar tooth.r",
+   "Lower first molar tooth.l",
+   "Lower first molar tooth.r",
+   "Lower second molar tooth.l",
+   "Lower second molar tooth.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which teeth do the grinding?",
+  "choices": [
+   "Incisors",
+   "Canines",
+   "Premolars",
+   "Molars"
+  ],
+  "answer_index": 3,
+  "trap_index": 2,
+  "lines": [
+   "Some of your teeth are built to crush, not cut.",
+   "Watch the glowing teeth at the back of the mouth.",
+   "Which teeth do the grinding?",
+   "Premolars sit in front of them and do some crushing too.",
+   "The broad flat teeth at the back are the molars.",
+   "It's D. The molars.",
+   "Why it matters: their flat tops crush food before you swallow."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

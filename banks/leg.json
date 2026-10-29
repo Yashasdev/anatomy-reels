@@ -56,5 +56,100 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-03",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Calcaneus.r"
+  ],
+  "start_degrees": 90,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Talus",
+   "Calcaneus",
+   "Navicular",
+   "Cuboid"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The largest bone in your foot is at the back.",
+   "Watch the glowing bone under the ankle.",
+   "Which bone is glowing?",
+   "The talus sits on top of it and joins the shin bones.",
+   "The glowing bone forms your heel.",
+   "It's B. The calcaneus, or heel bone.",
+   "Why it matters: it takes your weight every time your heel hits the ground."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-04",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Fibula.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which side of the shin is it on?",
+  "choices": [
+   "Outer side",
+   "Inner side",
+   "Front only",
+   "Behind it"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Your lower leg has two bones side by side.",
+   "Watch the thin glowing bone beside the shin.",
+   "Which side of the shin is it on?",
+   "The inner bone is the thick tibia, the shinbone.",
+   "This thinner one is the fibula, on the outer side of the leg.",
+   "It's A. The outer side. That's the fibula.",
+   "Why it matters: the fibula carries much less weight than the tibia."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-05",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "First metatarsal bone.r",
+   "Second metatarsal bone.r",
+   "Third metatarsal bone.r",
+   "Fourth metatarsal bone.r",
+   "Fifth metatarsal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.8,
+  "focus": true,
+  "question": "How many metatarsals are glowing?",
+  "choices": [
+   "3",
+   "7",
+   "5",
+   "14"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Between your ankle and your toes is a row of long bones.",
+   "Watch the glowing bones in the middle of the foot.",
+   "How many metatarsals are glowing?",
+   "There is one for each toe, just like the palm bones in the hand.",
+   "Count one for the big toe and four for the others.",
+   "It's C. Five metatarsals.",
+   "Why it matters: they form the ball of the foot and spring with every step."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

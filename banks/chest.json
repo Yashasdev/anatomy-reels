@@ -69,5 +69,99 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "chest-03",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Manubrium of sternum",
+   "Body of sternum",
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Breastbone",
+   "Collarbone",
+   "Shoulder blade",
+   "Backbone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "One long flat bone sits in the middle of your chest.",
+   "Watch the glowing bone down the center of the rib cage.",
+   "What's its everyday name?",
+   "The collarbone is higher up, across the base of the neck.",
+   "This one runs down the middle, joined to the ribs by cartilage.",
+   "It's A. The breastbone, or sternum.",
+   "Why it matters: it anchors the front of the rib cage."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-04",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Eleventh rib.l",
+   "Eleventh rib.r",
+   "Twelfth rib.l",
+   "Twelfth rib.r"
+  ],
+  "start_degrees": 180,
+  "question": "How many ribs are glowing?",
+  "choices": [
+   "2",
+   "4",
+   "6",
+   "8"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The lowest ribs don't reach your breastbone at all.",
+   "Watch the glowing ribs at the bottom of the cage.",
+   "How many ribs are glowing?",
+   "These are the floating ribs, ribs 11 and 12 on each side.",
+   "Two on the left and two on the right.",
+   "It's B. Four floating ribs.",
+   "Why it matters: their front ends are free, not joined to the breastbone."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-05",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "Which rib is glowing?",
+  "choices": [
+   "Twelfth",
+   "Seventh",
+   "First",
+   "Fifth"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "One pair of ribs sits right under your collarbones.",
+   "Watch the glowing ribs at the very top of the cage.",
+   "Which rib is glowing?",
+   "The seventh rib is a long one lower down.",
+   "These sit at the top and are short, broad and sharply curved.",
+   "It's C. The first rib.",
+   "Why it matters: it's the top rib, the one the others are counted from."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
