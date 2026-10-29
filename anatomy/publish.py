@@ -252,6 +252,22 @@ def main() -> int:
         for c in buffer.channels():
             print(f"{c['service']:10} {c['id']}  {c['name']}  paused={c['isQueuePaused']}")
         return 0
+    if action == "show-posts":  # read-only: what Buffer says happened to every post in history
+        bad = 0
+        now = datetime.now(ZoneInfo("UTC"))
+        for h in history():
+            due = datetime.fromisoformat(h["slot"])
+            for service, pid in h["buffer"].items():
+                try:
+                    st = buffer.post_status(pid)
+                    status, link = st.get("status"), st.get("externalLink") or ""
+                except Exception as e:
+                    status, link = f"unreadable ({e})", ""
+                late = due < now - timedelta(minutes=30) and status != "sent"
+                bad += late
+                print(f"{'PROBLEM ' if late else ''}Day {h['day']:>2} {h['id']:12} {due:%b %d %I:%M %p} {service:9} {status} {link}")
+        print(f"{bad} post(s) past their time without going out" if bad else "Every post past its time went out.")
+        return 1 if bad else 0
     if action == "check-setup":
         problems = []
         chans = buffer.channels()

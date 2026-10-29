@@ -131,3 +131,15 @@ def schedule_video(channel: dict, text: str, video_url: str, due_at_utc_iso: str
     return result["post"]["id"]
 
 
+def post_status(post_id: str) -> dict:
+    """What Buffer knows about a post: status, when it went out, its link, the video it used, and its
+    metrics once it's out (views, likes, comments, shares, saves, follows, watch time...)."""
+    base = "status dueAt sentAt externalLink assets { source thumbnail %s }"
+    metrics = " metricsUpdatedAt metrics { type value unit }"
+    video = "... on VideoAsset { video { thumbnailOffset } }"
+    for fields in (base % video + metrics, base % video, base % ""):
+        try:
+            return _gql("query($id: PostId!) { post(input: {id: $id}) { " + fields + " } }", {"id": post_id})["post"]
+        except BufferError as e:
+            last = e
+    raise last

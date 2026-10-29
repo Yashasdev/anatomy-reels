@@ -9,7 +9,7 @@ on:
         description: What to do
         type: choice
         default: render-only
-        options: [render-only, publish, check-setup, list-channels, plan]
+        options: [render-only, publish, check-setup, list-channels, plan, show-posts]
       limit:
         description: Render at most this many (0 = all)
         default: "0"
