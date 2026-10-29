@@ -68,5 +68,11 @@
       5
     ]
   ],
-  "max_queued": 9
+  "max_queued": 9,
+  "music_styles": [
+    "lofi",
+    "ambient",
+    "house",
+    "pop"
+  ]
 }

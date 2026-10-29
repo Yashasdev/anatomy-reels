@@ -269,7 +269,16 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     for k in range(3):
         add(SOUNDS["tick"](), countdown_at + k)
     add(SOUNDS["bell"](), starts[answer_line])
-    buf[: int(total * SR)] += bed(total)
+    if q.get("music"):  # an original track (anatomy/music.py), ducked under the narrator
+        from . import music
+        track = music.render(q["music"], total).mean(axis=1)  # this mix is mono
+        voiced = np.zeros(len(track), bool)
+        for (path, sec), s in zip(lines, starts):
+            voiced[int(s * SR): int((s + sec) * SR)] = True
+        duck = np.convolve(np.where(voiced, 0.40, 1.0), np.ones(4410) / 4410, mode="same")
+        buf[: len(track)] += (track * duck * 0.16).astype(np.float32)
+    else:
+        buf[: int(total * SR)] += bed(total)
     wav = work / "sound.wav"
     sf.write(wav, buf[: int(total * SR)], SR)
     out.parent.mkdir(parents=True, exist_ok=True)
