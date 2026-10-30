@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T18:37:43+00:00",
+ "generated_at": "2026-10-30T19:21:20+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/41108524417",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -8,10 +8,10 @@
   "tiktok",
   "youtube"
  ],
- "per_day": 5,
- "unused": 51,
+ "per_day": 3,
+ "unused": 47,
  "total": 60,
- "posted": 9,
+ "posted": 13,
  "ramp": [
   [
    0,
@@ -45,19 +45,19 @@
   },
   "arm": {
    "total": 4,
-   "unused": 3
+   "unused": 2
   },
   "leg": {
    "total": 5,
-   "unused": 5
+   "unused": 4
   },
   "pelvis": {
    "total": 5,
-   "unused": 5
+   "unused": 4
   },
   "spine": {
    "total": 5,
-   "unused": 5
+   "unused": 4
   },
   "chest": {
    "total": 5,
@@ -192,6 +192,58 @@
    "organ": "abdomen",
    "title": "The Abdomen",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-2000-abdomen-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-01T09:30:00-05:00",
+   "day": 10,
+   "id": "arm-02",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-0930-arm-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-01T12:30:00-05:00",
+   "day": 11,
+   "id": "leg-01",
+   "organ": "leg",
+   "title": "The Leg",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1230-leg-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-01T16:00:00-05:00",
+   "day": 12,
+   "id": "pelvis-01",
+   "organ": "pelvis",
+   "title": "The Pelvis",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1600-pelvis-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-01T18:00:00-05:00",
+   "day": 13,
+   "id": "spine-01",
+   "organ": "spine",
+   "title": "The Spine",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1800-spine-01.mp4",
    "platforms": [
     "instagram",
     "tiktok",
