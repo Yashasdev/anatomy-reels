@@ -124,5 +124,65 @@
       "tiktok": "6ae3755d1b42fad16d935b8c",
       "youtube": "6ae3755e1b42fad16d935c1d"
     }
+  },
+  {
+    "slot": "2026-11-01T09:30:00-05:00",
+    "day": 10,
+    "id": "arm-02",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-0930-arm-02.mp4",
+    "video_seconds": 18.48,
+    "buffer": {
+      "instagram": "6ae4ee1ca351214acfa5e33b",
+      "tiktok": "6ae4ee1ccd8290b9b90b1461",
+      "youtube": "6ae4ee1d34702c2daac97710"
+    },
+    "music": "ambient-1"
+  },
+  {
+    "slot": "2026-11-01T12:30:00-05:00",
+    "day": 11,
+    "id": "leg-01",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1230-leg-01.mp4",
+    "video_seconds": 19.73,
+    "buffer": {
+      "instagram": "6ae4ee1f98505e7f522e29ac",
+      "tiktok": "6ae4ee2098505e7f522e29fc",
+      "youtube": "6ae4ee21cd8290b9b90b15ad"
+    },
+    "music": "ambient-5"
+  },
+  {
+    "slot": "2026-11-01T16:00:00-05:00",
+    "day": 12,
+    "id": "pelvis-01",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1600-pelvis-01.mp4",
+    "video_seconds": 20.37,
+    "buffer": {
+      "instagram": "6ae4ee2234702c2daac97b90",
+      "tiktok": "6ae4ee2398505e7f522e2ac1",
+      "youtube": "6ae4ee24a351214acfa5ea9a"
+    },
+    "music": "house-2"
+  },
+  {
+    "slot": "2026-11-01T18:00:00-05:00",
+    "day": 13,
+    "id": "spine-01",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1800-spine-01.mp4",
+    "video_seconds": 21.1,
+    "buffer": {
+      "instagram": "6ae4ee25a351214acfa5eb0e",
+      "tiktok": "6ae4ee2634702c2daac97c54",
+      "youtube": "6ae4ee2798505e7f522e2b8e"
+    },
+    "music": "pop-1"
   }
 ]
