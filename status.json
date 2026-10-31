@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T17:43:00+00:00",
+ "generated_at": "2026-10-31T18:26:56+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/41225853919",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 3,
- "unused": 47,
+ "unused": 44,
  "total": 60,
- "posted": 13,
+ "posted": 16,
  "ramp": [
   [
    0,
@@ -61,15 +61,15 @@
   },
   "chest": {
    "total": 5,
-   "unused": 5
+   "unused": 4
   },
   "hand": {
    "total": 5,
-   "unused": 5
+   "unused": 4
   },
   "eye": {
    "total": 4,
-   "unused": 4
+   "unused": 3
   },
   "thigh": {
    "total": 4,
@@ -244,6 +244,45 @@
    "organ": "spine",
    "title": "The Spine",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1800-spine-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-01T20:00:00-05:00",
+   "day": 14,
+   "id": "chest-01",
+   "organ": "chest",
+   "title": "The Rib Cage",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-2000-chest-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-02T12:30:00-05:00",
+   "day": 15,
+   "id": "hand-01",
+   "organ": "hand",
+   "title": "The Hand",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-02-1230-hand-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-02T16:00:00-05:00",
+   "day": 16,
+   "id": "eye-01",
+   "organ": "eye",
+   "title": "The Eye",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-02-1600-eye-01.mp4",
    "platforms": [
     "instagram",
     "tiktok",
