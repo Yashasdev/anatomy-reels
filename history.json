@@ -229,5 +229,65 @@
       "youtube": "6ae632e6cf3a3112f3b91c69"
     },
     "music": "house-3"
+  },
+  {
+    "slot": "2026-11-02T20:00:00-05:00",
+    "day": 17,
+    "id": "thigh-01",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-02-2000-thigh-01.mp4",
+    "video_seconds": 21.04,
+    "buffer": {
+      "instagram": "6ae78eda5604f9d85b82b070",
+      "tiktok": "6ae78edb411773964797b51c",
+      "youtube": "6ae78edbb7d22b897a0a384b"
+    },
+    "music": "ambient-4"
+  },
+  {
+    "slot": "2026-11-03T12:30:00-05:00",
+    "day": 18,
+    "id": "teeth-01",
+    "organ": "teeth",
+    "title": "The Teeth",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-03-1230-teeth-01.mp4",
+    "video_seconds": 21.59,
+    "buffer": {
+      "instagram": "6ae78eddb7d22b897a0a38ab",
+      "tiktok": "6ae78edd5604f9d85b82b114",
+      "youtube": "6ae78ede5604f9d85b82b140"
+    },
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-03T16:00:00-05:00",
+    "day": 19,
+    "id": "heart-03",
+    "organ": "heart",
+    "title": "The Heart",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-03-1600-heart-03.mp4",
+    "video_seconds": 19.57,
+    "buffer": {
+      "instagram": "6ae78edf411773964797b618",
+      "tiktok": "6ae78ee0b7d22b897a0a396a",
+      "youtube": "6ae78ee1026a1294e55a8c70"
+    },
+    "music": "house-5"
+  },
+  {
+    "slot": "2026-11-03T20:00:00-05:00",
+    "day": 20,
+    "id": "lungs-03",
+    "organ": "lungs",
+    "title": "The Lungs",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-03-2000-lungs-03.mp4",
+    "video_seconds": 20.19,
+    "buffer": {
+      "instagram": "6ae78ee23f7155902f70c8c6",
+      "tiktok": "6ae78ee21e69de2cfc103adb",
+      "youtube": "6ae78ee35604f9d85b82b26c"
+    },
+    "music": "house-4"
   }
 ]
