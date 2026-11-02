@@ -126,36 +126,6 @@
   "model": "eye",
   "title": "The Eye",
   "highlight": [
-   "Superior rectus muscle.r"
-  ],
-  "start_degrees": 0,
-  "focus": true,
-  "distance": 1.5,
-  "question": "What does the superior rectus do?",
-  "choices": [
-   "Turns the eye up",
-   "Turns the eye down",
-   "Closes the eyelid",
-   "Focuses the lens"
-  ],
-  "answer_index": 0,
-  "trap_index": 1,
-  "lines": [
-   "Six muscles steer each eye. What does this one do?",
-   "Watch the glowing muscle on top of the eye.",
-   "What does the superior rectus do?",
-   "Its partner under the eye does the opposite.",
-   "It's A. It mainly turns the eye up.",
-   "Why it matters: six tiny muscles let you scan the room without turning."
-  ],
-  "ask_line": 2,
-  "answer_line": 4
- },
- {
-  "id": "eye-06",
-  "model": "eye",
-  "title": "The Eye",
-  "highlight": [
    "Medial rectus muscle.r"
   ],
   "start_degrees": 0,
