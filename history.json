@@ -289,5 +289,80 @@
       "youtube": "6ae78ee35604f9d85b82b26c"
     },
     "music": "house-4"
+  },
+  {
+    "slot": "2026-11-04T09:30:00-05:00",
+    "day": 21,
+    "id": "skull-03",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-0930-skull-03.mp4",
+    "video_seconds": 18.97,
+    "buffer": {
+      "instagram": "6ae917d425014d8f320f17b6",
+      "tiktok": "6ae917d425014d8f320f1804",
+      "youtube": "6ae917d525014d8f320f1847"
+    },
+    "music": "house-1"
+  },
+  {
+    "slot": "2026-11-04T12:30:00-05:00",
+    "day": 22,
+    "id": "abdomen-03",
+    "organ": "abdomen",
+    "title": "The Abdomen",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1230-abdomen-03.mp4",
+    "video_seconds": 23.31,
+    "buffer": {
+      "instagram": "6ae917d79e9bda3b49d4602c",
+      "tiktok": "6ae917d89e9bda3b49d46089",
+      "youtube": "6ae917d94e401f604e4eea4f"
+    },
+    "music": "lofi-5"
+  },
+  {
+    "slot": "2026-11-04T16:00:00-05:00",
+    "day": 23,
+    "id": "arm-03",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1600-arm-03.mp4",
+    "video_seconds": 22.12,
+    "buffer": {
+      "instagram": "6ae917dbb62d192bcc4cacfa",
+      "tiktok": "6ae917db9e9bda3b49d4614a",
+      "youtube": "6ae917dc4e401f604e4eeb0d"
+    },
+    "music": "lofi-3"
+  },
+  {
+    "slot": "2026-11-04T18:00:00-05:00",
+    "day": 24,
+    "id": "leg-02",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1800-leg-02.mp4",
+    "video_seconds": 21.53,
+    "buffer": {
+      "instagram": "6ae917de9e9bda3b49d46692",
+      "tiktok": "6ae917df967eeee46f54827b",
+      "youtube": "6ae917e025014d8f320f1a08"
+    },
+    "music": "lofi-1"
+  },
+  {
+    "slot": "2026-11-04T20:00:00-05:00",
+    "day": 25,
+    "id": "pelvis-02",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-2000-pelvis-02.mp4",
+    "video_seconds": 22.64,
+    "buffer": {
+      "instagram": "6ae917e1b62d192bcc4cae0e",
+      "tiktok": "6ae917e225014d8f320f1a7c",
+      "youtube": "6ae917e3b62d192bcc4cae50"
+    },
+    "music": "pop-5"
   }
 ]
