@@ -152,30 +152,28 @@
   "model": "abdomen",
   "title": "The Abdomen",
   "highlight": [
-   "Gallbladder"
+   "Ascending colon"
   ],
   "start_degrees": 0,
-  "question": "What does it store?",
+  "question": "Which part of the colon is it?",
   "choices": [
-   "Bile",
-   "Insulin",
-   "Stomach acid",
-   "Urine"
+   "Ascending",
+   "Transverse",
+   "Descending",
+   "Sigmoid"
   ],
   "answer_index": 0,
-  "trap_index": 1,
+  "trap_index": 2,
   "lines": [
-   "This small pouch hides under the liver. What does it hold?",
-   "Look for the small glowing pouch tucked under the liver.",
-   "What does it store?",
-   "The liver makes this fluid, but this pouch stores it.",
-   "It's A. Bile, which helps digest fats.",
-   "Why it matters: after a fatty meal, it squeezes bile into the gut."
+   "Food waste travels up one side of your belly. Which part is this?",
+   "Look at the glowing colon section on the patient's right side.",
+   "Which part of the colon is it?",
+   "The descending colon runs down the other side.",
+   "It's A. The ascending colon.",
+   "Why it matters: the large intestine absorbs water from leftover food."
   ],
   "ask_line": 2,
-  "answer_line": 4,
-  "focus": true,
-  "distance": 1.4
+  "answer_line": 4
  },
  {
   "id": "abdomen-07",

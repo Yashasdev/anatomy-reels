@@ -154,31 +154,27 @@
   "model": "leg",
   "title": "The Leg",
   "highlight": [
-   "First metatarsal bone.r",
-   "Second metatarsal bone.r",
-   "Third metatarsal bone.r",
-   "Fourth metatarsal bone.r",
-   "Fifth metatarsal bone.r"
+   "Patella.r"
   ],
   "start_degrees": 0,
   "focus": true,
-  "distance": 2.5,
-  "question": "Which foot bones are glowing?",
+  "distance": 1.6,
+  "question": "Which bone is glowing?",
   "choices": [
-   "Phalanges",
-   "Tarsals",
-   "Carpals",
-   "Metatarsals"
+   "Talus",
+   "Fibula",
+   "Femur",
+   "Patella"
   ],
   "answer_index": 3,
   "trap_index": 1,
   "lines": [
-   "The foot's long middle bones fan out toward the toes.",
-   "Look at the five glowing bones in the middle of the foot.",
-   "Which foot bones are glowing?",
-   "The tarsals are the shorter bones near the ankle.",
-   "It's D. The metatarsals.",
-   "Why it matters: you push off these bones with every step."
+   "This small bone sits right in front of your knee.",
+   "Look at the glowing bone at the front of the knee.",
+   "Which bone is glowing?",
+   "The tibia is below it, in the shin.",
+   "It's D. The patella, also called the kneecap.",
+   "Why it matters: it protects the front of the knee joint."
   ],
   "ask_line": 2,
   "answer_line": 4

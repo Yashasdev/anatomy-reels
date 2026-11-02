@@ -149,28 +149,26 @@
   "model": "skull",
   "title": "The Skull",
   "highlight": [
-   "Nasal bone.l",
-   "Nasal bone.r"
+   "Maxilla.l",
+   "Maxilla.r"
   ],
   "start_degrees": 0,
-  "focus": true,
-  "distance": 1.3,
-  "question": "How many bones form the nose bridge?",
+  "question": "Which bone holds the upper teeth?",
   "choices": [
-   "4",
-   "2",
-   "1",
-   "3"
+   "Mandible",
+   "Maxilla",
+   "Zygomatic",
+   "Parietal"
   ],
   "answer_index": 1,
-  "trap_index": 2,
+  "trap_index": 0,
   "lines": [
-   "The upper part of your nose is bone, not cartilage.",
-   "See the glowing bones at the bridge of the nose.",
-   "How many bones form the nose bridge?",
-   "Look closely: a pair, left and right, meeting in the middle.",
-   "It's B. Two nasal bones.",
-   "Why it matters: the lower nose is flexible cartilage, not bone."
+   "Your upper teeth are rooted in a pair of bones.",
+   "Look at the glowing pair of bones around the upper jaw.",
+   "Which bone holds the upper teeth?",
+   "The lower teeth sit in the mandible, the only moving skull bone.",
+   "It's B. The maxilla, a pair joined at the midline.",
+   "Why it matters: they also form most of the roof of your mouth."
   ],
   "ask_line": 2,
   "answer_line": 4

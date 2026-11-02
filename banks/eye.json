@@ -126,30 +126,30 @@
   "model": "eye",
   "title": "The Eye",
   "highlight": [
-   "Iris.r"
+   "Superior rectus muscle.r"
   ],
   "start_degrees": 0,
-  "question": "What does the iris do?",
+  "focus": true,
+  "distance": 1.5,
+  "question": "What does the superior rectus do?",
   "choices": [
-   "Focuses light",
-   "Makes tears",
-   "Controls pupil size",
-   "Moves the eye"
+   "Turns the eye up",
+   "Turns the eye down",
+   "Closes the eyelid",
+   "Focuses the lens"
   ],
-  "answer_index": 2,
-  "trap_index": 0,
+  "answer_index": 0,
+  "trap_index": 1,
   "lines": [
-   "The colored ring of your eye is a tiny muscle. What's its job?",
-   "Look at the glowing ring around the dark center.",
-   "What does the iris do?",
-   "The lens focuses light. This ring does something else.",
-   "It's C. It controls how big the pupil is.",
-   "Why it matters: it lets in less light when it's bright out."
+   "Six muscles steer each eye. What does this one do?",
+   "Watch the glowing muscle on top of the eye.",
+   "What does the superior rectus do?",
+   "Its partner under the eye does the opposite.",
+   "It's A. It mainly turns the eye up.",
+   "Why it matters: six tiny muscles let you scan the room without turning."
   ],
   "ask_line": 2,
-  "answer_line": 4,
-  "focus": true,
-  "distance": 1.5
+  "answer_line": 4
  },
  {
   "id": "eye-06",
