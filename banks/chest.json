@@ -184,5 +184,34 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "chest-06",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which ribs are glowing?",
+  "choices": [
+   "Seventh ribs",
+   "Second ribs",
+   "First ribs",
+   "Twelfth ribs"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Count your ribs from the top. Which pair is this one?",
+   "Look at the glowing pair of ribs at the very top of the chest.",
+   "Which ribs are glowing?",
+   "The second pair sits just below. This one is short and sharply curved.",
+   "It's C. The first ribs.",
+   "Why it matters: they're short, broad and sharply curved."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

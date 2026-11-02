@@ -114,5 +114,93 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "skull-05",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Parietal bone.l",
+   "Parietal bone.r"
+  ],
+  "start_degrees": 60,
+  "question": "Which bones are glowing?",
+  "choices": [
+   "Temporal",
+   "Frontal",
+   "Parietal",
+   "Occipital"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Two matching bones form the roof of your skull.",
+   "Look at the glowing pair across the top of the head.",
+   "Which bones are glowing?",
+   "The temporal bones sit lower, around the ears.",
+   "It's C. The parietal bones.",
+   "Why it matters: they protect the top of the brain and meet at the midline."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "skull-06",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Nasal bone.l",
+   "Nasal bone.r"
+  ],
+  "start_degrees": 0,
+  "focus": true,
+  "distance": 1.6,
+  "question": "How many bones form the nose bridge?",
+  "choices": [
+   "4",
+   "2",
+   "1",
+   "3"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "The upper part of your nose is bone, not cartilage.",
+   "See the glowing bones at the bridge of the nose.",
+   "How many bones form the nose bridge?",
+   "Look closely: a pair, left and right, meeting in the middle.",
+   "It's B. Two nasal bones.",
+   "Why it matters: the lower nose is flexible cartilage, not bone."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "skull-07",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Frontal bone"
+  ],
+  "start_degrees": 0,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Frontal",
+   "Parietal",
+   "Sphenoid",
+   "Nasal"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "This bone sits right above your eyes.",
+   "Watch the glowing bone at the front of the skull.",
+   "Which bone is glowing?",
+   "The parietal bones sit behind it, on top of the head.",
+   "It's A. The frontal bone, which forms the forehead.",
+   "Why it matters: it protects the front of the brain and the eyes."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

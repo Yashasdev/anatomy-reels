@@ -146,5 +146,61 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "abdomen-06",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Gallbladder"
+  ],
+  "start_degrees": 0,
+  "question": "What does it store?",
+  "choices": [
+   "Bile",
+   "Insulin",
+   "Stomach acid",
+   "Urine"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "This small pouch hides under the liver. What does it hold?",
+   "Look for the small glowing pouch tucked under the liver.",
+   "What does it store?",
+   "The liver makes this fluid, but this pouch stores it.",
+   "It's A. Bile, which helps digest fats.",
+   "Why it matters: after a fatty meal, it squeezes bile into the gut."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "abdomen-07",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Spleen"
+  ],
+  "start_degrees": 180,
+  "question": "What does the glowing organ do?",
+  "choices": [
+   "Makes bile",
+   "Filters blood",
+   "Absorbs water",
+   "Pumps blood"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "A fist-sized organ sits on the patient's left, under the ribs.",
+   "Watch the glowing organ at the upper left of the abdomen.",
+   "What does the glowing organ do?",
+   "Bile comes from the liver. This organ has another job.",
+   "It's B. It filters blood and clears old red blood cells.",
+   "Why it matters: it also stores immune cells that help fight infection."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

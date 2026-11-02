@@ -120,5 +120,61 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "eye-05",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Iris.r"
+  ],
+  "start_degrees": 0,
+  "question": "What does the iris do?",
+  "choices": [
+   "Focuses light",
+   "Makes tears",
+   "Controls pupil size",
+   "Moves the eye"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "The colored ring of your eye is a tiny muscle. What's its job?",
+   "Look at the glowing ring around the dark center.",
+   "What does the iris do?",
+   "The lens focuses light. This ring does something else.",
+   "It's C. It controls how big the pupil is.",
+   "Why it matters: it lets in less light when it's bright out."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "eye-06",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Medial rectus muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which way does it turn the eye?",
+  "choices": [
+   "Away from the nose",
+   "Up",
+   "Down",
+   "Toward the nose"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Six muscles steer each eye. What does this one do?",
+   "Watch the glowing muscle on the nose side of the eye.",
+   "Which way does it turn the eye?",
+   "The lateral rectus sits on the other side and does the opposite.",
+   "It's D. It turns the eye toward the nose.",
+   "Why it matters: both eyes turn inward together to look at close things."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]
