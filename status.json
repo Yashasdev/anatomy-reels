@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T22:19:39+00:00",
+ "generated_at": "2026-11-02T23:08:35+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/41536271561",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 58,
+ "unused": 53,
  "total": 78,
- "posted": 20,
+ "posted": 25,
  "ramp": [
   [
    0,
@@ -37,23 +37,23 @@
   },
   "skull": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   },
   "abdomen": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   },
   "arm": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   },
   "leg": {
    "total": 5,
-   "unused": 4
+   "unused": 3
   },
   "pelvis": {
    "total": 5,
-   "unused": 4
+   "unused": 3
   },
   "spine": {
    "total": 5,
@@ -335,6 +335,71 @@
    "organ": "lungs",
    "title": "The Lungs",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-03-2000-lungs-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-04T09:30:00-05:00",
+   "day": 21,
+   "id": "skull-03",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-0930-skull-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-04T12:30:00-05:00",
+   "day": 22,
+   "id": "abdomen-03",
+   "organ": "abdomen",
+   "title": "The Abdomen",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1230-abdomen-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-04T16:00:00-05:00",
+   "day": 23,
+   "id": "arm-03",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1600-arm-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-04T18:00:00-05:00",
+   "day": 24,
+   "id": "leg-02",
+   "organ": "leg",
+   "title": "The Leg",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1800-leg-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-04T20:00:00-05:00",
+   "day": 25,
+   "id": "pelvis-02",
+   "organ": "pelvis",
+   "title": "The Pelvis",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-2000-pelvis-02.mp4",
    "platforms": [
     "instagram",
     "tiktok",
