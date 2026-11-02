@@ -212,6 +212,8 @@
    "Why it matters: they're short, broad and sharply curved."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.6
  }
 ]

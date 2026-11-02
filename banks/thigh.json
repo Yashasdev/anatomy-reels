@@ -146,7 +146,9 @@
    "Why it matters: you use them every time you squeeze your knees together."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.6
  },
  {
   "id": "thigh-06",
@@ -174,6 +176,8 @@
    "Why it matters: it helps keep your kneecap tracking straight."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.4
  }
 ]

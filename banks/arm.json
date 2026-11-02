@@ -127,7 +127,7 @@
    "Clavicle.r"
   ],
   "start_degrees": 0,
-  "distance": 3.0,
+  "distance": 1.6,
   "question": "Which bone is glowing?",
   "choices": [
    "Scapula",
@@ -146,7 +146,8 @@
    "Why it matters: it's one of the bones people break most in a fall."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true
  },
  {
   "id": "arm-06",

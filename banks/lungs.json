@@ -170,7 +170,9 @@
    "Why it matters: its stiff cartilage rings keep this airway open."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.8
  },
  {
   "id": "lungs-07",

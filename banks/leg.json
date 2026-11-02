@@ -160,9 +160,9 @@
    "Fourth metatarsal bone.r",
    "Fifth metatarsal bone.r"
   ],
-  "start_degrees": 90,
+  "start_degrees": 0,
   "focus": true,
-  "distance": 2.0,
+  "distance": 2.5,
   "question": "Which foot bones are glowing?",
   "choices": [
    "Phalanges",

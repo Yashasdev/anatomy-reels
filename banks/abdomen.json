@@ -173,7 +173,9 @@
    "Why it matters: after a fatty meal, it squeezes bile into the gut."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.4
  },
  {
   "id": "abdomen-07",
@@ -201,6 +203,8 @@
    "Why it matters: it also stores immune cells that help fight infection."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.6
  }
 ]

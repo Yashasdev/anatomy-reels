@@ -147,7 +147,9 @@
    "Why it matters: it lets in less light when it's bright out."
   ],
   "ask_line": 2,
-  "answer_line": 4
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.5
  },
  {
   "id": "eye-06",
