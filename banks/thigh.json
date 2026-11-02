@@ -118,5 +118,66 @@
   "answer_line": 5,
   "distance": 1.4,
   "focus": true
+ },
+ {
+  "id": "thigh-05",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Adductor longus.r",
+   "Gracilis muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "What do these muscles do?",
+  "choices": [
+   "Push the thigh outward",
+   "Pull the thigh inward",
+   "Straighten the knee",
+   "Lift the foot up"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your inner thigh has muscles that squeeze your legs together.",
+   "Look at the glowing muscles along the inside of the thigh.",
+   "What do these muscles do?",
+   "The gluteus medius does the opposite and pushes the thigh outward.",
+   "It's B. They pull the thigh inward toward the midline.",
+   "Why it matters: you use them every time you squeeze your knees together."
+  ],
+  "ask_line": 2,
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.6
+ },
+ {
+  "id": "thigh-06",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Vastus medialis muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which quad muscle is glowing?",
+  "choices": [
+   "Vastus lateralis",
+   "Rectus femoris",
+   "Vastus medialis",
+   "Sartorius"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your quadriceps has four heads. Can you spot this one?",
+   "Watch the glowing muscle low on the inner side of the thigh.",
+   "Which quad muscle is glowing?",
+   "The vastus lateralis is its partner on the outer side.",
+   "It's C. The vastus medialis.",
+   "Why it matters: it helps keep your kneecap tracking straight."
+  ],
+  "ask_line": 2,
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.4
  }
 ]

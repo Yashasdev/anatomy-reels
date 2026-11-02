@@ -134,5 +134,90 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "heart-06",
+  "model": "heart",
+  "title": "The Heart",
+  "highlight": [
+   "Left ventricle"
+  ],
+  "start_degrees": 0,
+  "question": "Which chamber has the thickest wall?",
+  "choices": [
+   "Right atrium",
+   "Left ventricle",
+   "Right ventricle",
+   "Left atrium"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "One heart chamber is built much thicker than the rest.",
+   "Watch the glowing chamber at the bottom left of the heart.",
+   "Which chamber has the thickest wall?",
+   "The right ventricle only pumps to the nearby lungs, so it's thinner.",
+   "It's B. The left ventricle.",
+   "Why it matters: it pumps blood to your whole body, so it works hardest."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "heart-07",
+  "model": "heart",
+  "title": "The Heart",
+  "highlight": [
+   "Left atrium"
+  ],
+  "start_degrees": 180,
+  "question": "Where does its blood come from?",
+  "choices": [
+   "The lungs",
+   "The body",
+   "The right ventricle",
+   "The aorta"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Blood returns to the heart from two places. Do you know this one?",
+   "Watch the glowing upper chamber on the patient's left.",
+   "Where does its blood come from?",
+   "Blood from the body goes to the other side of the heart.",
+   "It's A. From the lungs, through the pulmonary veins.",
+   "Why it matters: this is how oxygen-rich blood gets back to the heart."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "heart-08",
+  "model": "heart",
+  "title": "The Heart",
+  "highlight": [
+   "Left atrium",
+   "Right atrium"
+  ],
+  "start_degrees": 150,
+  "question": "What are these upper chambers called?",
+  "choices": [
+   "Ventricles",
+   "Vessels",
+   "Atria",
+   "Valves"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "The heart has four chambers. Two of them sit on top.",
+   "Look at the two glowing upper chambers.",
+   "What are these upper chambers called?",
+   "The ventricles are the strong lower chambers.",
+   "It's C. The atria, left and right.",
+   "Why it matters: the atria receive blood and pass it down to the ventricles."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

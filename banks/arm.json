@@ -118,5 +118,95 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "arm-05",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Clavicle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "question": "Which bone is glowing?",
+  "choices": [
+   "Scapula",
+   "Humerus",
+   "Clavicle",
+   "Ulna"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "A slim bone runs from your breastbone to your shoulder.",
+   "Look at the glowing bone across the top of the chest.",
+   "Which bone is glowing?",
+   "The scapula is the broad bone behind the shoulder.",
+   "It's C. The clavicle.",
+   "Why it matters: it's one of the bones people break most in a fall."
+  ],
+  "ask_line": 2,
+  "answer_line": 4,
+  "focus": true
+ },
+ {
+  "id": "arm-06",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Radius.r",
+   "Ulna.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "How many bones are in the forearm?",
+  "choices": [
+   "1",
+   "3",
+   "2",
+   "4"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Between your elbow and wrist, how many bones are there?",
+   "Watch the glowing bones of the forearm.",
+   "How many bones are in the forearm?",
+   "The upper arm has just one: the humerus.",
+   "It's C. Two: the radius and the ulna.",
+   "Why it matters: two bones let you rotate your palm up and down."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "arm-07",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Clavicle.r",
+   "Scapula.r"
+  ],
+  "start_degrees": 90,
+  "distance": 3.0,
+  "question": "Which girdle do these bones form?",
+  "choices": [
+   "Pelvic girdle",
+   "Shoulder girdle",
+   "Rib cage",
+   "Wrist joint"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Two bones team up to hold your arm to your body.",
+   "Look at the two glowing bones at the top of the shoulder.",
+   "Which girdle do these bones form?",
+   "The pelvic girdle does the same job for your legs.",
+   "It's B. Together they form the shoulder girdle.",
+   "Why it matters: this girdle lets your arm swing in almost any direction."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

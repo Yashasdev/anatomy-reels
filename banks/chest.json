@@ -184,5 +184,35 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "chest-06",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Manubrium of sternum"
+  ],
+  "start_degrees": 0,
+  "focus": true,
+  "distance": 1.8,
+  "question": "Which part of the breastbone is it?",
+  "choices": [
+   "Xiphoid process",
+   "Body",
+   "Manubrium",
+   "Costal cartilage"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Your breastbone has three parts. Can you name this one?",
+   "Look at the glowing piece at the top of the breastbone.",
+   "Which part of the breastbone is it?",
+   "The long middle part is the body. The tip is the xiphoid process.",
+   "It's C. The manubrium.",
+   "Why it matters: your collarbones and first ribs attach to it."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

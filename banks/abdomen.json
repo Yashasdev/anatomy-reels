@@ -146,5 +146,63 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "abdomen-06",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Ascending colon"
+  ],
+  "start_degrees": 0,
+  "question": "Which part of the colon is it?",
+  "choices": [
+   "Ascending",
+   "Transverse",
+   "Descending",
+   "Sigmoid"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Food waste travels up one side of your belly. Which part is this?",
+   "Look at the glowing colon section on the patient's right side.",
+   "Which part of the colon is it?",
+   "The descending colon runs down the other side.",
+   "It's A. The ascending colon.",
+   "Why it matters: the large intestine absorbs water from leftover food."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "abdomen-07",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Spleen"
+  ],
+  "start_degrees": 180,
+  "question": "What does the glowing organ do?",
+  "choices": [
+   "Makes bile",
+   "Filters blood",
+   "Absorbs water",
+   "Pumps blood"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "A fist-sized organ sits on the patient's left, under the ribs.",
+   "Watch the glowing organ at the upper left of the abdomen.",
+   "What does the glowing organ do?",
+   "Bile comes from the liver. This organ has another job.",
+   "It's B. It filters blood and clears old red blood cells.",
+   "Why it matters: it also stores immune cells that help fight infection."
+  ],
+  "ask_line": 2,
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.6
  }
 ]

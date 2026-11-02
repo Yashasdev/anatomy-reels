@@ -115,5 +115,92 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "lungs-05",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Superior lobe of left lung"
+  ],
+  "start_degrees": 0,
+  "question": "Which lobe is glowing?",
+  "choices": [
+   "Left lower lobe",
+   "Left upper lobe",
+   "Right upper lobe",
+   "Right middle lobe"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Two lungs, five lobes. Can you place this one?",
+   "Look at the glowing lobe at the top of the patient's left lung.",
+   "Which lobe is glowing?",
+   "The lower lobe sits below it, near the diaphragm.",
+   "It's B. The left upper lobe.",
+   "Why it matters: the left lung has two lobes, leaving room for the heart."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "lungs-06",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Trachea"
+  ],
+  "start_degrees": 0,
+  "question": "What does the glowing tube do?",
+  "choices": [
+   "Carries food down",
+   "Carries air down",
+   "Carries blood",
+   "Makes the voice"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "This tube runs down your neck. What does it do?",
+   "See the glowing tube above the two lungs.",
+   "What does the glowing tube do?",
+   "The food pipe behind it carries food. This one is different.",
+   "It's B. It carries air down to the lungs.",
+   "Why it matters: its stiff cartilage rings keep this airway open."
+  ],
+  "ask_line": 2,
+  "answer_line": 4,
+  "focus": true,
+  "distance": 1.8
+ },
+ {
+  "id": "lungs-07",
+  "model": "lungs",
+  "title": "The Lungs",
+  "highlight": [
+   "Superior lobe of right lung",
+   "Middle lobe of right lung"
+  ],
+  "start_degrees": 0,
+  "question": "Which lobes are glowing?",
+  "choices": [
+   "Right upper and middle",
+   "Left upper and lower",
+   "Right middle and lower",
+   "Left upper and middle"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Three lobes on one side, two on the other. Which is which?",
+   "Two lobes glow on the patient's right lung: the top two.",
+   "Which lobes are glowing?",
+   "The lowest lobe isn't lit. It sits at the base of the lung.",
+   "It's A. The right upper and middle lobes.",
+   "Why it matters: the right lung has three lobes, the left only two."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]
