@@ -364,5 +364,35 @@
       "youtube": "6ae917e3b62d192bcc4cae50"
     },
     "music": "pop-5"
+  },
+  {
+    "slot": "2026-11-05T09:30:00-05:00",
+    "day": 26,
+    "id": "spine-02",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-0930-spine-02.mp4",
+    "video_seconds": 22.4,
+    "buffer": {
+      "instagram": "6aea494b46499f925e7aff82",
+      "tiktok": "6aea494cdd6313a10718d9c8",
+      "youtube": "6aea494d6f495ad554188f24"
+    },
+    "music": "pop-3"
+  },
+  {
+    "slot": "2026-11-05T12:30:00-05:00",
+    "day": 27,
+    "id": "chest-02",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1230-chest-02.mp4",
+    "video_seconds": 23.67,
+    "buffer": {
+      "instagram": "6aea494f46499f925e7b05ad",
+      "tiktok": "6aea4950dd6313a10718dacc",
+      "youtube": "6aea49511ee1ad0996cc1f34"
+    },
+    "music": "pop-1"
   }
 ]
