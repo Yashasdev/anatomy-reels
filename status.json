@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T20:25:46+00:00",
+ "generated_at": "2026-11-04T21:03:08+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/41906478628",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -8,10 +8,10 @@
   "tiktok",
   "youtube"
  ],
- "per_day": 5,
- "unused": 51,
+ "per_day": 3,
+ "unused": 47,
  "total": 78,
- "posted": 27,
+ "posted": 31,
  "ramp": [
   [
    0,
@@ -65,35 +65,22 @@
   },
   "hand": {
    "total": 5,
-   "unused": 4
+   "unused": 3
   },
   "eye": {
    "total": 5,
-   "unused": 4
+   "unused": 3
   },
   "thigh": {
    "total": 6,
-   "unused": 5
+   "unused": 4
   },
   "teeth": {
    "total": 5,
-   "unused": 4
+   "unused": 3
   }
  },
  "posts": [
-  {
-   "slot": "2026-10-28T16:00:00-04:00",
-   "day": 1,
-   "id": "heart-01",
-   "organ": "heart",
-   "title": "The Heart",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-28-1600-heart-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-10-28T20:00:00-04:00",
    "day": 2,
@@ -426,6 +413,58 @@
    "organ": "chest",
    "title": "The Rib Cage",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1230-chest-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-05T16:00:00-05:00",
+   "day": 28,
+   "id": "hand-02",
+   "organ": "hand",
+   "title": "The Hand",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1600-hand-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-05T18:00:00-05:00",
+   "day": 29,
+   "id": "eye-02",
+   "organ": "eye",
+   "title": "The Eye",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1800-eye-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-05T20:00:00-05:00",
+   "day": 30,
+   "id": "thigh-02",
+   "organ": "thigh",
+   "title": "Leg Muscles",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-2000-thigh-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-06T09:30:00-05:00",
+   "day": 31,
+   "id": "teeth-02",
+   "organ": "teeth",
+   "title": "The Teeth",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-0930-teeth-02.mp4",
    "platforms": [
     "instagram",
     "tiktok",
