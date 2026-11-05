@@ -174,28 +174,37 @@
   "model": "spine",
   "title": "The Spine",
   "highlight": [
-   "Vertebra C7"
+   "Vertebra T1",
+   "Vertebra T2",
+   "Vertebra T3",
+   "Vertebra T4",
+   "Vertebra T5",
+   "Vertebra T6",
+   "Vertebra T7",
+   "Vertebra T8",
+   "Vertebra T9",
+   "Vertebra T10",
+   "Vertebra T11",
+   "Vertebra T12"
   ],
-  "start_degrees": 180,
-  "distance": 1.6,
-  "focus": true,
-  "question": "Which vertebra is the last in the neck?",
+  "start_degrees": 90,
+  "question": "Which vertebrae connect to the ribs?",
   "choices": [
-   "T1",
-   "C7",
-   "C1",
-   "L5"
+   "Cervical",
+   "Thoracic",
+   "Lumbar",
+   "Sacral"
   ],
   "answer_index": 1,
   "trap_index": 0,
   "lines": [
-   "Run a finger down the back of your neck to a bump at the bottom.",
-   "Watch the glowing vertebra at the base of the neck.",
-   "Which vertebra is the last in the neck?",
-   "T1 is the next one down, and it carries the first pair of ribs.",
-   "The neck has seven vertebrae, and this is the seventh.",
-   "It's B. C7.",
-   "Why it matters: its long spine can often be felt at the base of the neck."
+   "Some of your vertebrae have ribs attached.",
+   "Watch the glowing vertebrae in the middle of the back.",
+   "Which vertebrae connect to the ribs?",
+   "Cervical vertebrae are in the neck and have no ribs attached.",
+   "Twelve ribs join the glowing vertebrae.",
+   "It's B. The thoracic vertebrae.",
+   "Why it matters: this link forms the back of the cage protecting the lungs."
   ],
   "ask_line": 2,
   "answer_line": 5

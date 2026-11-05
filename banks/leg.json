@@ -154,28 +154,26 @@
   "model": "leg",
   "title": "The Leg",
   "highlight": [
-   "Patella.r"
+   "Femur.r"
   ],
   "start_degrees": 0,
-  "distance": 1.2,
-  "focus": true,
-  "question": "What's its everyday name?",
+  "question": "What is the longest bone in the body?",
   "choices": [
-   "Heel bone",
-   "Shinbone",
-   "Thighbone",
-   "Kneecap"
+   "Tibia",
+   "Humerus",
+   "Femur",
+   "Fibula"
   ],
-  "answer_index": 3,
-  "trap_index": 1,
+  "answer_index": 2,
+  "trap_index": 0,
   "lines": [
-   "There's a small bone at the front of your knee.",
-   "Watch the little glowing bone in front of the knee joint.",
-   "What's its everyday name?",
-   "The shinbone is the long bone below the knee, not this one.",
-   "The glowing bone is the patella.",
-   "It's D. The kneecap.",
-   "Why it matters: it helps the thigh muscle pull the lower leg straight."
+   "One bone in your body is longer than all the rest.",
+   "Watch the long glowing bone above the knee.",
+   "What is the longest bone in the body?",
+   "The tibia is the shin bone. It's long, but shorter than this one.",
+   "The glowing thigh bone is also the strongest.",
+   "It's C. The femur.",
+   "Why it matters: it carries your weight and anchors the big leg muscles."
   ],
   "ask_line": 2,
   "answer_line": 5
@@ -185,30 +183,26 @@
   "model": "leg",
   "title": "The Leg",
   "highlight": [
-   "First metatarsal bone.r",
-   "Second metatarsal bone.r",
-   "Third metatarsal bone.r",
-   "Fourth metatarsal bone.r",
-   "Fifth metatarsal bone.r"
+   "Tibia.r"
   ],
   "start_degrees": 0,
-  "question": "How many metatarsals are in a foot?",
+  "question": "Which lower-leg bone bears the most weight?",
   "choices": [
-   "7",
-   "5",
-   "8",
-   "3"
+   "Fibula",
+   "Tibia",
+   "Talus",
+   "Calcaneus"
   ],
   "answer_index": 1,
   "trap_index": 0,
   "lines": [
-   "The long bones in the middle of your foot come in a set.",
-   "Watch the glowing bones between the ankle and the toes.",
-   "How many metatarsals are in a foot?",
-   "Seven is the number of tarsal bones in the ankle and heel.",
-   "One long bone runs to each toe.",
-   "It's B. Five.",
-   "Why it matters: they form the arch and the ball of your foot."
+   "Your lower leg has two bones, but only one does the heavy lifting.",
+   "Watch the thick glowing bone at the front of the shin.",
+   "Which lower-leg bone bears the most weight?",
+   "The thinner fibula runs beside it and carries much less.",
+   "The glowing shinbone is the weight-bearing bone.",
+   "It's B. The tibia.",
+   "Why it matters: it passes your body weight from the knee down to the ankle."
   ],
   "ask_line": 2,
   "answer_line": 5

@@ -154,31 +154,29 @@
   "model": "eye",
   "title": "The Eye",
   "highlight": [
-   "Iris.r"
+   "Superior rectus muscle.r"
   ],
   "start_degrees": 0,
-  "distance": 1.6,
-  "question": "Which part of the eye is it?",
+  "question": "Which way does it turn the eye?",
   "choices": [
-   "Pupil",
-   "Lens",
-   "Iris",
-   "Sclera"
+   "Down",
+   "Toward the nose",
+   "Up",
+   "Away from the nose"
   ],
   "answer_index": 2,
   "trap_index": 0,
   "lines": [
-   "Your eye color comes from one small ring. Do you know it?",
-   "Watch the colored ring that's glowing at the front.",
-   "Which part of the eye is it?",
-   "The pupil is the dark opening in the middle, not the ring.",
-   "The glowing ring surrounds the pupil.",
-   "It's C. The iris.",
-   "Why it matters: its muscles change the pupil's size to adjust to light."
+   "Six small muscles move each of your eyes. Here is one of them.",
+   "Watch the glowing muscle on top of the eyeball.",
+   "Which way does it turn the eye?",
+   "Its partner under the eyeball pulls the other way, down.",
+   "The glowing muscle on top lifts the eye.",
+   "It's C. Up.",
+   "Why it matters: it helps you look up without moving your head."
   ],
   "ask_line": 2,
-  "answer_line": 5,
-  "focus": true
+  "answer_line": 5
  },
  {
   "id": "eye-07",
