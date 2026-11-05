@@ -148,5 +148,67 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "eye-06",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Iris.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "Which part of the eye is it?",
+  "choices": [
+   "Pupil",
+   "Lens",
+   "Iris",
+   "Sclera"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your eye color comes from one small ring. Do you know it?",
+   "Watch the colored ring that's glowing at the front.",
+   "Which part of the eye is it?",
+   "The pupil is the dark opening in the middle, not the ring.",
+   "The glowing ring surrounds the pupil.",
+   "It's C. The iris.",
+   "Why it matters: its muscles change the pupil's size to adjust to light."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "eye-07",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Superior rectus muscle.r",
+   "Inferior rectus muscle.r",
+   "Lateral rectus muscle.r",
+   "Medial rectus muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many rectus muscles move each eye?",
+  "choices": [
+   "4",
+   "2",
+   "6",
+   "3"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Some eye muscles are straight, some are slanted. Count the straight ones.",
+   "Watch the four straight muscles glowing.",
+   "How many rectus muscles move each eye?",
+   "Six muscles move each eye in all. The other two are the oblique muscles.",
+   "Up, down, in and out each has its own straight muscle.",
+   "It's A. Four.",
+   "Why it matters: these muscles let both eyes track the same object together."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

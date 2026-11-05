@@ -168,5 +168,71 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "spine-06",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra C7"
+  ],
+  "start_degrees": 90,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which vertebra is the last in the neck?",
+  "choices": [
+   "T1",
+   "C7",
+   "C1",
+   "L5"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Run a finger down the back of your neck to a bump at the bottom.",
+   "Watch the glowing vertebra at the base of the neck.",
+   "Which vertebra is the last in the neck?",
+   "T1 is the next one down, and it carries the first pair of ribs.",
+   "The neck has seven vertebrae, and this is the seventh.",
+   "It's B. C7.",
+   "Why it matters: its long spine can often be felt at the base of the neck."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-07",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)",
+   "Axis (C2)",
+   "Vertebra C3",
+   "Vertebra C4",
+   "Vertebra C5",
+   "Vertebra C6",
+   "Vertebra C7"
+  ],
+  "start_degrees": 60,
+  "question": "How many neck vertebrae are there?",
+  "choices": [
+   "12",
+   "5",
+   "9",
+   "7"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Even a giraffe has the same number of neck bones as you.",
+   "Watch the glowing bones of the neck.",
+   "How many neck vertebrae are there?",
+   "Twelve is the number of thoracic vertebrae, in the chest.",
+   "Counting from C1 to C7 gives the answer.",
+   "It's D. Seven.",
+   "Why it matters: this many small bones make your neck flexible."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

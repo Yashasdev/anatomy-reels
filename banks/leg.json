@@ -148,5 +148,67 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-06",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Patella.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Heel bone",
+   "Shinbone",
+   "Thighbone",
+   "Kneecap"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "There's a small bone at the front of your knee.",
+   "Watch the little glowing bone in front of the knee joint.",
+   "What's its everyday name?",
+   "The shinbone is the long bone below the knee, not this one.",
+   "The glowing bone is the patella.",
+   "It's D. The kneecap.",
+   "Why it matters: it helps the thigh muscle pull the lower leg straight."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-07",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Talus.r"
+  ],
+  "start_degrees": 90,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which ankle bone is glowing?",
+  "choices": [
+   "Calcaneus",
+   "Talus",
+   "Cuboid",
+   "Navicular"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your whole body weight passes through one small ankle bone.",
+   "Watch the glowing bone right below the shin.",
+   "Which ankle bone is glowing?",
+   "The calcaneus is the heel bone below and behind it.",
+   "The shin bones rest on the glowing bone.",
+   "It's B. The talus.",
+   "Why it matters: it passes your weight from the leg down into the foot."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
