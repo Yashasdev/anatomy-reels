@@ -157,7 +157,7 @@
    "Patella.r"
   ],
   "start_degrees": 0,
-  "distance": 1.6,
+  "distance": 1.2,
   "focus": true,
   "question": "What's its everyday name?",
   "choices": [
@@ -185,28 +185,30 @@
   "model": "leg",
   "title": "The Leg",
   "highlight": [
-   "Talus.r"
+   "First metatarsal bone.r",
+   "Second metatarsal bone.r",
+   "Third metatarsal bone.r",
+   "Fourth metatarsal bone.r",
+   "Fifth metatarsal bone.r"
   ],
-  "start_degrees": 90,
-  "distance": 1.6,
-  "focus": true,
-  "question": "Which ankle bone is glowing?",
+  "start_degrees": 0,
+  "question": "How many metatarsals are in a foot?",
   "choices": [
-   "Calcaneus",
-   "Talus",
-   "Cuboid",
-   "Navicular"
+   "7",
+   "5",
+   "8",
+   "3"
   ],
   "answer_index": 1,
   "trap_index": 0,
   "lines": [
-   "Your whole body weight passes through one small ankle bone.",
-   "Watch the glowing bone right below the shin.",
-   "Which ankle bone is glowing?",
-   "The calcaneus is the heel bone below and behind it.",
-   "The shin bones rest on the glowing bone.",
-   "It's B. The talus.",
-   "Why it matters: it passes your weight from the leg down into the foot."
+   "The long bones in the middle of your foot come in a set.",
+   "Watch the glowing bones between the ankle and the toes.",
+   "How many metatarsals are in a foot?",
+   "Seven is the number of tarsal bones in the ankle and heel.",
+   "One long bone runs to each toe.",
+   "It's B. Five.",
+   "Why it matters: they form the arch and the ball of your foot."
   ],
   "ask_line": 2,
   "answer_line": 5

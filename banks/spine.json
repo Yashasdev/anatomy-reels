@@ -176,7 +176,7 @@
   "highlight": [
    "Vertebra C7"
   ],
-  "start_degrees": 90,
+  "start_degrees": 180,
   "distance": 1.6,
   "focus": true,
   "question": "Which vertebra is the last in the neck?",
@@ -213,7 +213,7 @@
    "Vertebra C6",
    "Vertebra C7"
   ],
-  "start_degrees": 60,
+  "start_degrees": 90,
   "question": "How many neck vertebrae are there?",
   "choices": [
    "12",
@@ -233,6 +233,8 @@
    "Why it matters: this many small bones make your neck flexible."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 2.0,
+  "focus": true
  }
 ]

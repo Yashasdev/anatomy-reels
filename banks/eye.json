@@ -157,7 +157,7 @@
    "Iris.r"
   ],
   "start_degrees": 0,
-  "distance": 3.0,
+  "distance": 1.6,
   "question": "Which part of the eye is it?",
   "choices": [
    "Pupil",
@@ -177,7 +177,8 @@
    "Why it matters: its muscles change the pupil's size to adjust to light."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "focus": true
  },
  {
   "id": "eye-07",
