@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-04T21:03:08+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/41906478628",
+ "generated_at": "2026-11-05T20:39:33+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/42105387894",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -8,9 +8,9 @@
   "tiktok",
   "youtube"
  ],
- "per_day": 3,
- "unused": 47,
- "total": 78,
+ "per_day": 5,
+ "unused": 60,
+ "total": 91,
  "posted": 31,
  "ramp": [
   [
@@ -40,44 +40,44 @@
    "unused": 4
   },
   "abdomen": {
-   "total": 7,
-   "unused": 4
+   "total": 8,
+   "unused": 5
   },
   "arm": {
    "total": 7,
    "unused": 4
   },
   "leg": {
-   "total": 5,
-   "unused": 3
+   "total": 7,
+   "unused": 5
   },
   "pelvis": {
-   "total": 5,
-   "unused": 3
+   "total": 7,
+   "unused": 5
   },
   "spine": {
-   "total": 5,
-   "unused": 3
+   "total": 7,
+   "unused": 5
   },
   "chest": {
    "total": 6,
    "unused": 4
   },
   "hand": {
-   "total": 5,
-   "unused": 3
+   "total": 7,
+   "unused": 5
   },
   "eye": {
-   "total": 5,
-   "unused": 3
+   "total": 7,
+   "unused": 5
   },
   "thigh": {
    "total": 6,
    "unused": 4
   },
   "teeth": {
-   "total": 5,
-   "unused": 3
+   "total": 7,
+   "unused": 5
   }
  },
  "posts": [
