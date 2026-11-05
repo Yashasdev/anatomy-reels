@@ -154,26 +154,27 @@
   "model": "eye",
   "title": "The Eye",
   "highlight": [
-   "Superior rectus muscle.r"
+   "Superior oblique muscle.r",
+   "Inferior oblique muscle.r"
   ],
   "start_degrees": 0,
-  "question": "Which way does it turn the eye?",
+  "question": "How many oblique muscles move each eye?",
   "choices": [
-   "Down",
-   "Toward the nose",
-   "Up",
-   "Away from the nose"
+   "2",
+   "4",
+   "6",
+   "3"
   ],
-  "answer_index": 2,
-  "trap_index": 0,
+  "answer_index": 0,
+  "trap_index": 1,
   "lines": [
-   "Six small muscles move each of your eyes. Here is one of them.",
-   "Watch the glowing muscle on top of the eyeball.",
-   "Which way does it turn the eye?",
-   "Its partner under the eyeball pulls the other way, down.",
-   "The glowing muscle on top lifts the eye.",
-   "It's C. Up.",
-   "Why it matters: it helps you look up without moving your head."
+   "Some eye muscles run at a slant instead of straight.",
+   "Watch the slanted muscles glowing around the eyeball.",
+   "How many oblique muscles move each eye?",
+   "Four is the number of straight rectus muscles.",
+   "One oblique muscle sits above and one below.",
+   "It's A. Two.",
+   "Why it matters: they twist the eye to keep your view level."
   ],
   "ask_line": 2,
   "answer_line": 5
