@@ -148,5 +148,67 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "eye-06",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Superior oblique muscle.r",
+   "Inferior oblique muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many oblique muscles move each eye?",
+  "choices": [
+   "2",
+   "4",
+   "6",
+   "3"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Some eye muscles run at a slant instead of straight.",
+   "Watch the slanted muscles glowing around the eyeball.",
+   "How many oblique muscles move each eye?",
+   "Four is the number of straight rectus muscles.",
+   "One oblique muscle sits above and one below.",
+   "It's A. Two.",
+   "Why it matters: they twist the eye to keep your view level."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "eye-07",
+  "model": "eye",
+  "title": "The Eye",
+  "highlight": [
+   "Superior rectus muscle.r",
+   "Inferior rectus muscle.r",
+   "Lateral rectus muscle.r",
+   "Medial rectus muscle.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many rectus muscles move each eye?",
+  "choices": [
+   "4",
+   "2",
+   "6",
+   "3"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Some eye muscles are straight, some are slanted. Count the straight ones.",
+   "Watch the four straight muscles glowing.",
+   "How many rectus muscles move each eye?",
+   "Six muscles move each eye in all. The other two are the oblique muscles.",
+   "Up, down, in and out each has its own straight muscle.",
+   "It's A. Four.",
+   "Why it matters: these muscles let both eyes track the same object together."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

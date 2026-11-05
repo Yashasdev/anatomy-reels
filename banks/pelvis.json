@@ -148,5 +148,66 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-06",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which bones hold the thighbone's ball?",
+  "choices": [
+   "Sacrum and coccyx",
+   "Hip bones",
+   "L5 and sacrum",
+   "Lowest ribs"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your thighbone meets the pelvis at a ball-and-socket joint.",
+   "Watch the two big bones glowing at the sides.",
+   "Which bones hold the thighbone's ball?",
+   "The sacrum sits between them at the back, not at the sides.",
+   "Each glowing bone has a deep socket for the ball.",
+   "It's B. The hip bones.",
+   "Why it matters: this ball and socket lets the leg swing in a wide circle."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-07",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Sacrum",
+   "Coccyx"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "Which two bones are glowing?",
+  "choices": [
+   "L4 and L5",
+   "Hip bones",
+   "Sacrum and coccyx",
+   "Lowest ribs"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "The bottom of your spine ends in two bones.",
+   "Watch the glowing bones at the back of the pelvis.",
+   "Which two bones are glowing?",
+   "L4 and L5 are lumbar vertebrae, which sit above them.",
+   "The wide triangle is the sacrum. The small tip is the coccyx.",
+   "It's C. The sacrum and coccyx.",
+   "Why it matters: together they close the back of the pelvic ring."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

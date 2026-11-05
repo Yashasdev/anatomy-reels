@@ -204,5 +204,34 @@
   "answer_line": 4,
   "focus": true,
   "distance": 1.6
+ },
+ {
+  "id": "abdomen-08",
+  "model": "abdomen",
+  "title": "The Abdomen",
+  "highlight": [
+   "Stomach"
+  ],
+  "start_degrees": 0,
+  "question": "What does the glowing organ do?",
+  "choices": [
+   "Makes bile",
+   "Absorbs water",
+   "Churns food with acid",
+   "Filters blood"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "This J-shaped bag sits on the left side of your upper abdomen.",
+   "Watch the glowing organ below the left side of the ribs.",
+   "What does the glowing organ do?",
+   "Absorbing water is the job of the large intestine.",
+   "Its muscles churn food with acid and enzymes.",
+   "It's C. Churns food with acid.",
+   "Why it matters: that acid and those enzymes begin breaking down protein."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

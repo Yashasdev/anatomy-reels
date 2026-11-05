@@ -148,5 +148,63 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-06",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Femur.r"
+  ],
+  "start_degrees": 0,
+  "question": "What is the longest bone in the body?",
+  "choices": [
+   "Tibia",
+   "Humerus",
+   "Femur",
+   "Fibula"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "One bone in your body is longer than all the rest.",
+   "Watch the long glowing bone above the knee.",
+   "What is the longest bone in the body?",
+   "The tibia is the shin bone. It's long, but shorter than this one.",
+   "The glowing thigh bone is also the strongest.",
+   "It's C. The femur.",
+   "Why it matters: it carries your weight and anchors the big leg muscles."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-07",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Tibia.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which lower-leg bone bears the most weight?",
+  "choices": [
+   "Fibula",
+   "Tibia",
+   "Talus",
+   "Calcaneus"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your lower leg has two bones, but only one does the heavy lifting.",
+   "Watch the thick glowing bone at the front of the shin.",
+   "Which lower-leg bone bears the most weight?",
+   "The thinner fibula runs beside it and carries much less.",
+   "The glowing shinbone is the weight-bearing bone.",
+   "It's B. The tibia.",
+   "Why it matters: it passes your body weight from the knee down to the ankle."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

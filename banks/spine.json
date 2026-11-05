@@ -168,5 +168,82 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "spine-06",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra T1",
+   "Vertebra T2",
+   "Vertebra T3",
+   "Vertebra T4",
+   "Vertebra T5",
+   "Vertebra T6",
+   "Vertebra T7",
+   "Vertebra T8",
+   "Vertebra T9",
+   "Vertebra T10",
+   "Vertebra T11",
+   "Vertebra T12"
+  ],
+  "start_degrees": 90,
+  "question": "Which vertebrae connect to the ribs?",
+  "choices": [
+   "Cervical",
+   "Thoracic",
+   "Lumbar",
+   "Sacral"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Some of your vertebrae have ribs attached.",
+   "Watch the glowing vertebrae in the middle of the back.",
+   "Which vertebrae connect to the ribs?",
+   "Cervical vertebrae are in the neck and have no ribs attached.",
+   "Twelve ribs join the glowing vertebrae.",
+   "It's B. The thoracic vertebrae.",
+   "Why it matters: this link forms the back of the cage protecting the lungs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-07",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)",
+   "Axis (C2)",
+   "Vertebra C3",
+   "Vertebra C4",
+   "Vertebra C5",
+   "Vertebra C6",
+   "Vertebra C7"
+  ],
+  "start_degrees": 90,
+  "question": "How many neck vertebrae are there?",
+  "choices": [
+   "12",
+   "5",
+   "9",
+   "7"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Even a giraffe has the same number of neck bones as you.",
+   "Watch the glowing bones of the neck.",
+   "How many neck vertebrae are there?",
+   "Twelve is the number of thoracic vertebrae, in the chest.",
+   "Counting from C1 to C7 gives the answer.",
+   "It's D. Seven.",
+   "Why it matters: this many small bones make your neck flexible."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 2.0,
+  "focus": true
  }
 ]

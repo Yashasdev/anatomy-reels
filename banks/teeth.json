@@ -164,5 +164,70 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "teeth-06",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Lower medial incisor.l",
+   "Lower medial incisor.r",
+   "Lower lateral incisor.l",
+   "Lower lateral incisor.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "What are these front teeth mainly for?",
+  "choices": [
+   "Grinding food",
+   "Cutting food",
+   "Tearing food",
+   "Swallowing"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "Your front teeth work like tiny scissors.",
+   "Watch the four glowing teeth at the front of the lower jaw.",
+   "What are these front teeth mainly for?",
+   "Tearing is the job of the pointed canines next to them.",
+   "These chisel-shaped incisors have a thin, flat edge.",
+   "It's B. Cutting food.",
+   "Why it matters: they bite off pieces of food small enough to chew."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "teeth-07",
+  "model": "teeth",
+  "title": "The Teeth",
+  "highlight": [
+   "Upper canine.l",
+   "Upper canine.r",
+   "Lower canine.l",
+   "Lower canine.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many canines do adults have?",
+  "choices": [
+   "4",
+   "2",
+   "8",
+   "6"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Count the pointed teeth in a full adult smile.",
+   "Watch the pointed teeth glowing.",
+   "How many canines do adults have?",
+   "Two is tempting, but there are upper and lower ones on both sides.",
+   "One in each corner of the upper and lower jaw.",
+   "It's A. Four.",
+   "Why it matters: their pointed tips are made for tearing food."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
