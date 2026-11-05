@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T20:39:33+00:00",
+ "generated_at": "2026-11-05T21:25:41+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/42105387894",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 60,
+ "unused": 55,
  "total": 91,
- "posted": 31,
+ "posted": 36,
  "ramp": [
   [
    0,
@@ -29,23 +29,23 @@
  "banks": {
   "heart": {
    "total": 8,
-   "unused": 5
+   "unused": 4
   },
   "lungs": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   },
   "skull": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   },
   "abdomen": {
    "total": 8,
-   "unused": 5
+   "unused": 4
   },
   "arm": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   },
   "leg": {
    "total": 7,
@@ -81,71 +81,6 @@
   }
  },
  "posts": [
-  {
-   "slot": "2026-10-28T20:00:00-04:00",
-   "day": 2,
-   "id": "lungs-01",
-   "organ": "lungs",
-   "title": "The Lungs",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-28-2000-lungs-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-10-29T16:00:00-04:00",
-   "day": 3,
-   "id": "skull-01",
-   "organ": "skull",
-   "title": "The Skull",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-29-1600-skull-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-10-29T20:00:00-04:00",
-   "day": 4,
-   "id": "abdomen-01",
-   "organ": "abdomen",
-   "title": "The Abdomen",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-29-2000-abdomen-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-10-30T16:00:00-04:00",
-   "day": 5,
-   "id": "arm-01",
-   "organ": "arm",
-   "title": "The Arm",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-1600-arm-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-10-30T20:00:00-04:00",
-   "day": 6,
-   "id": "heart-02",
-   "organ": "heart",
-   "title": "The Heart",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-30-2000-heart-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-10-31T12:30:00-04:00",
    "day": 7,
@@ -465,6 +400,71 @@
    "organ": "teeth",
    "title": "The Teeth",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-0930-teeth-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-06T12:30:00-05:00",
+   "day": 32,
+   "id": "heart-04",
+   "organ": "heart",
+   "title": "The Heart",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-1230-heart-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-06T16:00:00-05:00",
+   "day": 33,
+   "id": "lungs-04",
+   "organ": "lungs",
+   "title": "The Lungs",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-1600-lungs-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-06T18:00:00-05:00",
+   "day": 34,
+   "id": "skull-04",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-1800-skull-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-06T20:00:00-05:00",
+   "day": 35,
+   "id": "abdomen-04",
+   "organ": "abdomen",
+   "title": "The Abdomen",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-2000-abdomen-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-07T09:30:00-05:00",
+   "day": 36,
+   "id": "arm-04",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-0930-arm-04.mp4",
    "platforms": [
     "instagram",
     "tiktok",
