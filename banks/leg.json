@@ -186,7 +186,7 @@
    "Tibia.r"
   ],
   "start_degrees": 0,
-  "question": "Which lower-leg bone bears the most weight?",
+  "question": "Which lower-leg bone bears most weight?",
   "choices": [
    "Fibula",
    "Tibia",
@@ -198,7 +198,7 @@
   "lines": [
    "Your lower leg has two bones, but only one does the heavy lifting.",
    "Watch the thick glowing bone at the front of the shin.",
-   "Which lower-leg bone bears the most weight?",
+   "Which lower-leg bone bears most weight?",
    "The thinner fibula runs beside it and carries much less.",
    "The glowing shinbone is the weight-bearing bone.",
    "It's B. The tibia.",
