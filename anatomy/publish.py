@@ -8,6 +8,8 @@
 
 Every slot from config.json "start" on, within "days_ahead" days, gets one reel. Organs take turns in
 "rotation" order and each organ's questions are used in bank order, so the schedule only depends on history.json.
+Slots named in config "deepdive" post the next Anatomy Deep Dive instead (anatomy/deepdive.py), or a quiz if none
+is ready.
 """
 
 from __future__ import annotations
@@ -19,7 +21,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import music
+from . import deepdive, music
 
 ROOT = Path(__file__).resolve().parent.parent
 MUSIC_FROM = date(2026, 11, 1)  # posts from this day get original music (anatomy/music.py) instead of the old bed
@@ -46,6 +48,15 @@ def next_question(used: list[str], last_organ: str | None) -> dict | None:
         if fresh:
             return {**fresh[0], "organ": organ}
     return None
+
+
+def unused_questions(used) -> int:
+    used = set(used)
+    return sum(q["id"] not in used for b in banks().values() for q in b)
+
+
+def last_organ(hist: list[dict]) -> str | None:
+    return next((h["organ"] for h in reversed(hist) if h.get("organ")), None)  # deep dives have no organ
 
 
 def per_day(unused: int) -> int:
@@ -84,10 +95,17 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
     now = now or plan_now()
     hist = history()
     used = [h["id"] for h in hist]
-    last = hist[-1]["organ"] if hist else None
+    last = last_organ(hist)
     out = []
-    unused = sum(len(b) for b in banks().values()) - len(used)
+    unused = unused_questions(used)
     for at in due_slots(now, hist, unused):
+        if deepdive.is_slot(at):
+            video = deepdive.next_video(used)
+            if video:
+                out.append((at, {**video, "kind": "deepdive", "day": len(hist) + len(out) + 1}))
+                used.append(video["id"])
+                continue
+            print(f"::warning::no new deep dive is ready for {at:%b %d %H:%M}; posting a quiz there instead")
         q = next_question(used, last)
         if q is None:
             print(f"::warning::the question banks are used up; nothing for {at:%b %d %H:%M}")
@@ -101,13 +119,17 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
         out.append((at, q))
         used.append(q["id"])
         last = q["organ"]
-    left = sum(len(b) for b in banks().values()) - len(used)
+    if deepdive.settings() and deepdive.index() and deepdive.left(used) < 4:
+        print(f"::warning::only {deepdive.left(used)} deep dives left after this plan; make more")
+    left = unused_questions(used)
     if left < 14:
         print(f"::warning::only {left} unused anatomy questions left (about {left // per_day(left)} days)")
     return out
 
 
 def caption(q: dict) -> str:
+    if q.get("kind") == "deepdive":
+        return deepdive.caption(q)
     tags = CONFIG["hashtags"][:5]  # Instagram allows 5
     return (f"Day {q['day']} · {q['title']}: {q['question']}\n"
             "Comment your answer before the reveal 👇\n"
@@ -117,16 +139,26 @@ def caption(q: dict) -> str:
 
 
 def youtube_title(q: dict) -> str:
+    if q.get("kind") == "deepdive":
+        return deepdive.youtube_title(q)
     return f"{q['question']} {q['title']} | Anatomy Check #{q['day']} #shorts"[:100]
 
 
 def render(q: dict, out: Path) -> float:
+    if q.get("kind") == "deepdive":  # made and checked ahead of time; just download it
+        return deepdive.download(q, out)
     from .make import build
     return build(q, out)
 
 
 def file_name(at: datetime, q: dict) -> str:
     return f"{at:%Y-%m-%d-%H%M}-{q['id']}"
+
+
+def entry(at: datetime, q: dict, url: str, seconds: float, posts: dict) -> dict:
+    return {"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q.get("organ"),
+            "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
+            **({"kind": q["kind"]} if q.get("kind") else {}), **({"music": q["music"]} if q.get("music") else {})}
 
 
 def render_one(slot: str) -> int:
@@ -162,7 +194,15 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
                     failures += 1
                     changed = True
                 continue
-            q = {**banks_by_id[h["id"]], "day": h["day"]}
+            if h.get("kind") == "deepdive":
+                q = next((v for v in deepdive.index() if v["id"] == h["id"]), None)
+                if q is None:
+                    print(f"::error::{h['id']} isn't in the deep dive index any more; not retried.")
+                    failures += 1
+                    continue
+                q = {**q, "kind": "deepdive"}
+            else:
+                q = {**banks_by_id[h["id"]], "day": h["day"]}
             due = (now + timedelta(minutes=15)).isoformat()
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
@@ -212,9 +252,7 @@ def post() -> int:
                 print(f"::error::{service} failed for {q['id']}: {e}")
         if not posts:
             return 1
-        hist.append({"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q["organ"],
-                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
-                     **({"music": q["music"]} if q.get("music") else {})})
+        hist.append(entry(at, q, url, seconds, posts))
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     try:
         failed += retry_failed(hist, channels)
@@ -254,9 +292,7 @@ def publish(dry: bool) -> int:
                 print(f"::error::{service} failed for {q['id']}: {e}")
         if not posts:
             continue
-        hist.append({"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q["organ"],
-                     "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
-                     **({"music": q["music"]} if q.get("music") else {})})
+        hist.append(entry(at, q, url, seconds, posts))
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     return 1 if failed else 0
 
@@ -267,7 +303,7 @@ def write_status() -> None:
     hist = history()
     used = {h["id"] for h in hist}
     all_banks = banks()
-    unused = sum(1 for b in all_banks.values() for q in b if q["id"] not in used)
+    unused = unused_questions(used)
     run = os.environ.get("GITHUB_RUN_ID")
     flag = os.environ.get("PUBLISHING_ENABLED")
     status = {
@@ -277,6 +313,8 @@ def write_status() -> None:
         "name": CONFIG["name"], "platforms": CONFIG["platforms"],
         "per_day": per_day(unused), "unused": unused, "total": unused + len(used), "posted": len(hist),
         "ramp": CONFIG["ramp"],
+        "deepdives": {"slots": deepdive.settings().get("slots", []), "from": deepdive.settings().get("from"),
+                      "posted": sum(h.get("kind") == "deepdive" for h in hist)},
         "banks": {n: {"total": len(b), "unused": sum(q["id"] not in used for q in b)} for n, b in all_banks.items()},
         "posts": [{"slot": h["slot"], "day": h["day"], "id": h["id"], "organ": h["organ"], "title": h["title"],
                    "video_url": h["video_url"], "platforms": sorted(h["buffer"])} for h in hist[-30:]],

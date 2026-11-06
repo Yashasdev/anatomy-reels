@@ -74,5 +74,21 @@
     "ambient",
     "house",
     "pop"
-  ]
+  ],
+  "deepdive": {
+    "slots": [
+      "18:00"
+    ],
+    "from": "2026-11-07",
+    "order": [
+      "dd-nephron",
+      "dd-na-k-pump",
+      "dd-glycolysis",
+      "dd-krebs-cycle",
+      "dd-membrane-transport",
+      "dd-transcription",
+      "dd-translation"
+    ],
+    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready."
+  }
 }
