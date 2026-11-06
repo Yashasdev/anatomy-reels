@@ -1,0 +1,3107 @@
+{
+ "posts": {
+  "6ae190df1d62943dedc79d86": {
+   "day": 1,
+   "id": "heart-01",
+   "latest": {
+    "age_hours": 215.5,
+    "averageTimeWatched": 5.18,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.78,
+    "reach": 144,
+    "reactions": 4,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 12.17,
+    "views": 169
+   },
+   "link": "https://www.instagram.com/reel/DfDPjQ0gZWV/",
+   "music": null,
+   "organ": "heart",
+   "platform": "instagram",
+   "sent_at": "2026-10-28T20:02:35.309Z",
+   "slot": "2026-10-28T16:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 215.5,
+     "averageTimeWatched": 5.18,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.78,
+     "reach": 144,
+     "reactions": 4,
+     "saves": 0,
+     "shares": 0,
+     "totalTimeWatched": 12.17,
+     "views": 169
+    }
+   },
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 18.57
+  },
+  "6ae190e01e569a96142ca35f": {
+   "day": 1,
+   "id": "heart-01",
+   "latest": {
+    "age_hours": 215.5,
+    "averageTimeWatched": 3.12,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.04,
+    "reach": 182,
+    "reactions": 4,
+    "shares": 0,
+    "totalTimeWatched": 10.43,
+    "views": 196
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7701811213147081998?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "heart",
+   "platform": "tiktok",
+   "sent_at": "2026-10-28T20:02:41.459Z",
+   "slot": "2026-10-28T16:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 215.5,
+     "averageTimeWatched": 3.12,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.04,
+     "reach": 182,
+     "reactions": 4,
+     "shares": 0,
+     "totalTimeWatched": 10.43,
+     "views": 196
+    }
+   },
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 18.57
+  },
+  "6ae190e11d62943dedc79e0c": {
+   "day": 1,
+   "id": "heart-01",
+   "latest": {
+    "age_hours": 215.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.26,
+    "reactions": 6,
+    "views": 266
+   },
+   "link": "https://www.youtube.com/shorts/k3y9G2IBpr0",
+   "music": null,
+   "organ": "heart",
+   "platform": "youtube",
+   "sent_at": "2026-10-28T20:01:11.382Z",
+   "slot": "2026-10-28T16:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 215.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.26,
+     "reactions": 6,
+     "views": 266
+    }
+   },
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 18.57
+  },
+  "6ae190e7644db86063bc7353": {
+   "day": 2,
+   "id": "lungs-01",
+   "latest": {
+    "age_hours": 211.5,
+    "averageTimeWatched": 3.65,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.48,
+    "reach": 115,
+    "reactions": 3,
+    "saves": 1,
+    "shares": 0,
+    "totalTimeWatched": 7.19,
+    "views": 135
+   },
+   "link": "https://www.instagram.com/reel/DfDq_xGDQD-/",
+   "music": null,
+   "organ": "lungs",
+   "platform": "instagram",
+   "sent_at": "2026-10-29T00:02:15.469Z",
+   "slot": "2026-10-28T20:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 211.5,
+     "averageTimeWatched": 3.65,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.48,
+     "reach": 115,
+     "reactions": 3,
+     "saves": 1,
+     "shares": 0,
+     "totalTimeWatched": 7.19,
+     "views": 135
+    }
+   },
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 18.1
+  },
+  "6ae190e81d62943dedc79eeb": {
+   "day": 2,
+   "id": "lungs-01",
+   "latest": {
+    "age_hours": 211.5,
+    "averageTimeWatched": 3.37,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.87,
+    "reach": 195,
+    "reactions": 4,
+    "shares": 0,
+    "totalTimeWatched": 12.4,
+    "views": 214
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7701872961074072846?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "lungs",
+   "platform": "tiktok",
+   "sent_at": "2026-10-29T00:02:54.082Z",
+   "slot": "2026-10-28T20:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 211.5,
+     "averageTimeWatched": 3.37,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.87,
+     "reach": 195,
+     "reactions": 4,
+     "shares": 0,
+     "totalTimeWatched": 12.4,
+     "views": 214
+    }
+   },
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 18.1
+  },
+  "6ae190eaf94c111d6ebbd8b7": {
+   "day": 2,
+   "id": "lungs-01",
+   "latest": {
+    "age_hours": 211.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.33,
+    "reactions": 7,
+    "views": 525
+   },
+   "link": "https://www.youtube.com/shorts/ndnL2qF3VCM",
+   "music": null,
+   "organ": "lungs",
+   "platform": "youtube",
+   "sent_at": "2026-10-29T00:01:10.003Z",
+   "slot": "2026-10-28T20:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 211.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.33,
+     "reactions": 7,
+     "views": 525
+    }
+   },
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 18.1
+  },
+  "6ae190ec1e569a96142ca518": {
+   "day": 3,
+   "id": "skull-01",
+   "latest": {
+    "age_hours": 191.4,
+    "averageTimeWatched": 4.25,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.45,
+    "reach": 116,
+    "reactions": 4,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 8.36,
+    "views": 138
+   },
+   "link": "https://www.instagram.com/reel/DfF0lXtD_nq/",
+   "music": null,
+   "organ": "skull",
+   "platform": "instagram",
+   "sent_at": "2026-10-29T20:04:58.057Z",
+   "slot": "2026-10-29T16:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 191.4,
+     "averageTimeWatched": 4.25,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.45,
+     "reach": 116,
+     "reactions": 4,
+     "saves": 0,
+     "shares": 0,
+     "totalTimeWatched": 8.36,
+     "views": 138
+    }
+   },
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 18.24
+  },
+  "6ae190ecf2db54e878c563f0": {
+   "day": 3,
+   "id": "skull-01",
+   "latest": {
+    "age_hours": 191.5,
+    "averageTimeWatched": 3.64,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.2,
+    "reach": 226,
+    "reactions": 8,
+    "shares": 0,
+    "totalTimeWatched": 15.45,
+    "views": 250
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702182462146858254?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "skull",
+   "platform": "tiktok",
+   "sent_at": "2026-10-29T20:02:45.372Z",
+   "slot": "2026-10-29T16:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 191.5,
+     "averageTimeWatched": 3.64,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.2,
+     "reach": 226,
+     "reactions": 8,
+     "shares": 0,
+     "totalTimeWatched": 15.45,
+     "views": 250
+    }
+   },
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 18.24
+  },
+  "6ae190f6f2db54e878c564d0": {
+   "day": 3,
+   "id": "skull-01",
+   "latest": {
+    "age_hours": 191.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.01,
+    "reactions": 2,
+    "views": 199
+   },
+   "link": "https://www.youtube.com/shorts/e4tCT6p5A0w",
+   "music": null,
+   "organ": "skull",
+   "platform": "youtube",
+   "sent_at": "2026-10-29T20:01:48.855Z",
+   "slot": "2026-10-29T16:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 191.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.01,
+     "reactions": 2,
+     "views": 199
+    }
+   },
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 18.24
+  },
+  "6ae190f7f2db54e878c5650d": {
+   "day": 4,
+   "id": "abdomen-01",
+   "latest": {
+    "age_hours": 187.5,
+    "averageTimeWatched": 4.49,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.66,
+    "reach": 152,
+    "reactions": 1,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 11.38,
+    "views": 184
+   },
+   "link": "https://www.instagram.com/reel/DfGP0S9D34Q/",
+   "music": null,
+   "organ": "abdomen",
+   "platform": "instagram",
+   "sent_at": "2026-10-30T00:02:01.149Z",
+   "slot": "2026-10-29T20:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 187.5,
+     "averageTimeWatched": 4.49,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.66,
+     "reach": 152,
+     "reactions": 1,
+     "saves": 0,
+     "shares": 0,
+     "totalTimeWatched": 11.38,
+     "views": 184
+    }
+   },
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 19.1
+  },
+  "6ae190faf94c111d6ebbdb12": {
+   "day": 4,
+   "id": "abdomen-01",
+   "latest": {
+    "age_hours": 187.5,
+    "averageTimeWatched": 4.89,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.69,
+    "reach": 223,
+    "reactions": 7,
+    "shares": 0,
+    "totalTimeWatched": 21.02,
+    "views": 260
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702244158546742542?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "abdomen",
+   "platform": "tiktok",
+   "sent_at": "2026-10-30T00:01:59.071Z",
+   "slot": "2026-10-29T20:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 187.5,
+     "averageTimeWatched": 4.89,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.69,
+     "reach": 223,
+     "reactions": 7,
+     "shares": 0,
+     "totalTimeWatched": 21.02,
+     "views": 260
+    }
+   },
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 19.1
+  },
+  "6ae190fbf2db54e878c565c8": {
+   "day": 4,
+   "id": "abdomen-01",
+   "latest": {
+    "age_hours": 187.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.26,
+    "reactions": 6,
+    "views": 265
+   },
+   "link": "https://www.youtube.com/shorts/ZFODlGB8Rok",
+   "music": null,
+   "organ": "abdomen",
+   "platform": "youtube",
+   "sent_at": "2026-10-30T00:01:25.498Z",
+   "slot": "2026-10-29T20:00:00-04:00",
+   "snapshots": {
+    "7d": {
+     "age_hours": 187.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.26,
+     "reactions": 6,
+     "views": 265
+    }
+   },
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 19.1
+  },
+  "6ae190fc1e569a96142cae08": {
+   "day": 5,
+   "id": "arm-01",
+   "latest": {
+    "age_hours": 167.4,
+    "averageTimeWatched": 2.4,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.83,
+    "reach": 120,
+    "reactions": 1,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 4.76,
+    "views": 129
+   },
+   "link": "https://www.instagram.com/reel/DfIZQnXDjMw/",
+   "music": null,
+   "organ": "arm",
+   "platform": "instagram",
+   "sent_at": "2026-10-30T20:04:26.696Z",
+   "slot": "2026-10-30T16:00:00-04:00",
+   "snapshots": {},
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 18.11
+  },
+  "6ae190fef2db54e878c56699": {
+   "day": 5,
+   "id": "arm-01",
+   "latest": {
+    "age_hours": 167.4,
+    "averageTimeWatched": 5.15,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.04,
+    "reach": 440,
+    "reactions": 10,
+    "shares": 0,
+    "totalTimeWatched": 42.5,
+    "views": 490
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702553555831508238?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "arm",
+   "platform": "tiktok",
+   "sent_at": "2026-10-30T20:02:56.068Z",
+   "slot": "2026-10-30T16:00:00-04:00",
+   "snapshots": {},
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 18.11
+  },
+  "6ae190ff644db86063bc779b": {
+   "day": 5,
+   "id": "arm-01",
+   "latest": {
+    "age_hours": 167.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.58,
+    "reactions": 8,
+    "views": 507
+   },
+   "link": "https://www.youtube.com/shorts/qTXsa1B4lSY",
+   "music": null,
+   "organ": "arm",
+   "platform": "youtube",
+   "sent_at": "2026-10-30T20:02:02.578Z",
+   "slot": "2026-10-30T16:00:00-04:00",
+   "snapshots": {},
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 18.11
+  },
+  "6ae19100f94c111d6ebbdc75": {
+   "day": 6,
+   "id": "heart-02",
+   "latest": {
+    "age_hours": 163.5,
+    "averageTimeWatched": 5.11,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.67,
+    "reach": 120,
+    "reactions": 2,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 10.23,
+    "views": 137
+   },
+   "link": "https://www.instagram.com/reel/DfI0sX8gqAm/",
+   "music": null,
+   "organ": "heart",
+   "platform": "instagram",
+   "sent_at": "2026-10-31T00:02:50.407Z",
+   "slot": "2026-10-30T20:00:00-04:00",
+   "snapshots": {},
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 20.36
+  },
+  "6ae1910152154ef9974f1b99": {
+   "day": 6,
+   "id": "heart-02",
+   "latest": {
+    "age_hours": 163.5,
+    "averageTimeWatched": 3.95,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.07,
+    "reach": 272,
+    "reactions": 9,
+    "shares": 0,
+    "totalTimeWatched": 19.78,
+    "views": 293
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702615415024930061?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "heart",
+   "platform": "tiktok",
+   "sent_at": "2026-10-31T00:02:52.593Z",
+   "slot": "2026-10-30T20:00:00-04:00",
+   "snapshots": {},
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 20.36
+  },
+  "6ae191021d62943dedc7a579": {
+   "day": 6,
+   "id": "heart-02",
+   "latest": {
+    "age_hours": 163.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.42,
+    "reactions": 1,
+    "views": 238
+   },
+   "link": "https://www.youtube.com/shorts/MqVSizTTMvY",
+   "music": null,
+   "organ": "heart",
+   "platform": "youtube",
+   "sent_at": "2026-10-31T00:02:01.977Z",
+   "slot": "2026-10-30T20:00:00-04:00",
+   "snapshots": {},
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 20.36
+  },
+  "6ae37555041e128612be1389": {
+   "day": 7,
+   "id": "lungs-02",
+   "latest": {
+    "age_hours": 147.0,
+    "averageTimeWatched": 3.66,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.86,
+    "reach": 116,
+    "reactions": 1,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 7.07,
+    "views": 131
+   },
+   "link": "https://www.instagram.com/reel/DfKlyklgAcG/",
+   "music": null,
+   "organ": "lungs",
+   "platform": "instagram",
+   "sent_at": "2026-10-31T16:31:03.882Z",
+   "slot": "2026-10-31T12:30:00-04:00",
+   "snapshots": {},
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 19.53
+  },
+  "6ae375560471a99f44aaac6f": {
+   "day": 7,
+   "id": "lungs-02",
+   "latest": {
+    "age_hours": 147.0,
+    "averageTimeWatched": 5.85,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.82,
+    "reach": 312,
+    "reactions": 9,
+    "shares": 1,
+    "totalTimeWatched": 35.27,
+    "views": 354
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702870378124823822?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "lungs",
+   "platform": "tiktok",
+   "sent_at": "2026-10-31T16:32:05.570Z",
+   "slot": "2026-10-31T12:30:00-04:00",
+   "snapshots": {},
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 19.53
+  },
+  "6ae375571b42fad16d9357ce": {
+   "day": 7,
+   "id": "lungs-02",
+   "latest": {
+    "age_hours": 147.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.57,
+    "reactions": 7,
+    "views": 1226
+   },
+   "link": "https://www.youtube.com/shorts/olFx5tM3lJE",
+   "music": null,
+   "organ": "lungs",
+   "platform": "youtube",
+   "sent_at": "2026-10-31T16:30:24.618Z",
+   "slot": "2026-10-31T12:30:00-04:00",
+   "snapshots": {},
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 19.53
+  },
+  "6ae37559263de333734310e3": {
+   "day": 8,
+   "id": "skull-02",
+   "latest": {
+    "age_hours": 143.4,
+    "averageTimeWatched": 4.19,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.5,
+    "reach": 133,
+    "reactions": 2,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 9.22,
+    "views": 149
+   },
+   "link": "https://www.instagram.com/reel/DfK-EhYAGdz/",
+   "music": null,
+   "organ": "skull",
+   "platform": "instagram",
+   "sent_at": "2026-10-31T20:03:38.061Z",
+   "slot": "2026-10-31T16:00:00-04:00",
+   "snapshots": {},
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 19.78
+  },
+  "6ae3755a22e5eb36271e2ced": {
+   "day": 8,
+   "id": "skull-02",
+   "latest": {
+    "age_hours": 143.5,
+    "averageTimeWatched": 7.17,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.61,
+    "reach": 282,
+    "reactions": 8,
+    "shares": 0,
+    "totalTimeWatched": 36.93,
+    "views": 307
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702924617794456846?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "skull",
+   "platform": "tiktok",
+   "sent_at": "2026-10-31T20:02:45.887Z",
+   "slot": "2026-10-31T16:00:00-04:00",
+   "snapshots": {},
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 19.78
+  },
+  "6ae3755a22e5eb36271e2d5e": {
+   "day": 8,
+   "id": "skull-02",
+   "latest": {
+    "age_hours": 143.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.43,
+    "reactions": 4,
+    "views": 935
+   },
+   "link": "https://www.youtube.com/shorts/n8gWQxmkmLE",
+   "music": null,
+   "organ": "skull",
+   "platform": "youtube",
+   "sent_at": "2026-10-31T20:01:44.751Z",
+   "slot": "2026-10-31T16:00:00-04:00",
+   "snapshots": {},
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 19.78
+  },
+  "6ae3755c263de3337343121c": {
+   "day": 9,
+   "id": "abdomen-02",
+   "latest": {
+    "age_hours": 139.5,
+    "averageTimeWatched": 4.89,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.6,
+    "reach": 125,
+    "reactions": 1,
+    "saves": 1,
+    "shares": 0,
+    "totalTimeWatched": 10.2,
+    "views": 143
+   },
+   "link": "https://www.instagram.com/reel/DfLZYA6DsaP/",
+   "music": null,
+   "organ": "abdomen",
+   "platform": "instagram",
+   "sent_at": "2026-11-01T00:02:29.925Z",
+   "slot": "2026-10-31T20:00:00-04:00",
+   "snapshots": {},
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 19.75
+  },
+  "6ae3755d1b42fad16d935b8c": {
+   "day": 9,
+   "id": "abdomen-02",
+   "latest": {
+    "age_hours": 139.5,
+    "averageTimeWatched": 5.64,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.05,
+    "reach": 282,
+    "reactions": 13,
+    "shares": 0,
+    "totalTimeWatched": 30.7,
+    "views": 321
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7702986298658786573?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": null,
+   "organ": "abdomen",
+   "platform": "tiktok",
+   "sent_at": "2026-11-01T00:02:12.521Z",
+   "slot": "2026-10-31T20:00:00-04:00",
+   "snapshots": {},
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 19.75
+  },
+  "6ae3755e1b42fad16d935c1d": {
+   "day": 9,
+   "id": "abdomen-02",
+   "latest": {
+    "age_hours": 139.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.84,
+    "reactions": 10,
+    "views": 1191
+   },
+   "link": "https://www.youtube.com/shorts/mQ1f0dyc-Lw",
+   "music": null,
+   "organ": "abdomen",
+   "platform": "youtube",
+   "sent_at": "2026-11-01T00:00:52.364Z",
+   "slot": "2026-10-31T20:00:00-04:00",
+   "snapshots": {},
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 19.75
+  },
+  "6ae4ee1ca351214acfa5e33b": {
+   "day": 10,
+   "id": "arm-02",
+   "latest": {
+    "age_hours": 125.0,
+    "averageTimeWatched": 4.32,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.65,
+    "reach": 121,
+    "reactions": 2,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 8.78,
+    "views": 147
+   },
+   "link": "https://www.instagram.com/reel/DfM891PgE5I/",
+   "music": "ambient-1",
+   "organ": "arm",
+   "platform": "instagram",
+   "sent_at": "2026-11-01T14:32:10.414Z",
+   "slot": "2026-11-01T09:30:00-05:00",
+   "snapshots": {},
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 18.48
+  },
+  "6ae4ee1ccd8290b9b90b1461": {
+   "day": 10,
+   "id": "arm-02",
+   "latest": {
+    "age_hours": 125.0,
+    "averageTimeWatched": 5.43,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.18,
+    "reach": 320,
+    "reactions": 4,
+    "shares": 0,
+    "totalTimeWatched": 31.03,
+    "views": 340
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703210350358940942?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "ambient-1",
+   "organ": "arm",
+   "platform": "tiktok",
+   "sent_at": "2026-11-01T14:31:44.793Z",
+   "slot": "2026-11-01T09:30:00-05:00",
+   "snapshots": {},
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 18.48
+  },
+  "6ae4ee1d34702c2daac97710": {
+   "day": 10,
+   "id": "arm-02",
+   "latest": {
+    "age_hours": 125.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.89,
+    "reactions": 9,
+    "views": 1013
+   },
+   "link": "https://www.youtube.com/shorts/ckRfA58a39o",
+   "music": "ambient-1",
+   "organ": "arm",
+   "platform": "youtube",
+   "sent_at": "2026-11-01T14:30:34.757Z",
+   "slot": "2026-11-01T09:30:00-05:00",
+   "snapshots": {},
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 18.48
+  },
+  "6ae4ee1f98505e7f522e29ac": {
+   "day": 11,
+   "id": "leg-01",
+   "latest": {
+    "age_hours": 122.0,
+    "averageTimeWatched": 6.94,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.34,
+    "reach": 967,
+    "reactions": 32,
+    "saves": 7,
+    "shares": 2,
+    "totalTimeWatched": 111.7,
+    "views": 1176
+   },
+   "link": "https://www.instagram.com/reel/DfNRf6Kj2lZ/",
+   "music": "ambient-5",
+   "organ": "leg",
+   "platform": "instagram",
+   "sent_at": "2026-11-01T17:31:24.793Z",
+   "slot": "2026-11-01T12:30:00-05:00",
+   "snapshots": {},
+   "title": "The Leg",
+   "type": "quiz",
+   "video_seconds": 19.73
+  },
+  "6ae4ee2098505e7f522e29fc": {
+   "day": 11,
+   "id": "leg-01",
+   "latest": {
+    "age_hours": 122.0,
+    "averageTimeWatched": 5.86,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.51,
+    "reach": 295,
+    "reactions": 11,
+    "shares": 0,
+    "totalTimeWatched": 31.07,
+    "views": 313
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703256821670120717?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "ambient-5",
+   "organ": "leg",
+   "platform": "tiktok",
+   "sent_at": "2026-11-01T17:32:21.453Z",
+   "slot": "2026-11-01T12:30:00-05:00",
+   "snapshots": {},
+   "title": "The Leg",
+   "type": "quiz",
+   "video_seconds": 19.73
+  },
+  "6ae4ee21cd8290b9b90b15ad": {
+   "day": 11,
+   "id": "leg-01",
+   "latest": {
+    "age_hours": 122.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.47,
+    "reactions": 14,
+    "views": 950
+   },
+   "link": "https://www.youtube.com/shorts/89c3jvCSDtU",
+   "music": "ambient-5",
+   "organ": "leg",
+   "platform": "youtube",
+   "sent_at": "2026-11-01T17:30:59.606Z",
+   "slot": "2026-11-01T12:30:00-05:00",
+   "snapshots": {},
+   "title": "The Leg",
+   "type": "quiz",
+   "video_seconds": 19.73
+  },
+  "6ae4ee2234702c2daac97b90": {
+   "day": 12,
+   "id": "pelvis-01",
+   "latest": {
+    "age_hours": 118.5,
+    "averageTimeWatched": 3.34,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.52,
+    "reach": 119,
+    "reactions": 2,
+    "saves": 0,
+    "shares": 1,
+    "totalTimeWatched": 6.5,
+    "views": 132
+   },
+   "link": "https://www.instagram.com/reel/DfNpj_BIf8-/",
+   "music": "house-2",
+   "organ": "pelvis",
+   "platform": "instagram",
+   "sent_at": "2026-11-01T21:02:04.148Z",
+   "slot": "2026-11-01T16:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 118.5,
+     "averageTimeWatched": 3.34,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.52,
+     "reach": 119,
+     "reactions": 2,
+     "saves": 0,
+     "shares": 1,
+     "totalTimeWatched": 6.5,
+     "views": 132
+    }
+   },
+   "title": "The Pelvis",
+   "type": "quiz",
+   "video_seconds": 20.37
+  },
+  "6ae4ee2398505e7f522e2ac1": {
+   "day": 12,
+   "id": "pelvis-01",
+   "latest": {
+    "age_hours": 118.5,
+    "averageTimeWatched": 5.68,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.93,
+    "reach": 271,
+    "reactions": 6,
+    "shares": 0,
+    "totalTimeWatched": 29.32,
+    "views": 311
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703311073398508813?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "house-2",
+   "organ": "pelvis",
+   "platform": "tiktok",
+   "sent_at": "2026-11-01T21:02:16.409Z",
+   "slot": "2026-11-01T16:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 118.5,
+     "averageTimeWatched": 5.68,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.93,
+     "reach": 271,
+     "reactions": 6,
+     "shares": 0,
+     "totalTimeWatched": 29.32,
+     "views": 311
+    }
+   },
+   "title": "The Pelvis",
+   "type": "quiz",
+   "video_seconds": 20.37
+  },
+  "6ae4ee24a351214acfa5ea9a": {
+   "day": 12,
+   "id": "pelvis-01",
+   "latest": {
+    "age_hours": 118.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.67,
+    "reactions": 4,
+    "views": 240
+   },
+   "link": "https://www.youtube.com/shorts/rjk-f9KXz6I",
+   "music": "house-2",
+   "organ": "pelvis",
+   "platform": "youtube",
+   "sent_at": "2026-11-01T21:01:31.045Z",
+   "slot": "2026-11-01T16:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 118.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.67,
+     "reactions": 4,
+     "views": 240
+    }
+   },
+   "title": "The Pelvis",
+   "type": "quiz",
+   "video_seconds": 20.37
+  },
+  "6ae4ee25a351214acfa5eb0e": {
+   "day": 13,
+   "id": "spine-01",
+   "latest": {
+    "age_hours": 116.4,
+    "averageTimeWatched": 5.35,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reach": 118,
+    "reactions": 0,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 10.26,
+    "views": 131
+   },
+   "link": "https://www.instagram.com/reel/DfN3Z9sDKxS/",
+   "music": "pop-1",
+   "organ": "spine",
+   "platform": "instagram",
+   "sent_at": "2026-11-01T23:03:19.736Z",
+   "slot": "2026-11-01T18:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 116.4,
+     "averageTimeWatched": 5.35,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0,
+     "reach": 118,
+     "reactions": 0,
+     "saves": 0,
+     "shares": 0,
+     "totalTimeWatched": 10.26,
+     "views": 131
+    }
+   },
+   "title": "The Spine",
+   "type": "quiz",
+   "video_seconds": 21.1
+  },
+  "6ae4ee2634702c2daac97c54": {
+   "day": 13,
+   "id": "spine-01",
+   "latest": {
+    "age_hours": 116.4,
+    "averageTimeWatched": 4.43,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.29,
+    "reach": 246,
+    "reactions": 12,
+    "shares": 0,
+    "totalTimeWatched": 20.58,
+    "views": 280
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703341976233495821?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "pop-1",
+   "organ": "spine",
+   "platform": "tiktok",
+   "sent_at": "2026-11-01T23:03:09.986Z",
+   "slot": "2026-11-01T18:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 116.4,
+     "averageTimeWatched": 4.43,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 4.29,
+     "reach": 246,
+     "reactions": 12,
+     "shares": 0,
+     "totalTimeWatched": 20.58,
+     "views": 280
+    }
+   },
+   "title": "The Spine",
+   "type": "quiz",
+   "video_seconds": 21.1
+  },
+  "6ae4ee2798505e7f522e2b8e": {
+   "day": 13,
+   "id": "spine-01",
+   "latest": {
+    "age_hours": 116.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.2,
+    "reactions": 11,
+    "views": 917
+   },
+   "link": "https://www.youtube.com/shorts/uVw7Wc4yvK0",
+   "music": "pop-1",
+   "organ": "spine",
+   "platform": "youtube",
+   "sent_at": "2026-11-01T23:01:30.100Z",
+   "slot": "2026-11-01T18:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 116.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.2,
+     "reactions": 11,
+     "views": 917
+    }
+   },
+   "title": "The Spine",
+   "type": "quiz",
+   "video_seconds": 21.1
+  },
+  "6ae632df1ee172cd6db80238": {
+   "day": 14,
+   "id": "chest-01",
+   "latest": {
+    "age_hours": 114.4,
+    "averageTimeWatched": 8.05,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.62,
+    "reach": 1107,
+    "reactions": 21,
+    "saves": 6,
+    "shares": 2,
+    "totalTimeWatched": 149.02,
+    "views": 1362
+   },
+   "link": "https://www.instagram.com/reel/DfOFLduFZ4C/",
+   "music": "lofi-3",
+   "organ": "chest",
+   "platform": "instagram",
+   "sent_at": "2026-11-02T01:03:16.415Z",
+   "slot": "2026-11-01T20:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 114.4,
+     "averageTimeWatched": 8.05,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.62,
+     "reach": 1107,
+     "reactions": 21,
+     "saves": 6,
+     "shares": 2,
+     "totalTimeWatched": 149.02,
+     "views": 1362
+    }
+   },
+   "title": "The Rib Cage",
+   "type": "quiz",
+   "video_seconds": 22.49
+  },
+  "6ae632dfab019b90871aa967": {
+   "day": 14,
+   "id": "chest-01",
+   "latest": {
+    "age_hours": 114.4,
+    "averageTimeWatched": 5.76,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.39,
+    "reach": 291,
+    "reactions": 14,
+    "shares": 0,
+    "totalTimeWatched": 30.98,
+    "views": 319
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703372869404773645?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "lofi-3",
+   "organ": "chest",
+   "platform": "tiktok",
+   "sent_at": "2026-11-02T01:02:59.145Z",
+   "slot": "2026-11-01T20:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 114.4,
+     "averageTimeWatched": 5.76,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 4.39,
+     "reach": 291,
+     "reactions": 14,
+     "shares": 0,
+     "totalTimeWatched": 30.98,
+     "views": 319
+    }
+   },
+   "title": "The Rib Cage",
+   "type": "quiz",
+   "video_seconds": 22.49
+  },
+  "6ae632e037c1acd2a0c3e2ab": {
+   "day": 14,
+   "id": "chest-01",
+   "latest": {
+    "age_hours": 114.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.51,
+    "reactions": 1,
+    "views": 196
+   },
+   "link": "https://www.youtube.com/shorts/DEa0ljKsCeA",
+   "music": "lofi-3",
+   "organ": "chest",
+   "platform": "youtube",
+   "sent_at": "2026-11-02T01:01:19.220Z",
+   "slot": "2026-11-01T20:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 114.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.51,
+     "reactions": 1,
+     "views": 196
+    }
+   },
+   "title": "The Rib Cage",
+   "type": "quiz",
+   "video_seconds": 22.49
+  },
+  "6ae632e3cf3a3112f3b91ba8": {
+   "day": 15,
+   "id": "hand-01",
+   "latest": {
+    "age_hours": 97.9,
+    "averageTimeWatched": 4.44,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.48,
+    "reach": 121,
+    "reactions": 3,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 8.88,
+    "views": 137
+   },
+   "link": "https://www.instagram.com/reel/DfP2emeiXHA/",
+   "music": "lofi-1",
+   "organ": "hand",
+   "platform": "instagram",
+   "sent_at": "2026-11-02T17:33:28.890Z",
+   "slot": "2026-11-02T12:30:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 97.9,
+     "averageTimeWatched": 4.44,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.48,
+     "reach": 121,
+     "reactions": 3,
+     "saves": 0,
+     "shares": 0,
+     "totalTimeWatched": 8.88,
+     "views": 137
+    }
+   },
+   "title": "The Hand",
+   "type": "quiz",
+   "video_seconds": 21.65
+  },
+  "6ae632e3f0984eef332486b1": {
+   "day": 15,
+   "id": "hand-01",
+   "latest": {
+    "age_hours": 97.9,
+    "averageTimeWatched": 5.52,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.65,
+    "reach": 250,
+    "reactions": 10,
+    "shares": 0,
+    "totalTimeWatched": 25.03,
+    "views": 274
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703628350874488078?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "lofi-1",
+   "organ": "hand",
+   "platform": "tiktok",
+   "sent_at": "2026-11-02T17:33:56.021Z",
+   "slot": "2026-11-02T12:30:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 97.9,
+     "averageTimeWatched": 5.52,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.65,
+     "reach": 250,
+     "reactions": 10,
+     "shares": 0,
+     "totalTimeWatched": 25.03,
+     "views": 274
+    }
+   },
+   "title": "The Hand",
+   "type": "quiz",
+   "video_seconds": 21.65
+  },
+  "6ae632e4f0984eef332486dd": {
+   "day": 15,
+   "id": "hand-01",
+   "latest": {
+    "age_hours": 98.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.82,
+    "reactions": 7,
+    "views": 385
+   },
+   "link": "https://www.youtube.com/shorts/uu0v3Rfe3L4",
+   "music": "lofi-1",
+   "organ": "hand",
+   "platform": "youtube",
+   "sent_at": "2026-11-02T17:31:58.399Z",
+   "slot": "2026-11-02T12:30:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 98.0,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.82,
+     "reactions": 7,
+     "views": 385
+    }
+   },
+   "title": "The Hand",
+   "type": "quiz",
+   "video_seconds": 21.65
+  },
+  "6ae632e521c807e9d57b7724": {
+   "day": 16,
+   "id": "eye-01",
+   "latest": {
+    "age_hours": 94.4,
+    "averageTimeWatched": 4.02,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.41,
+    "reach": 142,
+    "reactions": 1,
+    "saves": 1,
+    "shares": 0,
+    "totalTimeWatched": 9.44,
+    "views": 162
+   },
+   "link": "https://www.instagram.com/reel/DfQOhfkkz-X/",
+   "music": "house-3",
+   "organ": "eye",
+   "platform": "instagram",
+   "sent_at": "2026-11-02T21:03:24.957Z",
+   "slot": "2026-11-02T16:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 94.4,
+     "averageTimeWatched": 4.02,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.41,
+     "reach": 142,
+     "reactions": 1,
+     "saves": 1,
+     "shares": 0,
+     "totalTimeWatched": 9.44,
+     "views": 162
+    }
+   },
+   "title": "The Eye",
+   "type": "quiz",
+   "video_seconds": 19.78
+  },
+  "6ae632e6ab019b90871aaa34": {
+   "day": 16,
+   "id": "eye-01",
+   "latest": {
+    "age_hours": 94.4,
+    "averageTimeWatched": 4.41,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.15,
+    "reach": 251,
+    "reactions": 6,
+    "shares": 0,
+    "totalTimeWatched": 20.42,
+    "views": 279
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703682315737697550?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "house-3",
+   "organ": "eye",
+   "platform": "tiktok",
+   "sent_at": "2026-11-02T21:02:59.137Z",
+   "slot": "2026-11-02T16:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 94.4,
+     "averageTimeWatched": 4.41,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.15,
+     "reach": 251,
+     "reactions": 6,
+     "shares": 0,
+     "totalTimeWatched": 20.42,
+     "views": 279
+    }
+   },
+   "title": "The Eye",
+   "type": "quiz",
+   "video_seconds": 19.78
+  },
+  "6ae632e6cf3a3112f3b91c69": {
+   "day": 16,
+   "id": "eye-01",
+   "latest": {
+    "age_hours": 94.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.34,
+    "reactions": 3,
+    "views": 889
+   },
+   "link": "https://www.youtube.com/shorts/bdN-CiJ4Iis",
+   "music": "house-3",
+   "organ": "eye",
+   "platform": "youtube",
+   "sent_at": "2026-11-02T21:01:56.628Z",
+   "slot": "2026-11-02T16:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 94.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.34,
+     "reactions": 3,
+     "views": 889
+    }
+   },
+   "title": "The Eye",
+   "type": "quiz",
+   "video_seconds": 19.78
+  },
+  "6ae78eda5604f9d85b82b070": {
+   "day": 17,
+   "id": "thigh-01",
+   "latest": {
+    "age_hours": 90.5,
+    "averageTimeWatched": 5.41,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 5.18,
+    "reach": 869,
+    "reactions": 24,
+    "saves": 13,
+    "shares": 8,
+    "totalTimeWatched": 78.98,
+    "views": 1033
+   },
+   "link": "https://www.instagram.com/reel/DfQp3ljksb-/",
+   "music": "ambient-4",
+   "organ": "thigh",
+   "platform": "instagram",
+   "sent_at": "2026-11-03T01:02:37.002Z",
+   "slot": "2026-11-02T20:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 90.5,
+     "averageTimeWatched": 5.41,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 5.18,
+     "reach": 869,
+     "reactions": 24,
+     "saves": 13,
+     "shares": 8,
+     "totalTimeWatched": 78.98,
+     "views": 1033
+    }
+   },
+   "title": "Leg Muscles",
+   "type": "quiz",
+   "video_seconds": 21.04
+  },
+  "6ae78edb411773964797b51c": {
+   "day": 17,
+   "id": "thigh-01",
+   "latest": {
+    "age_hours": 90.1,
+    "averageTimeWatched": 5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.17,
+    "reach": 257,
+    "reactions": 9,
+    "shares": 0,
+    "totalTimeWatched": 23.57,
+    "views": 284
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703743933427338510?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "ambient-4",
+   "organ": "thigh",
+   "platform": "tiktok",
+   "sent_at": "2026-11-03T01:20:57.831Z",
+   "slot": "2026-11-02T20:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 90.1,
+     "averageTimeWatched": 5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.17,
+     "reach": 257,
+     "reactions": 9,
+     "shares": 0,
+     "totalTimeWatched": 23.57,
+     "views": 284
+    }
+   },
+   "title": "Leg Muscles",
+   "type": "quiz",
+   "video_seconds": 21.04
+  },
+  "6ae78edbb7d22b897a0a384b": {
+   "day": 17,
+   "id": "thigh-01",
+   "latest": {
+    "age_hours": 90.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.64,
+    "reactions": 6,
+    "views": 365
+   },
+   "link": "https://www.youtube.com/shorts/Jlzo93adqyo",
+   "music": "ambient-4",
+   "organ": "thigh",
+   "platform": "youtube",
+   "sent_at": "2026-11-03T01:01:05.935Z",
+   "slot": "2026-11-02T20:00:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 90.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.64,
+     "reactions": 6,
+     "views": 365
+    }
+   },
+   "title": "Leg Muscles",
+   "type": "quiz",
+   "video_seconds": 21.04
+  },
+  "6ae78edd5604f9d85b82b114": {
+   "day": 18,
+   "id": "teeth-01",
+   "latest": {
+    "age_hours": 74.0,
+    "averageTimeWatched": 6.53,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.04,
+    "reach": 267,
+    "reactions": 6,
+    "shares": 0,
+    "totalTimeWatched": 31.88,
+    "views": 294
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7703999023065222413?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "ambient-2",
+   "organ": "teeth",
+   "platform": "tiktok",
+   "sent_at": "2026-11-03T17:32:31.327Z",
+   "slot": "2026-11-03T12:30:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 74.0,
+     "averageTimeWatched": 6.53,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.04,
+     "reach": 267,
+     "reactions": 6,
+     "shares": 0,
+     "totalTimeWatched": 31.88,
+     "views": 294
+    }
+   },
+   "title": "The Teeth",
+   "type": "quiz",
+   "video_seconds": 21.59
+  },
+  "6ae78eddb7d22b897a0a38ab": {
+   "day": 18,
+   "id": "teeth-01",
+   "latest": {
+    "age_hours": 73.9,
+    "averageTimeWatched": 4.59,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.87,
+    "reach": 115,
+    "reactions": 0,
+    "saves": 1,
+    "shares": 0,
+    "totalTimeWatched": 8.72,
+    "views": 128
+   },
+   "link": "https://www.instagram.com/reel/DfSbJxJDaHo/",
+   "music": "ambient-2",
+   "organ": "teeth",
+   "platform": "instagram",
+   "sent_at": "2026-11-03T17:33:25.039Z",
+   "slot": "2026-11-03T12:30:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 73.9,
+     "averageTimeWatched": 4.59,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.87,
+     "reach": 115,
+     "reactions": 0,
+     "saves": 1,
+     "shares": 0,
+     "totalTimeWatched": 8.72,
+     "views": 128
+    }
+   },
+   "title": "The Teeth",
+   "type": "quiz",
+   "video_seconds": 21.59
+  },
+  "6ae78ede5604f9d85b82b140": {
+   "day": 18,
+   "id": "teeth-01",
+   "latest": {
+    "age_hours": 74.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.51,
+    "reactions": 9,
+    "views": 596
+   },
+   "link": "https://www.youtube.com/shorts/EJADbbJjjEA",
+   "music": "ambient-2",
+   "organ": "teeth",
+   "platform": "youtube",
+   "sent_at": "2026-11-03T17:31:24.769Z",
+   "slot": "2026-11-03T12:30:00-05:00",
+   "snapshots": {
+    "3d": {
+     "age_hours": 74.0,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.51,
+     "reactions": 9,
+     "views": 596
+    }
+   },
+   "title": "The Teeth",
+   "type": "quiz",
+   "video_seconds": 21.59
+  },
+  "6ae78edf411773964797b618": {
+   "day": 19,
+   "id": "heart-03",
+   "latest": {
+    "age_hours": 70.5,
+    "averageTimeWatched": 5.56,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.41,
+    "reach": 373,
+    "reactions": 4,
+    "saves": 4,
+    "shares": 1,
+    "totalTimeWatched": 33.27,
+    "views": 417
+   },
+   "link": "https://www.instagram.com/reel/DfSzPYykqDN/",
+   "music": "house-5",
+   "organ": "heart",
+   "platform": "instagram",
+   "sent_at": "2026-11-03T21:02:38.860Z",
+   "slot": "2026-11-03T16:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 70.5,
+     "averageTimeWatched": 5.56,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.41,
+     "reach": 373,
+     "reactions": 4,
+     "saves": 4,
+     "shares": 1,
+     "totalTimeWatched": 33.27,
+     "views": 417
+    }
+   },
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 19.57
+  },
+  "6ae78ee0b7d22b897a0a396a": {
+   "day": 19,
+   "id": "heart-03",
+   "latest": {
+    "age_hours": 70.5,
+    "averageTimeWatched": 5.96,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.27,
+    "reach": 198,
+    "reactions": 7,
+    "shares": 0,
+    "totalTimeWatched": 21.53,
+    "views": 214
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7704053379118419213?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "house-5",
+   "organ": "heart",
+   "platform": "tiktok",
+   "sent_at": "2026-11-03T21:02:47.450Z",
+   "slot": "2026-11-03T16:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 70.5,
+     "averageTimeWatched": 5.96,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.27,
+     "reach": 198,
+     "reactions": 7,
+     "shares": 0,
+     "totalTimeWatched": 21.53,
+     "views": 214
+    }
+   },
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 19.57
+  },
+  "6ae78ee1026a1294e55a8c70": {
+   "day": 19,
+   "id": "heart-03",
+   "latest": {
+    "age_hours": 70.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.16,
+    "reactions": 1,
+    "views": 86
+   },
+   "link": "https://www.youtube.com/shorts/2zwkzUv2i8Y",
+   "music": "house-5",
+   "organ": "heart",
+   "platform": "youtube",
+   "sent_at": "2026-11-03T21:01:48.887Z",
+   "slot": "2026-11-03T16:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 70.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.16,
+     "reactions": 1,
+     "views": 86
+    }
+   },
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 19.57
+  },
+  "6ae78ee21e69de2cfc103adb": {
+   "day": 20,
+   "id": "lungs-03",
+   "latest": {
+    "age_hours": 66.5,
+    "averageTimeWatched": 5.7,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.81,
+    "reach": 256,
+    "reactions": 8,
+    "shares": 0,
+    "totalTimeWatched": 27.33,
+    "views": 285
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7704115152894954765?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "house-4",
+   "organ": "lungs",
+   "platform": "tiktok",
+   "sent_at": "2026-11-04T01:02:25.387Z",
+   "slot": "2026-11-03T20:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 66.5,
+     "averageTimeWatched": 5.7,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.81,
+     "reach": 256,
+     "reactions": 8,
+     "shares": 0,
+     "totalTimeWatched": 27.33,
+     "views": 285
+    }
+   },
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 20.19
+  },
+  "6ae78ee23f7155902f70c8c6": {
+   "day": 20,
+   "id": "lungs-03",
+   "latest": {
+    "age_hours": 66.4,
+    "averageTimeWatched": 4.89,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.62,
+    "reach": 161,
+    "reactions": 0,
+    "saves": 1,
+    "shares": 0,
+    "totalTimeWatched": 12.8,
+    "views": 189
+   },
+   "link": "https://www.instagram.com/reel/DfTO2-SiX_2/",
+   "music": "house-4",
+   "organ": "lungs",
+   "platform": "instagram",
+   "sent_at": "2026-11-04T01:04:15.065Z",
+   "slot": "2026-11-03T20:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 66.4,
+     "averageTimeWatched": 4.89,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.62,
+     "reach": 161,
+     "reactions": 0,
+     "saves": 1,
+     "shares": 0,
+     "totalTimeWatched": 12.8,
+     "views": 189
+    }
+   },
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 20.19
+  },
+  "6ae78ee35604f9d85b82b26c": {
+   "day": 20,
+   "id": "lungs-03",
+   "latest": {
+    "age_hours": 66.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.02,
+    "reactions": 6,
+    "views": 587
+   },
+   "link": "https://www.youtube.com/shorts/PKf04F5CCo0",
+   "music": "house-4",
+   "organ": "lungs",
+   "platform": "youtube",
+   "sent_at": "2026-11-04T01:01:32.415Z",
+   "slot": "2026-11-03T20:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 66.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.02,
+     "reactions": 6,
+     "views": 587
+    }
+   },
+   "title": "The Lungs",
+   "type": "quiz",
+   "video_seconds": 20.19
+  },
+  "6ae917d425014d8f320f17b6": {
+   "day": 21,
+   "id": "skull-03",
+   "latest": {
+    "age_hours": 53.0,
+    "averageTimeWatched": 6.75,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.16,
+    "reach": 1140,
+    "reactions": 28,
+    "saves": 6,
+    "shares": 1,
+    "totalTimeWatched": 127.53,
+    "views": 1382
+   },
+   "link": "https://www.instagram.com/reel/DfUrRogCUFn/",
+   "music": "house-1",
+   "organ": "skull",
+   "platform": "instagram",
+   "sent_at": "2026-11-04T14:31:34.314Z",
+   "slot": "2026-11-04T09:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 53.0,
+     "averageTimeWatched": 6.75,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.16,
+     "reach": 1140,
+     "reactions": 28,
+     "saves": 6,
+     "shares": 1,
+     "totalTimeWatched": 127.53,
+     "views": 1382
+    }
+   },
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 18.97
+  },
+  "6ae917d425014d8f320f1804": {
+   "day": 21,
+   "id": "skull-03",
+   "latest": {
+    "age_hours": 53.0,
+    "averageTimeWatched": 5.44,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.73,
+    "reach": 239,
+    "reactions": 5,
+    "shares": 0,
+    "totalTimeWatched": 26.2,
+    "views": 289
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7704323640531406094?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "house-1",
+   "organ": "skull",
+   "platform": "tiktok",
+   "sent_at": "2026-11-04T14:31:27.433Z",
+   "slot": "2026-11-04T09:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 53.0,
+     "averageTimeWatched": 5.44,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.73,
+     "reach": 239,
+     "reactions": 5,
+     "shares": 0,
+     "totalTimeWatched": 26.2,
+     "views": 289
+    }
+   },
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 18.97
+  },
+  "6ae917d525014d8f320f1847": {
+   "day": 21,
+   "id": "skull-03",
+   "latest": {
+    "age_hours": 53.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reactions": 0,
+    "views": 15
+   },
+   "link": "https://www.youtube.com/shorts/Z1lXO96Zxto",
+   "music": "house-1",
+   "organ": "skull",
+   "platform": "youtube",
+   "sent_at": "2026-11-04T14:30:34.446Z",
+   "slot": "2026-11-04T09:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 53.0,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0,
+     "reactions": 0,
+     "views": 15
+    }
+   },
+   "title": "The Skull",
+   "type": "quiz",
+   "video_seconds": 18.97
+  },
+  "6ae917d79e9bda3b49d4602c": {
+   "day": 22,
+   "id": "abdomen-03",
+   "latest": {
+    "age_hours": 49.9,
+    "averageTimeWatched": 4.07,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.97,
+    "reach": 152,
+    "reactions": 1,
+    "saves": 0,
+    "shares": 2,
+    "totalTimeWatched": 9.84,
+    "views": 160
+   },
+   "link": "https://www.instagram.com/reel/DfVAAC4keH_/",
+   "music": "lofi-5",
+   "organ": "abdomen",
+   "platform": "instagram",
+   "sent_at": "2026-11-04T17:34:01.238Z",
+   "slot": "2026-11-04T12:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 49.9,
+     "averageTimeWatched": 4.07,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.97,
+     "reach": 152,
+     "reactions": 1,
+     "saves": 0,
+     "shares": 2,
+     "totalTimeWatched": 9.84,
+     "views": 160
+    }
+   },
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 23.31
+  },
+  "6ae917d89e9bda3b49d46089": {
+   "day": 22,
+   "id": "abdomen-03",
+   "latest": {
+    "age_hours": 49.9,
+    "averageTimeWatched": 5.94,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 5.66,
+    "reach": 280,
+    "reactions": 15,
+    "shares": 3,
+    "totalTimeWatched": 31.78,
+    "views": 318
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7704370793987247374?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "lofi-5",
+   "organ": "abdomen",
+   "platform": "tiktok",
+   "sent_at": "2026-11-04T17:38:53.007Z",
+   "slot": "2026-11-04T12:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 49.9,
+     "averageTimeWatched": 5.94,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 5.66,
+     "reach": 280,
+     "reactions": 15,
+     "shares": 3,
+     "totalTimeWatched": 31.78,
+     "views": 318
+    }
+   },
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 23.31
+  },
+  "6ae917d94e401f604e4eea4f": {
+   "day": 22,
+   "id": "abdomen-03",
+   "latest": {
+    "age_hours": 50.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.8,
+    "reactions": 1,
+    "views": 125
+   },
+   "link": "https://www.youtube.com/shorts/17H8GBCb5tU",
+   "music": "lofi-5",
+   "organ": "abdomen",
+   "platform": "youtube",
+   "sent_at": "2026-11-04T17:31:32.180Z",
+   "slot": "2026-11-04T12:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 50.0,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.8,
+     "reactions": 1,
+     "views": 125
+    }
+   },
+   "title": "The Abdomen",
+   "type": "quiz",
+   "video_seconds": 23.31
+  },
+  "6ae917db9e9bda3b49d4614a": {
+   "day": 23,
+   "id": "arm-03",
+   "latest": {
+    "age_hours": 46.4,
+    "averageTimeWatched": 5.06,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.77,
+    "reach": 205,
+    "reactions": 8,
+    "shares": 0,
+    "totalTimeWatched": 24.27,
+    "views": 289
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7704424538141887758?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "lofi-3",
+   "organ": "arm",
+   "platform": "tiktok",
+   "sent_at": "2026-11-04T21:03:13.466Z",
+   "slot": "2026-11-04T16:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 46.4,
+     "averageTimeWatched": 5.06,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.77,
+     "reach": 205,
+     "reactions": 8,
+     "shares": 0,
+     "totalTimeWatched": 24.27,
+     "views": 289
+    }
+   },
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 22.12
+  },
+  "6ae917dbb62d192bcc4cacfa": {
+   "day": 23,
+   "id": "arm-03",
+   "latest": {
+    "age_hours": 46.4,
+    "averageTimeWatched": 6.57,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.36,
+    "reach": 1043,
+    "reactions": 32,
+    "saves": 1,
+    "shares": 1,
+    "totalTimeWatched": 114.2,
+    "views": 1220
+   },
+   "link": "https://www.instagram.com/reel/DfVYHV_DM6e/",
+   "music": "lofi-3",
+   "organ": "arm",
+   "platform": "instagram",
+   "sent_at": "2026-11-04T21:03:46.808Z",
+   "slot": "2026-11-04T16:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 46.4,
+     "averageTimeWatched": 6.57,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.36,
+     "reach": 1043,
+     "reactions": 32,
+     "saves": 1,
+     "shares": 1,
+     "totalTimeWatched": 114.2,
+     "views": 1220
+    }
+   },
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 22.12
+  },
+  "6ae917dc4e401f604e4eeb0d": {
+   "day": 23,
+   "id": "arm-03",
+   "latest": {
+    "age_hours": 46.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reactions": 0,
+    "views": 137
+   },
+   "link": "https://www.youtube.com/shorts/Blhh4RuWQe8",
+   "music": "lofi-3",
+   "organ": "arm",
+   "platform": "youtube",
+   "sent_at": "2026-11-04T21:02:16.464Z",
+   "slot": "2026-11-04T16:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 46.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0,
+     "reactions": 0,
+     "views": 137
+    }
+   },
+   "title": "The Arm",
+   "type": "quiz",
+   "video_seconds": 22.12
+  },
+  "6ae917de9e9bda3b49d46692": {
+   "day": 24,
+   "id": "leg-02",
+   "latest": {
+    "age_hours": 44.4,
+    "averageTimeWatched": 6.97,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.22,
+    "reach": 811,
+    "reactions": 12,
+    "saves": 4,
+    "shares": 1,
+    "totalTimeWatched": 94.53,
+    "views": 1010
+   },
+   "link": "https://www.instagram.com/reel/DfVl6N0j5f5/",
+   "music": "lofi-1",
+   "organ": "leg",
+   "platform": "instagram",
+   "sent_at": "2026-11-04T23:05:14.446Z",
+   "slot": "2026-11-04T18:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 44.4,
+     "averageTimeWatched": 6.97,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.22,
+     "reach": 811,
+     "reactions": 12,
+     "saves": 4,
+     "shares": 1,
+     "totalTimeWatched": 94.53,
+     "views": 1010
+    }
+   },
+   "title": "The Leg",
+   "type": "quiz",
+   "video_seconds": 21.53
+  },
+  "6ae917df967eeee46f54827b": {
+   "day": 24,
+   "id": "leg-02",
+   "latest": {
+    "age_hours": 44.4,
+    "averageTimeWatched": 5.96,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.21,
+    "reach": 5,
+    "reactions": 6,
+    "shares": 0,
+    "totalTimeWatched": 27.5,
+    "views": 271
+   },
+   "link": "https://www.tiktok.com/@the.anatomy.ace/video/7704455528419740942?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+   "music": "lofi-1",
+   "organ": "leg",
+   "platform": "tiktok",
+   "sent_at": "2026-11-04T23:03:32.248Z",
+   "slot": "2026-11-04T18:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 44.4,
+     "averageTimeWatched": 5.96,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.21,
+     "reach": 5,
+     "reactions": 6,
+     "shares": 0,
+     "totalTimeWatched": 27.5,
+     "views": 271
+    }
+   },
+   "title": "The Leg",
+   "type": "quiz",
+   "video_seconds": 21.53
+  },
+  "6ae917e025014d8f320f1a08": {
+   "day": 24,
+   "id": "leg-02",
+   "latest": {
+    "age_hours": 44.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.39,
+    "reactions": 1,
+    "views": 257
+   },
+   "link": "https://www.youtube.com/shorts/qyJHjx5JZO0",
+   "music": "lofi-1",
+   "organ": "leg",
+   "platform": "youtube",
+   "sent_at": "2026-11-04T23:02:38.852Z",
+   "slot": "2026-11-04T18:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 44.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0.39,
+     "reactions": 1,
+     "views": 257
+    }
+   },
+   "title": "The Leg",
+   "type": "quiz",
+   "video_seconds": 21.53
+  },
+  "6ae917e1b62d192bcc4cae0e": {
+   "day": 25,
+   "id": "pelvis-02",
+   "latest": {
+    "age_hours": 42.5,
+    "averageTimeWatched": 8.17,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.48,
+    "reach": 1049,
+    "reactions": 21,
+    "saves": 4,
+    "shares": 1,
+    "totalTimeWatched": 146.65,
+    "views": 1294
+   },
+   "link": "https://www.instagram.com/reel/DfVzhB-D9pr/",
+   "music": "pop-5",
+   "organ": "pelvis",
+   "platform": "instagram",
+   "sent_at": "2026-11-05T01:02:37.457Z",
+   "slot": "2026-11-04T20:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 42.5,
+     "averageTimeWatched": 8.17,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.48,
+     "reach": 1049,
+     "reactions": 21,
+     "saves": 4,
+     "shares": 1,
+     "totalTimeWatched": 146.65,
+     "views": 1294
+    }
+   },
+   "title": "The Pelvis",
+   "type": "quiz",
+   "video_seconds": 22.64
+  },
+  "6ae917e225014d8f320f1a7c": {
+   "day": 25,
+   "id": "pelvis-02",
+   "latest": {
+    "age_hours": 42.5,
+    "averageTimeWatched": 5.06,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.72,
+    "reach": 0,
+    "reactions": 8,
+    "shares": 0,
+    "totalTimeWatched": 25.13,
+    "views": 294
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7704486282210053390",
+   "music": "pop-5",
+   "organ": "pelvis",
+   "platform": "tiktok",
+   "sent_at": "2026-11-05T01:02:38.378Z",
+   "slot": "2026-11-04T20:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 42.5,
+     "averageTimeWatched": 5.06,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.72,
+     "reach": 0,
+     "reactions": 8,
+     "shares": 0,
+     "totalTimeWatched": 25.13,
+     "views": 294
+    }
+   },
+   "title": "The Pelvis",
+   "type": "quiz",
+   "video_seconds": 22.64
+  },
+  "6ae917e3b62d192bcc4cae50": {
+   "day": 25,
+   "id": "pelvis-02",
+   "latest": {
+    "age_hours": 42.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.02,
+    "reactions": 3,
+    "views": 293
+   },
+   "link": "https://www.youtube.com/shorts/8xWoI-L6Meo",
+   "music": "pop-5",
+   "organ": "pelvis",
+   "platform": "youtube",
+   "sent_at": "2026-11-05T01:01:45.975Z",
+   "slot": "2026-11-04T20:00:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 42.5,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 1.02,
+     "reactions": 3,
+     "views": 293
+    }
+   },
+   "title": "The Pelvis",
+   "type": "quiz",
+   "video_seconds": 22.64
+  },
+  "6aea494b46499f925e7aff82": {
+   "day": 26,
+   "id": "spine-02",
+   "latest": {
+    "age_hours": 29.0,
+    "averageTimeWatched": 7.94,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.63,
+    "reach": 951,
+    "reactions": 40,
+    "saves": 3,
+    "shares": 1,
+    "totalTimeWatched": 125.18,
+    "views": 1195
+   },
+   "link": "https://www.instagram.com/reel/DfXQFBliBAo/",
+   "music": "pop-3",
+   "organ": "spine",
+   "platform": "instagram",
+   "sent_at": "2026-11-05T14:31:36.629Z",
+   "slot": "2026-11-05T09:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 29.0,
+     "averageTimeWatched": 7.94,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 4.63,
+     "reach": 951,
+     "reactions": 40,
+     "saves": 3,
+     "shares": 1,
+     "totalTimeWatched": 125.18,
+     "views": 1195
+    }
+   },
+   "title": "The Spine",
+   "type": "quiz",
+   "video_seconds": 22.4
+  },
+  "6aea494cdd6313a10718d9c8": {
+   "day": 26,
+   "id": "spine-02",
+   "latest": {
+    "age_hours": 29.0,
+    "averageTimeWatched": 7.71,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.33,
+    "reach": 0,
+    "reactions": 13,
+    "shares": 0,
+    "totalTimeWatched": 38.82,
+    "views": 300
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7704694809734155533",
+   "music": "pop-3",
+   "organ": "spine",
+   "platform": "tiktok",
+   "sent_at": "2026-11-05T14:31:42.331Z",
+   "slot": "2026-11-05T09:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 29.0,
+     "averageTimeWatched": 7.71,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 4.33,
+     "reach": 0,
+     "reactions": 13,
+     "shares": 0,
+     "totalTimeWatched": 38.82,
+     "views": 300
+    }
+   },
+   "title": "The Spine",
+   "type": "quiz",
+   "video_seconds": 22.4
+  },
+  "6aea494d6f495ad554188f24": {
+   "day": 26,
+   "id": "spine-02",
+   "latest": {
+    "age_hours": 29.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reactions": 0,
+    "views": 62
+   },
+   "link": "https://www.youtube.com/shorts/TExNx3X8Z9M",
+   "music": "pop-3",
+   "organ": "spine",
+   "platform": "youtube",
+   "sent_at": "2026-11-05T14:31:35.143Z",
+   "slot": "2026-11-05T09:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 29.0,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 0,
+     "reactions": 0,
+     "views": 62
+    }
+   },
+   "title": "The Spine",
+   "type": "quiz",
+   "video_seconds": 22.4
+  },
+  "6aea494f46499f925e7b05ad": {
+   "day": 27,
+   "id": "chest-02",
+   "latest": {
+    "age_hours": 25.9,
+    "averageTimeWatched": 5.81,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.35,
+    "reach": 328,
+    "reactions": 8,
+    "saves": 1,
+    "shares": 2,
+    "totalTimeWatched": 31.93,
+    "views": 395
+   },
+   "link": "https://www.instagram.com/reel/DfXk1BMjIez/",
+   "music": "pop-1",
+   "organ": "chest",
+   "platform": "instagram",
+   "sent_at": "2026-11-05T17:33:13.619Z",
+   "slot": "2026-11-05T12:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 25.9,
+     "averageTimeWatched": 5.81,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.35,
+     "reach": 328,
+     "reactions": 8,
+     "saves": 1,
+     "shares": 2,
+     "totalTimeWatched": 31.93,
+     "views": 395
+    }
+   },
+   "title": "The Rib Cage",
+   "type": "quiz",
+   "video_seconds": 23.67
+  },
+  "6aea4950dd6313a10718dacc": {
+   "day": 27,
+   "id": "chest-02",
+   "latest": {
+    "age_hours": 26.0,
+    "averageTimeWatched": 4.81,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.51,
+    "reach": 0,
+    "reactions": 10,
+    "shares": 0,
+    "totalTimeWatched": 23.25,
+    "views": 285
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7704741312678939918",
+   "music": "pop-1",
+   "organ": "chest",
+   "platform": "tiktok",
+   "sent_at": "2026-11-05T17:32:05.676Z",
+   "slot": "2026-11-05T12:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 26.0,
+     "averageTimeWatched": 4.81,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 3.51,
+     "reach": 0,
+     "reactions": 10,
+     "shares": 0,
+     "totalTimeWatched": 23.25,
+     "views": 285
+    }
+   },
+   "title": "The Rib Cage",
+   "type": "quiz",
+   "video_seconds": 23.67
+  },
+  "6aea49511ee1ad0996cc1f34": {
+   "day": 27,
+   "id": "chest-02",
+   "latest": {
+    "age_hours": 26.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.17,
+    "reactions": 1,
+    "views": 46
+   },
+   "link": "https://www.youtube.com/shorts/xsjJOGj5CYQ",
+   "music": "pop-1",
+   "organ": "chest",
+   "platform": "youtube",
+   "sent_at": "2026-11-05T17:31:06.649Z",
+   "slot": "2026-11-05T12:30:00-05:00",
+   "snapshots": {
+    "1d": {
+     "age_hours": 26.0,
+     "checked_at": "2026-11-06T19:29:55Z",
+     "comments": 0,
+     "engagementRate": 2.17,
+     "reactions": 1,
+     "views": 46
+    }
+   },
+   "title": "The Rib Cage",
+   "type": "quiz",
+   "video_seconds": 23.67
+  },
+  "6aeb9d71b080155a2dc3fe39": {
+   "day": 28,
+   "id": "hand-02",
+   "latest": {
+    "age_hours": 22.5,
+    "averageTimeWatched": 5.73,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 1,
+    "engagementRate": 3.85,
+    "reach": 650,
+    "reactions": 18,
+    "saves": 5,
+    "shares": 1,
+    "totalTimeWatched": 61.6,
+    "views": 767
+   },
+   "link": "https://www.instagram.com/reel/DfX83WuE8WE/",
+   "music": "ambient-4",
+   "organ": "hand",
+   "platform": "instagram",
+   "sent_at": "2026-11-05T21:02:52.667Z",
+   "slot": "2026-11-05T16:00:00-05:00",
+   "snapshots": {},
+   "title": "The Hand",
+   "type": "quiz",
+   "video_seconds": 22.34
+  },
+  "6aeb9d721c31d2bdeba2a32e": {
+   "day": 28,
+   "id": "hand-02",
+   "latest": {
+    "age_hours": 22.4,
+    "averageTimeWatched": 4.51,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 3.24,
+    "reach": 0,
+    "reactions": 7,
+    "shares": 0,
+    "totalTimeWatched": 16.3,
+    "views": 216
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7704795484119944461",
+   "music": "ambient-4",
+   "organ": "hand",
+   "platform": "tiktok",
+   "sent_at": "2026-11-05T21:03:05.147Z",
+   "slot": "2026-11-05T16:00:00-05:00",
+   "snapshots": {},
+   "title": "The Hand",
+   "type": "quiz",
+   "video_seconds": 22.34
+  },
+  "6aeb9d731c31d2bdeba2a414": {
+   "day": 28,
+   "id": "hand-02",
+   "latest": {
+    "age_hours": 22.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.08,
+    "reactions": 10,
+    "views": 926
+   },
+   "link": "https://www.youtube.com/shorts/KFrMF_c-5dY",
+   "music": "ambient-4",
+   "organ": "hand",
+   "platform": "youtube",
+   "sent_at": "2026-11-05T21:01:45.793Z",
+   "slot": "2026-11-05T16:00:00-05:00",
+   "snapshots": {},
+   "title": "The Hand",
+   "type": "quiz",
+   "video_seconds": 22.34
+  },
+  "6aeb9d7591e850096bd0f375": {
+   "day": 29,
+   "id": "eye-02",
+   "latest": {
+    "age_hours": 20.4,
+    "averageTimeWatched": 5.95,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.37,
+    "reach": 219,
+    "reactions": 3,
+    "saves": 0,
+    "shares": 0,
+    "totalTimeWatched": 22.2,
+    "views": 262
+   },
+   "link": "https://www.instagram.com/reel/DfYKjmvARGB/",
+   "music": "ambient-2",
+   "organ": "eye",
+   "platform": "instagram",
+   "sent_at": "2026-11-05T23:03:07.027Z",
+   "slot": "2026-11-05T18:00:00-05:00",
+   "snapshots": {},
+   "title": "The Eye",
+   "type": "quiz",
+   "video_seconds": 22.17
+  },
+  "6aeb9d760bb7d41592a662be": {
+   "day": 29,
+   "id": "eye-02",
+   "latest": {
+    "age_hours": 20.5,
+    "averageTimeWatched": 4.77,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 1,
+    "engagementRate": 2.3,
+    "reach": 0,
+    "reactions": 5,
+    "shares": 0,
+    "totalTimeWatched": 20.92,
+    "views": 261
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7704826455582051597",
+   "music": "ambient-2",
+   "organ": "eye",
+   "platform": "tiktok",
+   "sent_at": "2026-11-05T23:02:44.338Z",
+   "slot": "2026-11-05T18:00:00-05:00",
+   "snapshots": {},
+   "title": "The Eye",
+   "type": "quiz",
+   "video_seconds": 22.17
+  },
+  "6aeb9d77b080155a2dc402a4": {
+   "day": 29,
+   "id": "eye-02",
+   "latest": {
+    "age_hours": 20.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0.67,
+    "reactions": 4,
+    "views": 594
+   },
+   "link": "https://www.youtube.com/shorts/VqMhZY46L5o",
+   "music": "ambient-2",
+   "organ": "eye",
+   "platform": "youtube",
+   "sent_at": "2026-11-05T23:01:43.406Z",
+   "slot": "2026-11-05T18:00:00-05:00",
+   "snapshots": {},
+   "title": "The Eye",
+   "type": "quiz",
+   "video_seconds": 22.17
+  },
+  "6aeb9d7891e850096bd0f483": {
+   "day": 30,
+   "id": "thigh-02",
+   "latest": {
+    "age_hours": 18.5,
+    "averageTimeWatched": 7.76,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 2.76,
+    "reach": 1015,
+    "reactions": 23,
+    "saves": 5,
+    "shares": 0,
+    "totalTimeWatched": 131.07,
+    "views": 1234
+   },
+   "link": "https://www.instagram.com/reel/DfYYQaJAZkS/",
+   "music": "house-5",
+   "organ": "thigh",
+   "platform": "instagram",
+   "sent_at": "2026-11-06T01:02:43.867Z",
+   "slot": "2026-11-05T20:00:00-05:00",
+   "snapshots": {},
+   "title": "Leg Muscles",
+   "type": "quiz",
+   "video_seconds": 21.03
+  },
+  "6aeb9d79b080155a2dc40381": {
+   "day": 30,
+   "id": "thigh-02",
+   "latest": {
+    "age_hours": 18.5,
+    "averageTimeWatched": 6.1,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 4.06,
+    "reach": 0,
+    "reactions": 14,
+    "shares": 0,
+    "totalTimeWatched": 35.57,
+    "views": 345
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7704857175310585101",
+   "music": "house-5",
+   "organ": "thigh",
+   "platform": "tiktok",
+   "sent_at": "2026-11-06T01:02:54.190Z",
+   "slot": "2026-11-05T20:00:00-05:00",
+   "snapshots": {},
+   "title": "Leg Muscles",
+   "type": "quiz",
+   "video_seconds": 21.03
+  },
+  "6aeb9d7a91e850096bd0f596": {
+   "day": 30,
+   "id": "thigh-02",
+   "latest": {
+    "age_hours": 18.5,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 1.3,
+    "reactions": 2,
+    "views": 154
+   },
+   "link": "https://www.youtube.com/shorts/X9umD3b5nGo",
+   "music": "house-5",
+   "organ": "thigh",
+   "platform": "youtube",
+   "sent_at": "2026-11-06T01:01:17.912Z",
+   "slot": "2026-11-05T20:00:00-05:00",
+   "snapshots": {},
+   "title": "Leg Muscles",
+   "type": "quiz",
+   "video_seconds": 21.03
+  },
+  "6aeb9d7bf0e1705c28e7609d": {
+   "day": 31,
+   "id": "teeth-02",
+   "latest": {
+    "age_hours": 5.0,
+    "checked_at": "2026-11-06T19:29:55Z"
+   },
+   "link": "https://www.instagram.com/reel/DfZ03Ghgf_O/",
+   "music": "house-3",
+   "organ": "teeth",
+   "platform": "instagram",
+   "sent_at": "2026-11-06T14:31:38.742Z",
+   "slot": "2026-11-06T09:30:00-05:00",
+   "snapshots": {},
+   "title": "The Teeth",
+   "type": "quiz",
+   "video_seconds": 22.56
+  },
+  "6aeb9d7c66cdd5eb285707b0": {
+   "day": 31,
+   "id": "teeth-02",
+   "latest": {
+    "age_hours": 5.0,
+    "averageTimeWatched": 0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reach": 0,
+    "reactions": 0,
+    "shares": 0,
+    "totalTimeWatched": 0,
+    "views": 0
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7705065857679953166",
+   "music": "house-3",
+   "organ": "teeth",
+   "platform": "tiktok",
+   "sent_at": "2026-11-06T14:31:54.558Z",
+   "slot": "2026-11-06T09:30:00-05:00",
+   "snapshots": {},
+   "title": "The Teeth",
+   "type": "quiz",
+   "video_seconds": 22.56
+  },
+  "6aeb9d7d0bb7d41592a666f7": {
+   "day": 31,
+   "id": "teeth-02",
+   "latest": {
+    "age_hours": 5.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reactions": 0,
+    "views": 0
+   },
+   "link": "https://www.youtube.com/shorts/dxBjZ-CsLrQ",
+   "music": "house-3",
+   "organ": "teeth",
+   "platform": "youtube",
+   "sent_at": "2026-11-06T14:30:39.554Z",
+   "slot": "2026-11-06T09:30:00-05:00",
+   "snapshots": {},
+   "title": "The Teeth",
+   "type": "quiz",
+   "video_seconds": 22.56
+  },
+  "6aecf43b30c2a60197e44ee5": {
+   "day": 32,
+   "id": "heart-04",
+   "latest": {
+    "age_hours": 2.0,
+    "checked_at": "2026-11-06T19:29:55Z"
+   },
+   "link": "https://www.instagram.com/reel/DfaJgDxCXWG/",
+   "music": "house-1",
+   "organ": "heart",
+   "platform": "instagram",
+   "sent_at": "2026-11-06T17:31:54.147Z",
+   "slot": "2026-11-06T12:30:00-05:00",
+   "snapshots": {},
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 19.85
+  },
+  "6aecf43c07115c73fd39b94a": {
+   "day": 32,
+   "id": "heart-04",
+   "latest": {
+    "age_hours": 2.0,
+    "averageTimeWatched": 0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reach": 0,
+    "reactions": 0,
+    "shares": 0,
+    "totalTimeWatched": 0,
+    "views": 0
+   },
+   "link": "https://tiktok.com/@the.anatomy.ace/video/7705112285575974157",
+   "music": "house-1",
+   "organ": "heart",
+   "platform": "tiktok",
+   "sent_at": "2026-11-06T17:32:06.349Z",
+   "slot": "2026-11-06T12:30:00-05:00",
+   "snapshots": {},
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 19.85
+  },
+  "6aecf43d07115c73fd39ba53": {
+   "day": 32,
+   "id": "heart-04",
+   "latest": {
+    "age_hours": 2.0,
+    "checked_at": "2026-11-06T19:29:55Z",
+    "comments": 0,
+    "engagementRate": 0,
+    "reactions": 0,
+    "views": 0
+   },
+   "link": "https://www.youtube.com/shorts/_XUWixpv4GE",
+   "music": "house-1",
+   "organ": "heart",
+   "platform": "youtube",
+   "sent_at": "2026-11-06T17:31:03.244Z",
+   "slot": "2026-11-06T12:30:00-05:00",
+   "snapshots": {},
+   "title": "The Heart",
+   "type": "quiz",
+   "video_seconds": 19.85
+  }
+ },
+ "updated_at": "2026-11-06T19:29:55Z"
+}
