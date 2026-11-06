@@ -76,6 +76,7 @@
     "pop"
   ],
   "deepdive": {
+    "release": "deepdives",
     "slots": [
       "18:00"
     ],
@@ -90,5 +91,21 @@
       "dd-translation"
     ],
     "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready."
+  },
+  "formats": {
+    "release": "formats",
+    "slots": [
+      "12:30",
+      "16:00"
+    ],
+    "from": "2026-11-08",
+    "cycle": [
+      "missing",
+      "zoom",
+      "diagnose",
+      "myth",
+      "rank"
+    ],
+    "note": "Two of the five daily quizzes rotate through five short formats (Yashas, Nov 6, 2026): Which bone is missing?, Zoom out, Diagnose this, Myth or fact, Rank these. Each day takes the next two in the cycle; a format with nothing ready passes to the next, and with nothing ready at all the slot posts a quiz. Keep it until the Strategist has data on which formats win."
   }
 }

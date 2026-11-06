@@ -6,7 +6,7 @@ from zoneinfo import ZoneInfo
 
 import pytest
 
-from anatomy import buffer, deepdive, publish
+from anatomy import buffer, publish, series
 
 TZ = ZoneInfo("America/New_York")
 VIDEOS = [{"id": f"dd-{n}", "title": t, "hook": "Your kidneys filter about 180 liters a day.",
@@ -19,9 +19,10 @@ VIDEOS = [{"id": f"dd-{n}", "title": t, "hook": "Your kidneys filter about 180 l
 @pytest.fixture
 def setup(monkeypatch, tmp_path):
     monkeypatch.setattr(publish, "HISTORY", tmp_path / "history.json")
-    monkeypatch.setattr(deepdive, "_INDEX", list(VIDEOS))
+    monkeypatch.setattr(series, "_INDEX", {"deepdive": list(VIDEOS), "formats": []})
     monkeypatch.setitem(publish.CONFIG, "deepdive", {"slots": ["18:00"], "from": "2000-01-01"})
-    monkeypatch.setattr(deepdive, "CONFIG", publish.CONFIG)
+    monkeypatch.setitem(publish.CONFIG, "formats", {})
+    monkeypatch.setattr(series, "CONFIG", publish.CONFIG)
 
 
 def test_the_deep_dive_slot_posts_videos_in_order_then_quizzes(setup, monkeypatch):
@@ -30,7 +31,7 @@ def test_the_deep_dive_slot_posts_videos_in_order_then_quizzes(setup, monkeypatc
     dives = [(at, q) for at, q in plan if q.get("kind") == "deepdive"]
     assert [f"{at:%H:%M}" for at, _ in dives] == ["18:00", "18:00"]
     assert [q["id"] for _, q in dives] == ["dd-nephron", "dd-na-k-pump"]
-    monkeypatch.setattr(deepdive, "_INDEX", VIDEOS[:1])  # only one ready: the next day's 18:00 is a quiz
+    monkeypatch.setitem(series._INDEX, "deepdive", VIDEOS[:1])  # only one ready: the next day's 18:00 is a quiz
     plan = publish.plan(now)
     dives = [(at, q) for at, q in plan if q.get("kind") == "deepdive"]
     later = [q for at, q in plan if f"{at:%H:%M}" == "18:00" and at > dives[-1][0]]
@@ -43,14 +44,14 @@ def test_the_deep_dive_slot_posts_videos_in_order_then_quizzes(setup, monkeypatc
 
 
 def test_an_unreachable_index_means_quizzes(setup, monkeypatch):
-    monkeypatch.setattr(deepdive, "_INDEX", None)
-    monkeypatch.setattr(deepdive, "fetch", lambda *a, **k: (_ for _ in ()).throw(OSError("offline")))
+    monkeypatch.setattr(series, "_INDEX", {})
+    monkeypatch.setattr(series, "fetch", lambda *a, **k: (_ for _ in ()).throw(OSError("offline")))
     plan = publish.plan(datetime(2030, 1, 1, 6, 0, tzinfo=TZ))
     assert plan and all(q.get("kind") != "deepdive" for _, q in plan)
 
 
 def test_the_caption_hides_the_answer_at_the_bottom():
-    q = {**VIDEOS[0], "kind": "deepdive", "day": 9}
+    q = {**VIDEOS[0], "kind": "deepdive", "series": "deepdive", "day": 9}
     text = publish.caption(q)
     assert text.startswith(q["hook"]) and "Comment your answer" in text
     assert text.index("Comment your answer") < text.index("Answer: D) Collecting duct")
@@ -68,3 +69,46 @@ def test_a_failed_deep_dive_is_queued_again_with_its_caption(setup, monkeypatch)
     monkeypatch.setattr(buffer, "schedule_video", lambda ch, text, url, due, **k: sent.append(text) or "new1")
     assert publish.retry_failed(hist, []) == 0
     assert sent and sent[0].startswith(VIDEOS[0]["hook"]) and hist[0]["buffer"]["tiktok"] == "new1"
+
+
+CYCLE = ["missing", "zoom", "diagnose", "myth", "rank"]
+FORMATS = [{"id": f"fmt-{f}-0{k}", "format": f, "title": f.title(), "hook": "Find it.", "question": "Which one?",
+            "choices": ["Myth", "Fact"] if f == "myth" else ["Liver", "Brain", "Lungs", "Heart"],
+            "answer": "C, A, D, B" if f == "rank" else "A", "why": "Because.", "seconds": 24.0}
+           for f in CYCLE for k in (1, 2, 3)]
+
+
+@pytest.fixture
+def formats(setup, monkeypatch):
+    monkeypatch.setitem(series._INDEX, "formats", list(FORMATS))
+    monkeypatch.setitem(publish.CONFIG, "formats", {"slots": ["12:30", "16:00"], "from": "2030-01-01", "cycle": CYCLE})
+
+
+def test_two_formats_a_day_cycling_through_all_five(formats):
+    days = {}
+    for d in range(5):
+        at = datetime(2030, 1, 1 + d, 12, 30, tzinfo=TZ)
+        days[d] = [series.wanted_format("formats", at), series.wanted_format("formats", at.replace(hour=16, minute=0))]
+    assert all(a != b for a, b in days.values()), "never the same format twice in a day"
+    seen = [f for pair in days.values() for f in pair]
+    assert sorted(seen) == sorted(CYCLE * 2), "every format twice in five days"
+
+
+def test_the_format_slots_post_in_rotation_and_fall_through(formats, monkeypatch):
+    plan = publish.plan(datetime(2030, 1, 1, 6, 0, tzinfo=TZ))
+    fmts = [(f"{at:%m-%d %H:%M}", q["format"]) for at, q in plan if q.get("kind") == "formats"]
+    assert fmts[:2] == [("01-01 12:30", "missing"), ("01-01 16:00", "zoom")]
+    assert all(q.get("kind") in ("formats", "deepdive") or q["organ"] for _, q in plan)
+    # nothing left in "missing": its turn passes to the next format in the cycle
+    monkeypatch.setitem(series._INDEX, "formats", [v for v in FORMATS if v["format"] != "missing"])
+    plan = publish.plan(datetime(2030, 1, 1, 6, 0, tzinfo=TZ))
+    assert [q["format"] for at, q in plan if q.get("kind") == "formats"][:2] == ["zoom", "zoom"]
+
+
+def test_format_captions_rank_and_diagnose():
+    rank = {**FORMATS[-1], "kind": "formats", "series": "formats"}
+    assert "Answer: C, A, D, B (Lungs, Liver, Heart, Brain)" in publish.caption(rank)
+    diag = {**FORMATS[6], "kind": "formats", "series": "formats"}
+    assert publish.caption(diag).rstrip().endswith("Educational, not medical advice.")
+    missing = {**FORMATS[0], "kind": "formats", "series": "formats"}
+    assert "Z-Anatomy" in publish.caption(missing) and "new anatomy challenge" in publish.caption(missing)
