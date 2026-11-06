@@ -143,3 +143,26 @@ def post_status(post_id: str) -> dict:
         except BufferError as e:
             last = e
     raise last
+
+
+METRIC_FIELDS = "status sentAt externalLink metricsUpdatedAt metrics { type value }"
+
+
+def post_metrics(post_ids: list[str], batch: int = 20) -> dict[str, dict | None]:
+    """Status, link and metrics for many posts, `batch` per request. Posts Buffer can't find map to None."""
+    out: dict[str, dict | None] = {}
+    for i in range(0, len(post_ids), batch):
+        chunk = post_ids[i:i + batch]
+        params = ", ".join(f"$id{k}: PostId!" for k in range(len(chunk)))
+        body = " ".join(f"p{k}: post(input: {{id: $id{k}}}) {{ {METRIC_FIELDS} }}" for k in range(len(chunk)))
+        try:
+            data = _gql(f"query({params}) {{ {body} }}", {f"id{k}": pid for k, pid in enumerate(chunk)})
+            out.update({pid: data.get(f"p{k}") for k, pid in enumerate(chunk)})
+        except BufferError:
+            for pid in chunk:  # one deleted post fails the whole batch, so ask one at a time instead
+                try:
+                    out[pid] = _gql("query($id: PostId!) { post(input: {id: $id}) { " + METRIC_FIELDS + " } }",
+                                    {"id": pid})["post"]
+                except BufferError:
+                    out[pid] = None
+    return out

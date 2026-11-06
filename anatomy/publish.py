@@ -8,8 +8,8 @@
 
 Every slot from config.json "start" on, within "days_ahead" days, gets one reel. Organs take turns in
 "rotation" order and each organ's questions are used in bank order, so the schedule only depends on history.json.
-Slots named in config "deepdive" post the next Anatomy Deep Dive instead (anatomy/deepdive.py), or a quiz if none
-is ready.
+Slots named in config "deepdive" and "formats" post finished videos from those series instead (anatomy/series.py:
+deep dives, and the five rotating short formats), or a quiz if none is ready.
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import deepdive, music
+from . import music, series
 
 ROOT = Path(__file__).resolve().parent.parent
 MUSIC_FROM = date(2026, 11, 1)  # posts from this day get original music (anatomy/music.py) instead of the old bed
@@ -99,13 +99,14 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
     out = []
     unused = unused_questions(used)
     for at in due_slots(now, hist, unused):
-        if deepdive.is_slot(at):
-            video = deepdive.next_video(used)
+        name = series.series_for(at)
+        if name:
+            video = series.next_video(name, at, used)
             if video:
-                out.append((at, {**video, "kind": "deepdive", "day": len(hist) + len(out) + 1}))
+                out.append((at, {**video, "kind": name, "series": name, "day": len(hist) + len(out) + 1}))
                 used.append(video["id"])
                 continue
-            print(f"::warning::no new deep dive is ready for {at:%b %d %H:%M}; posting a quiz there instead")
+            print(f"::warning::no new {name} video is ready for {at:%b %d %H:%M}; posting a quiz there instead")
         q = next_question(used, last)
         if q is None:
             print(f"::warning::the question banks are used up; nothing for {at:%b %d %H:%M}")
@@ -119,8 +120,12 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
         out.append((at, q))
         used.append(q["id"])
         last = q["organ"]
-    if deepdive.settings() and deepdive.index() and deepdive.left(used) < 4:
-        print(f"::warning::only {deepdive.left(used)} deep dives left after this plan; make more")
+    for name in series.SERIES:
+        if series.settings(name) and series.index(name):
+            counts = series.left(name, used)
+            low = {k: counts.get(k, 0) for k in series.settings(name).get("cycle", [name]) if counts.get(k, 0) < 4}
+            if low:
+                print(f"::warning::{name}: few videos left after this plan ({low}); make more")
     left = unused_questions(used)
     if left < 14:
         print(f"::warning::only {left} unused anatomy questions left (about {left // per_day(left)} days)")
@@ -128,8 +133,8 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
 
 
 def caption(q: dict) -> str:
-    if q.get("kind") == "deepdive":
-        return deepdive.caption(q)
+    if q.get("kind") in series.SERIES:
+        return series.caption(q)
     tags = CONFIG["hashtags"][:5]  # Instagram allows 5
     return (f"Day {q['day']} · {q['title']}: {q['question']}\n"
             "Comment your answer before the reveal 👇\n"
@@ -139,14 +144,14 @@ def caption(q: dict) -> str:
 
 
 def youtube_title(q: dict) -> str:
-    if q.get("kind") == "deepdive":
-        return deepdive.youtube_title(q)
+    if q.get("kind") in series.SERIES:
+        return series.youtube_title(q)
     return f"{q['question']} {q['title']} | Anatomy Check #{q['day']} #shorts"[:100]
 
 
 def render(q: dict, out: Path) -> float:
-    if q.get("kind") == "deepdive":  # made and checked ahead of time; just download it
-        return deepdive.download(q, out)
+    if q.get("kind") in series.SERIES:  # made and checked ahead of time; just download it
+        return series.download(q, out)
     from .make import build
     return build(q, out)
 
@@ -158,7 +163,8 @@ def file_name(at: datetime, q: dict) -> str:
 def entry(at: datetime, q: dict, url: str, seconds: float, posts: dict) -> dict:
     return {"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q.get("organ"),
             "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
-            **({"kind": q["kind"]} if q.get("kind") else {}), **({"music": q["music"]} if q.get("music") else {})}
+            **({"kind": q["kind"]} if q.get("kind") else {}), **({"format": q["format"]} if q.get("format") else {}),
+            **({"music": q["music"]} if q.get("music") else {})}
 
 
 def render_one(slot: str) -> int:
@@ -194,13 +200,13 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
                     failures += 1
                     changed = True
                 continue
-            if h.get("kind") == "deepdive":
-                q = next((v for v in deepdive.index() if v["id"] == h["id"]), None)
+            if h.get("kind") in series.SERIES:
+                q = next((v for v in series.index(h["kind"]) if v["id"] == h["id"]), None)
                 if q is None:
-                    print(f"::error::{h['id']} isn't in the deep dive index any more; not retried.")
+                    print(f"::error::{h['id']} isn't in the {h['kind']} index any more; not retried.")
                     failures += 1
                     continue
-                q = {**q, "kind": "deepdive"}
+                q = {**q, "kind": h["kind"], "series": h["kind"]}
             else:
                 q = {**banks_by_id[h["id"]], "day": h["day"]}
             due = (now + timedelta(minutes=15)).isoformat()
@@ -313,8 +319,9 @@ def write_status() -> None:
         "name": CONFIG["name"], "platforms": CONFIG["platforms"],
         "per_day": per_day(unused), "unused": unused, "total": unused + len(used), "posted": len(hist),
         "ramp": CONFIG["ramp"],
-        "deepdives": {"slots": deepdive.settings().get("slots", []), "from": deepdive.settings().get("from"),
-                      "posted": sum(h.get("kind") == "deepdive" for h in hist)},
+        "series": {n: {"slots": series.settings(n).get("slots", []), "from": series.settings(n).get("from"),
+                       "cycle": series.settings(n).get("cycle"), "posted": sum(h.get("kind") == n for h in hist)}
+                   for n in series.SERIES if series.settings(n)},
         "banks": {n: {"total": len(b), "unused": sum(q["id"] not in used for q in b)} for n, b in all_banks.items()},
         "posts": [{"slot": h["slot"], "day": h["day"], "id": h["id"], "organ": h["organ"], "title": h["title"],
                    "video_url": h["video_url"], "platforms": sorted(h["buffer"])} for h in hist[-30:]],

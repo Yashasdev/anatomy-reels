@@ -1,0 +1,37 @@
+name: Track anatomy engagement
+
+# Once a day: save every post's Buffer numbers (metrics.json) and rewrite scorecard.md, which compares the 3D
+# quizzes, the deep dives and the rotating formats at the same age. The Strategist reads both.
+on:
+  schedule:
+    - cron: "51 11 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: anatomy-track
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  track:
+    runs-on: ubuntu-24.04
+    env:
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests
+      - run: python -m anatomy.track
+      - name: Save
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metrics.json scorecard.md
+          git diff --cached --quiet && exit 0
+          git commit -qm "Record anatomy engagement $(date -u +%F)"
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && exit 0; sleep $((i * 5)); done
+          exit 1
