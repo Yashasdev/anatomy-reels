@@ -33,8 +33,10 @@ def history() -> list[dict]:
     return json.loads(HISTORY.read_text()) if HISTORY.exists() else []
 
 
-def banks() -> dict[str, list[dict]]:
-    return {name: json.loads((ROOT / "banks" / f"{name}.json").read_text()) for name in CONFIG["rotation"]}
+def banks(active_only: bool = True) -> dict[str, list[dict]]:
+    """The quiz banks in the rotation (or every bank, including ones paused from the daily quiz)."""
+    names = CONFIG["rotation"] + ([] if active_only else CONFIG.get("quiz_paused", []))
+    return {name: json.loads((ROOT / "banks" / f"{name}.json").read_text()) for name in names}
 
 
 def next_question(used: list[str], last_organ: str | None) -> dict | None:
@@ -183,7 +185,7 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
     video and caption). One that fails after its retry is reported once, never looped. Returns failures."""
     from . import buffer
     now, failures, changed = datetime.now(ZoneInfo("UTC")), 0, False
-    banks_by_id = {q["id"]: q for b in banks().values() for q in b}
+    banks_by_id = {q["id"]: q for b in banks(active_only=False).values() for q in b}
     for h in hist:
         if datetime.fromisoformat(h["slot"]) < now - timedelta(days=3):
             continue

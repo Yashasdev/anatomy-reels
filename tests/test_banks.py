@@ -24,7 +24,9 @@ def width(text, font):
 
 
 def test_every_bank_is_in_the_rotation():
-    assert set(BANKS) == set(CONFIG["rotation"]), "add new banks to config.json rotation (and remove nothing)"
+    assert set(BANKS) == set(CONFIG["rotation"]) | set(CONFIG.get("quiz_paused", [])), \
+        "add new banks to config.json rotation (banks taken out of the daily quiz go in quiz_paused, never deleted)"
+    assert not set(CONFIG["rotation"]) & set(CONFIG.get("quiz_paused", []))
 
 
 def test_ids_are_unique_and_numbered():
