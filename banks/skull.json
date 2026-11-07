@@ -134,7 +134,7 @@
   "answer_index": 2,
   "trap_index": 0,
   "lines": [
-   "Two matching bones form the roof of your skull.",
+   "Put your hand on top of your head. You're touching these bones.",
    "Look at the glowing pair across the top of the head.",
    "Which bones are glowing?",
    "The temporal bones sit lower, around the ears.",
@@ -163,7 +163,7 @@
   "answer_index": 1,
   "trap_index": 0,
   "lines": [
-   "Your upper teeth are rooted in a pair of bones.",
+   "Smile. Your top teeth are anchored in this bone.",
    "Look at the glowing pair of bones around the upper jaw.",
    "Which bone holds the upper teeth?",
    "The lower teeth sit in the mandible, the only moving skull bone.",
@@ -191,7 +191,7 @@
   "answer_index": 0,
   "trap_index": 1,
   "lines": [
-   "This bone sits right above your eyes.",
+   "Touch your forehead. You can feel this bone right now.",
    "Watch the glowing bone at the front of the skull.",
    "Which bone is glowing?",
    "The parietal bones sit behind it, on top of the head.",

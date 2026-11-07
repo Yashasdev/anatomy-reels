@@ -54,6 +54,21 @@ renders each new question from 8 angles and fails it if the glowing part is hard
   (lobes, bones in a group, teeth of a type); what the glowing part does; its everyday name (collarbone, kneecap,
   cheekbone, wisdom tooth is not modeled); which group it belongs to (cervical, thoracic, lumbar).
 
+## What wins on Instagram (data from Nov 1-5, 2026; update as the scorecard grows)
+
+Since Nov 1, bone and muscle quizzes about famous parts got 750-1,400 Instagram views at 1 day (10 of 15), while
+organ quizzes (heart chambers, lung lobes, abdomen, eye, teeth) got 128-417 (0 of 6). The winners also held people
+longer (30-37% of the video watched vs 16-28%). So:
+
+- Write for the regions in config.json `rotation` only (bones and muscles). Banks in `quiz_paused` (heart, lungs,
+  abdomen, eye, teeth) are out of the daily quiz: don't add to them.
+- Pick parts people know or can feel on their own body: the tailbone, femur, shoulder blade, breastbone, biggest
+  muscle, lower back. Ask for the everyday name when it has one. Fewer tiny or technical parts (wrist bones, the side
+  of the patient, single vertebra numbers).
+- Hook (line 0): talk to the viewer's own body or a surprising true fact, and never name the answer. Winners:
+  "You can feel this bone right now. Name it." / "Humans lost their tails, but this small bone remains." /
+  "This is the biggest muscle in the human body. Name it." Losers were generic: "Can you name this glowing organ?"
+
 ## Regions and their best parts (exact names in `assets/models/parts.json`)
 
 | Model | Title | Good parts to light up |
