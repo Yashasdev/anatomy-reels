@@ -119,6 +119,15 @@ def scorecard(data: dict) -> str:
                 if r["platform"] == platform:
                     g[r["type"]].append(r)
             out += [f"### {platform.title()}", ""] + _table(g, snap, "Type") + [""]
+    styled = [r for r in recs if "1d" in r["snapshots"] and r.get("music") and r["platform"] in ("instagram", "tiktok")
+              and r.get("sound") != "trending (by hand)"]
+    if styled:
+        g = defaultdict(list)
+        for r in styled:
+            g[f"{r['type']} / {r['music'].split('-')[0]}"].append(r)
+        out += ["## Music style (Instagram and TikTok, 1 day old)", "",
+                "Our original background tracks by style, per post type (hand-finished trending-sound posts left out).", ""]
+        out += _table(g, "1d", "Type / style") + [""]
     have = [r for r in recs if "1d" in r["snapshots"] and r["platform"] == "instagram" and r.get("sound")]
     if any(r["sound"] != "original track" for r in have):
         g = defaultdict(list)
