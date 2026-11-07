@@ -101,7 +101,8 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
     for at in due_slots(now, hist, unused):
         name = series.series_for(at)
         if name:
-            video = series.next_video(name, at, used)
+            today = tuple(q2.get("format") for at2, q2 in out if at2.date() == at.date() and q2.get("format"))
+            video = series.next_video(name, at, used, today)
             if video:
                 out.append((at, {**video, "kind": name, "series": name, "day": len(hist) + len(out) + 1}))
                 used.append(video["id"])

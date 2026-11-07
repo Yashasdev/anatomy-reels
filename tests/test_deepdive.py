@@ -102,7 +102,16 @@ def test_the_format_slots_post_in_rotation_and_fall_through(formats, monkeypatch
     # nothing left in "missing": its turn passes to the next format in the cycle
     monkeypatch.setitem(series._INDEX, "formats", [v for v in FORMATS if v["format"] != "missing"])
     plan = publish.plan(datetime(2030, 1, 1, 6, 0, tzinfo=TZ))
-    assert [q["format"] for at, q in plan if q.get("kind") == "formats"][:2] == ["zoom", "zoom"]
+    assert [q["format"] for at, q in plan if q.get("kind") == "formats"][:2] == ["zoom", "diagnose"], "no repeat in a day"
+    # only one format has anything: it fills both slots rather than leaving one to a quiz
+    monkeypatch.setitem(series._INDEX, "formats", [v for v in FORMATS if v["format"] == "myth"])
+    plan = publish.plan(datetime(2030, 1, 1, 6, 0, tzinfo=TZ))
+    assert [q["format"] for at, q in plan if q.get("kind") == "formats"][:2] == ["myth", "myth"]
+
+
+def test_a_hook_that_repeats_the_question_isnt_printed_twice():
+    q = {**FORMATS[-1], "hook": "Which one?", "kind": "formats", "series": "formats"}
+    assert publish.caption(q).count("Which one?") == 1
 
 
 def test_format_captions_rank_and_diagnose():
