@@ -81,15 +81,17 @@ def wanted_format(name: str, at: datetime) -> str | None:
     return s["cycle"][k % len(s["cycle"])]
 
 
-def next_video(name: str, at: datetime, used: list[str]) -> dict | None:
+def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] = ()) -> dict | None:
+    """The slot's next video. `today`: formats already planned that day, skipped so a day never repeats one
+    (unless nothing else is ready)."""
     fresh = [v for v in index(name) if v["id"] not in used]
     want = wanted_format(name, at)
     if want is None:
         return fresh[0] if fresh else None
     cycle = settings(name)["cycle"]
-    start = cycle.index(want)
-    for k in range(len(cycle)):  # the wanted format, else the next one in the cycle that has a video ready
-        fmt = cycle[(start + k) % len(cycle)]
+    order = [cycle[(cycle.index(want) + k) % len(cycle)] for k in range(len(cycle))]
+    order = [f for f in order if f not in today] + [f for f in order if f in today]
+    for fmt in order:  # the wanted format, else the next one in the cycle that has a video ready
         pick = next((v for v in fresh if v.get("format") == fmt), None)
         if pick:
             return pick
@@ -119,8 +121,8 @@ def caption(q: dict) -> str:
     tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]  # Instagram allows 5
     medical = "Educational, not medical advice." if q.get("format") == "diagnose" else "For learning only, not medical advice."
     credit = f"\n{CONFIG['credit']}." if q.get("format") in ("missing", "zoom") else ""
-    return (f"{q['hook']}\n\n"
-            f"{q['question']}\n{choices}\n"
+    hook = "" if q["hook"].strip().rstrip(".?!") == q["question"].strip().rstrip(".?!") else f"{q['hook']}\n\n"
+    return (hook + f"{q['question']}\n{choices}\n"
             "Comment your answer 👇 (answer at the bottom)\n"
             f"{FOLLOW.get(q.get('series', 'deepdive'), FOLLOW['deepdive'])}\n\n"
             + " ".join(tags) + "\n\n.\n.\n.\n"
@@ -130,7 +132,9 @@ def caption(q: dict) -> str:
 
 
 def youtube_title(q: dict) -> str:
-    return f"{q['title']}: {q['question']} #shorts"[:100]
+    title = q["title"].rstrip("?!:. ")
+    head = q["question"] if title.lower() in q["question"].lower() else f"{title}: {q['question']}"
+    return f"{head[:91]} #shorts"
 
 
 def download(q: dict, out: Path) -> float:
