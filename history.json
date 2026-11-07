@@ -529,5 +529,148 @@
       "youtube": "6aecf449042e1757db9c9860"
     },
     "music": "lofi-1"
+  },
+  {
+    "slot": "2026-11-07T16:00:00-05:00",
+    "day": 37,
+    "id": "spine-03",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-1600-spine-03.mp4",
+    "video_seconds": 20.33,
+    "buffer": {
+      "instagram": "6aef7238d6bbae6fa1a53d50",
+      "tiktok": "6aef7239229bf05daf6a60fa",
+      "youtube": "6aef723ad6bbae6fa1a53daa"
+    },
+    "music": "pop-2"
+  },
+  {
+    "slot": "2026-11-07T18:00:00-05:00",
+    "day": 38,
+    "id": "dd-nephron",
+    "organ": null,
+    "title": "Inside a nephron",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-1800-dd-nephron.mp4",
+    "video_seconds": 51.52,
+    "buffer": {
+      "instagram": "6aef723c004e4879a7739b15",
+      "tiktok": "6aef723d9214322f680d347d",
+      "youtube": "6aef723e229bf05daf6a6255"
+    },
+    "kind": "deepdive",
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-07T20:00:00-05:00",
+    "day": 39,
+    "id": "hand-03",
+    "organ": "hand",
+    "title": "The Hand",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-2000-hand-03.mp4",
+    "video_seconds": 21.33,
+    "buffer": {
+      "instagram": "6aef723f51492b796ef47210",
+      "tiktok": "6aef724051492b796ef47257",
+      "youtube": "6aef7240229bf05daf6a633e"
+    },
+    "music": "house-4",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-08T09:30:00-05:00",
+    "day": 40,
+    "id": "skull-05",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-0930-skull-05.mp4",
+    "video_seconds": 18.49,
+    "buffer": {
+      "instagram": "6aef7242229bf05daf6a63bf",
+      "tiktok": "6aef7242562f2e6de97537cb",
+      "youtube": "6aef7243004e4879a7739cfa"
+    },
+    "music": "science-5"
+  },
+  {
+    "slot": "2026-11-08T12:30:00-05:00",
+    "day": 41,
+    "id": "fmt-missing-01",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1230-fmt-missing-01.mp4",
+    "video_seconds": 20.09,
+    "buffer": {
+      "instagram": "6aef7244562f2e6de975384e",
+      "tiktok": "6aef72459214322f680d3a8f",
+      "youtube": "6aef7246562f2e6de9753893"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "pop-1"
+  },
+  {
+    "slot": "2026-11-08T16:00:00-05:00",
+    "day": 42,
+    "id": "fmt-zoom-01",
+    "organ": null,
+    "title": "Zoom out: guess the body part",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1600-fmt-zoom-01.mp4",
+    "video_seconds": 20.34,
+    "buffer": {
+      "instagram": "6aef7248d6bbae6fa1a5417b",
+      "tiktok": "6aef7248d6bbae6fa1a541ae",
+      "youtube": "6aef7249562f2e6de975397a"
+    },
+    "kind": "formats",
+    "format": "zoom",
+    "music": "ambient-1"
+  },
+  {
+    "slot": "2026-11-08T18:00:00-05:00",
+    "day": 43,
+    "id": "dd-na-k-pump",
+    "organ": null,
+    "title": "The sodium-potassium pump",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1800-dd-na-k-pump.mp4",
+    "video_seconds": 49.54,
+    "buffer": {
+      "instagram": "6aef724d229bf05daf6a65ed",
+      "tiktok": "6aef724d229bf05daf6a6650",
+      "youtube": "6aef724e562f2e6de9753a66"
+    },
+    "kind": "deepdive",
+    "music": "ambient-4"
+  },
+  {
+    "slot": "2026-11-08T20:00:00-05:00",
+    "day": 44,
+    "id": "leg-03",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-2000-leg-03.mp4",
+    "video_seconds": 20.12,
+    "buffer": {
+      "instagram": "6aef724f9214322f680d3c6e",
+      "tiktok": "6aef7250004e4879a773a074",
+      "youtube": "6aef7251d6bbae6fa1a5435a"
+    },
+    "music": "house-1",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-09T09:30:00-05:00",
+    "day": 45,
+    "id": "pelvis-03",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-0930-pelvis-03.mp4",
+    "video_seconds": 20.14,
+    "buffer": {
+      "instagram": "6aef7252229bf05daf6a67a8",
+      "tiktok": "6aef7253d6bbae6fa1a54461",
+      "youtube": "6aef7254d6bbae6fa1a54490"
+    },
+    "music": "lofi-2"
   }
 ]
