@@ -6,6 +6,13 @@ the quiz layout on top, in the QuantProf-style look the other channels use (blac
 Order of a reel: a challenge hook, the setup, the question with four choices, a 3-2-1 to comment, the
 explanation, the answer ("It's A"), and why it matters. The last half second repeats the question frame, so the
 platforms' cover shows the puzzle, not the answer.
+
+Other formats (an item's "kind"; banks in banks/formats/, see anatomy/formats.py) use the same look, voice and
+order with a different 3D layer:
+  "missing"  the region turns with one bone hidden ("hide"); at the answer it fades back in glowing lime
+  "zoom"     the camera starts on an extreme close-up of one part and pulls back until it's obvious ("zoom");
+             at the answer the part lights up
+Both show their hook in big letters for its first line. The classic quiz (no kind) renders exactly as before.
 """
 
 from __future__ import annotations
@@ -21,7 +28,7 @@ from pathlib import Path
 
 import numpy as np
 import soundfile as sf
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / "assets" / "fonts"
@@ -30,6 +37,11 @@ SR = 44100
 LIME, RED, GREEN, YELLOW, WHITE, GREY = (163, 230, 53), (239, 68, 68), (34, 197, 94), (250, 204, 21), (255, 255, 255), (150, 150, 150)
 MODEL_BOX = (60, 250, 960)  # x, y, size of the square 3D layer
 LEAD_IN, GAP, COVER_TAIL = 0.5, 0.2, 0.5
+FORMATS = {  # kind: (label in the header, lead-in before the first line)
+    "missing": ("MISSING BONE", 0.25),
+    "zoom": ("ZOOM OUT", 0.25),
+}
+FADE = 0.7  # seconds for the hidden bone to fade back in, or the part to light up
 
 
 def font(name: str, size: int) -> ImageFont.FreeTypeFont:
@@ -150,6 +162,26 @@ def chunks(line: str, most: int = 4) -> list[str]:
     return out + ([" ".join(cur)] if cur else [])
 
 
+def hook_banner(d, text: str) -> None:
+    """The hook in big letters near the top (formats only), on a black box so it reads over a close-up."""
+    f = SANS(62)
+    sentences = re.findall(r"[^.?!]+[.?!]?", text.upper())
+    rows = [x.strip() for x in sentences if x.strip()]
+    if len(rows) > 2 or any(d.textlength(r, font=f) > 900 for r in rows):
+        rows = wrap(d, text.upper(), f, 900)
+    elif len(rows) == 1 and d.textlength(rows[0], font=f) > 600:  # one long sentence: two balanced rows
+        words = rows[0].split()
+        cut = min(range(1, len(words)), key=lambda k: abs(d.textlength(" ".join(words[:k]), font=f)
+                                                        - d.textlength(" ".join(words[k:]), font=f)))
+        rows = [" ".join(words[:cut]), " ".join(words[cut:])]
+    y = 205
+    w = max(d.textlength(r, font=f) for r in rows)
+    d.rounded_rectangle(((W - w) / 2 - 30, y - 16, (W + w) / 2 + 30, y + 78 * len(rows) + 6), 16, fill=(0, 0, 0),
+                        outline=LIME, width=4)
+    for k, r in enumerate(rows):
+        centered(d, y + 78 * k, r, f, WHITE)
+
+
 def choice_boxes(d, choices: list[str], marks: dict[int, tuple]) -> None:
     f, badge = SERIF(44), SANS(30)
     for i, c in enumerate(choices):
@@ -171,12 +203,13 @@ def choice_boxes(d, choices: list[str], marks: dict[int, tuple]) -> None:
 # --- the reel -----------------------------------------------------------------------------------------------
 def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engine: str = "") -> float:
     engine = engine or os.environ.get("ANATOMY_ENGINE", "BLENDER_EEVEE_NEXT")
+    kind = q.get("kind") if q.get("kind") in FORMATS else None
     work = Path(tempfile.mkdtemp(prefix=f"anatomy-{q['id']}-"))
     lines = voice_lines(q["lines"], work / "voice", voice, speed)
     ask_line = q["ask_line"]                      # the narration line that asks the question (choices appear)
     answer_line = q["answer_line"]                # the line that says "It's A" (marks appear)
     # timeline: lead-in, each line with a gap, and the 3-2-1 right after the question
-    starts, t = [], LEAD_IN
+    starts, t = [], FORMATS[kind][1] if kind else LEAD_IN
     for i, (_, sec) in enumerate(lines):
         starts.append(t)
         t += sec + GAP
@@ -190,10 +223,28 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     # one full turn is enough: the model only spins, so later frames repeat it (saves a quarter of the render)
     turn = q.get("degrees_per_second", 24)
     frames = min(int(length * LAYER_FPS) + 1, round(360 * LAYER_FPS / turn))
+    if kind and q.get("sway"):  # one back-and-forth swing, then it repeats
+        frames = min(int(length * LAYER_FPS) + 1, round(q["sway"][1] * LAYER_FPS))
+    if kind == "zoom":  # the camera moves, so no frame repeats
+        frames = int(length * LAYER_FPS) + 1
     spec = {"model": str(ROOT / "assets" / "models" / f"{q['model']}.blend"), "out": str(work / "layer"),
-            "frames": frames, "fps": LAYER_FPS, "highlight": q["highlight"], "engine": engine,
+            "frames": frames, "fps": LAYER_FPS, "highlight": q.get("highlight", []), "engine": engine,
             "width": MODEL_BOX[2], "height": MODEL_BOX[2], "distance": q.get("distance", 4.2),
             "degrees_per_second": turn, "start_degrees": q.get("start_degrees", -20), "focus": q.get("focus", False)}
+    reveal_at = starts[answer_line]
+    layer_index = lambda tt: int(tt * LAYER_FPS) % frames + 1  # noqa: E731
+    if kind:
+        later = sorted({layer_index(k / FPS) for k in range(int(reveal_at * FPS), int(length * FPS) + 1)})
+        spec.update({"hide": q.get("hide", []), "glow": True, "focus_on": q.get("focus_on") or q.get("hide"),
+                     "reveal": {"parts": q["reveal"], "frames": later, "out": str(work / "reveal")}})
+        for key in ("lift", "sway"):
+            if key in q:
+                spec[key] = q[key]
+    if kind == "zoom":  # pull back until the countdown ends, so the last of it shows the whole region
+        z = q["zoom"]
+        spec["zoom"] = {"target": z.get("target", q["reveal"]), "aim": z.get("aim", [0.5, 0.5, 0.5]),
+                        "start": z.get("start", 0.03), "orbit": z.get("orbit", 20),
+                        "frames": int((countdown_at + 3.0 - z.get("early", 0.0)) * LAYER_FPS)}
     r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"),
                         "--", json.dumps(spec)], capture_output=True, text=True)
     if r.returncode or not (work / "layer" / "f0001.png").exists():
@@ -217,14 +268,32 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
 
     n = int(length * FPS)
     cover = None
+    edge = None
+    if kind:  # soft edges, so a close-up that fills the 3D square fades into the black instead of ending in a hard line
+        edge = Image.new("L", (MODEL_BOX[2],) * 2, 0)
+        ImageDraw.Draw(edge).rounded_rectangle((40, 40, MODEL_BOX[2] - 40, MODEL_BOX[2] - 40), 80, fill=255)
+        edge = edge.filter(ImageFilter.GaussianBlur(28))
     for i in range(n):
         tt = i / FPS
         img = Image.new("RGB", (W, H), (0, 0, 0))
-        layer = Image.open(work / "layer" / f"f{int(tt * LAYER_FPS) % frames + 1:04d}.png").convert("RGBA")
+        layer = Image.open(work / "layer" / f"f{layer_index(tt):04d}.png").convert("RGBA")
+        if kind and tt >= reveal_at:  # the hidden bone fades back in, glowing (or the part lights up)
+            lit = Image.open(work / "reveal" / f"f{layer_index(tt):04d}.png").convert("RGBA")
+            layer = Image.blend(layer, lit, min(1.0, (tt - reveal_at) / FADE))
+        if edge is not None:
+            layer.putalpha(ImageChops.multiply(layer.getchannel("A"), edge))
         img.paste(layer, MODEL_BOX[:2], layer)
         d = ImageDraw.Draw(img)
-        centered(d, 70, q.get("label", "ANATOMY CHECK"), header_title, LIME)
-        centered(d, 132, f"#{q.get('day', 1)} · {q['title']}", header_sub, WHITE)
+        if kind:
+            centered(d, 70, FORMATS[kind][0], header_title, LIME)
+            centered(d, 132, f"#{q['day']} · {q['title']}" if q.get("day") else q["title"], header_sub, WHITE)
+            if tt < starts[0] + lines[0][1] + GAP:
+                hook_banner(d, q["lines"][0])
+            elif q.get("note") and tt < starts[answer_line]:  # e.g. which side is left
+                centered(d, 190, q["note"], SERIF(38), (210, 210, 210))
+        else:
+            centered(d, 70, q.get("label", "ANATOMY CHECK"), header_title, LIME)
+            centered(d, 132, f"#{q.get('day', 1)} · {q['title']}", header_sub, WHITE)
         if tt >= starts[ask_line]:
             centered(d, 1205, q["question"], SERIF(50), YELLOW)
             marks = {}
@@ -297,7 +366,8 @@ def load_bank(name: str = "heart") -> list[dict]:
 
 def main() -> None:
     ids = sys.argv[1:]
-    bank = [q for b in sorted((ROOT / "banks").glob("*.json")) for q in json.loads(b.read_text())]
+    bank = [q for pattern in ("*.json", "formats/*.json")
+            for b in sorted((ROOT / "banks").glob(pattern)) for q in json.loads(b.read_text())]
     for q in bank:
         if not ids or q["id"] in ids:
             sec = build(q, ROOT / "out" / f"{q['id']}.mp4")

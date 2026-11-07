@@ -4,7 +4,20 @@
 
 spec: {"model": "assets/models/heart.blend", "out": "out/x/frames", "frames": 360, "fps": 15,
        "highlight": "Left ventricle", "engine": "BLENDER_EEVEE_NEXT", "width": 1080, "height": 1920}
-Frames are written as transparent PNGs; reels/compose.py puts the text, choices and captions over them.
+Frames are written as transparent PNGs; anatomy/make.py puts the text, choices and captions over them.
+
+Optional keys for the other formats (absent in the classic quiz, which renders exactly as before):
+  "hide": [names]          parts left out of the main frames ("Which bone is missing?")
+  "focus_on": [names]      with "focus": frame these parts instead of the highlight
+  "glow": true             the lit material also glows a little (emission)
+  "reveal": {"parts": [names], "frames": [k, ...], "out": dir}
+                           after the main frames, show these parts lit and render frames k again into dir;
+                           make.py cross-fades to them, so the part fades in glowing (or lights up)
+  "sway": [amplitude, seconds]  swing back and forth around start_degrees instead of turning all the way
+  "zoom": {"target": [names], "aim": [fx, fy, fz], "start": 0.03, "frames": 180, "orbit": 25}
+                           the camera starts very close to the target's surface (the point seen from the final
+                           camera direction, aimed at fractions fx/fy/fz of its box) and pulls back to the normal
+                           framing over "frames"; the model holds still until then, then turns
 """
 
 import json
@@ -66,6 +79,11 @@ COLORS = [("leaflet", (0.80, 0.68, 0.50)), ("papillary", (0.80, 0.68, 0.50)),
           ("concha", (0.82, 0.76, 0.62))]
 muscle = material("muscle", (0.30, 0.03, 0.04))
 lit = material("lit", (0.30, 0.85, 0.02), roughness=0.35)
+if spec.get("glow"):
+    _b = lit.node_tree.nodes["Principled BSDF"]
+    _b.inputs["Emission Color"].default_value = (0.30, 0.85, 0.02, 1)
+    _b.inputs["Emission Strength"].default_value = spec.get("glow_strength", 0.6)
+natural = {}  # each part's own material, for the reveal pass
 cache = {}
 for o in parts:
     o.data.materials.clear()
@@ -83,6 +101,10 @@ for o in parts:
     if rgb not in cache:
         cache[rgb] = material(f"m{len(cache)}", rgb, roughness=0.6 if rgb[0] > 0.8 else 0.45)
     o.data.materials.append(cache[rgb])
+hidden = set(spec.get("hide") or [])
+for o in parts:
+    if o.name in hidden:
+        o.hide_render = True
 
 points = [o.matrix_world @ mathutils.Vector(c) for o in parts for c in o.bound_box]
 lo = mathutils.Vector([min(p[i] for p in points) for i in range(3)])
@@ -90,6 +112,7 @@ hi = mathutils.Vector([max(p[i] for p in points) for i in range(3)])
 center, size = (lo + hi) / 2, max(hi - lo)
 if spec.get("focus"):  # small parts of a big region: turn around the glowing part and frame it (with a small distance)
     hl = set(spec.get("highlight") if isinstance(spec.get("highlight"), list) else [spec.get("highlight")])
+    hl = set(spec["focus_on"]) if spec.get("focus_on") else hl
     pts = [o.matrix_world @ mathutils.Vector(c) for o in parts if o.name in hl for c in o.bound_box]
     if pts:
         center = (mathutils.Vector([min(p[i] for p in pts) for i in range(3)])
@@ -105,10 +128,21 @@ for o in parts:
 
 frames, fps = spec["frames"], spec.get("fps", 15)
 turn = spec.get("degrees_per_second", 30)  # a slow, steady turn
+zoom = spec.get("zoom")
+hold = min(zoom["frames"], frames) if zoom else 1  # a zoom holds the model still until the camera has pulled back
 pivot.rotation_euler = (0, 0, math.radians(spec.get("start_degrees", -20)))
 pivot.keyframe_insert("rotation_euler", frame=1)
-pivot.rotation_euler = (0, 0, math.radians(spec.get("start_degrees", -20) + turn * frames / fps))
-pivot.keyframe_insert("rotation_euler", frame=frames + 1)  # frame k sits at start + turn * (k - 1) / fps, so a full turn loops
+if spec.get("sway"):  # swing back and forth around start_degrees (amplitude, seconds per swing), so a view stays in sight
+    amp, period = spec["sway"]
+    for k in range(2, frames + 2):
+        pivot.rotation_euler = (0, 0, math.radians(spec.get("start_degrees", -20)
+                                                   + amp * math.sin(2 * math.pi * (k - 1) / (fps * period))))
+        pivot.keyframe_insert("rotation_euler", frame=k)
+elif hold > 1:
+    pivot.keyframe_insert("rotation_euler", frame=hold)
+if not spec.get("sway"):
+    pivot.rotation_euler = (0, 0, math.radians(spec.get("start_degrees", -20) + turn * (frames + 1 - hold) / fps))
+    pivot.keyframe_insert("rotation_euler", frame=frames + 1)  # frame k sits at start + turn * (k - 1) / fps, so a full turn loops
 for fc in pivot.animation_data.action.fcurves:
     for k in fc.keyframe_points:
         k.interpolation = "LINEAR"
@@ -120,6 +154,52 @@ cam.location = center + mathutils.Vector((0, -size * spec.get("distance", 6.0), 
 cam.rotation_euler = (center - cam.location).to_track_quat("-Z", "Y").to_euler()
 cam.location.z -= size * spec.get("lift", 0.0)  # positive lift moves the organ up in the frame
 scene.camera = cam
+
+if zoom:  # start on the target's surface, pull straight back to the framing above
+    scene.frame_set(1)
+    bpy.context.view_layer.update()
+    final = cam.location.copy()
+    look_end = center + (final - (center + mathutils.Vector((0, -size * spec.get("distance", 6.0), size * 0.4))))
+    away = (final - look_end).normalized()
+    far = (final - look_end).length
+    tgt = set(zoom["target"])
+    pts = [o.matrix_world @ mathutils.Vector(c) for o in parts if o.name in tgt for c in o.bound_box]
+    tlo = mathutils.Vector([min(p[i] for p in pts) for i in range(3)])
+    thi = mathutils.Vector([max(p[i] for p in pts) for i in range(3)])
+    aim = mathutils.Vector([tlo[i] + (thi[i] - tlo[i]) * f for i, f in enumerate(zoom.get("aim", (0.5, 0.5, 0.5)))])
+    deps = bpy.context.evaluated_depsgraph_get()
+    side = away.cross(mathutils.Vector((0, 0, 1))).normalized()
+    up = side.cross(away).normalized()
+    best = None  # the target's surface point (seen from the camera's side) nearest the aim
+    span = (thi - tlo).length
+    for a in range(-6, 7):
+        for b in range(-6, 7):
+            start_ = aim + side * (a * span / 12) + up * (b * span / 12)
+            hit, loc, _n, _i, obj, _m = scene.ray_cast(deps, start_ + away * size * 3, -away)
+            if hit and obj.name in tgt and (best is None or (start_ - aim).length < best[0]):
+                best = ((start_ - aim).length, loc)
+    if best is None:
+        raise SystemExit(f"zoom: {sorted(tgt)} can't be seen from the camera's side; change start_degrees")
+    loc = best[1]
+    near = size * zoom.get("start", 0.03)
+    zf = max(2, min(zoom["frames"], frames))
+    cam.data.clip_start = near * 0.05
+    cam.data.clip_end = size * 50
+    rot = None
+    for k in range(1, frames + 1):
+        s_ = min(1.0, (k - 1) / (zf - 1))
+        p = 0.5 * s_ + 0.5 * s_ * s_ * (3 - 2 * s_)             # steady, easing a little at both ends
+        r = near * (far / near) ** p                            # even, steady-feeling zoom
+        q = (r - near) / (far - near)                           # the aim drifts to the region's center as it pulls back
+        look = loc.lerp(look_end, q)
+        d = away.copy()
+        d.rotate(mathutils.Euler((0, 0, math.radians(zoom.get("orbit", 0) * (1 - p)))))
+        cam.location = look + d * r
+        rot = (look - cam.location).to_track_quat("-Z", "Y").to_euler("XYZ", rot) if rot else \
+            (look - cam.location).to_track_quat("-Z", "Y").to_euler()
+        cam.rotation_euler = rot
+        cam.keyframe_insert("location", frame=k)
+        cam.keyframe_insert("rotation_euler", frame=k)
 
 for name, offset, power in [("key", (-1, -1.2, 1.2), 25), ("fill", (1.2, -0.8, 0.3), 8), ("rim", (0.3, 1.5, 1), 22)]:
     light = bpy.data.lights.new(name, "AREA")
@@ -156,4 +236,18 @@ scene.frame_start, scene.frame_end = 1, frames
 scene.render.fps = fps
 scene.render.filepath = spec["out"] + "/f"
 bpy.ops.render.render(animation=True)
+
+reveal = spec.get("reveal")
+if reveal:  # the same frames again with the reveal parts shown and lit
+    show = set(reveal["parts"])
+    for o in parts:
+        if o.name in show:
+            o.hide_render = False
+            o.data = o.data.copy()  # paired parts can share one mesh (the skull's .l/.r); light only this side
+            o.data.materials.clear()
+            o.data.materials.append(lit)
+    for k in reveal["frames"]:
+        scene.frame_set(k)
+        scene.render.filepath = f"{reveal['out']}/f{k:04d}.png"
+        bpy.ops.render.render(write_still=True)
 
