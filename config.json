@@ -107,5 +107,14 @@
     "abdomen",
     "eye",
     "teeth"
-  ]
+  ],
+  "notify": {
+    "service": "instagram",
+    "slots": [
+      "20:00"
+    ],
+    "from": "2026-11-07",
+    "note": "Add a trending sound from Instagram's Trending list. Keep the original audio (the voice) up and the song low, then post.",
+    "why": "Trending-sound test (Yashas, Nov 6, 2026): Ball Knowledge's hand-finished posts with a trending sound got about 1,000 Instagram views vs 155 for automatic ones (3 vs 10 posts). The 8 PM quiz's Instagram post goes out as Buffer 'Notify me'; TikTok and YouTube stay automatic."
+  }
 }

@@ -36,7 +36,8 @@ def post_type(entry: dict) -> str:
 def describe(entry: dict, platform: str) -> dict:
     return {"slot": entry["slot"], "day": entry["day"], "id": entry["id"], "type": post_type(entry),
             "organ": entry.get("organ"), "title": entry.get("title"), "platform": platform,
-            "video_seconds": entry.get("video_seconds"), "music": entry.get("music")}
+            "video_seconds": entry.get("video_seconds"), "music": entry.get("music"),
+            "sound": "trending (by hand)" if entry.get("notify") == platform else "original track"}
 
 
 def update(hist: list[dict], data: dict, now: datetime, fetch) -> list[str]:
@@ -118,6 +119,14 @@ def scorecard(data: dict) -> str:
                 if r["platform"] == platform:
                     g[r["type"]].append(r)
             out += [f"### {platform.title()}", ""] + _table(g, snap, "Type") + [""]
+    have = [r for r in recs if "1d" in r["snapshots"] and r["platform"] == "instagram" and r.get("sound")]
+    if any(r["sound"] != "original track" for r in have):
+        g = defaultdict(list)
+        for r in have:
+            g[f"{r['type']} / {r['sound']}"].append(r)
+        out += ["## Trending sound vs original track (Instagram, 1 day old)", "",
+                "The 8 PM quiz goes out as Buffer 'Notify me' and is finished by hand with an Instagram trending sound.", ""]
+        out += _table(g, "1d", "Type / sound") + [""]
     top = sorted((r for r in recs if r.get("latest")), key=lambda r: -(r["latest"].get("views") or 0))[:10]
     if top:
         out += ["## Top 10 posts by views so far", "", "| Day | Type | Post | Platform | Views | Comments | Shares |",
