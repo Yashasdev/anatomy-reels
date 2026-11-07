@@ -16,8 +16,8 @@ import zlib
 import numpy as np
 
 SR = 44100
-STYLES = ("lofi", "house", "ambient", "trap", "pop", "stadium", "drumline", "phonk", "drill")
-TRACKS = [f"{s}-{i}" for s in STYLES for i in range(1, 6)]  # 45 tracks
+STYLES = ("lofi", "house", "ambient", "trap", "pop", "stadium", "drumline", "phonk", "drill", "science")
+TRACKS = [f"{s}-{i}" for s in STYLES for i in range(1, 6)]  # 50 tracks
 # sports styles: stadium (big drums and brass, a broadcast feel), drumline (marching snare and bass drums),
 # phonk (cowbell lead over 808s, the sound of sports edits), drill (sliding 808s, triplet hats)
 
@@ -35,6 +35,9 @@ SETTINGS = {  # tempo range, mode, swing, which parts play
     "drumline": dict(bpm=(104, 116), minor=0.6, swing=0.0, drums="drumline", keys="brass", lead=None, bass=None),
     "phonk": dict(bpm=(126, 138), minor=1.0, swing=0.0, drums="phonk", keys=None, lead="cowbell", bass="808"),
     "drill": dict(bpm=(138, 146), minor=1.0, swing=0.0, drums="drill", keys="pad", lead="pluck", bass="808"),
+    # "curious science" (Nov 2026, for narrated anatomy videos): soft piano over pads, a quiet arpeggio pulse and a
+    # faint heartbeat, no drums and no melody, so it sits well under a voice
+    "science": dict(bpm=(84, 96), minor=0.3, swing=0.0, drums=None, keys="science", lead=None, bass="sub"),
 }
 
 
@@ -244,6 +247,18 @@ def render(name: str, seconds: float) -> np.ndarray:
         elif cfg["keys"] == "pad":
             for f in chord(degree):
                 mix.add(pad(f, bar + 0.4), at, 0.10)
+        elif cfg["keys"] == "science":
+            notes = chord(degree)
+            for f in notes:
+                mix.add(pad(f, bar + 0.6), at, 0.07)
+            for hit in (0, 2.5):  # soft piano on 1 and the "and" of 3
+                for k, f in enumerate(notes):
+                    mix.add(piano(f, beat * 1.6), at + hit * beat + 0.01 * k, 0.06, pan=-0.2 + 0.13 * k)
+            if not intro:
+                for k in range(8):  # the pulse: chord tones an octave up, eighth notes, very quiet
+                    mix.add(pluck(notes[k % len(notes)] * 2, beat * 0.45), at + k * beat / 2, 0.035, pan=0.3 if k % 2 else -0.3)
+                mix.add(tom(55), at, 0.09)  # a faint heartbeat: lub-dub on the downbeat
+                mix.add(tom(50), at + beat * 0.32, 0.06)
         elif cfg["keys"] == "piano":
             for hit in (0, 1.5, 2.5) if style == "pop" else (0,):
                 for f in chord(degree):
