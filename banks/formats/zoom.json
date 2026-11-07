@@ -1,0 +1,422 @@
+[
+ {
+  "id": "fmt-zoom-01",
+  "kind": "zoom",
+  "model": "pelvis",
+  "title": "Guess the body part",
+  "reveal": [
+   "Sacrum"
+  ],
+  "zoom": {
+   "aim": [
+    0.5,
+    0.5,
+    0.6
+   ],
+   "start": 0.2
+  },
+  "start_degrees": 180,
+  "distance": 3.4,
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Coccyx",
+   "Sacrum",
+   "Skull base",
+   "Breastbone"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Comment the second you know what this is.",
+   "We're zoomed all the way in on one bone. Watch it pull back.",
+   "What are you looking at?",
+   "Those holes let the sacral nerves leave the bone.",
+   "The coccyx is the small tail below it, not this.",
+   "It's B. The sacrum.",
+   "Fun fact: it starts as five vertebrae that fuse after about age 20."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "B) The sacrum, seen from behind with its paired foramina, where the sacral spinal nerves exit. It forms from five sacral vertebrae, a fusion that doesn't begin until after age 20.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-3-the-vertebral-column"
+  ]
+ },
+ {
+  "id": "fmt-zoom-02",
+  "kind": "zoom",
+  "model": "teeth",
+  "title": "Guess the body part",
+  "reveal": [
+   "Lower first molar tooth.r"
+  ],
+  "zoom": {
+   "aim": [
+    0.5,
+    0.5,
+    0.85
+   ],
+   "start": 0.1
+  },
+  "start_degrees": 60,
+  "distance": 3.4,
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Premolar",
+   "Canine",
+   "Incisor",
+   "Molar"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Comment the second you know what this is.",
+   "This close up, it looks like a mountain range.",
+   "What are you looking at?",
+   "It's a big back tooth in the lower jaw, with several cusps.",
+   "Premolars sit in front of it, with just two rounded cusps.",
+   "It's D. A molar, the lower first molar.",
+   "Fun fact: adults have 12 molars, and four of them are wisdom teeth."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "D) A molar (the lower first molar). Molars are the largest, most posterior teeth, with several cusps; premolars in front have two rounded cusps. Adults have 12 molars, including the 4 wisdom teeth.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-3-the-mouth-pharynx-and-esophagus"
+  ]
+ },
+ {
+  "id": "fmt-zoom-03",
+  "kind": "zoom",
+  "model": "leg",
+  "title": "Guess the body part",
+  "reveal": [
+   "Femur.r"
+  ],
+  "zoom": {
+   "aim": [
+    0.85,
+    0.5,
+    0.95
+   ],
+   "start": 0.05
+  },
+  "start_degrees": 0,
+  "distance": 3.0,
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Femur",
+   "Humerus",
+   "Tibia",
+   "Hip bone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Comment the second you know what this is.",
+   "A smooth ball of bone. Watch what it's attached to.",
+   "What are you looking at?",
+   "That ball fits into a socket in the hip.",
+   "The humerus has a ball too, but it's in the arm.",
+   "It's A. The femur, your thigh bone.",
+   "Fun fact: it's the longest and strongest bone in your body."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "A) The femur. Its rounded head fits the hip bone's socket (the acetabulum) to form the hip joint. It's the longest and strongest bone of the body.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-4-bones-of-the-lower-limb"
+  ]
+ },
+ {
+  "id": "fmt-zoom-04",
+  "kind": "zoom",
+  "model": "heart",
+  "title": "Guess the body part",
+  "reveal": [
+   "Left ventricle"
+  ],
+  "zoom": {
+   "aim": [
+    0.0,
+    0.5,
+    0.4
+   ],
+   "start": 0.3
+  },
+  "start_degrees": -50,
+  "distance": 3.4,
+  "degrees_per_second": 5,
+  "question": "Which part of the heart is this?",
+  "choices": [
+   "Right ventricle",
+   "Left atrium",
+   "Left ventricle",
+   "Right atrium"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Comment the second you know what this is.",
+   "We start on one smooth, curved wall of muscle.",
+   "Which part of the heart is this?",
+   "It's a big lower chamber, on the heart's left side.",
+   "The right ventricle is the lower chamber on the other side.",
+   "It's C. The left ventricle.",
+   "Fun fact: its wall is the thickest, to push blood around the whole body."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "C) The left ventricle, the lower chamber on the heart's left side. Its muscle is much thicker than the right ventricle's because it pumps blood into the long systemic circuit.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy"
+  ]
+ },
+ {
+  "id": "fmt-zoom-05",
+  "kind": "zoom",
+  "model": "skull",
+  "title": "Guess the body part",
+  "reveal": [
+   "Mandible"
+  ],
+  "zoom": {
+   "aim": [
+    0.5,
+    0.0,
+    0.1
+   ],
+   "start": 0.12
+  },
+  "start_degrees": 0,
+  "distance": 3.4,
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Mandible",
+   "Maxilla",
+   "Zygomatic",
+   "Frontal"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Comment the second you know what this is.",
+   "A curved ridge of bone, up close. Keep watching.",
+   "What are you looking at?",
+   "That row of teeth sits in the lower jaw.",
+   "The maxilla holds the upper teeth. This bone is below it.",
+   "It's A. The mandible, your lower jaw.",
+   "Fun fact: it's the only bone in the skull that moves."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "A) The mandible, the lower jaw, which anchors the lower teeth (the maxilla holds the upper ones). It is the only moveable bone of the skull.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-2-the-skull"
+  ]
+ },
+ {
+  "id": "fmt-zoom-06",
+  "kind": "zoom",
+  "model": "spine",
+  "title": "Guess the body part",
+  "reveal": [
+   "Vertebra L1",
+   "Vertebra L2",
+   "Vertebra L3",
+   "Vertebra L4",
+   "Vertebra L5"
+  ],
+  "zoom": {
+   "target": [
+    "Vertebra L3"
+   ],
+   "aim": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "start": 0.05
+  },
+  "start_degrees": 90,
+  "distance": 1.8,
+  "focus": true,
+  "focus_on": [
+   "Vertebra L1",
+   "Vertebra L5"
+  ],
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Cervical vertebrae",
+   "Thoracic vertebrae",
+   "Sacrum",
+   "Lumbar vertebrae"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Comment the second you know what this is.",
+   "Thick blocks of bone, stacked up. Watch it pull back.",
+   "What are you looking at?",
+   "These five sit just above the sacrum, in the lower back.",
+   "Thoracic vertebrae are higher up, where the ribs attach.",
+   "It's D. The lumbar vertebrae.",
+   "Fun fact: they carry the most weight, so they have the biggest bodies."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "D) The lumbar vertebrae, L1 to L5, just above the sacrum. They carry the most body weight, so their vertebral bodies are the largest and thickest; thoracic vertebrae above them have sites for the ribs.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-3-the-vertebral-column"
+  ]
+ },
+ {
+  "id": "fmt-zoom-07",
+  "kind": "zoom",
+  "model": "hand",
+  "title": "Guess the body part",
+  "reveal": [
+   "Third metacarpal bone.r"
+  ],
+  "zoom": {
+   "aim": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "start": 0.12
+  },
+  "start_degrees": 180,
+  "distance": 3.4,
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Metatarsal",
+   "Phalanx",
+   "Metacarpal",
+   "Carpal"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Comment the second you know what this is.",
+   "A long, smooth bone, up close. Watch it pull back.",
+   "What are you looking at?",
+   "Five long bones fan out from the wrist. This is the middle one.",
+   "Metatarsals look the same, but they're in the foot.",
+   "It's C. A metacarpal, the third one.",
+   "Fun fact: the far ends of your metacarpals are your knuckles."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "C) A metacarpal (the third). The five metacarpals form the palm between the wrist bones and the fingers; metatarsals are the matching bones of the foot. Their distal ends form the knuckles.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb"
+  ]
+ },
+ {
+  "id": "fmt-zoom-08",
+  "kind": "zoom",
+  "model": "arm",
+  "title": "Guess the body part",
+  "reveal": [
+   "Scapula.r"
+  ],
+  "zoom": {
+   "aim": [
+    0.5,
+    0.5,
+    0.7
+   ],
+   "start": 0.12
+  },
+  "start_degrees": 180,
+  "distance": 3.0,
+  "degrees_per_second": 5,
+  "question": "What are you looking at?",
+  "choices": [
+   "Hip bone",
+   "Scapula",
+   "Sternum",
+   "Clavicle"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Comment the second you know what this is.",
+   "A broad, flat sheet of bone. Watch it pull back.",
+   "What are you looking at?",
+   "It sits at the back of the shoulder, at the top of the arm.",
+   "The hip bone is broad and flat too, but it's in the pelvis.",
+   "It's B. The scapula, your shoulder blade.",
+   "Fun fact: it has no joint with your ribs. Muscles surround it instead."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "B) The scapula (shoulder blade), at the back of the shoulder, meeting the humerus and the clavicle. It is surrounded by muscles and does not articulate with the ribs.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#biology"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-1-the-pectoral-girdle"
+  ]
+ }
+]

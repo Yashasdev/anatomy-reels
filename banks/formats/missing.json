@@ -1,0 +1,410 @@
+[
+ {
+  "id": "fmt-missing-01",
+  "kind": "missing",
+  "model": "arm",
+  "title": "The Arm",
+  "hide": [
+   "Radius.r"
+  ],
+  "reveal": [
+   "Radius.r"
+  ],
+  "start_degrees": -30,
+  "sway": [
+   60,
+   12
+  ],
+  "distance": 3.0,
+  "question": "Which bone is missing?",
+  "choices": [
+   "Radius",
+   "Ulna",
+   "Humerus",
+   "Scapula"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the right arm and shoulder blade, down to the wrist.",
+   "Which bone is missing?",
+   "The forearm should have two bones side by side.",
+   "The one left hooks around the elbow. That's the ulna.",
+   "It's A. The radius, on the thumb side.",
+   "Why it matters: a fall on an outstretched hand often breaks it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "A) The radius. Only the ulna, the bone that hooks around the elbow, is left in the forearm; the radius runs on the thumb side. A fall onto an outstretched hand often breaks it near the wrist (a Colles fracture).",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb"
+  ]
+ },
+ {
+  "id": "fmt-missing-02",
+  "kind": "missing",
+  "model": "leg",
+  "title": "The Leg",
+  "hide": [
+   "Fibula.r"
+  ],
+  "reveal": [
+   "Fibula.r"
+  ],
+  "start_degrees": 40,
+  "sway": [
+   45,
+   12
+  ],
+  "distance": 2.0,
+  "focus": true,
+  "focus_on": [
+   "Fibula.r",
+   "Tibia.r"
+  ],
+  "question": "Which bone is missing?",
+  "choices": [
+   "Tibia",
+   "Femur",
+   "Fibula",
+   "Patella"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the right leg, from the thigh down to the toes.",
+   "Which bone is missing?",
+   "Your shin should have two bones side by side.",
+   "The thick one is still there. That's the tibia.",
+   "It's C. The fibula, the thin bone on the outer side.",
+   "Why it matters: the fibula bears no weight. The tibia carries it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "C) The fibula. The thick tibia is still there; the slender fibula on the outer side is gone. The tibia is the leg's main weight-bearing bone, and the fibula does not bear weight.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-4-bones-of-the-lower-limb"
+  ]
+ },
+ {
+  "id": "fmt-missing-03",
+  "kind": "missing",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "hide": [
+   "Sacrum"
+  ],
+  "reveal": [
+   "Sacrum"
+  ],
+  "start_degrees": 160,
+  "sway": [
+   60,
+   12
+  ],
+  "distance": 3.4,
+  "question": "Which bone is missing?",
+  "choices": [
+   "Coccyx",
+   "Sacrum",
+   "Hip bone",
+   "L5 vertebra"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the pelvis. Keep an eye on the back.",
+   "Which bone is missing?",
+   "There's a gap between the two hip bones at the back.",
+   "The small coccyx hangs below that gap. It's still there.",
+   "It's B. The sacrum.",
+   "Why it matters: it's five fused vertebrae, and your spine sits on it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "B) The sacrum. It fills the gap between the two hip bones at the back, with L5 above it and the coccyx below. It forms from five sacral vertebrae that fuse after about age 20.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-3-the-vertebral-column",
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-3-the-pelvic-girdle-and-pelvis"
+  ]
+ },
+ {
+  "id": "fmt-missing-04",
+  "kind": "missing",
+  "model": "skull",
+  "title": "The Skull",
+  "hide": [
+   "Zygomatic bone.r"
+  ],
+  "reveal": [
+   "Zygomatic bone.r"
+  ],
+  "start_degrees": 0,
+  "sway": [
+   25,
+   10
+  ],
+  "distance": 2.8,
+  "question": "Which bone is missing?",
+  "choices": [
+   "Left zygomatic",
+   "Right temporal",
+   "Right maxilla",
+   "Right zygomatic"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "One bone is missing. Find it.",
+   "Watch the face. Left and right are the skull's own sides.",
+   "Which bone is missing?",
+   "There's a hole beside one eye socket, where the cheek should be.",
+   "It's the skull's right side, which is on your left as it faces you.",
+   "It's D. The right zygomatic bone, the cheekbone.",
+   "Why it matters: it forms much of the outer wall of the eye socket."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "D) The right zygomatic bone (cheekbone). The gap is beside the skull's right eye socket, which is on the viewer's left when the face points at you. It forms much of the outer wall of the orbit.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-2-the-skull"
+  ],
+  "note": "Left / right = the skull's own sides"
+ },
+ {
+  "id": "fmt-missing-05",
+  "kind": "missing",
+  "model": "hand",
+  "title": "The Hand",
+  "hide": [
+   "First metacarpal bone.r"
+  ],
+  "reveal": [
+   "First metacarpal bone.r"
+  ],
+  "start_degrees": 0,
+  "sway": [
+   50,
+   12
+  ],
+  "distance": 3.4,
+  "question": "Which bone is missing?",
+  "choices": [
+   "5th metacarpal",
+   "Trapezium",
+   "1st metacarpal",
+   "Scaphoid"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the right hand, from the wrist to the fingertips.",
+   "Which bone is missing?",
+   "Look at the thumb. Its finger bones float away from the wrist.",
+   "The trapezium, the wrist bone at its base, is still there.",
+   "It's C. The first metacarpal, the thumb's palm bone.",
+   "Why it matters: its saddle joint lets your thumb reach across your palm."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "C) The first metacarpal. Metacarpals are numbered 1 to 5 from the thumb; the thumb's two phalanges float with nothing between them and the trapezium. Its saddle joint with the trapezium lets the thumb move across the palm (opposition).",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb",
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-4-synovial-joints"
+  ]
+ },
+ {
+  "id": "fmt-missing-06",
+  "kind": "missing",
+  "model": "spine",
+  "title": "The Spine",
+  "hide": [
+   "Vertebra L3"
+  ],
+  "reveal": [
+   "Vertebra L3"
+  ],
+  "start_degrees": 60,
+  "sway": [
+   60,
+   12
+  ],
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which bone is missing?",
+  "choices": [
+   "L3",
+   "L4",
+   "L2",
+   "T12"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the lower spine, sitting on the sacrum.",
+   "Which bone is missing?",
+   "Count up from the sacrum. L5, then L4, then a gap.",
+   "So it's not L4. L4 is the one just below the gap.",
+   "It's A. L3, the third lumbar vertebra.",
+   "Why it matters: lumbar vertebrae carry the most weight, so they're biggest."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "A) L3, the third lumbar vertebra. Counting up from the sacrum: L5, L4, then the gap. Lumbar vertebrae carry the most body weight, so they have the largest, thickest bodies.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-3-the-vertebral-column"
+  ]
+ },
+ {
+  "id": "fmt-missing-07",
+  "kind": "missing",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "hide": [
+   "Manubrium of sternum"
+  ],
+  "reveal": [
+   "Manubrium of sternum"
+  ],
+  "start_degrees": -10,
+  "sway": [
+   50,
+   12
+  ],
+  "distance": 3.0,
+  "question": "Which bone is missing?",
+  "choices": [
+   "Xiphoid",
+   "Sternal body",
+   "First rib",
+   "Manubrium"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the rib cage, seen from the front.",
+   "Which bone is missing?",
+   "The breastbone has three parts. Its top piece is gone.",
+   "The long middle part, the body, is still there.",
+   "It's D. The manubrium, the top of the breastbone.",
+   "Why it matters: your collarbones and first ribs attach to it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "D) The manubrium, the top part of the sternum. The body and the xiphoid process are still there. The clavicles and the first ribs attach to the manubrium.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-4-the-thoracic-cage"
+  ]
+ },
+ {
+  "id": "fmt-missing-08",
+  "kind": "missing",
+  "model": "leg",
+  "title": "The Foot",
+  "hide": [
+   "Calcaneus.r"
+  ],
+  "reveal": [
+   "Calcaneus.r"
+  ],
+  "start_degrees": -90,
+  "sway": [
+   50,
+   12
+  ],
+  "distance": 1.1,
+  "focus": true,
+  "focus_on": [
+   "Calcaneus.r",
+   "Talus.r",
+   "Navicular bone.r"
+  ],
+  "question": "Which bone is missing?",
+  "choices": [
+   "Talus",
+   "Calcaneus",
+   "Cuboid",
+   "Navicular"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One bone is missing. Find it.",
+   "This is the right foot and ankle.",
+   "Which bone is missing?",
+   "Look at the back of the foot. There's no heel.",
+   "The talus, the bone just under the shin, is still there.",
+   "It's B. The calcaneus, your heel bone.",
+   "Why it matters: it's the largest bone in the foot and rests on the ground."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "why": "B) The calcaneus (heel bone). The talus still sits under the tibia, but nothing forms the heel. It's the largest bone of the foot; body weight passes from the tibia to the talus to the calcaneus.",
+  "hashtags": [
+   "#anatomy",
+   "#anatomyquiz",
+   "#premed",
+   "#nursingstudent",
+   "#bones"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-4-bones-of-the-lower-limb"
+  ],
+  "lift": -0.08
+ }
+]
