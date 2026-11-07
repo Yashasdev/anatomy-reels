@@ -163,6 +163,15 @@ def file_name(at: datetime, q: dict) -> str:
     return f"{at:%Y-%m-%d-%H%M}-{q['id']}"
 
 
+def notify_for(at: datetime) -> dict | None:
+    """The trending-sound test (config "notify": {"service", "slots", "from", "note"}): that platform's post in these
+    slots goes out as Buffer "Notify me", so Yashas can add a trending sound in the Instagram app before posting."""
+    n = CONFIG.get("notify")
+    if not n or f"{at:%H:%M}" not in n["slots"] or at.date().isoformat() < n["from"] or at.date().isoformat() > n.get("until", "9999"):
+        return None
+    return n
+
+
 def entry(at: datetime, q: dict, url: str, seconds: float, posts: dict) -> dict:
     return {"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q.get("organ"),
             "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
@@ -253,8 +262,10 @@ def post() -> int:
         for service in CONFIG["platforms"]:
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
+                hand = notify_for(at)
+                note = hand["note"] if hand and service == hand["service"] else None
                 posts[service] = buffer.schedule_video(ch, caption(q), url, at.astimezone(ZoneInfo("UTC")).isoformat(),
-                                                       title=youtube_title(q), thumbnail_ms=cover_ms)
+                                                       title=youtube_title(q), thumbnail_ms=cover_ms, notify=note)
                 print(f"queued Day {q['day']} {q['id']} on {service} for {at:%a %b %d %I:%M %p} ET: {posts[service]}")
             except Exception as e:  # one network failing shouldn't stop the others
                 failed += 1
@@ -262,6 +273,9 @@ def post() -> int:
         if not posts:
             return 1
         hist.append(entry(at, q, url, seconds, posts))
+        hand = notify_for(at)
+        if hand and hand["service"] in posts:
+            hist[-1]["notify"] = hand["service"]
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     try:
         failed += retry_failed(hist, channels)
@@ -293,8 +307,10 @@ def publish(dry: bool) -> int:
         for service in CONFIG["platforms"]:
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
+                hand = notify_for(at)
+                note = hand["note"] if hand and service == hand["service"] else None
                 posts[service] = buffer.schedule_video(ch, caption(q), url, at.astimezone(ZoneInfo("UTC")).isoformat(),
-                                                       title=youtube_title(q), thumbnail_ms=cover_ms)
+                                                       title=youtube_title(q), thumbnail_ms=cover_ms, notify=note)
                 print(f"  queued on {service}: {posts[service]}")
             except Exception as e:  # one network failing shouldn't stop the others
                 failed += 1
@@ -302,6 +318,9 @@ def publish(dry: bool) -> int:
         if not posts:
             continue
         hist.append(entry(at, q, url, seconds, posts))
+        hand = notify_for(at)
+        if hand and hand["service"] in posts:
+            hist[-1]["notify"] = hand["service"]
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     return 1 if failed else 0
 

@@ -109,19 +109,24 @@ def post_metadata(service: str, title: str) -> dict | None:
 
 
 def schedule_video(channel: dict, text: str, video_url: str, due_at_utc_iso: str, title: str = "",
-                   thumbnail_ms: int = 1500) -> str:
+                   thumbnail_ms: int = 1500, notify: str | None = None) -> str:
+    """Schedule a video post. With `notify` (a note shown in the Buffer app), Buffer doesn't publish it: at the due
+    time it pushes a notification, and Yashas finishes the post in Instagram, where a trending sound can be added
+    (Buffer's API can't attach platform audio to an automatic post)."""
     # Networks don't accept a separate cover image through Buffer; Instagram and TikTok use the frame at
     # thumbnailOffset as the cover, which is why the cover is built into the end of the video.
     video = {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}
     post_input = {
         "channelId": channel["id"],
         "text": text,
-        "schedulingType": "automatic",
+        "schedulingType": "notification" if notify else "automatic",
         "mode": "customScheduled",
         "dueAt": due_at_utc_iso,
         "assets": [{"video": video}],
     }
     metadata = post_metadata(channel["service"], title)
+    if notify and channel["service"].lower() == "instagram":
+        metadata = {"instagram": {**(metadata or {}).get("instagram", {}), "stickerFields": {"music": notify}}}
     if metadata:
         post_input["metadata"] = metadata
 

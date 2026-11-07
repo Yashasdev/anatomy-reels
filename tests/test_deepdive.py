@@ -121,3 +121,11 @@ def test_format_captions_rank_and_diagnose():
     assert publish.caption(diag).rstrip().endswith("Educational, not medical advice.")
     missing = {**FORMATS[0], "kind": "formats", "series": "formats"}
     assert "Z-Anatomy" in publish.caption(missing) and "new anatomy challenge" in publish.caption(missing)
+
+
+def test_the_8pm_instagram_post_is_a_notify_me_post(setup, monkeypatch):
+    monkeypatch.setitem(publish.CONFIG, "notify", {"service": "instagram", "slots": ["20:00"], "from": "2030-01-01",
+                                                   "note": "Add a trending sound."})
+    assert publish.notify_for(datetime(2030, 1, 2, 20, 0, tzinfo=TZ))["service"] == "instagram"
+    assert publish.notify_for(datetime(2030, 1, 2, 9, 30, tzinfo=TZ)) is None
+    assert publish.notify_for(datetime(2029, 12, 31, 20, 0, tzinfo=TZ)) is None
