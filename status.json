@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T18:02:14+00:00",
+ "generated_at": "2026-11-07T18:48:00+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/42399221250",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 34,
- "total": 70,
- "posted": 36,
+ "unused": 29,
+ "total": 74,
+ "posted": 45,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 0
+   "posted": 2
   },
   "formats": {
    "slots": [
@@ -44,21 +44,21 @@
     "myth",
     "rank"
    ],
-   "posted": 0
+   "posted": 2
   }
  },
  "banks": {
   "skull": {
    "total": 7,
-   "unused": 3
+   "unused": 2
   },
   "leg": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   },
   "pelvis": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   },
   "chest": {
    "total": 6,
@@ -74,131 +74,14 @@
   },
   "spine": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   },
   "hand": {
    "total": 7,
-   "unused": 5
+   "unused": 4
   }
  },
  "posts": [
-  {
-   "slot": "2026-10-31T12:30:00-04:00",
-   "day": 7,
-   "id": "lungs-02",
-   "organ": "lungs",
-   "title": "The Lungs",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-1230-lungs-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-10-31T16:00:00-04:00",
-   "day": 8,
-   "id": "skull-02",
-   "organ": "skull",
-   "title": "The Skull",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-1600-skull-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-10-31T20:00:00-04:00",
-   "day": 9,
-   "id": "abdomen-02",
-   "organ": "abdomen",
-   "title": "The Abdomen",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-10-31-2000-abdomen-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-01T09:30:00-05:00",
-   "day": 10,
-   "id": "arm-02",
-   "organ": "arm",
-   "title": "The Arm",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-0930-arm-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-01T12:30:00-05:00",
-   "day": 11,
-   "id": "leg-01",
-   "organ": "leg",
-   "title": "The Leg",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1230-leg-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-01T16:00:00-05:00",
-   "day": 12,
-   "id": "pelvis-01",
-   "organ": "pelvis",
-   "title": "The Pelvis",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1600-pelvis-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-01T18:00:00-05:00",
-   "day": 13,
-   "id": "spine-01",
-   "organ": "spine",
-   "title": "The Spine",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-1800-spine-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-01T20:00:00-05:00",
-   "day": 14,
-   "id": "chest-01",
-   "organ": "chest",
-   "title": "The Rib Cage",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-01-2000-chest-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-02T12:30:00-05:00",
-   "day": 15,
-   "id": "hand-01",
-   "organ": "hand",
-   "title": "The Hand",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-02-1230-hand-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-02T16:00:00-05:00",
    "day": 16,
@@ -466,6 +349,123 @@
    "organ": "arm",
    "title": "The Arm",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-0930-arm-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-07T16:00:00-05:00",
+   "day": 37,
+   "id": "spine-03",
+   "organ": "spine",
+   "title": "The Spine",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-1600-spine-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-07T18:00:00-05:00",
+   "day": 38,
+   "id": "dd-nephron",
+   "organ": null,
+   "title": "Inside a nephron",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-1800-dd-nephron.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-07T20:00:00-05:00",
+   "day": 39,
+   "id": "hand-03",
+   "organ": "hand",
+   "title": "The Hand",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-2000-hand-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-08T09:30:00-05:00",
+   "day": 40,
+   "id": "skull-05",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-0930-skull-05.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-08T12:30:00-05:00",
+   "day": 41,
+   "id": "fmt-missing-01",
+   "organ": null,
+   "title": "Which bone is missing?",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1230-fmt-missing-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-08T16:00:00-05:00",
+   "day": 42,
+   "id": "fmt-zoom-01",
+   "organ": null,
+   "title": "Zoom out: guess the body part",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1600-fmt-zoom-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-08T18:00:00-05:00",
+   "day": 43,
+   "id": "dd-na-k-pump",
+   "organ": null,
+   "title": "The sodium-potassium pump",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1800-dd-na-k-pump.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-08T20:00:00-05:00",
+   "day": 44,
+   "id": "leg-03",
+   "organ": "leg",
+   "title": "The Leg",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-2000-leg-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "slot": "2026-11-09T09:30:00-05:00",
+   "day": 45,
+   "id": "pelvis-03",
+   "organ": "pelvis",
+   "title": "The Pelvis",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-0930-pelvis-03.mp4",
    "platforms": [
     "instagram",
     "tiktok",
