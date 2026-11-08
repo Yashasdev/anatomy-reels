@@ -570,12 +570,15 @@
     "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-2000-hand-03.mp4",
     "video_seconds": 21.33,
     "buffer": {
-      "instagram": "6aef723f51492b796ef47210",
+      "instagram": "6af0c684229bf05dafcc5bcd",
       "tiktok": "6aef724051492b796ef47257",
       "youtube": "6aef7240229bf05daf6a633e"
     },
     "music": "house-4",
-    "notify": "instagram"
+    "notify": "instagram",
+    "retried": {
+      "instagram": "6aef723f51492b796ef47210"
+    }
   },
   {
     "slot": "2026-11-08T09:30:00-05:00",
@@ -672,5 +675,86 @@
       "youtube": "6aef7254d6bbae6fa1a54490"
     },
     "music": "lofi-2"
+  },
+  {
+    "slot": "2026-11-09T12:30:00-05:00",
+    "day": 46,
+    "id": "fmt-diagnose-01",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-1230-fmt-diagnose-01.mp4",
+    "video_seconds": 22.19,
+    "buffer": {
+      "instagram": "6af0c66c562f2e6de9d74456",
+      "tiktok": "6af0c66d9214322f686f4dbf",
+      "youtube": "6af0c66e9214322f686f4de7"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "lofi-1"
+  },
+  {
+    "slot": "2026-11-09T16:00:00-05:00",
+    "day": 47,
+    "id": "fmt-myth-01",
+    "organ": null,
+    "title": "Myth or fact?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-1600-fmt-myth-01.mp4",
+    "video_seconds": 22.19,
+    "buffer": {
+      "instagram": "6af0c66fd6bbae6fa106e9db",
+      "tiktok": "6af0c670d6bbae6fa106ea0c",
+      "youtube": "6af0c671229bf05dafcc5903"
+    },
+    "kind": "formats",
+    "format": "myth",
+    "music": "lofi-2"
+  },
+  {
+    "slot": "2026-11-09T18:00:00-05:00",
+    "day": 48,
+    "id": "dd-glycolysis",
+    "organ": null,
+    "title": "Glycolysis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-1800-dd-glycolysis.mp4",
+    "video_seconds": 54.38,
+    "buffer": {
+      "instagram": "6af0c674d6bbae6fa106ea87",
+      "tiktok": "6af0c67451492b796e565df0",
+      "youtube": "6af0c675004e4879a7d5b79e"
+    },
+    "kind": "deepdive",
+    "music": "ambient-3"
+  },
+  {
+    "slot": "2026-11-09T20:00:00-05:00",
+    "day": 49,
+    "id": "chest-03",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-2000-chest-03.mp4",
+    "video_seconds": 22.36,
+    "buffer": {
+      "instagram": "6af0c678d6bbae6fa106ed52",
+      "tiktok": "6af0c679004e4879a7d5b9b9",
+      "youtube": "6af0c679562f2e6de9d74686"
+    },
+    "music": "house-4",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-10T09:30:00-05:00",
+    "day": 50,
+    "id": "thigh-03",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-0930-thigh-03.mp4",
+    "video_seconds": 19.67,
+    "buffer": {
+      "instagram": "6af0c67b004e4879a7d5ba33",
+      "tiktok": "6af0c67b9214322f686f5104",
+      "youtube": "6af0c67c9214322f686f5142"
+    },
+    "music": "house-3"
   }
 ]
