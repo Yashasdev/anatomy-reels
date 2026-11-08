@@ -325,6 +325,26 @@ def publish(dry: bool) -> int:
     return 1 if failed else 0
 
 
+def metrics_summary(metrics: dict) -> dict | None:
+    """What Reels HQ shows: all-time totals and, per platform, posts, views and the average share watched at 1 day."""
+    recs = list(metrics.get("posts", {}).values())
+    if not recs:
+        return None
+    def total(vals):
+        vals = [v for v in vals if isinstance(v, (int, float))]
+        return sum(vals) if vals else None
+    by_platform = []
+    for platform in CONFIG["platforms"]:
+        items = [r for r in recs if r.get("platform") == platform]
+        watch = [100 * r["snapshots"]["1d"]["averageTimeWatched"] / r["video_seconds"] for r in items
+                 if r.get("video_seconds") and isinstance(r.get("snapshots", {}).get("1d", {}).get("averageTimeWatched"), (int, float))]
+        by_platform.append({"platform": platform, "posts": len(items), "views": total(r.get("latest", {}).get("views") for r in items),
+                            "watched": round(sum(watch) / len(watch), 1) if watch else None, "watch_samples": len(watch)})
+    return {"updated_at": metrics.get("updated_at"),
+            "totals": {m: total(r.get("latest", {}).get(m) for r in recs) for m in ("views", "reactions", "comments", "shares", "saves")},
+            "by_platform": by_platform}
+
+
 def write_status() -> None:
     """status.json: what Reels HQ shows for Anatomy Ace (stock, daily rate, recent and queued posts). The daily
     workflow commits it, so the dashboard reads one public file instead of every bank."""
@@ -332,6 +352,9 @@ def write_status() -> None:
     used = {h["id"] for h in hist}
     all_banks = banks()
     unused = unused_questions(used)
+    mpath = ROOT / "metrics.json"
+    metrics = json.loads(mpath.read_text()) if mpath.exists() else {}
+    sent = set(metrics.get("posts", {}))  # Buffer post IDs the tracker has seen go out
     run = os.environ.get("GITHUB_RUN_ID")
     flag = os.environ.get("PUBLISHING_ENABLED")
     status = {
@@ -346,7 +369,9 @@ def write_status() -> None:
                    for n in series.SERIES if series.settings(n)},
         "banks": {n: {"total": len(b), "unused": sum(q["id"] not in used for q in b)} for n, b in all_banks.items()},
         "posts": [{"slot": h["slot"], "day": h["day"], "id": h["id"], "organ": h["organ"], "title": h["title"],
-                   "video_url": h["video_url"], "platforms": sorted(h["buffer"])} for h in hist[-30:]],
+                   "video_url": h["video_url"], "platforms": sorted(h["buffer"]),
+                   "sent": sorted(pl for pl, pid in h["buffer"].items() if pid in sent)} for h in hist[-30:]],
+        "metrics": metrics_summary(metrics),
     }
     (ROOT / "status.json").write_text(json.dumps(status, indent=1) + "\n")
 
