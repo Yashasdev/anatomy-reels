@@ -1,6 +1,6 @@
 # Anatomy Ace scorecard
 
-Updated 2026-11-08T17:15:19Z. Averages per post at the same age (Buffer's numbers). Types: quiz (3D bone/organ quiz), deepdive, and the rotating formats (missing, zoom, diagnose, myth, rank). YouTube reports only views, likes and comments through Buffer.
+Updated 2026-11-08T20:10:28Z. Averages per post at the same age (Buffer's numbers). Types: quiz (3D bone/organ quiz), deepdive, and the rotating formats (missing, zoom, diagnose, myth, rank). YouTube reports only views, likes and comments through Buffer.
 
 ## At 1d old
 
@@ -34,25 +34,25 @@ Updated 2026-11-08T17:15:19Z. Averages per post at the same age (Buffer's number
 
 | Type | Posts | Views | Likes | Comments | Shares | Saves | Avg watch (s) | Watched |
 |---|---|---|---|---|---|---|---|---|
-| quiz | 30 | 362 | 5.2 | 0.0 | 0.1 | 0.2 | 4.5 | 24% |
+| quiz | 33 | 404 | 6.5 | 0.0 | 0.1 | 0.8 | 4.7 | 25% |
 
 ### Instagram
 
 | Type | Posts | Views | Likes | Comments | Shares | Saves | Avg watch (s) | Watched |
 |---|---|---|---|---|---|---|---|---|
-| quiz | 10 | 148 | 2.1 | 0.0 | 0.0 | 0.2 | 4.3 | 22% |
+| quiz | 11 | 242 | 4.8 | 0.0 | 0.2 | 0.8 | 4.5 | 24% |
 
 ### Tiktok
 
 | Type | Posts | Views | Likes | Comments | Shares | Saves | Avg watch (s) | Watched |
 |---|---|---|---|---|---|---|---|---|
-| quiz | 10 | 303 | 7.6 | 0.0 | 0.1 | – | 4.8 | 25% |
+| quiz | 11 | 304 | 7.9 | 0.0 | 0.1 | – | 4.9 | 26% |
 
 ### Youtube
 
 | Type | Posts | Views | Likes | Comments | Shares | Saves | Avg watch (s) | Watched |
 |---|---|---|---|---|---|---|---|---|
-| quiz | 10 | 637 | 6.0 | 0.0 | – | – | – | – |
+| quiz | 11 | 666 | 6.7 | 0.0 | – | – | – | – |
 
 ## Music style (Instagram and TikTok, 1 day old)
 
