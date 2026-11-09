@@ -200,5 +200,94 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "skull-08",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Nasal bone.l",
+   "Nasal bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which bone forms the bridge of the nose?",
+  "choices": [
+   "Maxilla",
+   "Vomer",
+   "Nasal",
+   "Zygomatic"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "You can pinch this bone between your fingers. Name it.",
+   "Watch the small pair of bones at the top of the nose.",
+   "Which bone forms the bridge of the nose?",
+   "The maxilla frames the sides of the nose and holds the upper teeth.",
+   "These two small bones meet in the middle, below the forehead.",
+   "It's C. The nasal bones.",
+   "Why it matters: below them, the nose is shaped by flexible cartilage."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-09",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Zygomatic bone.l",
+   "Zygomatic bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Jawbone",
+   "Cheekbone",
+   "Collarbone",
+   "Funny bone"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Smile and press the top of your cheek. You can feel this bone.",
+   "Watch the pair of bones under the eyes.",
+   "What's their everyday name?",
+   "The jawbone is the mandible, the lower bone that moves.",
+   "These bones form the prominent part of your cheeks.",
+   "It's B. The cheekbones, or zygomatic bones.",
+   "Why it matters: they give the face its shape and anchor chewing muscles."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-10",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Mandible"
+  ],
+  "start_degrees": 40,
+  "question": "Which skull bone can move?",
+  "choices": [
+   "Maxilla",
+   "Frontal",
+   "Temporal",
+   "Mandible"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Almost every bone in your skull is locked in place. One isn't.",
+   "Watch the glowing bone at the bottom of the face.",
+   "Which skull bone is the one that moves?",
+   "The maxilla holds the upper teeth, but it is fixed to the skull.",
+   "This lower jaw swings at joints near your ears.",
+   "It's D. The mandible.",
+   "Why it matters: it's the skull's only movable bone. It lets you chew."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

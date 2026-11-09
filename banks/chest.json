@@ -214,5 +214,108 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "chest-07",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "distance": 1.8,
+  "focus": true,
+  "question": "What is the small tip of the breastbone?",
+  "choices": [
+   "Xiphoid process",
+   "Manubrium",
+   "Body",
+   "Costal cartilage"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "At the bottom of your breastbone is a small pointed tip.",
+   "Watch the glowing tip at the lower end of the sternum.",
+   "What is the small tip of the breastbone?",
+   "The body of the sternum is the long middle part above it.",
+   "This small pointed piece is the lowest part of the breastbone.",
+   "It's A. The xiphoid process.",
+   "Why it matters: it's the sternum's third part, below the body."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-08",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Costal cartilage of first rib.l",
+   "Costal cartilage of first rib.r",
+   "Costal cartilage of second rib.l",
+   "Costal cartilage of second rib.r",
+   "Costal cartilage of third rib.l",
+   "Costal cartilage of third rib.r",
+   "Costal cartilage of fourth rib.l",
+   "Costal cartilage of fourth rib.r",
+   "Costal cartilage of fifth rib.l",
+   "Costal cartilage of fifth rib.r",
+   "Costal cartilage of sixth rib.l",
+   "Costal cartilage of sixth rib.r",
+   "Costal cartilage of seventh rib.l",
+   "Costal cartilage of seventh rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "What joins the upper ribs to the sternum?",
+  "choices": [
+   "Tendon",
+   "Costal cartilage",
+   "Muscle",
+   "Ligament"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your ribs don't touch your breastbone directly. Something sits between.",
+   "Watch the glowing bands between ribs and breastbone.",
+   "What tissue joins the upper ribs to the breastbone?",
+   "A tendon links muscle to bone, not rib to breastbone.",
+   "This flexible tissue is cartilage.",
+   "It's B. Costal cartilage.",
+   "Why it matters: it lets your rib cage expand when you breathe."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-09",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which pair of ribs is glowing?",
+  "choices": [
+   "Second",
+   "Fifth",
+   "Seventh",
+   "First"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "One pair of ribs sits right below your collarbones.",
+   "Watch the glowing ribs at the very top of the cage.",
+   "Which pair of ribs is glowing?",
+   "The second ribs are longer and less curved.",
+   "These are the shortest, broadest and most curved.",
+   "It's D. The first ribs.",
+   "Why it matters: they're the top pair, tucked under the collarbones."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

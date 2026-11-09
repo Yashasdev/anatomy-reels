@@ -179,5 +179,94 @@
   "answer_line": 4,
   "focus": true,
   "distance": 1.4
+ },
+ {
+  "id": "thigh-07",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Semitendinosus muscle.r",
+   "Semimembranosus muscle.r"
+  ],
+  "start_degrees": 180,
+  "question": "These muscles belong to which group?",
+  "choices": [
+   "Quadriceps",
+   "Hamstrings",
+   "Adductors",
+   "Calf muscles"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Bend your knee. The muscles at the back of the thigh do this.",
+   "We're looking from behind at the back of the thigh.",
+   "These muscles belong to which group?",
+   "The quadriceps are at the front of the thigh.",
+   "These two run down the back of the thigh and bend the knee.",
+   "It's B. The hamstrings.",
+   "Why it matters: the hamstrings extend the hip and bend the knee."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-08",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Soleus muscle.r"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "Which calf muscle is glowing?",
+  "choices": [
+   "Soleus",
+   "Tibialis anterior",
+   "Gastrocnemius",
+   "Rectus femoris"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Rise onto your toes. This muscle in your calf helps.",
+   "We're looking from behind at the lower leg.",
+   "Which calf muscle is glowing?",
+   "The gastrocnemius is the bulging calf muscle on top of it.",
+   "This flat muscle lies beneath the gastrocnemius.",
+   "It's A. The soleus.",
+   "Why it matters: it points the foot down when the knee is bent."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-09",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Gluteus medius muscle.r"
+  ],
+  "start_degrees": 180,
+  "question": "What does the glowing muscle do?",
+  "choices": [
+   "Straightens the knee",
+   "Bends the knee",
+   "Keeps the pelvis level",
+   "Lifts the foot up"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Stand on one leg. A muscle on the side of your hip works hard.",
+   "We're looking from behind at the hip.",
+   "What does the glowing muscle do?",
+   "Straightening the knee is the job of the quadriceps.",
+   "This hip muscle stops the other side of your pelvis from dropping.",
+   "It's C. It keeps the pelvis level.",
+   "Why it matters: it works every time you walk or stand on one leg."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

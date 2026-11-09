@@ -208,5 +208,96 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "arm-08",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Clavicle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Collarbone",
+   "Shoulder blade",
+   "Breastbone",
+   "Funny bone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "You can feel this bone at the top of your chest right now.",
+   "Watch the long thin bone near the base of the neck.",
+   "What's its everyday name?",
+   "The shoulder blade is the flat bone at the back, the scapula.",
+   "This slim bone runs from the breastbone toward the shoulder.",
+   "It's A. The collarbone, or clavicle.",
+   "Why it matters: it links the arm to the rest of the skeleton."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "arm-09",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Radius.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "Which forearm bone is on the thumb side?",
+  "choices": [
+   "Ulna",
+   "Humerus",
+   "Scapula",
+   "Radius"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Hold your palm up. Two bones run from elbow to wrist.",
+   "Watch the glowing bone in the forearm.",
+   "Which forearm bone is on the thumb side?",
+   "The ulna is on the pinky side, and makes the point of the elbow.",
+   "This one lines up with your thumb.",
+   "It's D. The radius.",
+   "Why it matters: it rotates around the ulna when you turn your palm."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "arm-10",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Humerus.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "Which is the longest bone of the arm?",
+  "choices": [
+   "Radius",
+   "Ulna",
+   "Humerus",
+   "Clavicle"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Your arm has several long bones. One beats them all.",
+   "Watch the glowing bone in the upper arm.",
+   "Which bone is the longest in the arm?",
+   "The ulna is long too, but it's shorter and sits in the forearm.",
+   "This one runs from the shoulder to the elbow.",
+   "It's C. The humerus.",
+   "Why it matters: it's the longest and largest bone of the upper limb."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
