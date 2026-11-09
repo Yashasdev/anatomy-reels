@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T22:58:56+00:00",
+ "generated_at": "2026-11-09T23:34:56+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/42716578748",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 27,
- "total": 77,
- "posted": 50,
+ "unused": 25,
+ "total": 81,
+ "posted": 56,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 3
+   "posted": 4
   },
   "formats": {
    "slots": [
@@ -44,7 +44,7 @@
     "myth",
     "rank"
    ],
-   "posted": 4
+   "posted": 7
   }
  },
  "banks": {
@@ -70,11 +70,11 @@
   },
   "arm": {
    "total": 7,
-   "unused": 3
+   "unused": 2
   },
   "spine": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   },
   "hand": {
    "total": 7,
@@ -82,114 +82,6 @@
   }
  },
  "posts": [
-  {
-   "slot": "2026-11-04T09:30:00-05:00",
-   "day": 21,
-   "id": "skull-03",
-   "organ": "skull",
-   "title": "The Skull",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-0930-skull-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-04T12:30:00-05:00",
-   "day": 22,
-   "id": "abdomen-03",
-   "organ": "abdomen",
-   "title": "The Abdomen",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1230-abdomen-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-04T16:00:00-05:00",
-   "day": 23,
-   "id": "arm-03",
-   "organ": "arm",
-   "title": "The Arm",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1600-arm-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-04T18:00:00-05:00",
-   "day": 24,
-   "id": "leg-02",
-   "organ": "leg",
-   "title": "The Leg",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-1800-leg-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-04T20:00:00-05:00",
-   "day": 25,
-   "id": "pelvis-02",
-   "organ": "pelvis",
-   "title": "The Pelvis",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-04-2000-pelvis-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-05T09:30:00-05:00",
-   "day": 26,
-   "id": "spine-02",
-   "organ": "spine",
-   "title": "The Spine",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-0930-spine-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-05T12:30:00-05:00",
    "day": 27,
@@ -603,6 +495,90 @@
    "organ": "thigh",
    "title": "Leg Muscles",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-0930-thigh-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-10T12:30:00-05:00",
+   "day": 51,
+   "id": "fmt-rank-01",
+   "organ": null,
+   "title": "Rank these",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1230-fmt-rank-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-10T16:00:00-05:00",
+   "day": 52,
+   "id": "fmt-missing-02",
+   "organ": null,
+   "title": "Which bone is missing?",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1600-fmt-missing-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-10T18:00:00-05:00",
+   "day": 53,
+   "id": "dd-krebs-cycle",
+   "organ": null,
+   "title": "The Krebs cycle",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1800-dd-krebs-cycle.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-10T20:00:00-05:00",
+   "day": 54,
+   "id": "arm-05",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-2000-arm-05.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-11T09:30:00-05:00",
+   "day": 55,
+   "id": "spine-04",
+   "organ": "spine",
+   "title": "The Spine",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-0930-spine-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-11T12:30:00-05:00",
+   "day": 56,
+   "id": "fmt-zoom-02",
+   "organ": null,
+   "title": "Zoom out: guess the body part",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1230-fmt-zoom-02.mp4",
    "platforms": [
     "instagram",
     "tiktok",
