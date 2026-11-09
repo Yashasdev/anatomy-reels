@@ -223,7 +223,7 @@
    "Xiphoid process"
   ],
   "start_degrees": 0,
-  "distance": 1.8,
+  "distance": 1.3,
   "focus": true,
   "question": "What is the small tip of the breastbone?",
   "choices": [
@@ -297,6 +297,8 @@
    "First rib.r"
   ],
   "start_degrees": 0,
+  "distance": 1.5,
+  "focus": true,
   "question": "Which pair of ribs is glowing?",
   "choices": [
    "Second",

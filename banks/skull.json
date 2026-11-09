@@ -210,6 +210,8 @@
    "Nasal bone.r"
   ],
   "start_degrees": 0,
+  "distance": 1.5,
+  "focus": true,
   "question": "Which bone forms the bridge of the nose?",
   "choices": [
    "Maxilla",

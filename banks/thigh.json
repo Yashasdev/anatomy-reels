@@ -189,6 +189,8 @@
    "Semimembranosus muscle.r"
   ],
   "start_degrees": 180,
+  "distance": 2.0,
+  "focus": true,
   "question": "These muscles belong to which group?",
   "choices": [
    "Quadriceps",
@@ -248,6 +250,8 @@
    "Gluteus medius muscle.r"
   ],
   "start_degrees": 180,
+  "distance": 1.6,
+  "focus": true,
   "question": "What does the glowing muscle do?",
   "choices": [
    "Straightens the knee",
