@@ -756,5 +756,103 @@
       "youtube": "6af0c67c9214322f686f5142"
     },
     "music": "house-3"
+  },
+  {
+    "slot": "2026-11-10T12:30:00-05:00",
+    "day": 51,
+    "id": "fmt-rank-01",
+    "organ": null,
+    "title": "Rank these",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1230-fmt-rank-01.mp4",
+    "video_seconds": 25.45,
+    "buffer": {
+      "instagram": "6af25881223aa16048d6c913",
+      "tiktok": "6af25881e261c09acc88d618",
+      "youtube": "6af25882223aa16048d6c93b"
+    },
+    "kind": "formats",
+    "format": "rank",
+    "music": "lofi-1"
+  },
+  {
+    "slot": "2026-11-10T16:00:00-05:00",
+    "day": 52,
+    "id": "fmt-missing-02",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1600-fmt-missing-02.mp4",
+    "video_seconds": 19.97,
+    "buffer": {
+      "instagram": "6af2588426f9e6aeeacf809d",
+      "tiktok": "6af25884223aa16048d6c979",
+      "youtube": "6af2588505af22d726f2bcb4"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "house-2"
+  },
+  {
+    "slot": "2026-11-10T18:00:00-05:00",
+    "day": 53,
+    "id": "dd-krebs-cycle",
+    "organ": null,
+    "title": "The Krebs cycle",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1800-dd-krebs-cycle.mp4",
+    "video_seconds": 52.74,
+    "buffer": {
+      "instagram": "6af2588726f9e6aeeacf81ed",
+      "tiktok": "6af25888b59b34913a423b28",
+      "youtube": "6af25888e261c09acc88d70b"
+    },
+    "kind": "deepdive",
+    "music": "ambient-4"
+  },
+  {
+    "slot": "2026-11-10T20:00:00-05:00",
+    "day": 54,
+    "id": "arm-05",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-2000-arm-05.mp4",
+    "video_seconds": 18.7,
+    "buffer": {
+      "instagram": "6af2588a223aa16048d6cb0c",
+      "tiktok": "6af2588b223aa16048d6cb66",
+      "youtube": "6af2588b223aa16048d6cb97"
+    },
+    "music": "lofi-3",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-11T09:30:00-05:00",
+    "day": 55,
+    "id": "spine-04",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-0930-spine-04.mp4",
+    "video_seconds": 21.58,
+    "buffer": {
+      "instagram": "6af2588dd35dff5701c6edb9",
+      "tiktok": "6af2588d05af22d726f2be76",
+      "youtube": "6af2588eb59b34913a423d01"
+    },
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-11T12:30:00-05:00",
+    "day": 56,
+    "id": "fmt-zoom-02",
+    "organ": null,
+    "title": "Zoom out: guess the body part",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1230-fmt-zoom-02.mp4",
+    "video_seconds": 21.36,
+    "buffer": {
+      "instagram": "6af25890d35dff5701c6ee50",
+      "tiktok": "6af25890223aa16048d6ccf7",
+      "youtube": "6af25891b59b34913a423ec3"
+    },
+    "kind": "formats",
+    "format": "zoom",
+    "music": "ambient-5"
   }
 ]
