@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-10T06:33:48+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/42765086861",
+ "generated_at": "2026-11-10T18:53:16+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/42879668009",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -42,7 +42,8 @@
     "zoom",
     "diagnose",
     "myth",
-    "rank"
+    "rank",
+    "types"
    ],
    "posted": 7
   }
@@ -472,7 +473,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-09T20:00:00-05:00",
@@ -486,7 +491,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-10T09:30:00-05:00",
@@ -500,7 +509,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-10T12:30:00-05:00",
@@ -514,7 +527,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-10T16:00:00-05:00",
@@ -588,33 +605,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-09T21:38:51Z",
+  "updated_at": "2026-11-10T18:53:13Z",
   "totals": {
-   "views": 63078,
-   "reactions": 1276,
+   "views": 67036,
+   "reactions": 1409,
    "comments": 7,
-   "shares": 76,
-   "saves": 149
+   "shares": 86,
+   "saves": 177
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 47,
-    "views": 31494,
-    "watched": 30.7,
-    "watch_samples": 24
+    "posts": 51,
+    "views": 34068,
+    "watched": 30.4,
+    "watch_samples": 27
    },
    {
     "platform": "tiktok",
-    "posts": 47,
-    "views": 12689,
-    "watched": 25.9,
-    "watch_samples": 24
+    "posts": 51,
+    "views": 13898,
+    "watched": 26.1,
+    "watch_samples": 28
    },
    {
     "platform": "youtube",
-    "posts": 47,
-    "views": 18895,
+    "posts": 51,
+    "views": 19070,
     "watched": null,
     "watch_samples": 0
    }
