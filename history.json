@@ -748,7 +748,7 @@
     "id": "thigh-03",
     "organ": "thigh",
     "title": "Leg Muscles",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-0930-thigh-03-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-0930-thigh-03-v0555.mp4",
     "video_seconds": 19.67,
     "buffer": {
       "instagram": "6af0c67b004e4879a7d5ba33",
@@ -764,7 +764,7 @@
     "id": "fmt-rank-01",
     "organ": null,
     "title": "Rank these",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1230-fmt-rank-01-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1230-fmt-rank-01-v0555.mp4",
     "video_seconds": 25.45,
     "buffer": {
       "instagram": "6af25881223aa16048d6c913",
@@ -782,7 +782,7 @@
     "id": "fmt-missing-02",
     "organ": null,
     "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1600-fmt-missing-02-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1600-fmt-missing-02-v0555.mp4",
     "video_seconds": 19.97,
     "buffer": {
       "instagram": "6af2588426f9e6aeeacf809d",
@@ -791,7 +791,7 @@
     },
     "kind": "formats",
     "format": "missing",
-    "music": "house-2",
+    "music": "science-3",
     "rerendered": "2026-11-10"
   },
   {
@@ -800,7 +800,7 @@
     "id": "dd-krebs-cycle",
     "organ": null,
     "title": "The Krebs cycle",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1800-dd-krebs-cycle-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-1800-dd-krebs-cycle-v0555.mp4",
     "video_seconds": 52.74,
     "buffer": {
       "instagram": "6af2588726f9e6aeeacf81ed",
@@ -817,7 +817,7 @@
     "id": "arm-05",
     "organ": "arm",
     "title": "The Arm",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-2000-arm-05-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-10-2000-arm-05-v0555.mp4",
     "video_seconds": 18.7,
     "buffer": {
       "instagram": "6af2588a223aa16048d6cb0c",
@@ -834,7 +834,7 @@
     "id": "spine-04",
     "organ": "spine",
     "title": "The Spine",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-0930-spine-04-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-0930-spine-04-v0555.mp4",
     "video_seconds": 21.58,
     "buffer": {
       "instagram": "6af2588dd35dff5701c6edb9",
@@ -850,7 +850,7 @@
     "id": "fmt-zoom-02",
     "organ": null,
     "title": "Zoom out: guess the body part",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1230-fmt-zoom-02-v0334.mp4",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1230-fmt-zoom-02-v0555.mp4",
     "video_seconds": 21.36,
     "buffer": {
       "instagram": "6af25890d35dff5701c6ee50",
@@ -859,7 +859,7 @@
     },
     "kind": "formats",
     "format": "zoom",
-    "music": "ambient-5",
+    "music": "ambient-4",
     "rerendered": "2026-11-10"
   }
 ]
