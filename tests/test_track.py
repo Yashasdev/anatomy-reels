@@ -28,7 +28,7 @@ def test_snapshots_and_scorecard_by_type(tmp_path, monkeypatch):
     data = json.loads((tmp_path / "metrics.json").read_text())
     assert data["posts"]["p2"]["type"] == "myth" and "1d" in data["posts"]["p2"]["snapshots"]
     card = (tmp_path / "scorecard.md").read_text()
-    assert "| myth | 2 | 400 |" in card and "| quiz | 1 | 100 |" in card
+    assert "| myth | 2 | – | – | 400 |" in card and "| quiz | 1 | – | – | 100 |" in card
     assert "## Music style" not in card  # no post here has a music track
 
 
