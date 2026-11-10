@@ -78,11 +78,22 @@
       "dd-na-k-pump",
       "dd-glycolysis",
       "dd-krebs-cycle",
+      "dd-onetake-rbc",
+      "dd-folic-acid",
+      "dd-caffeine",
+      "dd-cotton-swabs",
+      "dd-honey-baby",
+      "dd-carbon-monoxide",
+      "dd-blind-spot",
+      "dd-stomach-acid",
+      "dd-cut-healing",
+      "dd-skin-layers",
+      "dd-heart-electric",
       "dd-membrane-transport",
       "dd-transcription",
       "dd-translation"
     ],
-    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready."
+    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready. Nov 10, 2026 (share plan, approved by Yashas): share-first videos go first (One Take, future parents, everyday warnings, then the most sendable of the rest); textbook processes (membrane transport, transcription, translation) last."
   },
   "formats": {
     "release": "formats",
