@@ -3,8 +3,8 @@
   "id": "types-fractures-01",
   "title": "11 types of fracture",
   "question": "11 types of fracture. Which one have you had?",
-  "hook": "*Not* every broken bone breaks the *same* way.",
-  "intro": "Here are *11* types of fracture you should know.",
+  "hook": "Not every broken bone breaks the *same* way.",
+  "intro": "Here are 11 types of fracture you should know.",
   "flash": [
    "transverse",
    "oblique",
@@ -18,7 +18,7 @@
     "name": "transverse",
     "label": "TRANSVERSE",
     "lines": [
-     "[Transverse](tɹænzvˈɜːɹs). A straight break, right *across* the bone."
+     "[Transverse](tɹænzvˈɜːɹs). A straight break, right across the bone."
     ]
    },
    {
@@ -32,23 +32,23 @@
     "name": "spiral",
     "label": "SPIRAL",
     "lines": [
-     "Spiral. A *twisting* force makes the break [wind](wˈaɪnd) *around* the bone."
+     "Spiral. A *twisting* force makes the break [wind](wˈaɪnd) around the bone."
     ]
    },
    {
     "name": "greenstick",
     "label": "GREENSTICK",
     "lines": [
-     "Greenstick. The bone *cracks* on one side and *bends* on the other.",
-     "It's common in *kids*, because their bones are more *flexible*."
+     "Greenstick. The bone cracks on one side and *bends* on the other.",
+     "It's common in kids, because their bones are more flexible."
     ]
    },
    {
     "name": "displaced",
     "label": "DISPLACED",
     "lines": [
-     "Displaced. The broken ends *shift* out of line.",
-     "They often have to be *set* back in place."
+     "Displaced. The broken ends shift out of line.",
+     "They often have to be set back in place."
     ]
    },
    {
@@ -62,14 +62,14 @@
     "name": "segmental",
     "label": "SEGMENTAL",
     "lines": [
-     "Segmental. *Two* breaks leave a *floating* piece in the middle."
+     "Segmental. *Two* breaks leave a floating piece in the middle."
     ]
    },
    {
     "name": "avulsion",
     "label": "AVULSION",
     "lines": [
-     "[Avulsion](əvˈʌlʃən). A tendon or ligament *pulls* off a chip of bone."
+     "[Avulsion](əvˈʌlʃən). A tendon or ligament pulls off a chip of bone."
     ]
    },
    {
@@ -83,20 +83,20 @@
     "name": "buckle",
     "label": "BUCKLE",
     "lines": [
-     "Buckle, or torus. The bone *bulges* instead of breaking through.",
-     "You often see it in kids' *wrists*."
+     "Buckle, or torus. The bone bulges instead of breaking through.",
+     "You often see it in kids' wrists."
     ]
    },
    {
     "name": "stress",
     "label": "STRESS",
     "lines": [
-     "Stress fracture. A *tiny* crack from *repeated* force.",
-     "Runners get these a *lot*."
+     "Stress fracture. A *tiny* crack from repeated force.",
+     "Runners get these a lot."
     ]
    }
   ],
-  "outro": "Which one have **you** had? Tell me in the comments.",
+  "outro": "Which one have *you* had? Tell me in the comments.",
   "grid_title": "TYPES OF FRACTURE",
   "why": "Transverse: straight across. Oblique: at an angle. Spiral: twisted around the bone. Greenstick: cracked on one side, bent on the other (kids). Displaced: ends out of line. Comminuted: 3+ pieces. Segmental: two breaks, a floating piece. Avulsion: a tendon or ligament pulls off a chip. Impacted: ends jammed together. Buckle (torus): the bone bulges (kids' wrists). Stress: a tiny crack from repeated force.",
   "hashtags": [

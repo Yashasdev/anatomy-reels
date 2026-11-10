@@ -66,6 +66,7 @@ def test_words_kokoro_gets_wrong_carry_their_phonemes():
 
 
 def test_markup():
-    assert types.shown("Which one have **you** had? [Avulsion](əvˈʌlʃən). *Not* every") == \
+    assert types.shown("Which one have *you* had? [Avulsion](əvˈʌlʃən). Not every") == \
         "Which one have you had? Avulsion. Not every"
-    assert types.stressed("juː", 2) == "ˈjuːːː" and types.stressed("ˈæŋɡəl") == "ˈæːŋɡəl"
+    assert types.stressed("juː") == "ˈjuː" and types.stressed("ˌæŋɡəl") == "ˈæŋɡəl"
+    assert "ː" * 2 not in "".join(types.items()[0]["script"]), "never stretch vowels: it sounds wrong"

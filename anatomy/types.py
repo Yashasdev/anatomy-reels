@@ -71,30 +71,21 @@ BOLD = lambda s: font("Montserrat.ttf", s, 800)  # noqa: E731
 # --- voice -------------------------------------------------------------------------------------------------
 # Script lines carry light markup, so the narrator says them right:
 #   [word](phonemes)   say the word with these phonemes (Kokoro's own guess is wrong for some medical words)
-#   *word*             lean on the word: primary stress, vowel held a little longer
-#   **word**           punch it: said on its own, slower, three semitones higher and louder, blended back in
-MARKUP = re.compile(r"\*\*(.+?)\*\*|\*(.+?)\*|\[(.+?)\]\((.+?)\)")
-VOWELS = "aeiouɑɐɒæəɘɚɛɜɝɞɪɨʊʉʌɔᵻ"
+#   *word*             a slight lean: the word gets the line's main stress and the words around it are kept
+#                      light. Nothing is stretched or pitched (Yashas, Nov 10: stretched vowels and a pasted-in,
+#                      pitched-up "you" sounded wrong; he wants slight emphasis)
+MARKUP = re.compile(r"\*(.+?)\*|\[(.+?)\]\((.+?)\)")
 
 
 def shown(line: str) -> str:
     """The line as the captions show it, without the markup."""
-    return MARKUP.sub(lambda m: m.group(1) or m.group(2) or m.group(3), line)
+    return MARKUP.sub(lambda m: m.group(1) or m.group(2), line)
 
 
-def stressed(ph: str, hold: int = 1) -> str:
-    """Primary stress on the word, and its stressed vowel held longer."""
+def stressed(ph: str) -> str:
+    """Primary stress on the word (secondary stress becomes primary; an unstressed word gets it at the start)."""
     ph = ph.replace("ˌ", "ˈ")
-    if "ˈ" not in ph:
-        ph = "ˈ" + ph
-    k = ph.index("ˈ")
-    v = next((n for n in range(k, len(ph)) if ph[n] in VOWELS), None)
-    if v is None:
-        return ph
-    end = v + 1
-    while end < len(ph) and (ph[end] in VOWELS or ph[end] == "ː"):
-        end += 1
-    return ph[:end] + "ː" * hold + ph[end:]
+    return ph if "ˈ" in ph else "ˈ" + ph
 
 
 def _find(full: str, word_ph: str, start: int) -> tuple[int, int]:
@@ -107,37 +98,31 @@ def _find(full: str, word_ph: str, start: int) -> tuple[int, int]:
     return m.start(), m.end()
 
 
-def phonemes(k, line: str) -> list[tuple[str, str]]:
-    """The line as Kokoro phonemes, said as one piece ("say") except a **word**, which is cut out ("punch").
-    The whole line is phonemized at once (so "a" stays "uh"), then the marked words are swapped in."""
+def phonemes(k, line: str) -> str:
+    """The line as Kokoro phonemes. The whole line is phonemized at once (so "a" stays "uh"), then the marked
+    words are swapped in; next to a leaned-on word, the neighbouring words lose their main stress."""
     full = k.tokenizer.phonemize(shown(line), "en-us").strip()
-    pos, punch = 0, None
+    pos = 0
     for m in MARKUP.finditer(line):
-        word = m.group(1) or m.group(2) or m.group(3)
+        word = m.group(1) or m.group(2)
         i, j = _find(full, k.tokenizer.phonemize(word, "en-us").strip(), pos)
-        new = m.group(4) if m.group(3) else stressed(full[i:j], 2 if m.group(1) else 1)
-        full = full[:i] + new + full[j:]
-        pos = i + len(new)
         if m.group(1):
-            punch = (i, pos)
-    if punch:
-        a, b = punch
-        before = full[:a].strip().replace("ˈ", "ˌ")  # everything before the punched word stays low, so it stands out
-        return [x for x in (("say", before), ("punch", full[a:b]), ("say", full[b:].strip())) if x[1]]
-    return [("say", full)]
+            a = full.rfind(" ", 0, max(0, full.rfind(" ", 0, i)))  # the word before, kept light
+            b = full.find(" ", j + 1)
+            b = len(full) if b < 0 else b  # and the word after
+            lo, hi = max(a, 0), b
+            new_word = stressed(full[i:j])
+            full = full[:lo] + full[lo:i].replace("ˈ", "ˌ") + new_word + full[j:hi].replace("ˈ", "ˌ") + full[hi:]
+            pos = lo + len(full[lo:i]) + len(new_word)
+        else:
+            full = full[:i] + m.group(3) + full[j:]
+            pos = i + len(m.group(3))
+    return full
 
 
 def _trim(x: np.ndarray) -> np.ndarray:
     loud = np.flatnonzero(np.abs(x) > 0.01)
     return x[max(loud[0] - 200, 0): loud[-1] + 600] if len(loud) else x
-
-
-def _higher(x: np.ndarray, sr: int, semitones: float, work: Path) -> np.ndarray:
-    r = 2 ** (semitones / 12)
-    sf.write(work / "in.wav", x, sr)
-    subprocess.run([ffmpeg(), "-v", "error", "-y", "-i", str(work / "in.wav"), "-af",
-                    f"asetrate={int(sr * r)},aresample={sr},atempo={1 / r:.4f}", str(work / "out.wav")], check=True)
-    return sf.read(work / "out.wav", dtype="float32")[0]
 
 
 def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED) -> list[tuple[Path, float]]:
@@ -153,17 +138,8 @@ def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED)
     out.mkdir(parents=True, exist_ok=True)
     lines = []
     for i, t in enumerate(texts):
-        parts = []
-        for kind, ph in phonemes(k, t):
-            x, sr = k.create(ph, voice=voice, speed=speed * (0.8 if kind == "punch" else 1.0), lang="en-us",
-                             is_phonemes=True)
-            x = _trim(np.asarray(x, np.float32))
-            parts.append(_higher(x, sr, 3.0, out) * 1.35 if kind == "punch" else x)
-        x = parts[0]
-        n = int(0.03 * sr)
-        for p in parts[1:]:  # blend the chunks so the punched word doesn't sound pasted in
-            fade = np.linspace(0, 1, n, dtype=np.float32)
-            x = np.concatenate([x[:-n], x[-n:] * (1 - fade) + p[:n] * fade, p[n:]])
+        x, sr = k.create(phonemes(k, t), voice=voice, speed=speed, lang="en-us", is_phonemes=True)
+        x = _trim(np.asarray(x, np.float32))
         path = out / f"line{i:02d}.wav"
         sf.write(path, x, sr)
         lines.append((path, len(x) / sr))
