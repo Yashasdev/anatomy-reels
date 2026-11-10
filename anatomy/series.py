@@ -121,7 +121,7 @@ def caption(q: dict) -> str:
         tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]
         return (f"{q['hook']}\n\n{q['question']} Comment below 👇\n"
                 f"{FOLLOW['formats']}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
-                + q["why"] + "\nFor learning only, not medical advice.\n" + f"{CONFIG['credit']}.")
+                + q["why"] + "\nFor learning only, not medical advice.\n" + f"{q.get('credit') or CONFIG['credit']}.")
     choices = "\n".join(f"{'ABCD'[k]}) {c}" for k, c in enumerate(q["choices"]))
     tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]  # Instagram allows 5
     medical = "Educational, not medical advice." if q.get("format") == "diagnose" else "For learning only, not medical advice."

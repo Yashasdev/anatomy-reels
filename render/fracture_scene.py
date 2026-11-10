@@ -20,7 +20,7 @@ from pathlib import Path
 import bmesh
 import bpy
 from bpy_extras.object_utils import world_to_camera_view
-from mathutils import Euler, Matrix, Vector, noise
+from mathutils import Euler, Matrix, Vector, kdtree, noise
 
 spec = json.loads(sys.argv[sys.argv.index("--") + 1])
 ROOT = Path(spec["root"])
@@ -58,17 +58,29 @@ IVORY = material("bone", (0.74, 0.69, 0.60), 0.5)
 IVORY.node_tree.nodes["Principled BSDF"].inputs["Subsurface Weight"].default_value = 0.12
 IVORY.node_tree.nodes["Principled BSDF"].inputs["Subsurface Radius"].default_value = (0.004, 0.003, 0.002)
 bumped(IVORY, 260, 0.06)
-MARROW = material("marrow", (0.72, 0.42, 0.38), 0.85)
-vor = bumped(MARROW, 900, 0.5, "voronoi")
-mix = MARROW.node_tree.nodes.new("ShaderNodeMix")  # darker pits in the spongy bone
+MARROW = material("marrow", (0.80, 0.36, 0.30), 0.8)
+vor = bumped(MARROW, 650, 0.35, "voronoi")
+_nt = MARROW.node_tree
+mix = _nt.nodes.new("ShaderNodeMix")  # dark red pits in the pink spongy bone
 mix.data_type = "RGBA"
-mix.inputs["A"].default_value = (0.78, 0.50, 0.45, 1)
-mix.inputs["B"].default_value = (0.42, 0.16, 0.14, 1)
-ramp = MARROW.node_tree.nodes.new("ShaderNodeMapRange")
-ramp.inputs["From Min"].default_value, ramp.inputs["From Max"].default_value = 0.35, 0.0
-MARROW.node_tree.links.new(vor.outputs["Distance"], ramp.inputs["Value"])
-MARROW.node_tree.links.new(ramp.outputs["Result"], mix.inputs["Factor"])
-MARROW.node_tree.links.new(mix.outputs["Result"], MARROW.node_tree.nodes["Principled BSDF"].inputs["Base Color"])
+mix.inputs["A"].default_value = (0.82, 0.38, 0.32, 1)
+mix.inputs["B"].default_value = (0.45, 0.07, 0.06, 1)
+ramp = _nt.nodes.new("ShaderNodeMapRange")
+ramp.inputs["From Min"].default_value, ramp.inputs["From Max"].default_value = 0.30, 0.0
+_nt.links.new(vor.outputs["Distance"], ramp.inputs["Value"])
+_nt.links.new(ramp.outputs["Result"], mix.inputs["Factor"])
+# the hard outer shell: within ~2.5 mm of the bone's surface the cut face is ivory, not pink
+depth = _nt.nodes.new("ShaderNodeAttribute")
+depth.attribute_name = "depth"
+rim = _nt.nodes.new("ShaderNodeMapRange")
+rim.inputs["From Min"].default_value, rim.inputs["From Max"].default_value = 0.0012, 0.0024
+shell = _nt.nodes.new("ShaderNodeMix")
+shell.data_type = "RGBA"
+shell.inputs["A"].default_value = (0.76, 0.71, 0.62, 1)
+_nt.links.new(depth.outputs["Fac"], rim.inputs["Value"])
+_nt.links.new(rim.outputs["Result"], shell.inputs["Factor"])
+_nt.links.new(mix.outputs["Result"], shell.inputs["B"])
+_nt.links.new(shell.outputs["Result"], _nt.nodes["Principled BSDF"].inputs["Base Color"])
 
 
 # --- the femur ----------------------------------------------------------------------------------------------
@@ -84,13 +96,12 @@ def bake(o):
 
 
 def load_femur():
-    with bpy.data.libraries.load(str(ROOT / "assets" / "models" / "leg.blend")) as (src, dst):
-        dst.objects = ["Femur.r"]
-    o = dst.objects[0]
-    scene.collection.objects.link(o)
-    o.hide_render = o.hide_viewport = False
-    o.data = o.data.copy()
-    o.data.transform(o.matrix_world)
+    """A real femur segmented from a CT scan (NIH 3D 3DPX-000168, public domain), in millimetres and a left
+    femur: scaled to metres and mirrored into a right one, so the head points right as in the reference."""
+    bpy.ops.wm.stl_import(filepath=str(ROOT / "assets" / "models" / "femur_ct.stl"))
+    o = bpy.context.selected_objects[0]
+    o.data.transform(Matrix.Diagonal((-0.001, 0.001, 0.001, 1)))
+    o.data.flip_normals()
     o.matrix_world = Matrix()
     bm = bmesh.new()
     bm.from_mesh(o.data)
@@ -103,7 +114,7 @@ def load_femur():
     o.data.materials.clear()
     o.data.materials.append(IVORY)
     m = o.modifiers.new("smooth", "SUBSURF")
-    m.levels = m.render_levels = 2
+    m.levels = m.render_levels = spec.get("subdiv", 1)
     bake(o)
     for p in o.data.polygons:
         p.use_smooth = True
@@ -113,6 +124,10 @@ def load_femur():
 
 FEMUR = load_femur()
 VERTS = [v.co.copy() for v in FEMUR.data.vertices]
+SURFACE = kdtree.KDTree(len(VERTS))
+for i, v in enumerate(VERTS):
+    SURFACE.insert(v, i)
+SURFACE.balance()
 ZMIN, ZMAX = min(v.z for v in VERTS), max(v.z for v in VERTS)
 
 
@@ -183,6 +198,8 @@ def boolean(o, cutter, op):
     m.object, m.operation, m.solver = cutter, op, "EXACT"
     m.material_mode = "TRANSFER"
     bake(o)
+    depth = o.data.attributes.get("depth") or o.data.attributes.new("depth", "FLOAT", "POINT")
+    depth.data.foreach_set("value", [SURFACE.find(v.co)[2] for v in o.data.vertices])  # how far inside the bone
     return o
 
 
@@ -217,12 +234,12 @@ def centre(o):
 # the label, the point the camera closes in on, and where the bone chips burst from.
 def transverse():
     low, high = split("transverse", [plane_cut("tv", 0.0, 0, seed=2)])
-    return dict(pieces=[(high, (0, 0, 0.003), (1.2, 0, 0)), (low, (0, 0, 0), (0, 0, 0))], z=0.0)
+    return dict(pieces=[(high, (0.002, 0, 0.007), (7, 0, 0)), (low, (0, 0, 0), (-2, 0, 0))], z=0.0)
 
 
 def oblique():
     low, high = split("oblique", [plane_cut("ob", 0.0, 34, seed=3)])
-    return dict(pieces=[(high, (0.0015, 0, 0.0028), (0, -1.0, 0)), (low, (0, 0, 0), (0, 0, 0))], z=0.01)
+    return dict(pieces=[(high, (0.004, -0.001, 0.006), (4, -3, 0)), (low, (0, 0, 0), (0, 0, 0))], z=0.01)
 
 
 def spiral():
@@ -235,21 +252,21 @@ def spiral():
         return -pitch / 2 + pitch * a / (2 * math.pi) + jag(x, y, 0.0009, 5)
     cut = halfspace("sp", h, half=0.09, n=260, frame=Matrix.Translation((c.x, c.y, z0)))
     low, high = split("spiral", [cut])
-    return dict(pieces=[(high, (0, 0, 0.002), (0, 0, 3.0)), (low, (0, 0, 0), (0, 0, 0))], z=0.0, pin_z=0.022)
+    return dict(pieces=[(high, (0, -0.001, 0.004), (3, 0, 9)), (low, (0, 0, 0), (0, 0, 0))], z=0.0, pin_z=0.022)
 
 
 def greenstick():
     z0 = 0.03
     c, r, _ = ring(z0)
-    n, half, apex = 160, 0.08, -0.4 * r
+    n, half, apex = 180, 0.08, -0.45 * r
     xs = [apex + (half - apex) * i / n for i in range(n + 1)]
     ys = [-half + 2 * half * i / n for i in range(n + 1)]
 
     def open_(x):  # wide open on the right, closing to a hairline before the far side
-        return 0.0004 + ((x - apex) / (r - apex)) ** 0.9 * 0.0105
+        return 0.0006 + ((x - apex) / (r - apex)) ** 0.85 * 0.018
 
-    top = [[(x, y, open_(x) / 2 + jag(x, y, 0.0026, 7)) for y in ys] for x in xs]
-    bot = [[(x, y, -open_(x) / 2 + jag(x, y, 0.0026, 7)) for y in ys] for x in xs]
+    top = [[(x, y, open_(x) / 2 + jag(x, y, 0.004, 7)) for y in ys] for x in xs]
+    bot = [[(x, y, -open_(x) / 2 + jag(x, y, 0.004, 7) + jag(x, y, 0.0015, 8, 300)) for y in ys] for x in xs]
     wedge = solid("gs", top, bot, Matrix.Translation((c.x, c.y, z0)))
     bone = boolean(copy("greenstick"), wedge, "DIFFERENCE")
     return dict(pieces=[(bone, (0, 0, 0), (0, 0, 0))], z=z0, pin=right_edge(z0) + Vector((0, 0, 0.004)))
@@ -257,7 +274,7 @@ def greenstick():
 
 def displaced():
     low, high = split("displaced", [plane_cut("dp", -0.01, 36, seed=11)])
-    return dict(pieces=[(high, (0, 0, 0), (0, 0, 0)), (low, (-0.017, -0.007, 0.016), (0, 4, 0))], z=-0.002)
+    return dict(pieces=[(high, (0, 0, 0), (0, 0, 0)), (low, (-0.024, -0.010, 0.022), (3, 6, 0))], z=-0.002)
 
 
 def comminuted():
@@ -289,9 +306,9 @@ def comminuted():
     for f in frags:
         d = centre(f) - Vector((c.x, c.y, centre(f).z))
         d = d.normalized() if d.length > 1e-6 else Vector((1, 0, 0))
-        moves.append((f, tuple(d * rng.uniform(0.0012, 0.0028)), (rng.uniform(-3, 3), rng.uniform(-3, 3), rng.uniform(-4, 4))))
+        moves.append((f, tuple(d * rng.uniform(0.004, 0.0075) + Vector((0, -0.002, 0))), (rng.uniform(-9, 9), rng.uniform(-9, 9), rng.uniform(-10, 10))))
     top = max(ends, key=lambda p: centre(p).z)
-    moves += [(top, (0, 0, 0.002), (0, 0, 0)), (min(ends, key=lambda p: centre(p).z), (0, 0, -0.001), (0, 0, 0))]
+    moves += [(top, (0, 0, 0.005), (3, 0, 0)), (min(ends, key=lambda p: centre(p).z), (0, 0, -0.003), (-2, 0, 0))]
     return dict(pieces=moves, z=0.0, pin_z=0.012)
 
 
@@ -299,15 +316,15 @@ def segmental():
     pieces = split("segmental", [plane_cut("sg1", 0.055, 12, seed=23), plane_cut("sg2", -0.05, -10, seed=29)])
     pieces.sort(key=lambda p: centre(p).z)
     low, mid, high = pieces[0], pieces[1], pieces[-1]
-    return dict(pieces=[(high, (0, 0, 0.0015), (0, 0, 0)), (mid, (0.0035, -0.001, 0), (0, 3.5, 0)),
-                        (low, (0, 0, -0.0012), (0, 0, 0))], z=0.0, pin_z=0.05, close=0.6)
+    return dict(pieces=[(high, (0, 0, 0.005), (4, 0, 0)), (mid, (0.007, -0.004, 0), (3, 6, 0)),
+                        (low, (0, 0, -0.004), (-3, 0, 0))], z=0.0, pin_z=0.05, close=0.6)
 
 
 def avulsion():
     band = [v for v in VERTS if ZMIN + 0.03 < v.z < ZMIN + 0.06]
     tip = max(band, key=lambda v: v.x)  # the inner (medial) side of the knee end
     bm = bmesh.new()
-    bmesh.ops.create_icosphere(bm, subdivisions=5, radius=0.019)
+    bmesh.ops.create_icosphere(bm, subdivisions=5, radius=0.022)
     for v in bm.verts:
         v.co += v.co.normalized() * jag(v.co.x, v.co.y + v.co.z, 0.004, 31, 160)
     me = bpy.data.meshes.new("av")
@@ -320,7 +337,7 @@ def avulsion():
     blob.hide_render = True
     chip = boolean(copy("avulsion_chip"), blob, "INTERSECT")
     rest = boolean(copy("avulsion"), blob, "DIFFERENCE")
-    return dict(pieces=[(rest, (0, 0, 0), (0, 0, 0)), (chip, (0.007, -0.003, -0.002), (0, 16, -12))],
+    return dict(pieces=[(rest, (0, 0, 0), (0, 0, 0)), (chip, (0.016, -0.008, -0.006), (8, 32, -22))],
                 z=tip.z, pin=tip + Vector((0.004, -0.004, 0.0)), focus=tip + Vector((-0.01, 0, 0.012)))
 
 
@@ -382,16 +399,16 @@ def impacted():
     c, _, _ = ring(z0)
     n, half = 170, 0.09
     xs = [-half + 2 * half * i / n for i in range(n + 1)]
-    seam = solid("im", [[(x, y, jag(x, y, 0.0024, 37) + 0.0006) for y in xs] for x in xs],
-                 [[(x, y, jag(x, y, 0.0024, 37) - 0.0006) for y in xs] for x in xs], Matrix.Translation((c.x, c.y, z0)))
+    seam = solid("im", [[(x, y, jag(x, y, 0.003, 37) + 0.0011) for y in xs] for x in xs],
+                 [[(x, y, jag(x, y, 0.003, 37) - 0.0011) for y in xs] for x in xs], Matrix.Translation((c.x, c.y, z0)))
     bone = boolean(copy("impacted"), seam, "DIFFERENCE")
-    bone = bulge(bone, z0 - 0.004, 0.0011, 0.0045)  # after the cut: the boolean wants the clean mesh
+    bone = bulge(bone, z0 - 0.0045, 0.0018, 0.005)  # after the cut: the boolean wants the clean mesh
     return dict(pieces=[(bone, (0, 0, 0), (0, 0, 0))], z=z0)
 
 
 def buckle():
     zb = ZMIN + 0.10
-    return dict(pieces=[(bulge(copy("buckle"), zb, 0.0024, 0.009, ridges=0.006), (0, 0, 0), (0, 0, 0))], z=zb, burst=False)
+    return dict(pieces=[(bulge(copy("buckle"), zb, 0.0034, 0.010, ridges=0.0065), (0, 0, 0), (0, 0, 0))], z=zb, burst=False)
 
 
 def stress():
@@ -404,7 +421,7 @@ def stress():
         x = c.x - 0.002 + 0.0006 * math.sin(k * 0.45) + 0.0009 * noise.noise(Vector((k * 0.12, 1.3, 2.1)))
         hit, nrm = surface((x, -0.3, z), (0, 1, 0))
         side = nrm.cross(Vector((0, 0, 1))).normalized()
-        samples.append((hit, nrm, side, 0.00055 * math.sin(math.pi * k / K) ** 0.5 + 0.00005))
+        samples.append((hit, nrm, side, 0.0009 * math.sin(math.pi * k / K) ** 0.5 + 0.00006))
     bone = boolean(copy("stress"), crack_tube("st", samples), "DIFFERENCE")
     pin = samples[int(K * 0.62)][0] + Vector((0.0008, 0, 0))
     return dict(pieces=[(bone, (0, 0, 0), (0, 0, 0))], z=(z1 + z2) / 2, pin=pin, burst=False, small=True)
@@ -488,7 +505,7 @@ if spec.get("mode") == "lineup":
 ELEV = math.radians(4)
 TAN = 12 / cam.data.lens  # half the 24 mm sensor height over the lens
 ASPECT = scene.render.resolution_x / scene.render.resolution_y
-WIDE_D, CLOSE_D = (ZMAX - ZMIN) / 0.78 / (2 * TAN), spec.get("close", 0.36)
+WIDE_D, CLOSE_D = (ZMAX - ZMIN) / 0.78 / (2 * TAN), spec.get("close", 0.31)
 
 
 def frame_h(d):
@@ -532,9 +549,12 @@ def show(objs, a, b):
         shown.setdefault(k, set()).update(objs)
 
 
-def key_piece(piece, off, rot, at):
-    """Pieces jump apart at frame `at` (a quick move with a little overshoot)."""
-    for k, amt in ((at - 1, 0.0), (at, 0.0), (at + 2, 1.15), (at + 4, 0.95), (at + 6, 1.0)):
+def key_piece(piece, off, rot, at, until=None):
+    """Pieces jump half-way apart at frame `at`, then keep drifting open until `until` (if given)."""
+    steps = ((at - 1, 0.0), (at, 0.0), (at + 2, 1.15), (at + 4, 0.95), (at + 6, 1.0))
+    if until:
+        steps = ((at - 1, 0.0), (at, 0.0), (at + 2, 0.6), (at + 4, 0.5), (until, 1.0))
+    for k, amt in steps:
         m = moved(piece, off, rot, amt)
         piece.matrix_basis = m
         piece.keyframe_insert("location", frame=k)
@@ -612,7 +632,7 @@ for seg in TL:
         show([FEMUR], a, crack)
         show([p for p, _, _ in f["pieces"]], crack, b)
         for piece, off, rot in f["pieces"]:
-            key_piece(piece, off, rot, crack)
+            key_piece(piece, off, rot, crack, b - F(0.3))
         if f.get("burst", True):
             burst(f, crack, rng)
         whip = F(0.27)

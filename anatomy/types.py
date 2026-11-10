@@ -32,7 +32,9 @@ import soundfile as sf
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 from . import music
-from .make import blender, ffmpeg, voice_lines
+import re
+
+from .make import KOKORO, MODEL_URL, blender, ffmpeg
 
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / "assets" / "fonts"
@@ -66,6 +68,108 @@ CAPTION = lambda s: font("Montserrat.ttf", s, 620)  # noqa: E731
 BOLD = lambda s: font("Montserrat.ttf", s, 800)  # noqa: E731
 
 
+# --- voice -------------------------------------------------------------------------------------------------
+# Script lines carry light markup, so the narrator says them right:
+#   [word](phonemes)   say the word with these phonemes (Kokoro's own guess is wrong for some medical words)
+#   *word*             lean on the word: primary stress, vowel held a little longer
+#   **word**           punch it: said on its own, slower, three semitones higher and louder, blended back in
+MARKUP = re.compile(r"\*\*(.+?)\*\*|\*(.+?)\*|\[(.+?)\]\((.+?)\)")
+VOWELS = "aeiouɑɐɒæəɘɚɛɜɝɞɪɨʊʉʌɔᵻ"
+
+
+def shown(line: str) -> str:
+    """The line as the captions show it, without the markup."""
+    return MARKUP.sub(lambda m: m.group(1) or m.group(2) or m.group(3), line)
+
+
+def stressed(ph: str, hold: int = 1) -> str:
+    """Primary stress on the word, and its stressed vowel held longer."""
+    ph = ph.replace("ˌ", "ˈ")
+    if "ˈ" not in ph:
+        ph = "ˈ" + ph
+    k = ph.index("ˈ")
+    v = next((n for n in range(k, len(ph)) if ph[n] in VOWELS), None)
+    if v is None:
+        return ph
+    end = v + 1
+    while end < len(ph) and (ph[end] in VOWELS or ph[end] == "ː"):
+        end += 1
+    return ph[:end] + "ː" * hold + ph[end:]
+
+
+def _find(full: str, word_ph: str, start: int) -> tuple[int, int]:
+    """Where a word's phonemes sit in the line's, ignoring stress marks; whole words only."""
+    bare = word_ph.replace("ˈ", "").replace("ˌ", "").rstrip(".,?!")
+    pattern = "".join("[ˈˌ]?" + re.escape(ch) for ch in bare)
+    m = re.compile(r"(?:(?<=\s)|^)" + pattern + r"(?=[\s.,?!]|$)").search(full, start)
+    if not m:
+        raise ValueError(f"can't find {word_ph!r} in {full!r}; mark a different word")
+    return m.start(), m.end()
+
+
+def phonemes(k, line: str) -> list[tuple[str, str]]:
+    """The line as Kokoro phonemes, said as one piece ("say") except a **word**, which is cut out ("punch").
+    The whole line is phonemized at once (so "a" stays "uh"), then the marked words are swapped in."""
+    full = k.tokenizer.phonemize(shown(line), "en-us").strip()
+    pos, punch = 0, None
+    for m in MARKUP.finditer(line):
+        word = m.group(1) or m.group(2) or m.group(3)
+        i, j = _find(full, k.tokenizer.phonemize(word, "en-us").strip(), pos)
+        new = m.group(4) if m.group(3) else stressed(full[i:j], 2 if m.group(1) else 1)
+        full = full[:i] + new + full[j:]
+        pos = i + len(new)
+        if m.group(1):
+            punch = (i, pos)
+    if punch:
+        a, b = punch
+        before = full[:a].strip().replace("ˈ", "ˌ")  # everything before the punched word stays low, so it stands out
+        return [x for x in (("say", before), ("punch", full[a:b]), ("say", full[b:].strip())) if x[1]]
+    return [("say", full)]
+
+
+def _trim(x: np.ndarray) -> np.ndarray:
+    loud = np.flatnonzero(np.abs(x) > 0.01)
+    return x[max(loud[0] - 200, 0): loud[-1] + 600] if len(loud) else x
+
+
+def _higher(x: np.ndarray, sr: int, semitones: float, work: Path) -> np.ndarray:
+    r = 2 ** (semitones / 12)
+    sf.write(work / "in.wav", x, sr)
+    subprocess.run([ffmpeg(), "-v", "error", "-y", "-i", str(work / "in.wav"), "-af",
+                    f"asetrate={int(sr * r)},aresample={sr},atempo={1 / r:.4f}", str(work / "out.wav")], check=True)
+    return sf.read(work / "out.wav", dtype="float32")[0]
+
+
+def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED) -> list[tuple[Path, float]]:
+    """Like make.voice_lines, but reading the markup above."""
+    import urllib.request
+
+    from kokoro_onnx import Kokoro
+    KOKORO.mkdir(parents=True, exist_ok=True)
+    for name in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+        if not (KOKORO / name).exists():
+            urllib.request.urlretrieve(MODEL_URL + name, KOKORO / name)
+    k = Kokoro(str(KOKORO / "kokoro-v1.0.onnx"), str(KOKORO / "voices-v1.0.bin"))
+    out.mkdir(parents=True, exist_ok=True)
+    lines = []
+    for i, t in enumerate(texts):
+        parts = []
+        for kind, ph in phonemes(k, t):
+            x, sr = k.create(ph, voice=voice, speed=speed * (0.8 if kind == "punch" else 1.0), lang="en-us",
+                             is_phonemes=True)
+            x = _trim(np.asarray(x, np.float32))
+            parts.append(_higher(x, sr, 3.0, out) * 1.35 if kind == "punch" else x)
+        x = parts[0]
+        n = int(0.03 * sr)
+        for p in parts[1:]:  # blend the chunks so the punched word doesn't sound pasted in
+            fade = np.linspace(0, 1, n, dtype=np.float32)
+            x = np.concatenate([x[:-n], x[-n:] * (1 - fade) + p[:n] * fade, p[n:]])
+        path = out / f"line{i:02d}.wav"
+        sf.write(path, x, sr)
+        lines.append((path, len(x) / sr))
+    return lines
+
+
 # --- timeline ----------------------------------------------------------------------------------------------
 def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.22) -> tuple[list[dict], list[dict], float]:
     """Segments for Blender and the narration cues (line index, start, text), from how long each line takes."""
@@ -74,7 +178,7 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.22) -> tuple[l
 
     def say(at: float) -> float:
         nonlocal k
-        cues.append({"line": k, "at": at, "text": q["script"][k]})
+        cues.append({"line": k, "at": at, "text": shown(q["script"][k])})
         end = at + lines[k][1]
         k += 1
         return end
@@ -228,7 +332,7 @@ def whoosh(length: float = 0.32) -> np.ndarray:
 def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     W, H = int(1080 * scale), int(1920 * scale)
     work = Path(tempfile.mkdtemp(prefix="types-"))
-    lines = voice_lines(q["script"], work / "voice", VOICE, SPEED)
+    lines = speak(q["script"], work / "voice")
     segs, cues, length = plan(q, lines)
     frames = int(round(length * FPS))
     spec = {"root": str(ROOT), "out": str(work / "frames"), "fps": FPS, "width": W, "height": H,
@@ -333,9 +437,9 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
 
 def info(q: dict, seconds: float) -> dict:
     """What the posting job needs (anatomy/series.py), like the other formats' <id>.json."""
-    return {"id": q["id"], "format": "types", "title": q["title"], "hook": q["script"][0], "question": q["question"],
+    return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["script"][0]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
-            "hashtags": q["hashtags"][:5], "sources": q["sources"]}
+            "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"]}
 
 
 def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:

@@ -23,18 +23,20 @@ def test_item(q):
     assert len(names) <= 11, "the closing chart has 11 places (rows of 4, 4 and 3)"
     assert str(len(names)) in q["intro"] and str(len(names)) in q["title"]
     for t in q["types"]:
-        assert t["lines"][0].split(".")[0].split(",")[0].upper().startswith(t["label"].split()[0]), "say the name first"
+        assert types.shown(t["lines"][0]).split(".")[0].split(",")[0].upper().startswith(t["label"].split()[0]), \
+            "say the name first"
         assert d.textlength(t["label"], font=types.LABEL(70)) < 400
     for line in q["script"]:
-        assert len(types.wrap(d, line, types.CAPTION(52), types.CAPTION_W)) <= 3, line
+        assert len(types.wrap(d, types.shown(line), types.CAPTION(52), types.CAPTION_W)) <= 3, line
+        assert not set("*[]()") & set(types.shown(line)), "markup must be well formed"
     assert len(q["hashtags"]) <= 5 and q["sources"]
 
 
 def test_the_caption_has_no_answer_key_and_credits_the_model():
     q = types.info({**ITEMS[0], "music": "lofi-1"}, 64.0)
     text = publish.caption({**q, "kind": "formats", "series": "formats"})
-    assert text.startswith(ITEMS[0]["hook"]) and "Comment below" in text and "Answer:" not in text
-    assert "Z-Anatomy" in text and "not medical advice" in text
+    assert text.startswith(types.shown(ITEMS[0]["hook"])) and "Comment below" in text and "Answer:" not in text
+    assert "NIH 3D" in text and "not medical advice" in text
     assert series.youtube_title(q).endswith("#shorts") and len(series.youtube_title(q)) <= 100
 
 
@@ -48,3 +50,22 @@ def test_the_timeline_follows_the_narration():
     for c, nxt in zip(cues, cues[1:]):
         assert c["at"] + 2.0 <= nxt["at"], "lines never overlap"
     assert length == segs[-1]["end"] and 30 < length < 90
+
+
+# Kokoro says these wrong on its own (checked Nov 10, 2026: AV-ulsion, co-MIN-uted, IM-pacted, "wind" as in weather,
+# trans-VUSS), so any line using them must give the phonemes.
+MISSAID = ("comminuted", "avulsion", "impacted", "transverse", "wind around")
+
+
+def test_words_kokoro_gets_wrong_carry_their_phonemes():
+    for q in ITEMS:
+        for line in q["script"]:
+            plain = types.MARKUP.sub("", line).lower()
+            for word in MISSAID:
+                assert word.split()[0] not in plain.split(), f"{word!r} needs [word](phonemes) in: {line}"
+
+
+def test_markup():
+    assert types.shown("Which one have **you** had? [Avulsion](əvˈʌlʃən). *Not* every") == \
+        "Which one have you had? Avulsion. Not every"
+    assert types.stressed("juː", 2) == "ˈjuːːː" and types.stressed("ˈæŋɡəl") == "ˈæːŋɡəl"
