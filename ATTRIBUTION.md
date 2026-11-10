@@ -10,7 +10,8 @@ kidney models): this channel can earn money.
 Every video's caption carries: "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)".
 
 ## Fonts (assets/fonts/)
-Inter (SIL Open Font License, LICENSE-Inter.txt); Latin Modern (GUST Font License, GUST-FONT-LICENSE.txt).
+Inter (SIL Open Font License, LICENSE-Inter.txt); Latin Modern (GUST Font License, GUST-FONT-LICENSE.txt);
+Teko and Montserrat, used by the "types" format (SIL Open Font License, OFL-Teko.txt, OFL-Montserrat.txt).
 
 ## Voice and sound
 Narration by Kokoro (open-weight, Apache 2.0). Sound effects and music are synthesized in anatomy/make.py.
