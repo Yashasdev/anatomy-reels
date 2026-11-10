@@ -5,6 +5,10 @@
 metrics.json has one record per post per platform, keyed by Buffer post ID: what the post was (type: quiz, deep
 dive or one of the rotating formats; organ; length; music), "latest" numbers, and "snapshots" at 1, 3, 7 and 30
 days old so posts are compared at the same age. scorecard.md compares the types; the Strategist reads both.
+
+The main score is shares per person reached (Nov 10, 2026): on Instagram a reel only reaches people past its first
+test audience when viewers send it on, and Anatomy Ace's reels stalled at 1,000-1,400 views with 0.26% shares per
+reach (an average Reel gets about 0.8%, the top quarter 2.5%). Views follow from it, so tables are sorted by it.
 """
 
 from __future__ import annotations
@@ -88,11 +92,25 @@ def _watched(recs: list[dict], snap: str) -> str:
     return f"{100 * sum(shares) / len(shares):.0f}%" if shares else "–"
 
 
+def per_reach(recs: list[dict], metric: str, snap: str | None = None) -> float | None:
+    """A metric per person reached, pooled (total shares / total reach), so one tiny post can't swing it."""
+    nums = [(r["snapshots"][snap] if snap else r.get("latest") or {}) for r in recs]
+    nums = [n for n in nums if n.get("reach") and n.get(metric) is not None]
+    reach = sum(n["reach"] for n in nums)
+    return sum(n[metric] for n in nums) / reach if reach else None
+
+
+def _pct(x: float | None) -> str:
+    return "–" if x is None else f"{100 * x:.2f}%"
+
+
 def _table(groups: dict, snap: str, key_name: str) -> list[str]:
-    head = [key_name, "Posts"] + [t for _, t in COLUMNS] + ["Watched"]
+    head = [key_name, "Posts", "Shares / reach", "Saves / reach"] + [t for _, t in COLUMNS] + ["Watched"]
     lines = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)]
-    for key, recs in sorted(groups.items()):
-        cells = [str(key), str(len(recs))] + [_avg([r["snapshots"][snap].get(m) for r in recs]) for m, _ in COLUMNS]
+    rank = lambda kv: (-(per_reach(kv[1], "shares", snap) or -1), str(kv[0]))  # noqa: E731
+    for key, recs in sorted(groups.items(), key=rank):
+        cells = [str(key), str(len(recs)), _pct(per_reach(recs, "shares", snap)), _pct(per_reach(recs, "saves", snap))]
+        cells += [_avg([r["snapshots"][snap].get(m) for r in recs]) for m, _ in COLUMNS]
         lines.append("| " + " | ".join(cells + [_watched(recs, snap)]) + " |")
     return lines
 
@@ -102,7 +120,10 @@ def scorecard(data: dict) -> str:
     out = ["# Anatomy Ace scorecard", "",
            f"Updated {data.get('updated_at', '?')}. Averages per post at the same age (Buffer's numbers). "
            "Types: quiz (3D bone/organ quiz), deepdive, and the rotating formats (missing, zoom, diagnose, myth, rank). "
-           "YouTube reports only views, likes and comments through Buffer.", ""]
+           "YouTube reports only views, likes and comments through Buffer.", "",
+           "**Main score: shares per person reached** (people who send a reel on are what carries it past its first "
+           "test audience). Instagram benchmarks: about 0.8% for an average Reel, 2.5% for the top quarter. Tables are "
+           "sorted by it; judge a type or format by it first, then by views and the share of the video watched.", ""]
     for snap in ("1d", "7d"):
         have = [r for r in recs if snap in r["snapshots"]]
         out += [f"## At {snap} old", ""]
@@ -136,6 +157,17 @@ def scorecard(data: dict) -> str:
         out += ["## Trending sound vs original track (Instagram, 1 day old)", "",
                 "The 8 PM quiz goes out as Buffer 'Notify me' and is finished by hand with an Instagram trending sound.", ""]
         out += _table(g, "1d", "Type / sound") + [""]
+    sendable = [r for r in recs if r["platform"] == "instagram" and (r.get("latest") or {}).get("reach", 0) >= 200]
+    best = sorted(sendable, key=lambda r: -(per_reach([r], "shares") or 0))[:10]
+    if best:
+        out += ["## Top 10 Instagram posts by shares per person reached (200+ reached)", "",
+                "| Day | Type | Post | Shares / reach | Shares | Reach | Views | Watched |", "|---|---|---|---|---|---|---|---|"]
+        out += [f"| {r['day']} | {r['type']} | {r['title']} | {_pct(per_reach([r], 'shares'))} | "
+                f"{r['latest'].get('shares', '–')} | {r['latest']['reach']:,} | {r['latest'].get('views', 0):,} | "
+                + (f"{100 * r['latest']['averageTimeWatched'] / r['video_seconds']:.0f}%"
+                   if r['latest'].get('averageTimeWatched') is not None and r.get('video_seconds') else "–") + " |"
+                for r in best]
+        out.append("")
     top = sorted((r for r in recs if r.get("latest")), key=lambda r: -(r["latest"].get("views") or 0))[:10]
     if top:
         out += ["## Top 10 posts by views so far", "", "| Day | Type | Post | Platform | Views | Comments | Shares |",
