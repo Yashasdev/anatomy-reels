@@ -31,7 +31,7 @@ def parse_time(s: str) -> datetime:
 
 
 def post_type(entry: dict) -> str:
-    """quiz, deepdive, or the format's name (missing, zoom, diagnose, myth, rank)."""
+    """quiz, deepdive, or the format's name (missing, zoom, diagnose, myth, rank, types)."""
     if entry.get("kind") == "formats":
         return entry.get("format", "format")
     return entry.get("kind") or "quiz"
@@ -119,7 +119,7 @@ def scorecard(data: dict) -> str:
     recs = list(data["posts"].values())
     out = ["# Anatomy Ace scorecard", "",
            f"Updated {data.get('updated_at', '?')}. Averages per post at the same age (Buffer's numbers). "
-           "Types: quiz (3D bone/organ quiz), deepdive, and the rotating formats (missing, zoom, diagnose, myth, rank). "
+           "Types: quiz (3D bone/organ quiz), deepdive, and the rotating formats (missing, zoom, diagnose, myth, rank, types). "
            "YouTube reports only views, likes and comments through Buffer.", "",
            "**Main score: shares per person reached** (people who send a reel on are what carries it past its first "
            "test audience). Instagram benchmarks: about 0.8% for an average Reel, 2.5% for the top quarter. Tables are "

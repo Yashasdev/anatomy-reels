@@ -6,10 +6,10 @@ the caption needs. A series in config.json names its release and the daily slots
 
   "deepdive": {"release": "deepdives", "slots": ["18:00"], "from": "2026-11-07", "order": [...]}
   "formats":  {"release": "formats", "slots": ["12:30", "16:00"], "from": "...",
-               "cycle": ["missing", "zoom", "diagnose", "myth", "rank"]}
+               "cycle": ["missing", "zoom", "diagnose", "myth", "rank", "types"]}
 
 A slot of a series posts its next unposted video; with a "cycle", the day's slots take the next formats in turn
-(two slots a day over five formats: every format twice in five days, never twice on one day), and if that format
+(two slots a day over six formats: every format twice in six days, never twice on one day), and if that format
 has nothing ready the next one in the cycle steps in. With nothing ready at all, the slot posts a quiz.
 
     python -m anatomy.series publish SERIES DIR     # upload DIR/<id>.mp4 + .json, rebuild index.json (on the Mac)
@@ -117,6 +117,11 @@ def answer_text(q: dict) -> str:
 
 def caption(q: dict) -> str:
     """Hook, the question with its choices, then the answer far below so people comment first."""
+    if q.get("format") == "types":  # a breakdown (anatomy/types.py): no choices, the comment prompt is the question
+        tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]
+        return (f"{q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
+                f"{FOLLOW['formats']}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
+                + q["why"] + "\nFor learning only, not medical advice.\n" + f"{q.get('credit') or CONFIG['credit']}.")
     choices = "\n".join(f"{'ABCD'[k]}) {c}" for k, c in enumerate(q["choices"]))
     tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]  # Instagram allows 5
     medical = "Educational, not medical advice." if q.get("format") == "diagnose" else "For learning only, not medical advice."

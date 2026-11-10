@@ -13,6 +13,12 @@ big, different install, and 3D rendering is slow, so it lives in its own repo.
   (`python -m anatomy.formats release DIR`): "Which bone is missing?" (`missing.json`: the region swings with one bone
   hidden, which fades back in glowing at the answer) and "Zoom out: guess the body part" (`zoom.json`: the camera starts
   on an extreme close-up of one part and pulls back; the part lights up at the answer). Rules are in tests/test_formats.py.
+- `banks/types/` and `anatomy/types.py` (+ `render/fracture_scene.py`): the "types" format, a sixth rotating format
+  copied from a studio-style breakdown reel: one femur on a gray studio sweep breaks 11 ways (booleans in Blender),
+  with chips flying, a slow push-in, a typed yellow label pinned to each break, captions read by Kokoro, whip cuts
+  between types and a closing chart that is also the cover. Rendered on a Mac (`python -m anatomy.types release DIR`,
+  about an hour at full size; `preview ID DIR` makes a quick half-size check), then published with
+  `python -m anatomy.series publish formats DIR`. Each new topic (joints, dislocations...) needs its own Blender script.
 - `scripts/extract_organ.py`: pulls one organ out of the 300 MB Z-Anatomy atlas into a small model file.
 - `ATTRIBUTION.md`: model licenses (CC BY-SA) and credits every caption must carry.
 
