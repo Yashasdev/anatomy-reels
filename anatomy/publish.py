@@ -398,6 +398,8 @@ def swap_queued() -> int:
             except Exception as e:
                 failed += 1
                 print(f"::error::{service} swap failed for {h['id']}: {e}")
+        if q.get("series") and q.get("music"):  # a re-made series video may carry a different track
+            h["music"] = q["music"]
         h.update(video_url=url, video_seconds=round(info["seconds"], 2), rerendered=datetime.now(ZoneInfo("UTC")).date().isoformat())
         HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
     return 1 if failed else 0
