@@ -119,7 +119,7 @@ def caption(q: dict) -> str:
     """Hook, the question with its choices, then the answer far below so people comment first."""
     if q.get("format") == "types":  # a breakdown (anatomy/types.py): no choices, the comment prompt is the question
         tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]
-        return (f"{q['hook']}\n\n{q['question']} Comment below 👇\n"
+        return (f"{q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
                 f"{FOLLOW['formats']}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
                 + q["why"] + "\nFor learning only, not medical advice.\n" + f"{q.get('credit') or CONFIG['credit']}.")
     choices = "\n".join(f"{'ABCD'[k]}) {c}" for k, c in enumerate(q["choices"]))

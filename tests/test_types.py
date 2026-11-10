@@ -36,7 +36,7 @@ def test_the_caption_has_no_answer_key_and_credits_the_model():
     q = types.info({**ITEMS[0], "music": "lofi-1"}, 64.0)
     text = publish.caption({**q, "kind": "formats", "series": "formats"})
     assert text.startswith(types.shown(ITEMS[0]["hook"])) and "Comment below" in text and "Answer:" not in text
-    assert "NIH 3D" in text and "not medical advice" in text
+    assert "NIH 3D" in text and "not medical advice" in text and "Send this to" in text
     assert series.youtube_title(q).endswith("#shorts") and len(series.youtube_title(q)) <= 100
 
 

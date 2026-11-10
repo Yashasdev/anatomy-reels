@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / "assets" / "fonts"
 CONFIG = json.loads((ROOT / "config.json").read_text())
 FPS, SR = 30, 44100
-VOICE, SPEED = "af_heart", 1.0
+VOICE, SPEED = "af_heart", 0.95  # the Deep Dives pace Yashas picked (Nov 6)
 YELLOW = (246, 222, 64)
 FLASH, INTRO_MIN, TYPE_MIN, WHIP, OUTRO, COVER_TAIL = 2.9, 3.0, 3.4, 0.27, 0.8, 0.5
 SAY_AT = 0.32  # each type's name is said just as the bone breaks (the break is at 0.45 s)
@@ -52,7 +52,7 @@ def items() -> list[dict]:
     out = []
     for p in sorted((ROOT / "banks" / "types").glob("*.json")):
         for q in json.loads(p.read_text()):
-            out.append({**q, "script": [q["hook"], q["intro"]] + [x for t in q["types"] for x in t["lines"]] + [q["outro"]]})
+            out.append({**q, "script": [q["hook"], q["intro"]] + [x for t in q["types"] for x in t["lines"]] + q["outro"]})
     return out
 
 
@@ -147,7 +147,7 @@ def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED)
 
 
 # --- timeline ----------------------------------------------------------------------------------------------
-def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.22) -> tuple[list[dict], list[dict], float]:
+def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[list[dict], list[dict], float]:
     """Segments for Blender and the narration cues (line index, start, text), from how long each line takes."""
     k = 0
     cues, segs = [], []
@@ -174,7 +174,9 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.22) -> tuple[l
         t = seg_end
     segs.append({"kind": "outro", "start": t, "end": t + OUTRO})
     t += OUTRO
-    end = say(t + 0.3)
+    end = t + 0.3 - gap
+    for _ in q["outro"]:  # the comment question, then who to send it to
+        end = say(end + gap)
     segs.append({"kind": "grid", "start": t, "end": max(t + 4.0, end + 1.6)})
     assert k == len(q["script"]), "every script line is said once"
     return segs, cues, segs[-1]["end"]
@@ -415,7 +417,7 @@ def info(q: dict, seconds: float) -> dict:
     """What the posting job needs (anatomy/series.py), like the other formats' <id>.json."""
     return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["script"][0]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
-            "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"]}
+            "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"]}
 
 
 def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:
