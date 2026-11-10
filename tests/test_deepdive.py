@@ -1,6 +1,7 @@
 """Anatomy Deep Dives: the deep dive slot posts the next finished video in index order, never twice; with none
 ready it posts a quiz; captions put the answer at the very bottom; quizzes keep their organ rotation around them."""
 
+import json
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -129,3 +130,29 @@ def test_the_8pm_instagram_post_is_a_notify_me_post(setup, monkeypatch):
     assert publish.notify_for(datetime(2030, 1, 2, 20, 0, tzinfo=TZ))["service"] == "instagram"
     assert publish.notify_for(datetime(2030, 1, 2, 9, 30, tzinfo=TZ)) is None
     assert publish.notify_for(datetime(2029, 12, 31, 20, 0, tzinfo=TZ)) is None
+
+
+def test_rerender_queued_swaps_the_video_into_the_same_posts(setup, monkeypatch, tmp_path):
+    """The rerender-queued action: only posts still waiting are re-rendered, and each new video replaces the old one
+    in the same Buffer posts (same IDs), so the time and caption stay the same."""
+    from anatomy import storage
+    now = datetime.now(ZoneInfo("UTC"))
+    hist = [{"slot": (now - timedelta(hours=3)).isoformat(), "day": 1, "id": "dd-nephron", "kind": "deepdive",
+             "organ": None, "title": "t", "video_url": "old", "video_seconds": 50, "buffer": {"tiktok": "p0"}},
+            {"slot": (now + timedelta(hours=5)).isoformat(), "day": 2, "id": "dd-na-k-pump", "kind": "deepdive",
+             "organ": None, "title": "t", "video_url": "old", "video_seconds": 50,
+             "buffer": {"tiktok": "p1", "youtube": "p2"}}]
+    publish.HISTORY.write_text(json.dumps(hist))
+    assert [h["id"] for h in publish.queued()] == ["dd-na-k-pump"]
+    monkeypatch.setattr(publish, "ROOT", tmp_path)
+    (tmp_path / "out").mkdir()
+    monkeypatch.setattr(series, "download", lambda q, out: (out.write_bytes(b"v"), 51.2)[1])
+    assert publish.render_queued(hist[1]["slot"]) == 0
+    monkeypatch.setattr(storage, "upload_to_r2", lambda path, key, r2: f"https://r2/{key}")
+    swapped = []
+    monkeypatch.setattr(buffer, "replace_video", lambda pid, service, url, ms, title="": swapped.append((pid, url, ms)))
+    assert publish.swap_queued() == 0
+    assert sorted(p for p, _, _ in swapped) == ["p1", "p2"] and all(ms == 50950 for _, _, ms in swapped)
+    after = json.loads(publish.HISTORY.read_text())
+    assert after[1]["video_url"].startswith("https://r2/") and after[1]["buffer"] == {"tiktok": "p1", "youtube": "p2"}
+    assert after[0]["video_url"] == "old"

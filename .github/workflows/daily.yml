@@ -9,7 +9,7 @@ on:
         description: What to do
         type: choice
         default: render-only
-        options: [render-only, publish, check-setup, list-channels, plan, show-posts]
+        options: [render-only, publish, rerender-queued, check-setup, list-channels, plan, show-posts]
       limit:
         description: Render at most this many (0 = all)
         default: "0"
@@ -49,7 +49,9 @@ jobs:
           # after the music change was merged on Oct 29.
           pip install -q numpy
           python -m anatomy.publish plan
-          if [ "$ACTION" = render-only ] || [ "$ACTION" = publish ]; then
+          if [ "$ACTION" = rerender-queued ]; then  # re-render the posts already in Buffer with the current templates
+            slots=$(python -m anatomy.publish queued-json)
+          elif [ "$ACTION" = render-only ] || [ "$ACTION" = publish ]; then
             slots=$(python -m anatomy.publish plan-json | python -c "import json,sys,os; s=json.load(sys.stdin); n=int(os.environ.get('LIMIT') or 0); print(json.dumps(s[:n] if n else s))")
           else
             pip install -q boto3 requests && python -m anatomy.publish "$ACTION"
@@ -110,7 +112,12 @@ jobs:
           fi
           "$BLENDER" --version | head -1
       - name: Render
-        run: time python -m anatomy.publish render-one "${{ matrix.slot }}"
+        run: |
+          if [ "$ACTION" = rerender-queued ]; then
+            time python -m anatomy.publish render-queued "${{ matrix.slot }}"
+          else
+            time python -m anatomy.publish render-one "${{ matrix.slot }}"
+          fi
       - id: name
         run: echo "name=reel-$(echo '${{ matrix.slot }}' | tr -dc '0-9')" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
@@ -121,7 +128,7 @@ jobs:
 
   post:
     needs: [plan, render]
-    if: always() && needs.plan.result == 'success' && needs.plan.outputs.slots != '[]' && github.event_name != 'pull_request' && (github.event_name == 'schedule' && vars.PUBLISHING_ENABLED == 'true' || inputs.action == 'publish')
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.slots != '[]' && github.event_name != 'pull_request' && (github.event_name == 'schedule' && vars.PUBLISHING_ENABLED == 'true' || inputs.action == 'publish' || inputs.action == 'rerender-queued')
     runs-on: ubuntu-24.04
     env:
       PLAN_NOW: ${{ needs.plan.outputs.now }}
@@ -141,7 +148,8 @@ jobs:
           path: out
           merge-multiple: true
       - name: Upload and schedule
-        run: python -m anatomy.publish post
+        run: |
+          if [ "$ACTION" = rerender-queued ]; then python -m anatomy.publish swap-queued; else python -m anatomy.publish post; fi
       - name: Save history
         if: always()
         run: |

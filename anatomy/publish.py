@@ -345,6 +345,64 @@ def metrics_summary(metrics: dict) -> dict | None:
             "by_platform": by_platform}
 
 
+def queued(now: datetime | None = None) -> list[dict]:
+    """History entries still waiting in Buffer (due 30+ minutes from now): the posts a re-render can still fix."""
+    now = now or plan_now()
+    return [h for h in history() if datetime.fromisoformat(h["slot"]) > now + timedelta(minutes=30)]
+
+
+def queued_question(h: dict) -> dict:
+    """What a queued post was made from: its bank question, or its series video (downloaded again, so a video that
+    was re-rendered and republished on the release comes back fixed)."""
+    if h.get("kind") in series.SERIES:
+        video = next((v for v in series.index(h["kind"]) if v["id"] == h["id"]), None)
+        if video is None:
+            raise LookupError(f"{h['id']} isn't in the {h['kind']} index")
+        return {**video, "kind": h["kind"], "series": h["kind"], "day": h["day"]}
+    q = next(q for b in banks(active_only=False).values() for q in b if q["id"] == h["id"])
+    return {**q, "organ": h.get("organ"), "day": h["day"], "label": CONFIG["label"],
+            **({"music": h["music"]} if h.get("music") else {})}
+
+
+def render_queued(slot: str) -> int:
+    """Re-render one queued post with the current templates (a render job of the rerender-queued action)."""
+    h = next(h for h in history() if h["slot"] == slot)
+    q = queued_question(h)
+    out = ROOT / "out" / f"{file_name(datetime.fromisoformat(slot), q)}-v{datetime.now(ZoneInfo('UTC')):%H%M}.mp4"
+    seconds = render(q, out)
+    out.with_suffix(".json").write_text(json.dumps({"slot": slot, "id": q["id"], "seconds": seconds, "rerender": True}))
+    print(f"re-rendered {out.name} ({seconds:.1f} s) for the queued Day {h['day']} {h['id']}")
+    return 0
+
+
+def swap_queued() -> int:
+    """Upload each re-rendered video and swap it into the same Buffer posts (same post IDs, time and caption)."""
+    from . import buffer, storage
+    hist, failed = history(), 0
+    for meta in sorted((ROOT / "out").glob("*.json")):
+        info = json.loads(meta.read_text())
+        if not info.get("rerender"):
+            continue
+        h = next((x for x in hist if x["slot"] == info["slot"] and x["id"] == info["id"]), None)
+        video = meta.with_suffix(".mp4")
+        if h is None or not video.exists() or datetime.fromisoformat(h["slot"]) <= datetime.now(ZoneInfo("UTC")) + timedelta(minutes=10):
+            print(f"::warning::{meta.stem}: not queued any more (or too close to its time); left as it was")
+            continue
+        url = storage.upload_to_r2(video, video.name, CONFIG["r2"])
+        q = queued_question(h)
+        cover_ms = int((info["seconds"] - 0.25) * 1000)
+        for service, pid in h["buffer"].items():
+            try:
+                buffer.replace_video(pid, service, url, cover_ms, title=youtube_title(q))
+                print(f"swapped the video for Day {h['day']} {h['id']} on {service}")
+            except Exception as e:
+                failed += 1
+                print(f"::error::{service} swap failed for {h['id']}: {e}")
+        h.update(video_url=url, video_seconds=round(info["seconds"], 2), rerendered=datetime.now(ZoneInfo("UTC")).date().isoformat())
+        HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
+    return 1 if failed else 0
+
+
 def write_status() -> None:
     """status.json: what Reels HQ shows for Anatomy Ace (stock, daily rate, recent and queued posts). The daily
     workflow commits it, so the dashboard reads one public file instead of every bank."""
@@ -390,6 +448,13 @@ def main() -> int:
         return 0
     if action == "render-one":
         return render_one(sys.argv[2])
+    if action == "queued-json":  # for the workflow's rerender-queued action: one render job per queued post
+        print(json.dumps([h["slot"] for h in queued()]))
+        return 0
+    if action == "render-queued":
+        return render_queued(sys.argv[2])
+    if action == "swap-queued":
+        return swap_queued()
     if action == "post":
         return post()
     if action in ("render-only", "publish"):

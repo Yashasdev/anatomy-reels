@@ -35,7 +35,12 @@ FONTS = ROOT / "assets" / "fonts"
 W, H, FPS, LAYER_FPS = 1080, 1920, 30, 15
 SR = 44100
 LIME, RED, GREEN, YELLOW, WHITE, GREY = (163, 230, 53), (239, 68, 68), (34, 197, 94), (250, 204, 21), (255, 255, 255), (150, 150, 150)
-MODEL_BOX = (60, 250, 960)  # x, y, size of the square 3D layer
+# Phone safe area (measured from Yashas's iPhone screenshot, Nov 9, 2026): Instagram shows the video from the top of
+# the screen down to just above the message bar, so the top ~230 px sit under the clock and back button (the old
+# header was hidden there), the username row starts at ~1630, the sides lose ~45 px, and the like/comment/share
+# column covers x > ~920 from y ~1100 down. Everything that matters lives in y 240-1610 and x 60-900 in the lower half.
+SAFE_TOP, SAFE_BOTTOM, SAFE_LEFT, SAFE_RIGHT_LOW = 240, 1610, 60, 900
+MODEL_BOX = (80, 300, 920)  # x, y, size of the square 3D layer: near full size; the header sits over its empty top edge
 LEAD_IN, GAP, COVER_TAIL = 0.5, 0.2, 0.5
 FORMATS = {  # kind: (label in the header, lead-in before the first line)
     "missing": ("MISSING BONE", 0.25),
@@ -136,14 +141,21 @@ def wrap(d, text: str, f, width: int) -> list[str]:
     return lines + [cur]
 
 
+def fit(d, text: str, face, size: int, width: float):
+    """The largest font of `face` up to `size` that fits `text` in `width`."""
+    while size > 26 and d.textlength(text, font=face(size)) > width:
+        size -= 2
+    return face(size)
+
+
 def caption(d, text: str, word: int) -> None:
-    """A word-group caption in a white box, the current word on a lime highlight."""
-    f = SERIF(46)
+    """A word-group caption in a white box, the current word on a lime highlight, inside the phone safe area."""
+    f = fit(d, text, SERIF, 46, SAFE_RIGHT_LOW - SAFE_LEFT - 44)
     words = text.split()
     widths = [d.textlength(w, font=f) for w in words]
     gap = d.textlength(" ", font=f)
     total = sum(widths) + gap * (len(words) - 1)
-    x, y = (W - total) / 2, 1545
+    x, y = SAFE_LEFT + 22 + (SAFE_RIGHT_LOW - SAFE_LEFT - 44 - total) / 2, 1534
     d.rounded_rectangle((x - 22, y - 12, x + total + 22, y + 62), 8, fill=WHITE)
     for i, (w, ww) in enumerate(zip(words, widths)):
         if i == word:
@@ -167,14 +179,14 @@ def hook_banner(d, text: str) -> None:
     f = SANS(62)
     sentences = re.findall(r"[^.?!]+[.?!]?", text.upper())
     rows = [x.strip() for x in sentences if x.strip()]
-    if len(rows) > 2 or any(d.textlength(r, font=f) > 900 for r in rows):
-        rows = wrap(d, text.upper(), f, 900)
+    if len(rows) > 2 or any(d.textlength(r, font=f) > 800 for r in rows):
+        rows = wrap(d, text.upper(), f, 800)
     elif len(rows) == 1 and d.textlength(rows[0], font=f) > 600:  # one long sentence: two balanced rows
         words = rows[0].split()
         cut = min(range(1, len(words)), key=lambda k: abs(d.textlength(" ".join(words[:k]), font=f)
                                                         - d.textlength(" ".join(words[k:]), font=f)))
         rows = [" ".join(words[:cut]), " ".join(words[cut:])]
-    y = 205
+    y = 372
     w = max(d.textlength(r, font=f) for r in rows)
     d.rounded_rectangle(((W - w) / 2 - 30, y - 16, (W + w) / 2 + 30, y + 78 * len(rows) + 6), 16, fill=(0, 0, 0),
                         outline=LIME, width=4)
@@ -186,18 +198,18 @@ def choice_boxes(d, choices: list[str], marks: dict[int, tuple]) -> None:
     f, badge = SERIF(44), SANS(30)
     for i, c in enumerate(choices):
         col, row = i % 2, i // 2
-        x0, y0 = 50 + col * 500, 1290 + row * 100
-        box = (x0, y0, x0 + 480, y0 + 86)
+        cw = (SAFE_RIGHT_LOW - SAFE_LEFT - 16) / 2
+        x0, y0 = SAFE_LEFT + col * (cw + 16), 1292 + row * 88
+        box = (x0, y0, x0 + cw, y0 + 78)
         if i in marks:
             d.rounded_rectangle(box, 14, fill=tuple(int(v * 0.3) for v in marks[i]), outline=marks[i], width=6)
         else:
             d.rounded_rectangle(box, 14, fill=(0, 0, 0), outline=WHITE, width=2)
-        d.ellipse((x0 + 22, y0 + 18, x0 + 72, y0 + 68), fill=WHITE)
+        d.ellipse((x0 + 22, y0 + 14, x0 + 72, y0 + 64), fill=WHITE)
         lw = d.textlength("ABCD"[i], font=badge)
-        d.text((x0 + 47 - lw / 2, y0 + 23), "ABCD"[i], font=badge, fill=(0, 0, 0))
-        text = c if d.textlength(c, font=f) < 370 else c
-        g = f if d.textlength(text, font=f) < 370 else SERIF(36)
-        d.text((x0 + 92, y0 + 18 if g is f else 24), text, font=g, fill=WHITE)
+        d.text((x0 + 47 - lw / 2, y0 + 19), "ABCD"[i], font=badge, fill=(0, 0, 0))
+        g = fit(d, c, SERIF, 40, cw - 104)
+        d.text((x0 + 88, y0 + 39 - g.size * 0.55), c, font=g, fill=WHITE)
 
 
 # --- the reel -----------------------------------------------------------------------------------------------
@@ -285,31 +297,31 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
         img.paste(layer, MODEL_BOX[:2], layer)
         d = ImageDraw.Draw(img)
         if kind:
-            centered(d, 70, FORMATS[kind][0], header_title, LIME)
-            centered(d, 132, f"#{q['day']} · {q['title']}" if q.get("day") else q["title"], header_sub, WHITE)
+            centered(d, 250, FORMATS[kind][0], header_title, LIME)
+            centered(d, 312, f"#{q['day']} · {q['title']}" if q.get("day") else q["title"], header_sub, WHITE)
             if tt < starts[0] + lines[0][1] + GAP:
                 hook_banner(d, q["lines"][0])
             elif q.get("note") and tt < starts[answer_line]:  # e.g. which side is left
-                centered(d, 190, q["note"], SERIF(38), (210, 210, 210))
+                centered(d, 372, q["note"], SERIF(38), (210, 210, 210))
         else:
-            centered(d, 70, q.get("label", "ANATOMY CHECK"), header_title, LIME)
-            centered(d, 132, f"#{q.get('day', 1)} · {q['title']}", header_sub, WHITE)
+            centered(d, 250, q.get("label", "ANATOMY CHECK"), header_title, LIME)
+            centered(d, 312, f"#{q.get('day', 1)} · {q['title']}", header_sub, WHITE)
         if tt >= starts[ask_line]:
-            centered(d, 1205, q["question"], SERIF(50), YELLOW)
+            centered(d, 1226, q["question"], fit(d, q["question"], SERIF, 50, SAFE_RIGHT_LOW - SAFE_LEFT), YELLOW)
             marks = {}
             if tt >= starts[answer_line]:
                 marks = {q["answer_index"]: GREEN, q["trap_index"]: RED}
             choice_boxes(d, q["choices"], marks)
         if tt >= starts[answer_line]:
-            centered(d, 205, q["choices"][q["answer_index"]], SANS(52), LIME)
+            centered(d, 380, q["choices"][q["answer_index"]], SANS(52), LIME)
         if countdown_at <= tt < countdown_at + 3:
             num = 3 - int(tt - countdown_at)
-            d.ellipse((W / 2 - 60, 1060, W / 2 + 60, 1180), outline=YELLOW, width=8)
-            centered(d, 1083, str(num), SANS(64), YELLOW)
+            d.ellipse((W / 2 - 55, 1090, W / 2 + 55, 1200), outline=YELLOW, width=8)
+            centered(d, 1110, str(num), SANS(60), YELLOW)
             f = SANS(40)
             w = d.textlength("Comment your answer", font=f)
-            d.rounded_rectangle(((W - w) / 2 - 22, 1535, (W + w) / 2 + 22, 1607), 8, fill=WHITE)
-            centered(d, 1545, "Comment your answer", f, (0, 0, 0))
+            d.rounded_rectangle(((W - w) / 2 - 22, 1524, (W + w) / 2 + 22, 1596), 8, fill=WHITE)
+            centered(d, 1534, "Comment your answer", f, (0, 0, 0))
         else:
             cur = next((c for c in cue_words if c[0] <= tt < c[1]), None)
             if cur:

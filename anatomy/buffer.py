@@ -171,3 +171,25 @@ def post_metrics(post_ids: list[str], batch: int = 20) -> dict[str, dict | None]
                 except BufferError:
                     out[pid] = None
     return out
+
+
+EDIT_POST = """
+mutation EditPost($input: EditPostInput!) {
+  editPost(input: $input) {
+    ... on PostActionSuccess { post { id } }
+    ... on MutationError { message }
+  }
+}
+"""
+
+
+def replace_video(post_id: str, service: str, video_url: str, thumbnail_ms: int, title: str = "") -> str:
+    """Swap a queued post's video for a new render (same post, time and caption)."""
+    edit = {"id": post_id, "assets": [{"video": {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}}]}
+    metadata = post_metadata(service, title)
+    if metadata:
+        edit["metadata"] = metadata
+    result = _gql(EDIT_POST, {"input": edit})["editPost"]
+    if "post" not in result:
+        raise BufferError(f"Buffer refused the edit to post {post_id}: {result.get('message')}")
+    return result["post"]["id"]
