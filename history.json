@@ -861,5 +861,150 @@
     "format": "zoom",
     "music": "ambient-4",
     "rerendered": "2026-11-10"
+  },
+  {
+    "slot": "2026-11-11T16:00:00-05:00",
+    "day": 57,
+    "id": "fmt-zoom-03",
+    "organ": null,
+    "title": "Zoom out: guess the body part",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1600-fmt-zoom-03.mp4",
+    "video_seconds": 18.79,
+    "buffer": {
+      "instagram": "6af4b2467d06ac3b9c818152",
+      "tiktok": "6af4b247c8d020c384b6325f",
+      "youtube": "6af4b2487d06ac3b9c81831c"
+    },
+    "kind": "formats",
+    "format": "zoom",
+    "music": "science-1"
+  },
+  {
+    "slot": "2026-11-11T18:00:00-05:00",
+    "day": 58,
+    "id": "dd-onetake-rbc",
+    "organ": null,
+    "title": "One red blood cell. One take.",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1800-dd-onetake-rbc.mp4",
+    "video_seconds": 39.57,
+    "buffer": {
+      "instagram": "6af4b24dc8d020c384b63437",
+      "tiktok": "6af4b24e24e81672d797a2bb",
+      "youtube": "6af4b24f10a0de950dad697b"
+    },
+    "kind": "deepdive",
+    "music": "house-2"
+  },
+  {
+    "slot": "2026-11-11T20:00:00-05:00",
+    "day": 59,
+    "id": "hand-04",
+    "organ": "hand",
+    "title": "The Hand",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-2000-hand-04.mp4",
+    "video_seconds": 19.84,
+    "buffer": {
+      "instagram": "6af4b25124e81672d797a466",
+      "tiktok": "6af4b25110a0de950dad6a3a",
+      "youtube": "6af4b2527d06ac3b9c818596"
+    },
+    "music": "pop-4",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-12T09:30:00-05:00",
+    "day": 60,
+    "id": "skull-06",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-0930-skull-06.mp4",
+    "video_seconds": 19.67,
+    "buffer": {
+      "instagram": "6af4b2547d06ac3b9c8185ea",
+      "tiktok": "6af4b25524e81672d797a5bf",
+      "youtube": "6af4b256c8d020c384b637be"
+    },
+    "music": "pop-2"
+  },
+  {
+    "slot": "2026-11-12T12:30:00-05:00",
+    "day": 61,
+    "id": "fmt-diagnose-02",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-1230-fmt-diagnose-02.mp4",
+    "video_seconds": 23.55,
+    "buffer": {
+      "instagram": "6af4b258cd1c54423956f0ae",
+      "tiktok": "6af4b25910a0de950dad6cad",
+      "youtube": "6af4b259ff6dbdf184e15e35"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "ambient-1"
+  },
+  {
+    "slot": "2026-11-12T16:00:00-05:00",
+    "day": 62,
+    "id": "fmt-myth-02",
+    "organ": null,
+    "title": "Myth or fact?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-1600-fmt-myth-02.mp4",
+    "video_seconds": 24.38,
+    "buffer": {
+      "instagram": "6af4b25e7d06ac3b9c818973",
+      "tiktok": "6af4b25f7d06ac3b9c8189f2",
+      "youtube": "6af4b26010a0de950dad6f9d"
+    },
+    "kind": "formats",
+    "format": "myth",
+    "music": "ambient-4"
+  },
+  {
+    "slot": "2026-11-12T18:00:00-05:00",
+    "day": 63,
+    "id": "dd-folic-acid",
+    "organ": null,
+    "title": "Folic acid",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-1800-dd-folic-acid.mp4",
+    "video_seconds": 34.77,
+    "buffer": {
+      "instagram": "6af4b26210a0de950dad6ff6",
+      "tiktok": "6af4b263ff6dbdf184e15fee",
+      "youtube": "6af4b26324e81672d797a927"
+    },
+    "kind": "deepdive",
+    "music": "pop-4"
+  },
+  {
+    "slot": "2026-11-12T20:00:00-05:00",
+    "day": 64,
+    "id": "leg-04",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-2000-leg-04.mp4",
+    "video_seconds": 21.0,
+    "buffer": {
+      "instagram": "6af4b266ff6dbdf184e160a3",
+      "tiktok": "6af4b26724e81672d797a9b8",
+      "youtube": "6af4b267ff6dbdf184e16103"
+    },
+    "music": "ambient-3",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-13T09:30:00-05:00",
+    "day": 65,
+    "id": "pelvis-04",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-0930-pelvis-04.mp4",
+    "video_seconds": 22.63,
+    "buffer": {
+      "instagram": "6af4b26aff6dbdf184e16164",
+      "tiktok": "6af4b26b7d06ac3b9c8190c9",
+      "youtube": "6af4b26bc8d020c384b63c9c"
+    },
+    "music": "house-4"
   }
 ]
