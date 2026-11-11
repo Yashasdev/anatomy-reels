@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T17:36:11+00:00",
+ "generated_at": "2026-11-11T18:22:51+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43069717096",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 25,
- "total": 81,
- "posted": 56,
+ "unused": 21,
+ "total": 86,
+ "posted": 65,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 4
+   "posted": 6
   },
   "formats": {
    "slots": [
@@ -45,21 +45,21 @@
     "rank",
     "types"
    ],
-   "posted": 7
+   "posted": 10
   }
  },
  "banks": {
   "skull": {
    "total": 7,
-   "unused": 2
+   "unused": 1
   },
   "leg": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   },
   "pelvis": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   },
   "chest": {
    "total": 6,
@@ -79,172 +79,10 @@
   },
   "hand": {
    "total": 7,
-   "unused": 4
+   "unused": 3
   }
  },
  "posts": [
-  {
-   "slot": "2026-11-05T12:30:00-05:00",
-   "day": 27,
-   "id": "chest-02",
-   "organ": "chest",
-   "title": "The Rib Cage",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1230-chest-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-05T16:00:00-05:00",
-   "day": 28,
-   "id": "hand-02",
-   "organ": "hand",
-   "title": "The Hand",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1600-hand-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-05T18:00:00-05:00",
-   "day": 29,
-   "id": "eye-02",
-   "organ": "eye",
-   "title": "The Eye",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-1800-eye-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-05T20:00:00-05:00",
-   "day": 30,
-   "id": "thigh-02",
-   "organ": "thigh",
-   "title": "Leg Muscles",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-05-2000-thigh-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-06T09:30:00-05:00",
-   "day": 31,
-   "id": "teeth-02",
-   "organ": "teeth",
-   "title": "The Teeth",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-0930-teeth-02.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-06T12:30:00-05:00",
-   "day": 32,
-   "id": "heart-04",
-   "organ": "heart",
-   "title": "The Heart",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-1230-heart-04.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-06T16:00:00-05:00",
-   "day": 33,
-   "id": "lungs-04",
-   "organ": "lungs",
-   "title": "The Lungs",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-1600-lungs-04.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-06T18:00:00-05:00",
-   "day": 34,
-   "id": "skull-04",
-   "organ": "skull",
-   "title": "The Skull",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-1800-skull-04.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-06T20:00:00-05:00",
-   "day": 35,
-   "id": "abdomen-04",
-   "organ": "abdomen",
-   "title": "The Abdomen",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-06-2000-abdomen-04.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-07T09:30:00-05:00",
    "day": 36,
@@ -596,6 +434,132 @@
    "organ": null,
    "title": "Zoom out: guess the body part",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1230-fmt-zoom-02-v0555.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-11T16:00:00-05:00",
+   "day": 57,
+   "id": "fmt-zoom-03",
+   "organ": null,
+   "title": "Zoom out: guess the body part",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1600-fmt-zoom-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-11T18:00:00-05:00",
+   "day": 58,
+   "id": "dd-onetake-rbc",
+   "organ": null,
+   "title": "One red blood cell. One take.",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-1800-dd-onetake-rbc.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-11T20:00:00-05:00",
+   "day": 59,
+   "id": "hand-04",
+   "organ": "hand",
+   "title": "The Hand",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-11-2000-hand-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-12T09:30:00-05:00",
+   "day": 60,
+   "id": "skull-06",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-0930-skull-06.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-12T12:30:00-05:00",
+   "day": 61,
+   "id": "fmt-diagnose-02",
+   "organ": null,
+   "title": "Diagnose this",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-1230-fmt-diagnose-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-12T16:00:00-05:00",
+   "day": 62,
+   "id": "fmt-myth-02",
+   "organ": null,
+   "title": "Myth or fact?",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-1600-fmt-myth-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-12T18:00:00-05:00",
+   "day": 63,
+   "id": "dd-folic-acid",
+   "organ": null,
+   "title": "Folic acid",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-1800-dd-folic-acid.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-12T20:00:00-05:00",
+   "day": 64,
+   "id": "leg-04",
+   "organ": "leg",
+   "title": "The Leg",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-12-2000-leg-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-13T09:30:00-05:00",
+   "day": 65,
+   "id": "pelvis-04",
+   "organ": "pelvis",
+   "title": "The Pelvis",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-0930-pelvis-04.mp4",
    "platforms": [
     "instagram",
     "tiktok",
