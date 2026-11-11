@@ -21,6 +21,13 @@ MODELS = {
     "abdomen": ["Liver", "Gallbladder", "Stomach", "Pancreas", "Spleen", "Duodenum", "Ascending colon",
                 "Transverse colon", "Descending colon", "Sigmoid colon"],
     "arm": ["Clavicle.r", "Scapula.r", "Humerus.r", "Radius.r", "Ulna.r"],
+    # the "types" videos (anatomy/types.py): the knee with its ligaments and menisci, the shoulder with the cuff
+    "knee": ["Femur.r", "Tibia.r", "Fibula.r", "Patella.r", "Anterior cruciate ligament.r",
+             "Posterior cruciate ligament.r", "Medial meniscus.r", "Lateral meniscus.r",
+             "Superficial part of tibial collateral ligament.r", "Fibular collateral ligament.r"],
+    "shoulder": ["Clavicle.r", "Scapula.r", "Humerus.r", "Supraspinatus muscle.r", "Infraspinatus muscle.r",
+                 "Teres minor muscle.r", "Subscapularis muscle.r", "Glenoid labrum.r", "Acromioclavicular ligament.r",
+                 "First rib.r", "Manubrium of sternum"],
 }
 
 # larger regions, picked by name pattern (right side unless both sides read better); never ligaments or markers

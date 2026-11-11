@@ -1,0 +1,801 @@
+[
+ {
+  "id": "fmt-types-02",
+  "scene": "parts",
+  "for": "Athletes and sports fans (also Ball Knowledge's audience). They send it to the teammate who just tweaked a knee: it names what probably happened and says to get pain or swelling checked.",
+  "title": "5 knee injuries athletes get",
+  "question": "5 knee injuries athletes get. Which one have you had?",
+  "hook": "Most ACL [tears](tˈɛɹz) happen with *nobody* touching you.",
+  "intro": "Here are 5 knee injuries every athlete should know.",
+  "flash": [
+   "acl",
+   "meniscus",
+   "dislocation",
+   "mcl"
+  ],
+  "types": [
+   {
+    "name": "acl",
+    "label": "ACL TEAR",
+    "chart": [
+     "ACL tear",
+     "plant and twist"
+    ],
+    "sound": "pop",
+    "lines": [
+     "ACL [tear](tˈɛɹ). You plant your foot and twist,",
+     "and this ligament inside your knee can tear.",
+     "Many people hear or feel a *pop*."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Medial meniscus.r",
+      "Lateral meniscus.r",
+      "Anterior cruciate ligament.r",
+      "Posterior cruciate ligament.r"
+     ],
+     "smooth": [
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "orient": [
+      0,
+      0,
+      -25
+     ],
+     "frame": [
+      [
+       -0.14,
+       -0.02,
+       0.35
+      ],
+      [
+       -0.03,
+       0.07,
+       0.53
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tibia.r",
+        "Fibula.r",
+        "Medial meniscus.r",
+        "Lateral meniscus.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.088,
+         0.028,
+         0.455
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.22,
+         6,
+         6,
+         16,
+         0,
+         -0.008,
+         0
+        ],
+        [
+         1.4,
+         6,
+         6,
+         16,
+         0,
+         -0.008,
+         0
+        ],
+        [
+         2.4,
+         3,
+         3,
+         8,
+         0,
+         -0.004,
+         0
+        ]
+       ]
+      }
+     ],
+     "spans": [
+      {
+       "part": "Anterior cruciate ligament.r",
+       "from": {
+        "part": "Anterior cruciate ligament.r",
+        "at": [
+         0.2,
+         0.9,
+         1.0
+        ]
+       },
+       "to": {
+        "part": "Anterior cruciate ligament.r",
+        "at": [
+         0.6,
+         0.1,
+         0.0
+        ],
+        "group": 1
+       }
+      },
+      {
+       "part": "Posterior cruciate ligament.r",
+       "from": {
+        "part": "Posterior cruciate ligament.r",
+        "at": [
+         0.7,
+         0.2,
+         1.0
+        ]
+       },
+       "to": {
+        "part": "Posterior cruciate ligament.r",
+        "at": [
+         0.4,
+         0.9,
+         0.0
+        ],
+        "group": 1
+       }
+      }
+     ],
+     "tears": [
+      {
+       "part": "Anterior cruciate ligament.r",
+       "at": {
+        "part": "Anterior cruciate ligament.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ]
+       },
+       "normal": [
+        0,
+        -0.6,
+        -0.8
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.003,
+       "delay": 0.1
+      }
+     ],
+     "lit": [
+      "Anterior cruciate ligament.r"
+     ],
+     "hurt": [
+      "Anterior cruciate ligament.r"
+     ],
+     "pin": {
+      "part": "Anterior cruciate ligament.r",
+      "at": [
+       0.5,
+       0.3,
+       0.6
+      ]
+     },
+     "zoom": 0.4,
+     "ghost": [
+      "Femur.r"
+     ]
+    }
+   },
+   {
+    "name": "mcl",
+    "label": "MCL SPRAIN",
+    "chart": [
+     "MCL sprain",
+     "hit from the outside"
+    ],
+    "sound": "thud",
+    "lines": [
+     "MCL sprain. A hit to the outside of your knee",
+     "pushes it inward and stretches or tears the inside ligament."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Patella.r",
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "smooth": [
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "orient": [
+      0,
+      0,
+      -40
+     ],
+     "frame": [
+      [
+       -0.14,
+       -0.02,
+       0.33
+      ],
+      [
+       -0.03,
+       0.07,
+       0.56
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tibia.r",
+        "Fibula.r",
+        "Medial meniscus.r",
+        "Lateral meniscus.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.105,
+         0.03,
+         0.435
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.25,
+         0,
+         12,
+         0
+        ],
+        [
+         1.3,
+         0,
+         12,
+         0
+        ],
+        [
+         2.3,
+         0,
+         5,
+         0
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "MCL",
+       "from": {
+        "part": "Femur.r",
+        "at": [
+         1.0,
+         0.45,
+         0.065
+        ]
+       },
+       "to": {
+        "part": "Tibia.r",
+        "at": [
+         1.0,
+         0.4,
+         0.8
+        ]
+       },
+       "width": 0.016,
+       "thick": 0.0025
+      }
+     ],
+     "lit": [
+      "MCL"
+     ],
+     "hurt": [
+      "MCL"
+     ],
+     "pin": {
+      "part": "MCL",
+      "at": [
+       0.5,
+       0.5,
+       0.55
+      ]
+     },
+     "zoom": 0.55
+    }
+   },
+   {
+    "name": "meniscus",
+    "label": "MENISCUS TEAR",
+    "chart": [
+     "Meniscus tear",
+     "twist under load"
+    ],
+    "sound": "pop",
+    "lines": [
+     "[Meniscus](mənˈɪskəs) [tear](tˈɛɹ). These rubbery pads cushion your knee,",
+     "and a hard twist can rip one."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Tibia.r",
+      "Fibula.r",
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "smooth": [
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "orient": [
+      62,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.125,
+       0.0,
+       0.4
+      ],
+      [
+       -0.03,
+       0.07,
+       0.445
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tibia.r",
+        "Fibula.r",
+        "Medial meniscus.r",
+        "Lateral meniscus.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.078,
+         0.035,
+         0.43
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.12,
+         0,
+         0,
+         -10
+        ],
+        [
+         0.5,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Medial meniscus.r",
+       "at": {
+        "xyz": [
+         -0.05,
+         0.05,
+         0.43
+        ]
+       },
+       "normal": [
+        0.3,
+        1,
+        0
+       ],
+       "gap": 0.003,
+       "delay": 0.08
+      }
+     ],
+     "lit": [
+      "Medial meniscus.r"
+     ],
+     "hurt": [
+      "Medial meniscus.r"
+     ],
+     "pin": {
+      "part": "Medial meniscus.r",
+      "at": [
+       1.0,
+       0.5,
+       0.8
+      ]
+     },
+     "zoom": 0.7
+    }
+   },
+   {
+    "name": "jumpers",
+    "label": "JUMPER'S KNEE",
+    "chart": [
+     "Jumper's knee",
+     "too much jumping"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Jumper's knee. Lots of jumping overloads the tendon",
+     "just below your kneecap until it hurts.",
+     "It's also called [patellar](pətˈɛlɚ) tendinitis."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Patella.r"
+     ],
+     "orient": [
+      0,
+      0,
+      55
+     ],
+     "frame": [
+      [
+       -0.14,
+       -0.03,
+       0.3
+      ],
+      [
+       -0.03,
+       0.07,
+       0.58
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tibia.r",
+        "Fibula.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.088,
+         0.028,
+         0.455
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         55,
+         0,
+         0
+        ],
+        [
+         0.9,
+         0,
+         0,
+         0
+        ],
+        [
+         1.35,
+         55,
+         0,
+         0
+        ],
+        [
+         1.8,
+         0,
+         0,
+         0
+        ],
+        [
+         2.25,
+         55,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0
+        ],
+        [
+         3.15,
+         55,
+         0,
+         0
+        ],
+        [
+         3.6,
+         0,
+         0,
+         0
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "Patella.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.088,
+         0.028,
+         0.455
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         38,
+         0,
+         0
+        ],
+        [
+         0.9,
+         0,
+         0,
+         0
+        ],
+        [
+         1.35,
+         38,
+         0,
+         0
+        ],
+        [
+         1.8,
+         0,
+         0,
+         0
+        ],
+        [
+         2.25,
+         38,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0
+        ],
+        [
+         3.15,
+         38,
+         0,
+         0
+        ],
+        [
+         3.6,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Patellar tendon",
+       "from": {
+        "part": "Patella.r",
+        "at": [
+         0.5,
+         0.2,
+         0.0
+        ]
+       },
+       "to": {
+        "part": "Tibia.r",
+        "at": [
+         0.42,
+         0.0,
+         0.86
+        ]
+       },
+       "width": 0.022,
+       "thick": 0.0045
+      }
+     ],
+     "lit": [
+      "Patellar tendon"
+     ],
+     "hurt": [
+      "Patellar tendon"
+     ],
+     "pin": {
+      "part": "Patellar tendon",
+      "at": [
+       0.5,
+       0.0,
+       0.8
+      ]
+     },
+     "zoom": 0.55,
+     "chart_t": 0.2
+    }
+   },
+   {
+    "name": "dislocation",
+    "label": "DISLOCATION",
+    "chart": [
+     "Dislocation",
+     "kneecap slips out"
+    ],
+    "sound": "pop",
+    "lines": [
+     "Dislocation. Your kneecap slides out of its groove,",
+     "almost always to the *outside*."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Patella.r"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.14,
+       -0.02,
+       0.32
+      ],
+      [
+       -0.03,
+       0.07,
+       0.57
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Patella.r"
+       ],
+       "pivot": {
+        "part": "Patella.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         -8,
+         -30,
+         -0.034,
+         0.012,
+         -0.004
+        ],
+        [
+         1.4,
+         0,
+         -8,
+         -30,
+         -0.034,
+         0.012,
+         -0.004
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Patellar tendon",
+       "from": {
+        "part": "Patella.r",
+        "at": [
+         0.5,
+         0.2,
+         0.0
+        ]
+       },
+       "to": {
+        "part": "Tibia.r",
+        "at": [
+         0.42,
+         0.0,
+         0.86
+        ]
+       },
+       "width": 0.02,
+       "thick": 0.0035
+      }
+     ],
+     "lit": [
+      "Patella.r"
+     ],
+     "pin": {
+      "part": "Patella.r",
+      "at": [
+       0.0,
+       0.0,
+       0.5
+      ]
+     },
+     "zoom": 0.6
+    }
+   }
+  ],
+  "outro": [
+   "Swelling, a pop, or a knee that gives way? Get it checked.",
+   "Which one have *you* had?",
+   "Send this to the teammate who just tweaked their knee."
+  ],
+  "grid_title": "KNEE INJURIES",
+  "why": "ACL tear: plant and twist, often a pop, usually no contact. MCL sprain: a hit to the outside of the knee stretches or tears the inner ligament. Meniscus tear: a hard twist rips one of the knee's rubbery cushions. Jumper's knee (patellar tendinitis): repeated jumping overloads the tendon just below the kneecap. Dislocated kneecap: it slips out of its groove, almost always to the outside. Pain, swelling or a knee that gives way after an injury: get it checked.",
+  "hashtags": [
+   "#acl",
+   "#kneeinjury",
+   "#sportsinjury",
+   "#athlete",
+   "#anatomy"
+  ],
+  "sources": [
+   "https://www.orthoinfo.org/en/diseases--conditions/anterior-cruciate-ligament-acl-injuries/",
+   "https://www.orthoinfo.org/en/diseases--conditions/collateral-ligament-injuries/",
+   "https://www.orthoinfo.org/en/diseases--conditions/meniscus-tears/",
+   "https://my.clevelandclinic.org/health/diseases/patellar-tendonitis-jumpers-knee",
+   "https://my.clevelandclinic.org/health/diseases/21633-patellar-dislocations",
+   "https://www.ncbi.nlm.nih.gov/books/NBK532969/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the teammate who just tweaked their knee 🦵",
+  "factcheck": "Nov 11, 2026, separate blind pass: all claims true; softened MCL to 'stretches or tears', the warning line to name a pop and giving way, and jumper's knee to 'just below your kneecap'."
+ }
+]
