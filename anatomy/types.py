@@ -282,7 +282,8 @@ def small_label(img: Image.Image, pin, text: str, s: float) -> None:
 
 
 ROWS = {1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [3, 2], 6: [3, 3], 7: [4, 3], 8: [4, 4], 9: [3, 3, 3]}
-CHART_TOP, CHART_BOTTOM = 370, 1405  # under the title, above the closing caption (1480)
+CHART_TOP, CHART_BOTTOM = 370, 1390  # under the title, above the closing caption (CHART_CAPTION_Y)
+CHART_CAPTION_Y = 1505  # three caption rows end by y 1598, above the username row
 
 
 def crop(img: Image.Image) -> Image.Image:
@@ -461,7 +462,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             callout(img, a["xy"], labels[a["label"]], t - crack - 0.12, fade, scale, clamp=q.get("scene") == "parts")
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
-            caption(img, cue["text"], scale, 1480 if sg["kind"] == "grid" else CAPTION_Y)
+            grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
+            caption(img, cue["text"], scale, grid_y if sg["kind"] == "grid" else CAPTION_Y)
         watermark(img, scale)
         enc.stdin.write(img.tobytes())
         last = img

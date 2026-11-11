@@ -14,7 +14,10 @@ its range, a ligament tearing, a kneecap sliding out. anatomy/types.py passes, p
   "smooth": [names]                    subdivided first (the atlas menisci are low-poly)
   "moves": [{"parts": [names], "pivot": P, "keys": [[t, rx, ry, rz, tx, ty, tz], ...]}]
                                        rigid groups turning (degrees, body axes) and sliding (metres) about a pivot;
-                                       t is seconds after the event; before the first key the group holds that pose
+                                       t is seconds after the event; before the first key the group holds that pose.
+                                       Optional "axes": {"x": [P, P], "z": [P, P]}: turn and slide about these
+                                       directions instead of the body's (the atlas hand is tilted and curled, so a
+                                       finger bends toward the palm about the line across the knuckles)
   "bands": [{"name", "from": P, "to": P, "width", "thick", "kind"}]
                                        a strap (tendon, ligament) drawn between two points; it stretches between the
                                        groups its ends belong to
@@ -269,6 +272,7 @@ class Show:
             scene.collection.objects.link(g)
             g.parent = self.root
             mv["_pivot"] = self.point(mv["pivot"])[0]
+            mv["_axes"] = self.axes(mv["axes"]) if mv.get("axes") else Matrix.Identity(3)
             g.location = mv["_pivot"]
             self.groups.append(g)
             for n in mv["parts"]:
@@ -343,6 +347,14 @@ class Show:
         best = min(vs, key=lambda v: (v - want).length) if p.get("snap", True) else want
         return best.copy(), p.get("group", self.group_of.get(p["part"], 0))
 
+    def axes(self, a):
+        """A rotation whose columns are the move's own x, y, z (x and z from pairs of points, made square)."""
+        x = (self.point(a["x"][1])[0] - self.point(a["x"][0])[0]).normalized()
+        z = (self.point(a["z"][1])[0] - self.point(a["z"][0])[0]).normalized()
+        y = z.cross(x).normalized()
+        z = x.cross(y).normalized()
+        return Matrix((x, y, z)).transposed()
+
     def anchor(self, p):
         """The object a label pin rides on, and the pin in that object's mesh coordinates."""
         co, _ = self.point(p)
@@ -397,8 +409,10 @@ class Show:
         """Key every moving thing for time t_event at frame k (or just set it, for the chart)."""
         for g, mv in zip(self.groups[1:], self.moves):
             r, tr = sample(mv["keys"], t_event)
-            g.rotation_euler = [math.radians(a) for a in r]
-            g.location = mv["_pivot"] + Vector(tr)
+            f = mv["_axes"]
+            rot = f @ Euler([math.radians(a) for a in r]).to_matrix() @ f.transposed()
+            g.rotation_euler = rot.to_euler("XYZ", g.rotation_euler)
+            g.location = mv["_pivot"] + f @ Vector(tr)
             if k is not None:
                 g.keyframe_insert("rotation_euler", frame=k)
                 g.keyframe_insert("location", frame=k)

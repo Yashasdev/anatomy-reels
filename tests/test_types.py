@@ -119,6 +119,8 @@ def test_the_fracture_video_is_unchanged():
 def test_the_chart_stays_in_the_phone_safe_area(n):
     for cx, y, w, h in types.cells(n):
         assert make.SAFE_TOP <= y and y + h + 78 <= types.CHART_BOTTOM + 1
+        assert types.CHART_BOTTOM + 2 < types.CHART_CAPTION_Y - 62 * 3 / 2, "the closing caption clears the chart"
+        assert types.CHART_CAPTION_Y + 62 * 3 / 2 <= make.SAFE_BOTTOM
         lo, hi = cx - w / 2, cx + w / 2
         assert lo >= make.SAFE_LEFT and hi <= 1020
         if y + h + 78 > 1100:

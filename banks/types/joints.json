@@ -1,0 +1,799 @@
+[
+ {
+  "id": "fmt-types-03",
+  "scene": "parts",
+  "for": "Everyone who cracks their knuckles, plus anatomy students. They send it to the friend who cracks every joint they have: it tells them which kind of joint they're cracking, and the chart is a list worth saving.",
+  "title": "6 types of joint",
+  "question": "6 types of moving joint. Which one do you crack the most?",
+  "hook": "6 kinds of freely moving joints. Guess which one your *knuckles* are.",
+  "intro": "Here are the 6 types of synovial joint.",
+  "flash": [
+   "ball",
+   "hinge",
+   "pivot",
+   "saddle",
+   "condyloid"
+  ],
+  "types": [
+   {
+    "name": "ball",
+    "label": "BALL & SOCKET",
+    "chart": [
+     "Ball and socket",
+     "hip, shoulder"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Ball and socket. A round head sits in a cup, so it moves every way,",
+     "like your hip and shoulder."
+    ],
+    "show": {
+     "model": "thigh",
+     "parts": [
+      "Hip bone.r",
+      "Femur.r"
+     ],
+     "orient": [
+      0,
+      0,
+      30
+     ],
+     "frame": [
+      [
+       -0.16,
+       -0.06,
+       0.62
+      ],
+      [
+       0.0,
+       0.09,
+       1.02
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Femur.r"
+       ],
+       "pivot": {
+        "fit": "Femur.r",
+        "at": [
+         0.85,
+         0.4,
+         0.97
+        ],
+        "r": 0.022
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.5,
+         -55,
+         0,
+         0
+        ],
+        [
+         1.0,
+         -30,
+         25,
+         0
+        ],
+        [
+         1.5,
+         0,
+         30,
+         0
+        ],
+        [
+         2.0,
+         15,
+         10,
+         0
+        ],
+        [
+         2.5,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         30
+        ],
+        [
+         3.5,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Femur.r"
+     ],
+     "pin": {
+      "part": "Femur.r",
+      "at": [
+       0.85,
+       0.4,
+       0.95
+      ]
+     },
+     "zoom": 0.5,
+     "chart_t": 0.75
+    }
+   },
+   {
+    "name": "hinge",
+    "label": "HINGE",
+    "chart": [
+     "Hinge",
+     "knee, elbow"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Hinge. It bends one way, like a door, at your knee and elbow."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r"
+     ],
+     "orient": [
+      0,
+      0,
+      70
+     ],
+     "frame": [
+      [
+       -0.14,
+       -0.03,
+       0.26
+      ],
+      [
+       -0.03,
+       0.07,
+       0.62
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tibia.r",
+        "Fibula.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.088,
+         0.028,
+         0.455
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.6,
+         85,
+         0,
+         0
+        ],
+        [
+         1.2,
+         0,
+         0,
+         0
+        ],
+        [
+         1.8,
+         85,
+         0,
+         0
+        ],
+        [
+         2.4,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Tibia.r",
+      "Fibula.r"
+     ],
+     "pin": {
+      "part": "Tibia.r",
+      "at": [
+       0.5,
+       0.0,
+       0.97
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.45
+    }
+   },
+   {
+    "name": "pivot",
+    "label": "PIVOT",
+    "chart": [
+     "Pivot",
+     "top of the neck"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Pivot. One bone turns around another.",
+     "Your top two neck bones let you shake your head no."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Atlas (C1)",
+      "Axis (C2)",
+      "Vertebra C3"
+     ],
+     "orient": [
+      32,
+      0,
+      0
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Atlas (C1)"
+       ],
+       "pivot": {
+        "part": "Axis (C2)",
+        "at": [
+         0.5,
+         0.25,
+         1.0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.5,
+         0,
+         0,
+         32
+        ],
+        [
+         1.2,
+         0,
+         0,
+         -32
+        ],
+        [
+         1.9,
+         0,
+         0,
+         32
+        ],
+        [
+         2.6,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Atlas (C1)"
+     ],
+     "pin": {
+      "part": "Atlas (C1)",
+      "at": [
+       0.9,
+       0.3,
+       0.6
+      ]
+     },
+     "zoom": 0.75,
+     "chart_t": 0.5
+    }
+   },
+   {
+    "name": "saddle",
+    "label": "SADDLE",
+    "chart": [
+     "Saddle",
+     "base of the thumb"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Saddle. Two curved surfaces fit like a rider on a saddle.",
+     "It's what lets your thumb touch each fingertip."
+    ],
+    "show": {
+     "model": "hand",
+     "orient": [
+      30,
+      -25,
+      -10
+     ],
+     "moves": [
+      {
+       "parts": [
+        "First metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r"
+       ],
+       "pivot": {
+        "part": "First metacarpal bone.r",
+        "at": [
+         0.75,
+         0.5,
+         0.92
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.5,
+         0,
+         0,
+         35
+        ],
+        [
+         1.0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.5,
+         0,
+         25,
+         0
+        ],
+        [
+         2.0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.5,
+         -20,
+         0,
+         20
+        ],
+        [
+         3.0,
+         0,
+         0,
+         0
+        ]
+       ],
+       "axes": {
+        "x": [
+         {
+          "part": "Second metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Fifth metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         }
+        ],
+        "z": [
+         {
+          "part": "Distal phalanx of third finger of hand.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Capitate bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.5
+          ],
+          "snap": false
+         }
+        ]
+       }
+      }
+     ],
+     "lit": [
+      "First metacarpal bone.r",
+      "Trapezium bone.r"
+     ],
+     "pin": {
+      "part": "Trapezium bone.r",
+      "at": [
+       0.2,
+       0.3,
+       0.5
+      ]
+     },
+     "focus": {
+      "part": "First metacarpal bone.r",
+      "at": [
+       0.5,
+       0.5,
+       0.6
+      ]
+     },
+     "zoom": 0.38,
+     "chart_t": 0.5
+    }
+   },
+   {
+    "name": "condyloid",
+    "label": "CONDYLOID",
+    "chart": [
+     "Condyloid",
+     "big knuckles, wrist"
+    ],
+    "sound": "pop",
+    "lines": [
+     "[Condyloid](kˈɑːndɪlˌɔɪd). An oval bump fits an oval cup: up, down and side to side.",
+     "Your big knuckles, where fingers meet the hand, are this type.",
+     "That's the classic crack."
+    ],
+    "show": {
+     "model": "hand",
+     "orient": [
+      15,
+      -25,
+      -15
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Proximal phalanx of second finger of hand.r",
+        "Middle phalanx of second finger of hand.r",
+        "Distal phalanx of second finger of hand.r"
+       ],
+       "pivot": {
+        "part": "Second metacarpal bone.r",
+        "at": [
+         0.5,
+         0.5,
+         0.06
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.5,
+         -60,
+         0,
+         0
+        ],
+        [
+         1.0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.4,
+         0,
+         18,
+         0
+        ],
+        [
+         1.9,
+         0,
+         -18,
+         0
+        ],
+        [
+         2.3,
+         0,
+         0,
+         0
+        ],
+        [
+         2.8,
+         -60,
+         0,
+         0
+        ],
+        [
+         3.3,
+         0,
+         0,
+         0
+        ]
+       ],
+       "axes": {
+        "x": [
+         {
+          "part": "Second metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Fifth metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         }
+        ],
+        "z": [
+         {
+          "part": "Distal phalanx of third finger of hand.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Capitate bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.5
+          ],
+          "snap": false
+         }
+        ]
+       }
+      }
+     ],
+     "lit": [
+      "Proximal phalanx of second finger of hand.r",
+      "Second metacarpal bone.r"
+     ],
+     "pin": {
+      "part": "Second metacarpal bone.r",
+      "at": [
+       0.6,
+       0.3,
+       0.05
+      ]
+     },
+     "zoom": 0.4,
+     "chart_t": 0.5
+    }
+   },
+   {
+    "name": "plane",
+    "label": "PLANE",
+    "chart": [
+     "Plane",
+     "small wrist bones"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Plane. Flat surfaces that just slide a little, like the small bones in your wrist."
+    ],
+    "show": {
+     "model": "hand",
+     "orient": [
+      30,
+      -25,
+      -10
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Trapezium bone.r",
+        "Trapezoid bone.r",
+        "Capitate bone.r",
+        "Hamate bone.r"
+       ],
+       "pivot": {
+        "part": "Capitate bone.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.4,
+         0,
+         0,
+         0,
+         0.0025,
+         -0.002,
+         0
+        ],
+        [
+         0.8,
+         0,
+         0,
+         0
+        ],
+        [
+         1.2,
+         0,
+         0,
+         0,
+         -0.0025,
+         0.002,
+         0
+        ],
+        [
+         1.6,
+         0,
+         0,
+         0
+        ],
+        [
+         2.0,
+         0,
+         0,
+         0,
+         0.0025,
+         -0.002,
+         0
+        ],
+        [
+         2.4,
+         0,
+         0,
+         0
+        ]
+       ],
+       "axes": {
+        "x": [
+         {
+          "part": "Second metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Fifth metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         }
+        ],
+        "z": [
+         {
+          "part": "Distal phalanx of third finger of hand.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Capitate bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.5
+          ],
+          "snap": false
+         }
+        ]
+       }
+      }
+     ],
+     "lit": [
+      "Scaphoid bone.r",
+      "Lunate bone.r",
+      "Triquetrum bone.r",
+      "Pisiform bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Capitate bone.r",
+      "Hamate bone.r"
+     ],
+     "pin": {
+      "part": "Capitate bone.r",
+      "at": [
+       0.5,
+       0.0,
+       0.5
+      ]
+     },
+     "focus": {
+      "part": "Capitate bone.r",
+      "at": [
+       0.5,
+       0.5,
+       0.6
+      ]
+     },
+     "zoom": 0.32,
+     "chart_t": 0.5
+    }
+   }
+  ],
+  "outro": [
+   "Which one do *you* crack the most?",
+   "Send this to the friend who cracks every joint they have."
+  ],
+  "grid_title": "TYPES OF JOINT",
+  "why": "Ball and socket: a round head in a cup, moves every way (hip, shoulder). Hinge: bends one way like a door (knee, elbow). Pivot: one bone turns around another (top two neck bones, turning your head). Saddle: two curved surfaces (base of the thumb). Condyloid: an oval bump fits an oval cup, up-down and side to side (big knuckles, wrist). Plane: flat surfaces that slide a little (small wrist bones).",
+  "hashtags": [
+   "#anatomy",
+   "#joints",
+   "#crackingknuckles",
+   "#biology",
+   "#premed"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-4-synovial-joints",
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-1-classification-of-joints",
+   "https://my.clevelandclinic.org/health/body/25137-joints",
+   "https://www.ncbi.nlm.nih.gov/books/NBK539734/",
+   "https://www.jabfm.org/content/24/2/169",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC4398549/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the friend who cracks every joint they have 🫰",
+  "factcheck": "Nov 11, 2026, separate blind pass: all six blind answers matched; hook and knuckle line reworded so they don't imply all cracking is in condyloid joints (people also crack finger hinge joints, knees, spine); 'freely moving' is the exact term."
+ }
+]
