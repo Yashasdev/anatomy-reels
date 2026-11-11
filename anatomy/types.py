@@ -539,7 +539,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
                     d.text((g["xy"][0], g["xy"][1] + j * 26 * scale), word, font=BOLD(int(20 * scale)),
                            fill=col, anchor="mt")
         elif a and a.get("small"):
-            small_label(img, a["xy"], labels[a["label"]], scale, big=q.get("scene") == "parts")
+            mystery = a["label"] in q.get("flash_mystery", [])  # the hook asks about it: no answer in second 1
+            small_label(img, a["xy"], "?" if mystery else labels[a["label"]], scale, big=q.get("scene") == "parts")
         elif a:
             crack = sg["start"] + 0.45
             fade = min(1.0, max(0.0, (sg["end"] - 0.12 - t) / 0.25))

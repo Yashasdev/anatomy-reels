@@ -40,6 +40,9 @@ def test_item(q):
     assert len(q["hashtags"]) <= 5 and q["sources"]
     assert q["send"].startswith("Send this to") and types.shown(q["outro"][-1]).startswith("Send this to")
     assert re.fullmatch(r"fmt-types-\d\d", q["id"])
+    assert set(q.get("flash_mystery", [])) <= set(q["flash"])
+    if "?" in types.shown(q["hook"]) or "guess" in q["hook"].lower():  # a hook that asks never shows the answer
+        assert q.get("flash_mystery"), "name the asked-about type in flash_mystery so the montage shows '?'"
 
 
 def points(show: dict):
