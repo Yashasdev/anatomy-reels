@@ -24,7 +24,7 @@
     "sound": "pop",
     "lines": [
      "ACL [tear](tˈɛɹ). You plant your foot and twist,",
-     "and this ligament inside your knee can tear.",
+     "and this ligament inside your knee can [tear](tˈɛɹ).",
      "Many people hear or feel a *pop*."
     ],
     "show": {
@@ -207,7 +207,7 @@
     "sound": "thud",
     "lines": [
      "MCL sprain. A hit to the outside of your knee",
-     "pushes it inward and stretches or tears the inside ligament."
+     "pushes it inward and stretches or [tears](tˈɛɹz) the inside ligament."
     ],
     "show": {
      "model": "knee",
@@ -778,7 +778,7 @@
    "Send this to the teammate who just tweaked their knee."
   ],
   "grid_title": "KNEE INJURIES",
-  "why": "ACL tear: plant and twist, often a pop, usually no contact. MCL sprain: a hit to the outside of the knee stretches or tears the inner ligament. Meniscus tear: a hard twist rips one of the knee's rubbery cushions. Jumper's knee (patellar tendinitis): repeated jumping overloads the tendon just below the kneecap. Dislocated kneecap: it slips out of its groove, almost always to the outside. Pain, swelling or a knee that gives way after an injury: get it checked.",
+  "why": "ACL tear: plant and twist, often a pop, usually no contact. MCL sprain: a hit to the outside of the knee stretches or [tears](tˈɛɹz) the inner ligament. Meniscus tear: a hard twist rips one of the knee's rubbery cushions. Jumper's knee (patellar tendinitis): repeated jumping overloads the tendon just below the kneecap. Dislocated kneecap: it slips out of its groove, almost always to the outside. Pain, swelling or a knee that gives way after an injury: get it checked.",
   "hashtags": [
    "#acl",
    "#kneeinjury",

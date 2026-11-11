@@ -159,8 +159,9 @@ def test_words_kokoro_gets_wrong_carry_their_phonemes():
             plain = types.MARKUP.sub("", line).lower()
             for word in MISSAID:
                 assert word.split()[0] not in re.findall(r"[a-z']+", plain), f"{word!r} needs [word](phonemes) in: {line}"
-            for phrase in ("acl tear", "meniscus tear", "cuff tear", "tears happen"):  # a rip, not crying
-                assert phrase not in plain, f"say 'tear' (a rip) with phonemes: {line}"
+            # Kokoro reads "tear(s)" as crying almost everywhere (Nov 11: "ACL tear", "stretches or tears",
+            # "on top tears"), so every one carries its phonemes: [tear](tˈɛɹ), [tears](tˈɛɹz)
+            assert not re.search(r"\btears?\b", plain), f"say 'tear' (a rip) with phonemes: {line}"
 
 
 def test_markup():

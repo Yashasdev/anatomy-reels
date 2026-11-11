@@ -23,8 +23,10 @@ where the label pins; see that file), an optional "chart" (the lines under it in
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
+import os
 import shutil
 import subprocess
 import sys
@@ -111,7 +113,12 @@ def phonemes(k, line: str) -> str:
     pos = 0
     for m in MARKUP.finditer(line):
         word = m.group(1) or m.group(2)
-        i, j = _find(full, k.tokenizer.phonemize(word, "en-us").strip(), pos)
+        try:
+            i, j = _find(full, k.tokenizer.phonemize(word, "en-us").strip(), pos)
+        except ValueError:
+            if not m.group(3):
+                raise
+            i, j = _find(full, m.group(3), pos)  # in this line Kokoro already says it the way we want
         if m.group(1):
             a = full.rfind(" ", 0, max(0, full.rfind(" ", 0, i)))  # the word before, kept light
             b = full.find(" ", j + 1)
@@ -242,8 +249,11 @@ def dotted(d: ImageDraw.ImageDraw, a, b, s: float, fill) -> None:
         d.line([p, q], fill=fill, width=max(1, int(2 * s)))
 
 
-def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float, clamp: bool = False) -> None:
-    """The yellow label: the pin ring, a dotted leader up to a thin rule, and the name typing in above it."""
+def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float, clamp: bool = False,
+            place: tuple | None = None) -> None:
+    """The yellow label: the pin ring, a dotted leader up to a thin rule, and the name typing in above it.
+    New items ("scene": "parts") pass `place` ((elbow x, y), side), chosen over the gray background by place_label,
+    and get a dark outline and soft shadow so the yellow reads over anything; the fracture video is drawn as it was."""
     if age < 0:
         return
     alpha = int(255 * fade)
@@ -254,12 +264,19 @@ def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float,
     side = 1 if pin[0] + (110 + 40) * s + full_w <= 900 * s else -1  # keep it clear of the right-hand buttons
     # the label stays above the captions and below the app's top bar, however low or high the break is
     elbow = (pin[0] + side * 110 * s, min(max(pin[1] - 150 * s, 270 * s), (CAPTION_Y - 170) * s))
+    if place:
+        elbow, side = (place[0][0] * s, place[0][1] * s), place[1]
     lead = min(1.0, age / 0.16)
     tip = (pin[0] + (elbow[0] - pin[0]) * lead, pin[1] + (elbow[1] - pin[1]) * lead)
     white = (255, 255, 255, int(alpha * 0.9))
     r = 9 * s
     d.ellipse([pin[0] - r, pin[1] - r, pin[0] + r, pin[1] + r], outline=white, width=max(2, int(2.5 * s)))
     d.ellipse([pin[0] - 2.5 * s, pin[1] - 2.5 * s, pin[0] + 2.5 * s, pin[1] + 2.5 * s], fill=white)
+    if place:  # a dark line under the leader and ring, so they show on white bone
+        dark = (10, 10, 12, int(alpha * 0.55))
+        d.ellipse([pin[0] - r - 2 * s, pin[1] - r - 2 * s, pin[0] + r + 2 * s, pin[1] + r + 2 * s], outline=dark,
+                  width=max(2, int(2 * s)))
+        d.line([pin, tip], fill=dark, width=max(2, int(4 * s)))
     dotted(d, pin, tip, s, white)
     if age > 0.16:
         grow = min(1.0, (age - 0.16) / 0.25)
@@ -271,14 +288,65 @@ def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float,
             x = elbow[0] + 6 * s if side > 0 else elbow[0] - 6 * s - d.textlength(shown, font=f)
             if clamp:  # keep the whole name inside the phone's safe area (x 60-1020), however far left the pin is
                 x = max(x, 60 * s) if side < 0 else min(x, 1020 * s - full_w)
-            d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
-                   stroke_width=max(1, int(1.5 * s)), stroke_fill=(40, 34, 0, int(alpha * 0.5)))
+            if place:
+                d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
+                       stroke_width=max(2, int(4 * s)), stroke_fill=(12, 12, 14, int(alpha * 0.9)))
+            else:
+                d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
+                       stroke_width=max(1, int(1.5 * s)), stroke_fill=(40, 34, 0, int(alpha * 0.5)))
+    if place:  # a soft shadow, like the captions'
+        shadow = layer.getchannel("A").filter(ImageFilter.GaussianBlur(6 * s))
+        img.paste((0, 0, 0), mask=shadow.point(lambda a: a * 0.4))
     img.paste(layer, mask=layer)
 
 
-def small_label(img: Image.Image, pin, text: str, s: float) -> None:
+def small_label(img: Image.Image, pin, text: str, s: float, big: bool = False) -> None:
     d = ImageDraw.Draw(img)
+    if big:  # the new items' hook montage: readable, outlined, inside the safe area
+        f = LABEL(int(56 * s))
+        x = min(max(pin[0] + 40 * s, 60 * s), 1020 * s - d.textlength(text, font=f))
+        d.text((x, min(max(pin[1], 300 * s), 1200 * s)), text, font=f, fill=YELLOW, anchor="lm",
+               stroke_width=max(2, int(4 * s)), stroke_fill=(12, 12, 14))
+        return
     d.text((pin[0] + 40 * s, pin[1] - 4 * s), text, font=CAPTION(int(22 * s)), fill=(225, 228, 234), anchor="lm")
+
+
+def coverage(frames: Path, a: int, b: int) -> np.ndarray:
+    """How much of each spot the 3D layer covers over frames a..b (mean alpha at 1/8 size, 1080 / 8 wide)."""
+    acc, n = None, 0
+    for k in range(a, b, 3):
+        f = frames / f"{k:05d}.png"
+        if not f.exists():
+            continue
+        al = Image.open(f).getchannel("A").resize((135, 240), Image.BILINEAR)
+        x = np.asarray(al, np.float32) / 255
+        acc = x if acc is None else acc + x
+        n += 1
+    return acc / n if acc is not None else np.zeros((240, 135), np.float32)
+
+
+def place_label(cover: np.ndarray, pin, text_w: float, s: float) -> tuple:
+    """Where a type's label goes ((elbow x, y) in 1080 x 1920 units, side), fixed for the whole shot: the spot over
+    the gray background that the 3D layer covers least across the shot (`cover`: mean alpha, 0-1, at 1/8 size),
+    inside the safe area, preferring spots near the pin. The dotted leader does the pointing."""
+    h, w = cover.shape
+    k = 1080 / w  # units per cover pixel
+    best, score = None, 1e9
+    for side in (1, -1):
+        for ex in range(100, 1000, 30):
+            x0, x1 = (ex, ex + text_w + 40) if side > 0 else (ex - text_w - 40, ex)
+            if x0 < 60 or x1 > 1020:
+                continue
+            for ey in range(330, CAPTION_Y - 150, 30):
+                if ey > 1100 and x1 > 900:
+                    continue  # the like/comment column
+                box = cover[int((ey - 80) / k): int((ey + 12) / k), int(x0 / k): int(x1 / k)]
+                over = float(box.mean()) if box.size else 1.0
+                dist = math.dist((ex, ey), (pin[0] / s, pin[1] / s)) / 1000
+                sc = over * 4 + dist * 0.6
+                if sc < score:
+                    best, score = ((ex, ey), side), sc
+    return best
 
 
 ROWS = {1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [3, 2], 6: [3, 3], 7: [4, 3], 8: [4, 4], 9: [3, 3, 3]}
@@ -406,14 +474,30 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     segs, cues, length = plan(q, lines)
     frames = int(round(length * FPS))
     script, spec = scene_for(q, segs, frames, work / "frames", W, H, samples)
-    r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(script),
-                        "--", json.dumps(spec)], capture_output=True, text=True)
-    if r.returncode or not (work / "frames" / "anchors.json").exists():
-        print(r.stdout[-3000:], r.stderr[-3000:])
-        raise SystemExit("Blender failed")
+    cache = os.environ.get("TYPES_CACHE")  # keep the 3D frames (one set per video), so 2D-only fixes skip Blender
+    key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + script.read_text()).encode()).hexdigest()
+    if cache:
+        keep = Path(cache).expanduser() / q["id"]
+        if (keep / "key.txt").exists() and (keep / "key.txt").read_text() == key and (keep / "frames" / "anchors.json").exists():
+            shutil.copytree(keep / "frames", work / "frames")
+            print(f"{q['id']}: 3D frames from the cache", flush=True)
+            r = None
+        else:
+            r = True
+    if not cache or r is True:
+        r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(script),
+                            "--", json.dumps(spec)], capture_output=True, text=True)
+        if r.returncode or not (work / "frames" / "anchors.json").exists():
+            print(r.stdout[-3000:], r.stderr[-3000:])
+            raise SystemExit("Blender failed")
+        if cache:
+            shutil.rmtree(keep, ignore_errors=True)
+            shutil.copytree(work / "frames", keep / "frames")
+            (keep / "key.txt").write_text(key)
     anchors = {int(k): v for k, v in json.loads((work / "frames" / "anchors.json").read_text()).items()}
     labels = {t["name"]: t["label"] for t in q["types"]}
     charts = {t["name"]: t.get("chart") or [t["label"].title()] for t in q["types"]}
+    places: dict[int, tuple] = {}  # segment -> where its label sits (new items)
     thumbs = [crop(Image.open(work / "frames" / f"thumb_{t['name']}.png").convert("RGBA")) for t in q["types"]
               if q.get("scene") == "parts"]
 
@@ -455,11 +539,19 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
                     d.text((g["xy"][0], g["xy"][1] + j * 26 * scale), word, font=BOLD(int(20 * scale)),
                            fill=col, anchor="mt")
         elif a and a.get("small"):
-            small_label(img, a["xy"], labels[a["label"]], scale)
+            small_label(img, a["xy"], labels[a["label"]], scale, big=q.get("scene") == "parts")
         elif a:
             crack = sg["start"] + 0.45
             fade = min(1.0, max(0.0, (sg["end"] - 0.12 - t) / 0.25))
-            callout(img, a["xy"], labels[a["label"]], t - crack - 0.12, fade, scale, clamp=q.get("scene") == "parts")
+            spot = None
+            if q.get("scene") == "parts":
+                if i not in places:
+                    places[i] = place_label(coverage(work / "frames", int((crack + 0.1) * FPS), int(sg["end"] * FPS)),
+                                            a["xy"], ImageDraw.Draw(img).textlength(labels[a["label"]], font=LABEL(74)),
+                                            scale)
+                spot = places[i]
+            callout(img, a["xy"], labels[a["label"]], t - crack - 0.12, fade, scale, clamp=q.get("scene") == "parts",
+                    place=spot)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
             grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
