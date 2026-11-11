@@ -275,5 +275,30 @@
   "Tibialis anterior muscle.r",
   "Vastus lateralis muscle.r",
   "Vastus medialis muscle.r"
+ ],
+ "knee": [
+  "Anterior cruciate ligament.r",
+  "Femur.r",
+  "Fibula.r",
+  "Fibular collateral ligament.r",
+  "Lateral meniscus.r",
+  "Medial meniscus.r",
+  "Patella.r",
+  "Posterior cruciate ligament.r",
+  "Superficial part of tibial collateral ligament.r",
+  "Tibia.r"
+ ],
+ "shoulder": [
+  "Acromioclavicular ligament.r",
+  "Clavicle.r",
+  "First rib.r",
+  "Glenoid labrum.r",
+  "Humerus.r",
+  "Infraspinatus muscle.r",
+  "Manubrium of sternum",
+  "Scapula.r",
+  "Subscapularis muscle.r",
+  "Supraspinatus muscle.r",
+  "Teres minor muscle.r"
  ]
 }

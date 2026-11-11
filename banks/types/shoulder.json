@@ -1,0 +1,422 @@
+[
+ {
+  "id": "fmt-types-04",
+  "scene": "parts",
+  "for": "Athletes and gym-goers (contact sports, throwers, lifters). They send it to the gym partner or teammate with the bad shoulder: it names what probably happened and says when to get it checked.",
+  "title": "4 shoulder injuries athletes get",
+  "question": "4 shoulder injuries athletes get. Which one have you had?",
+  "hook": "Your *shoulder* [dislocates](dˈɪsloʊkˌeɪts) more than any other major joint.",
+  "intro": "Here are 4 shoulder injuries every athlete should know.",
+  "flash": [
+   "dislocation",
+   "cuff",
+   "separation",
+   "labrum"
+  ],
+  "types": [
+   {
+    "name": "dislocation",
+    "label": "DISLOCATION",
+    "chart": [
+     "Dislocation",
+     "ball pops out"
+    ],
+    "sound": "pop",
+    "lines": [
+     "Dislocation. The ball of your arm bone pops out of its socket,",
+     "almost always out the *front*."
+    ],
+    "show": {
+     "model": "shoulder",
+     "parts": [
+      "Clavicle.r",
+      "Scapula.r",
+      "Humerus.r"
+     ],
+     "orient": [
+      0,
+      0,
+      15
+     ],
+     "frame": [
+      [
+       -0.26,
+       -0.06,
+       1.18
+      ],
+      [
+       -0.04,
+       0.12,
+       1.45
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Humerus.r"
+       ],
+       "pivot": {
+        "fit": "Humerus.r",
+        "at": [
+         0.9,
+         0.5,
+         0.92
+        ],
+        "r": 0.02
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         -12,
+         -8,
+         0.022,
+         -0.024,
+         -0.024
+        ],
+        [
+         1.6,
+         0,
+         -12,
+         -8,
+         0.022,
+         -0.024,
+         -0.024
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Humerus.r"
+     ],
+     "pin": {
+      "part": "Humerus.r",
+      "at": [
+       0.9,
+       0.3,
+       0.95
+      ]
+     },
+     "zoom": 0.55
+    }
+   },
+   {
+    "name": "cuff",
+    "label": "ROTATOR CUFF",
+    "chart": [
+     "Rotator cuff tear",
+     "wear, a fall, lifting"
+    ],
+    "sound": "pop",
+    "lines": [
+     "Rotator cuff [tear](tˈɛɹ). Four muscles hold the ball in its socket.",
+     "The tendon on top [tears](tˈɛɹz) most often."
+    ],
+    "show": {
+     "model": "shoulder",
+     "parts": [
+      "Clavicle.r",
+      "Scapula.r",
+      "Humerus.r",
+      "Supraspinatus muscle.r",
+      "Infraspinatus muscle.r",
+      "Teres minor muscle.r",
+      "Subscapularis muscle.r"
+     ],
+     "orient": [
+      60,
+      0,
+      180
+     ],
+     "frame": [
+      [
+       -0.21,
+       0.0,
+       1.3
+      ],
+      [
+       -0.06,
+       0.11,
+       1.43
+      ]
+     ],
+     "tears": [
+      {
+       "part": "Supraspinatus muscle.r",
+       "at": {
+        "xyz": [
+         -0.172,
+         0.045,
+         1.4
+        ]
+       },
+       "normal": [
+        -1,
+        0,
+        0
+       ],
+       "gap": 0.005,
+       "delay": 0.1
+      }
+     ],
+     "lit": [
+      "Supraspinatus muscle.r"
+     ],
+     "hurt": [
+      "Supraspinatus muscle.r"
+     ],
+     "pin": {
+      "part": "Supraspinatus muscle.r",
+      "at": [
+       0.15,
+       0.5,
+       0.8
+      ]
+     },
+     "zoom": 0.6,
+     "ghost": [
+      "Infraspinatus muscle.r",
+      "Teres minor muscle.r",
+      "Subscapularis muscle.r"
+     ],
+     "focus": {
+      "part": "Supraspinatus muscle.r",
+      "at": [
+       0.3,
+       0.5,
+       0.7
+      ]
+     }
+    }
+   },
+   {
+    "name": "separation",
+    "label": "SEPARATION",
+    "chart": [
+     "Separation",
+     "fall on the shoulder"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Separation. Land on the point of your shoulder,",
+     "and the ligaments holding your collarbone stretch or [tear](tˈɛɹ)."
+    ],
+    "show": {
+     "model": "shoulder",
+     "parts": [
+      "Clavicle.r",
+      "Scapula.r",
+      "Humerus.r"
+     ],
+     "orient": [
+      0,
+      0,
+      -20
+     ],
+     "frame": [
+      [
+       -0.26,
+       -0.06,
+       1.18
+      ],
+      [
+       -0.01,
+       0.12,
+       1.45
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Scapula.r",
+        "Humerus.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.15,
+         0.04,
+         1.42
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.2,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.022
+        ],
+        [
+         1.6,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.022
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "AC ligament",
+       "from": {
+        "part": "Clavicle.r",
+        "at": [
+         0.02,
+         0.6,
+         0.8
+        ]
+       },
+       "to": {
+        "part": "Scapula.r",
+        "at": [
+         0.05,
+         0.4,
+         0.98
+        ]
+       },
+       "width": 0.014,
+       "thick": 0.004
+      }
+     ],
+     "lit": [
+      "AC ligament"
+     ],
+     "hurt": [
+      "AC ligament"
+     ],
+     "pin": {
+      "part": "AC ligament",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 0.5
+    }
+   },
+   {
+    "name": "labrum",
+    "label": "LABRAL TEAR",
+    "chart": [
+     "Labral tear",
+     "dislocation, throwing"
+    ],
+    "sound": "pop",
+    "lines": [
+     "Labral [tear](tˈɛɹ). The rim of cartilage around your socket rips,",
+     "often from a dislocation or lots of throwing."
+    ],
+    "show": {
+     "model": "shoulder",
+     "parts": [
+      "Scapula.r",
+      "Humerus.r",
+      "Glenoid labrum.r"
+     ],
+     "smooth": [
+      "Glenoid labrum.r"
+     ],
+     "orient": [
+      0,
+      0,
+      90
+     ],
+     "frame": [
+      [
+       -0.17,
+       -0.0,
+       1.31
+      ],
+      [
+       -0.12,
+       0.075,
+       1.44
+      ]
+     ],
+     "ghost": [
+      "Humerus.r"
+     ],
+     "tears": [
+      {
+       "part": "Glenoid labrum.r",
+       "at": {
+        "part": "Glenoid labrum.r",
+        "at": [
+         0.5,
+         0.15,
+         0.25
+        ]
+       },
+       "normal": [
+        0,
+        -0.5,
+        0.85
+       ],
+       "gap": 0.0035,
+       "delay": 0.05
+      }
+     ],
+     "lit": [
+      "Glenoid labrum.r"
+     ],
+     "hurt": [
+      "Glenoid labrum.r"
+     ],
+     "pin": {
+      "part": "Glenoid labrum.r",
+      "at": [
+       0.3,
+       0.1,
+       0.25
+      ]
+     },
+     "zoom": 0.6
+    }
+   }
+  ],
+  "outro": [
+   "Popped out? Go to the ER. Pain that won't quit? Get it checked.",
+   "Which one have *you* had?",
+   "Send this to your gym partner with the bad shoulder."
+  ],
+  "grid_title": "SHOULDER INJURIES",
+  "why": "Dislocation: the ball of the arm bone pops out of the socket, almost always out the front. Rotator cuff tear: four muscles hold the ball in the socket; the tendon on top (supraspinatus) tears most often, from wear, a fall or lifting. Separation: landing on the point of the shoulder stretches or [tears](tˈɛɹz) the ligaments that hold the collarbone to the shoulder blade. Labral tear: the rim of cartilage around the socket tears, often from a dislocation or lots of throwing. A shoulder that popped out needs the ER (never push it back in yourself); pain that won't quit, get it checked.",
+  "hashtags": [
+   "#shoulderinjury",
+   "#rotatorcuff",
+   "#sportsinjury",
+   "#gym",
+   "#anatomy"
+  ],
+  "sources": [
+   "https://www.orthoinfo.org/en/diseases--conditions/dislocated-shoulder/",
+   "https://www.orthoinfo.org/en/diseases--conditions/rotator-cuff-tears/",
+   "https://www.orthoinfo.org/en/diseases--conditions/shoulder-separation/",
+   "https://www.orthoinfo.org/en/diseases--conditions/shoulder-joint-tear-glenoid-labrum-tear/",
+   "https://my.clevelandclinic.org/health/diseases/17746-dislocated-shoulder",
+   "https://www.ncbi.nlm.nih.gov/books/NBK459125/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to your gym partner with the bad shoulder 💪",
+  "factcheck": "Nov 11, 2026, separate blind pass: all four blind answers matched, every claim true; the warning line now says to go to the ER for a shoulder that popped out (AAOS: an emergency), the hook says 'no big joint', the labral chart line gives causes.",
+  "music": "house-3"
+ }
+]

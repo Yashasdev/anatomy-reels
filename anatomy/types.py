@@ -3,6 +3,7 @@ breakdowns that do well on Instagram. Rendered ahead on a Mac and posted in the 
 
     python -m anatomy.types release DIR [ids...]   # render each item in banks/types/ into DIR (<id>.mp4 + .json)
     python -m anatomy.types preview ID DIR         # half size, quick: check the timing and labels
+    python -m anatomy.types say ID                 # voice the script and print what whisper hears, line by line
 
 The shot list, second by second (all timings come from the narration):
   0-3 s   the hook: the whole femur breaks a different way every half second, chips flying, tiny labels
@@ -13,12 +14,19 @@ The shot list, second by second (all timings come from the narration):
   end     pull far back, then the chart: every fracture in rows of 4, 4 and 3 with its name; the last frame is
           the cover
 Background: a gray studio gradient, lighter and darker on alternate types; black for the chart.
+
+Items with "scene": "parts" (knee injuries, joints...) use the same timeline and drawing, but their 3D layer is
+render/types_scene.py: each type carries a "show" block (which Z-Anatomy parts, how they move, tear or light up,
+where the label pins; see that file), an optional "chart" (the lines under it in the closing chart) and "sound"
+("pop", "thud" or "none" at its event). The fracture item has no "scene" and renders exactly as before.
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
+import os
 import shutil
 import subprocess
 import sys
@@ -105,7 +113,12 @@ def phonemes(k, line: str) -> str:
     pos = 0
     for m in MARKUP.finditer(line):
         word = m.group(1) or m.group(2)
-        i, j = _find(full, k.tokenizer.phonemize(word, "en-us").strip(), pos)
+        try:
+            i, j = _find(full, k.tokenizer.phonemize(word, "en-us").strip(), pos)
+        except ValueError:
+            if not m.group(3):
+                raise
+            i, j = _find(full, m.group(3), pos)  # in this line Kokoro already says it the way we want
         if m.group(1):
             a = full.rfind(" ", 0, max(0, full.rfind(" ", 0, i)))  # the word before, kept light
             b = full.find(" ", j + 1)
@@ -161,7 +174,7 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
 
     t = say(0.12)
     segs.append({"kind": "flash", "start": 0.0, "end": FLASH, "types": q["flash"]})
-    end = say(FLASH + 0.15)
+    end = say(max(FLASH + 0.15, t + 0.25))  # a hook longer than the montage finishes before the intro line
     segs.append({"kind": "intro", "start": FLASH, "end": max(FLASH + INTRO_MIN, end + 0.35)})
     t = segs[-1]["end"]
     for i, ty in enumerate(q["types"]):
@@ -236,8 +249,11 @@ def dotted(d: ImageDraw.ImageDraw, a, b, s: float, fill) -> None:
         d.line([p, q], fill=fill, width=max(1, int(2 * s)))
 
 
-def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float) -> None:
-    """The yellow label: the pin ring, a dotted leader up to a thin rule, and the name typing in above it."""
+def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float, clamp: bool = False,
+            place: tuple | None = None) -> None:
+    """The yellow label: the pin ring, a dotted leader up to a thin rule, and the name typing in above it.
+    New items ("scene": "parts") pass `place` ((elbow x, y), side), chosen over the gray background by place_label,
+    and get a dark outline and soft shadow so the yellow reads over anything; the fracture video is drawn as it was."""
     if age < 0:
         return
     alpha = int(255 * fade)
@@ -248,12 +264,19 @@ def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float)
     side = 1 if pin[0] + (110 + 40) * s + full_w <= 900 * s else -1  # keep it clear of the right-hand buttons
     # the label stays above the captions and below the app's top bar, however low or high the break is
     elbow = (pin[0] + side * 110 * s, min(max(pin[1] - 150 * s, 270 * s), (CAPTION_Y - 170) * s))
+    if place:
+        elbow, side = (place[0][0] * s, place[0][1] * s), place[1]
     lead = min(1.0, age / 0.16)
     tip = (pin[0] + (elbow[0] - pin[0]) * lead, pin[1] + (elbow[1] - pin[1]) * lead)
     white = (255, 255, 255, int(alpha * 0.9))
     r = 9 * s
     d.ellipse([pin[0] - r, pin[1] - r, pin[0] + r, pin[1] + r], outline=white, width=max(2, int(2.5 * s)))
     d.ellipse([pin[0] - 2.5 * s, pin[1] - 2.5 * s, pin[0] + 2.5 * s, pin[1] + 2.5 * s], fill=white)
+    if place:  # a dark line under the leader and ring, so they show on white bone
+        dark = (10, 10, 12, int(alpha * 0.55))
+        d.ellipse([pin[0] - r - 2 * s, pin[1] - r - 2 * s, pin[0] + r + 2 * s, pin[1] + r + 2 * s], outline=dark,
+                  width=max(2, int(2 * s)))
+        d.line([pin, tip], fill=dark, width=max(2, int(4 * s)))
     dotted(d, pin, tip, s, white)
     if age > 0.16:
         grow = min(1.0, (age - 0.16) / 0.25)
@@ -263,14 +286,117 @@ def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float)
         shown = text[: int(round(len(text) * min(1.0, (age - 0.2) / 0.38)))] if age > 0.2 else ""
         if shown:
             x = elbow[0] + 6 * s if side > 0 else elbow[0] - 6 * s - d.textlength(shown, font=f)
-            d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
-                   stroke_width=max(1, int(1.5 * s)), stroke_fill=(40, 34, 0, int(alpha * 0.5)))
+            if clamp:  # keep the whole name inside the phone's safe area (x 60-1020), however far left the pin is
+                x = max(x, 60 * s) if side < 0 else min(x, 1020 * s - full_w)
+            if place:
+                d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
+                       stroke_width=max(2, int(4 * s)), stroke_fill=(12, 12, 14, int(alpha * 0.9)))
+            else:
+                d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
+                       stroke_width=max(1, int(1.5 * s)), stroke_fill=(40, 34, 0, int(alpha * 0.5)))
+    if place:  # a soft shadow, like the captions'
+        shadow = layer.getchannel("A").filter(ImageFilter.GaussianBlur(6 * s))
+        img.paste((0, 0, 0), mask=shadow.point(lambda a: a * 0.4))
     img.paste(layer, mask=layer)
 
 
-def small_label(img: Image.Image, pin, text: str, s: float) -> None:
+def small_label(img: Image.Image, pin, text: str, s: float, big: bool = False) -> None:
     d = ImageDraw.Draw(img)
+    if big:  # the new items' hook montage: readable, outlined, inside the safe area
+        f = LABEL(int(56 * s))
+        x = min(max(pin[0] + 40 * s, 60 * s), 1020 * s - d.textlength(text, font=f))
+        d.text((x, min(max(pin[1], 300 * s), 1200 * s)), text, font=f, fill=YELLOW, anchor="lm",
+               stroke_width=max(2, int(4 * s)), stroke_fill=(12, 12, 14))
+        return
     d.text((pin[0] + 40 * s, pin[1] - 4 * s), text, font=CAPTION(int(22 * s)), fill=(225, 228, 234), anchor="lm")
+
+
+def coverage(frames: Path, a: int, b: int) -> np.ndarray:
+    """How much of each spot the 3D layer covers over frames a..b (mean alpha at 1/8 size, 1080 / 8 wide)."""
+    acc, n = None, 0
+    for k in range(a, b, 3):
+        f = frames / f"{k:05d}.png"
+        if not f.exists():
+            continue
+        al = Image.open(f).getchannel("A").resize((135, 240), Image.BILINEAR)
+        x = np.asarray(al, np.float32) / 255
+        acc = x if acc is None else acc + x
+        n += 1
+    return acc / n if acc is not None else np.zeros((240, 135), np.float32)
+
+
+def place_label(cover: np.ndarray, pin, text_w: float, s: float) -> tuple:
+    """Where a type's label goes ((elbow x, y) in 1080 x 1920 units, side), fixed for the whole shot: the spot over
+    the gray background that the 3D layer covers least across the shot (`cover`: mean alpha, 0-1, at 1/8 size),
+    inside the safe area, preferring spots near the pin. The dotted leader does the pointing."""
+    h, w = cover.shape
+    k = 1080 / w  # units per cover pixel
+    best, score = None, 1e9
+    for side in (1, -1):
+        for ex in range(100, 1000, 30):
+            x0, x1 = (ex, ex + text_w + 40) if side > 0 else (ex - text_w - 40, ex)
+            if x0 < 60 or x1 > 1020:
+                continue
+            for ey in range(330, CAPTION_Y - 150, 30):
+                if ey > 1100 and x1 > 900:
+                    continue  # the like/comment column
+                box = cover[int((ey - 80) / k): int((ey + 12) / k), int(x0 / k): int(x1 / k)]
+                over = float(box.mean()) if box.size else 1.0
+                dist = math.dist((ex, ey), (pin[0] / s, pin[1] / s)) / 1000
+                sc = over * 4 + dist * 0.6
+                if sc < score:
+                    best, score = ((ex, ey), side), sc
+    return best
+
+
+ROWS = {1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [3, 2], 6: [3, 3], 7: [4, 3], 8: [4, 4], 9: [3, 3, 3]}
+CHART_TOP, CHART_BOTTOM = 370, 1390  # under the title, above the closing caption (CHART_CAPTION_Y)
+CHART_CAPTION_Y = 1505  # three caption rows end by y 1598, above the username row
+
+
+def crop(img: Image.Image) -> Image.Image:
+    box = img.getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
+    return img.crop(box) if box else img
+
+
+def cells(n: int) -> list[tuple[float, float, float, float]]:
+    """(x centre, y top, width, height) per picture in the closing chart, in 1080 x 1920 units. Rows that reach
+    below y 1100 stay within x 60-900, clear of the like/comment column."""
+    rows = ROWS.get(n, [4] * (n // 4) + ([n % 4] if n % 4 else []))
+    label_h, gap = 78, 26
+    h = (CHART_BOTTOM - CHART_TOP - (len(rows) - 1) * gap) / len(rows) - label_h
+    out = []
+    for r, k in enumerate(rows):
+        y = CHART_TOP + r * (h + label_h + gap)
+        lo, hi = (60, 900) if y + h + label_h > 1100 else (60, 1020)
+        w = (hi - lo) / k
+        out += [(lo + w * (c + 0.5), y, w - 16, h) for c in range(k)]
+    return out
+
+
+def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], age: float, s: float) -> None:
+    """The closing chart (and the cover): every type's picture popping in one by one, its name under it."""
+    d = ImageDraw.Draw(img)
+    for i, (th, label, (cx, y, w, h)) in enumerate(zip(thumbs, rows, cells(len(thumbs)))):
+        f = min(1.0, max(0.0, (age - 0.15 * i) / 0.35))
+        if f <= 0:
+            continue
+        k = min(w / th.width, h / th.height) * (0.9 + 0.1 * f) * s
+        pic = th.resize((max(1, int(th.width * k)), max(1, int(th.height * k))), Image.LANCZOS)
+        if f < 1:
+            pic.putalpha(pic.getchannel("A").point(lambda a: int(a * f)))
+        img.paste(pic, (int(cx * s - pic.width / 2), int((y + h) * s - pic.height)), pic)
+        chart_label(d, (cx * s, (y + h + 12) * s), label, f, s)
+
+
+def chart_label(d: ImageDraw.ImageDraw, xy, rows: list[str], fade: float, s: float) -> None:
+    """Under each picture in the closing chart: the name in bold white, then a smaller gray line or two."""
+    y = xy[1]
+    for j, row in enumerate(rows):
+        f = BOLD(int(30 * s)) if j == 0 else CAPTION(int(23 * s))
+        col = (255, 255, 255) if j == 0 else (190, 194, 202)
+        d.text((xy[0], y), row, font=f, fill=tuple(int(c * fade) for c in col), anchor="mt")
+        y += (38 if j == 0 else 29) * s
 
 
 def watermark(img: Image.Image, s: float) -> None:
@@ -298,6 +424,30 @@ def snap(seed: int) -> np.ndarray:
     return (out / np.abs(out).max() * 0.55).astype(np.float32)
 
 
+def pop(seed: int) -> np.ndarray:
+    """A ligament giving way: a dull, hollow pop (a short low knock with a soft click on top), not a crack."""
+    rng = np.random.default_rng(seed)
+    t = np.arange(int(0.3 * SR)) / SR
+    knock = np.sin(2 * np.pi * (180 * np.exp(-t * 18) + 70) * t) * np.exp(-t * 30)
+    click = np.convolve(rng.uniform(-1, 1, len(t)) * np.exp(-t * 400), np.ones(6) / 6, mode="same")
+    out = knock + click * 0.5
+    return (out / np.abs(out).max() * 0.5).astype(np.float32)
+
+
+def thud(seed: int) -> np.ndarray:
+    """A soft, low thump for a movement or a strain (no break, nothing tearing)."""
+    t = np.arange(int(0.35 * SR)) / SR
+    rng = np.random.default_rng(seed)
+    body = np.sin(2 * np.pi * 62 * t) * np.exp(-t * 14)
+    air = np.convolve(rng.uniform(-1, 1, len(t)), np.ones(40) / 40, mode="same") * np.exp(-t * 25)
+    out = body + air * 0.6
+    return (out / np.abs(out).max() * 0.4).astype(np.float32)
+
+
+def event_sound(kind: str, seed: int) -> np.ndarray:
+    return {"pop": pop, "thud": thud, "snap": snap}.get(kind, lambda s: np.zeros(1, np.float32))(seed)
+
+
 def whoosh(length: float = 0.32) -> np.ndarray:
     n = int(length * SR)
     x = np.random.default_rng(7).uniform(-1, 1, n)
@@ -307,21 +457,49 @@ def whoosh(length: float = 0.32) -> np.ndarray:
 
 
 # --- render ------------------------------------------------------------------------------------------------
+def scene_for(q: dict, segs: list[dict], frames: int, out: Path, W: int, H: int, samples: int) -> tuple[Path, dict]:
+    """The Blender script and its spec. The fracture item (no "scene") gets exactly what it always got."""
+    spec = {"root": str(ROOT), "out": str(out), "fps": FPS, "width": W, "height": H,
+            "samples": samples, "frames": frames, "timeline": segs}
+    if q.get("scene") == "parts":
+        spec["shows"] = {t["name"]: t["show"] for t in q["types"]}
+        return ROOT / "render" / "types_scene.py", spec
+    return ROOT / "render" / "fracture_scene.py", spec
+
+
 def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     W, H = int(1080 * scale), int(1920 * scale)
     work = Path(tempfile.mkdtemp(prefix="types-"))
     lines = speak(q["script"], work / "voice")
     segs, cues, length = plan(q, lines)
     frames = int(round(length * FPS))
-    spec = {"root": str(ROOT), "out": str(work / "frames"), "fps": FPS, "width": W, "height": H,
-            "samples": samples, "frames": frames, "timeline": segs}
-    r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "fracture_scene.py"),
-                        "--", json.dumps(spec)], capture_output=True, text=True)
-    if r.returncode or not (work / "frames" / "anchors.json").exists():
-        print(r.stdout[-3000:], r.stderr[-3000:])
-        raise SystemExit("Blender failed")
+    script, spec = scene_for(q, segs, frames, work / "frames", W, H, samples)
+    cache = os.environ.get("TYPES_CACHE")  # keep the 3D frames (one set per video), so 2D-only fixes skip Blender
+    key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + script.read_text()).encode()).hexdigest()
+    if cache:
+        keep = Path(cache).expanduser() / q["id"]
+        if (keep / "key.txt").exists() and (keep / "key.txt").read_text() == key and (keep / "frames" / "anchors.json").exists():
+            shutil.copytree(keep / "frames", work / "frames")
+            print(f"{q['id']}: 3D frames from the cache", flush=True)
+            r = None
+        else:
+            r = True
+    if not cache or r is True:
+        r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(script),
+                            "--", json.dumps(spec)], capture_output=True, text=True)
+        if r.returncode or not (work / "frames" / "anchors.json").exists():
+            print(r.stdout[-3000:], r.stderr[-3000:])
+            raise SystemExit("Blender failed")
+        if cache:
+            shutil.rmtree(keep, ignore_errors=True)
+            shutil.copytree(work / "frames", keep / "frames")
+            (keep / "key.txt").write_text(key)
     anchors = {int(k): v for k, v in json.loads((work / "frames" / "anchors.json").read_text()).items()}
     labels = {t["name"]: t["label"] for t in q["types"]}
+    charts = {t["name"]: t.get("chart") or [t["label"].title()] for t in q["types"]}
+    places: dict[int, tuple] = {}  # segment -> where its label sits (new items)
+    thumbs = [crop(Image.open(work / "frames" / f"thumb_{t['name']}.png").convert("RGBA")) for t in q["types"]
+              if q.get("scene") == "parts"]
 
     backs = {"light": studio(W, H, True), "dark": studio(W, H, False), "black": studio(W, H, False, black=True)}
     which = []
@@ -354,19 +532,31 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             fade = min(1.0, (t - sg["start"]) / 0.5)
             col = tuple(int(255 * fade) for _ in range(3))
             d.text((W / 2, 300 * scale), q["grid_title"], font=BOLD(int(46 * scale)), fill=col, anchor="mm")
+            if q.get("scene") == "parts":
+                chart(img, thumbs, [charts[t["name"]] for t in q["types"]], t - sg["start"], scale)
             for g in a["grid"]:
                 for j, word in enumerate(labels[g["label"]].title().split()):
                     d.text((g["xy"][0], g["xy"][1] + j * 26 * scale), word, font=BOLD(int(20 * scale)),
                            fill=col, anchor="mt")
         elif a and a.get("small"):
-            small_label(img, a["xy"], labels[a["label"]], scale)
+            mystery = a["label"] in q.get("flash_mystery", [])  # the hook asks about it: no answer in second 1
+            small_label(img, a["xy"], "?" if mystery else labels[a["label"]], scale, big=q.get("scene") == "parts")
         elif a:
             crack = sg["start"] + 0.45
             fade = min(1.0, max(0.0, (sg["end"] - 0.12 - t) / 0.25))
-            callout(img, a["xy"], labels[a["label"]], t - crack - 0.12, fade, scale)
+            spot = None
+            if q.get("scene") == "parts":
+                if i not in places:
+                    places[i] = place_label(coverage(work / "frames", int((crack + 0.1) * FPS), int(sg["end"] * FPS)),
+                                            a["xy"], ImageDraw.Draw(img).textlength(labels[a["label"]], font=LABEL(74)),
+                                            scale)
+                spot = places[i]
+            callout(img, a["xy"], labels[a["label"]], t - crack - 0.12, fade, scale, clamp=q.get("scene") == "parts",
+                    place=spot)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
-            caption(img, cue["text"], scale, 1480 if sg["kind"] == "grid" else CAPTION_Y)
+            grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
+            caption(img, cue["text"], scale, grid_y if sg["kind"] == "grid" else CAPTION_Y)
         watermark(img, scale)
         enc.stdin.write(img.tobytes())
         last = img
@@ -388,12 +578,20 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         if sr != SR:
             v = np.interp(np.arange(0, len(v), sr / SR), np.arange(len(v)), v).astype(np.float32)
         add(v, c["at"])
+    hits = {t["name"]: t.get("sound", "thud") for t in q["types"]}
     for sg in segs:
         if sg["kind"] == "flash":
-            for j in range(len(sg["types"])):
-                add(snap(j), sg["start"] + j * (sg["end"] - sg["start"]) / len(sg["types"]) + 1 / FPS, 0.55)
+            for j, name in enumerate(sg["types"]):
+                at = sg["start"] + j * (sg["end"] - sg["start"]) / len(sg["types"]) + 1 / FPS
+                if q.get("scene") == "parts":
+                    add(event_sound(hits[name], j), at, 0.5)
+                    continue
+                add(snap(j), at, 0.55)
         if sg["kind"] == "type":
-            add(snap(zlib.crc32(sg["name"].encode())), sg["start"] + 0.45, 0.8)
+            if q.get("scene") == "parts":
+                add(event_sound(hits[sg["name"]], zlib.crc32(sg["name"].encode())), sg["start"] + 0.45, 0.75)
+            else:
+                add(snap(zlib.crc32(sg["name"].encode())), sg["start"] + 0.45, 0.8)
             add(whoosh(), sg["end"] - WHIP - 0.05, 0.7)
         if sg["kind"] == "intro":
             add(whoosh(0.6), sg["start"], 0.4)
@@ -432,8 +630,39 @@ def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:
         print(f"{q['id']}: {seconds:.1f} s video, {q['music']}, rendered in {time.time() - t:.0f} s", flush=True)
 
 
+WHISPER = Path.home() / "ysq" / "models" / "ggml-small.bin"
+
+
+def heard(wav: Path) -> str:
+    """What whisper.cpp hears in a line (16 kHz copy first)."""
+    x, sr = sf.read(wav, dtype="float32")
+    x16 = np.interp(np.arange(0, len(x), sr / 16000), np.arange(len(x)), x).astype(np.float32)
+    w16 = wav.with_name(wav.stem + "-16k.wav")
+    sf.write(w16, x16, 16000)
+    subprocess.run(["whisper-cli", "-m", str(WHISPER), "-f", str(w16), "-otxt", "-of", str(w16.with_suffix("")),
+                    "-l", "en", "-np"], check=True, capture_output=True)
+    return w16.with_suffix(".txt").read_text().strip()
+
+
+def word_check(q: dict) -> list[tuple[str, str]]:
+    """Voice every line and list the ones whisper hears differently (words only, ignoring case and punctuation)."""
+    work = Path(tempfile.mkdtemp(prefix="say-"))
+    same = {"5": "five", "6": "six", "4": "four", "3": "three", "tendonitis": "tendinitis"}
+    norm = lambda t: [same.get(w, w) for w in re.sub(r"[^a-z0-9 ]", "", re.sub(r"[\s-]+", " ", t.lower())).split()]  # noqa: E731
+    bad = []
+    for line, (wav, sec) in zip(q["script"], speak(q["script"], work)):
+        got = heard(wav)
+        ok = norm(shown(line)) == norm(got)
+        print(f"{'ok ' if ok else 'XX '} {sec:4.1f}s  {shown(line)}\n          heard: {got}", flush=True)
+        if not ok:
+            bad.append((shown(line), got))
+    return bad
+
+
 if __name__ == "__main__":
-    if sys.argv[1:2] == ["release"] and len(sys.argv) >= 3:
+    if sys.argv[1:2] == ["say"] and len(sys.argv) == 3:
+        word_check(next(q for q in items() if q["id"] == sys.argv[2]))
+    elif sys.argv[1:2] == ["release"] and len(sys.argv) >= 3:
         release(Path(sys.argv[2]).expanduser(), sys.argv[3:])
     elif sys.argv[1:2] == ["preview"] and len(sys.argv) == 4:
         release(Path(sys.argv[3]).expanduser(), [sys.argv[2]], scale=0.5)
