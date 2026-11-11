@@ -33,8 +33,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parent.parent
 PATH = ROOT / "hits.json"
 FACTOR = 3            # times the median of the post's own type
-MIN_OWN = 6           # fewer of its own type than this: compare with all Instagram posts...
-FALLBACK_FACTOR = 2   # ...at 2x their median
+MIN_OWN = 6           # fewer posts of its own type than this: no verdict yet
 MIN_VIEWS = 1000      # and at least this many views
 MIN_SHARES = 2        # a share-rate hit needs at least this many shares
 AGE_HOURS = (12, 72)  # posts this old are checked
@@ -99,12 +98,9 @@ def detect(metrics: dict, now: datetime) -> list[dict]:
         kind = rec.get("type") or "quiz"
         others = [(r, n) for r, n in comparable if r["buffer_id"] != rec["buffer_id"]]
         own = [n for r, n in others if (r.get("type") or "quiz") == kind][-BASELINE:]
-        if len(own) >= MIN_OWN:
-            base, factor, against = own, FACTOR, f"{kind} ({len(own)} posts)"
-        else:
-            base, factor, against = [n for _, n in others][-BASELINE:], FALLBACK_FACTOR, f"all Instagram ({kind} has {len(own)})"
-            if len(base) < MIN_BASELINE:
-                continue
+        if len(own) < MIN_OWN:  # too few of its own kind to call anything a hit yet (no false "make more" alarms)
+            continue
+        base, factor, against = own, FACTOR, f"{kind} ({len(own)} posts)"
         views_base = statistics.median(n["views"] for n in base)
         rates = [x for n in base if (x := _rate(n)) is not None]
         rate_base = statistics.median(rates) if rates else None

@@ -94,15 +94,19 @@ def test_each_type_is_compared_with_its_own_kind():
     assert out[0]["compared_with"] == "deepdive (6 posts)" and out[0]["baseline"] == 2000 and out[0]["factor"] == 3
 
 
-def test_a_new_type_is_compared_with_everything_at_2x():
-    few = [rec(f"m{k}", 100 + 24 * k, 5000, kind="myth") for k in range(5)]  # only 5 myths: not enough of its own
-    assert found(*few, rec("p", 30, 2000, kind="myth")) == {"p": ["views"]}, "2x the overall median (1,000)"
-    assert found(*few, rec("p", 30, 1900, kind="myth")) == {}
-    assert found(*few, rec("p", 30, 500, kind="myth", shares=2, reach=500)) == {"p": ["shares"]}, "0.4% vs 0.1%"
-    assert found(*few, rec("p", 30, 1000, kind="myth", shares=2, reach=1000)) == {"p": ["shares"]}, "0.2% is 2x"
-    assert found(*few, rec("p", 30, 1000, kind="myth", shares=1, reach=1000)) == {}
-    out = hits.detect(metrics(*few, rec("p", 30, 2000, kind="myth")), NOW)
-    assert out[0]["compared_with"].startswith("all Instagram") and out[0]["factor"] == 2
+def test_a_type_needs_6_of_its_own_before_any_verdict():
+    """A new type is never called a hit against other kinds of post: on Nov 11, 2026 that flagged most deep dives
+    against the quizzes' low share rate and would have raised false "make more" warnings."""
+    few = [rec(f"m{k}", 100 + 24 * k, 1000, kind="myth") for k in range(5)]
+    assert found(*few, rec("p", 30, 50000, kind="myth", shares=40, reach=50000)) == {}, "5 of its own: no verdict"
+    six = few + [rec("m5", 100 + 24 * 5, 1000, kind="myth")]
+    assert found(*six, rec("p", 30, 3000, kind="myth")) == {"p": ["views"]}
+    out = hits.detect(metrics(*six, rec("p", 30, 3000, kind="myth")), NOW)
+    assert out[0]["compared_with"].startswith("myth (6 posts)") and out[0]["factor"] == 3
+
+
+def peers(kind, n=6, views=1000):
+    return [rec(f"{kind}{k}", 100 + 24 * k, views, kind=kind) for k in range(n)]
 
 
 DD = [{"id": i} for i in ("dd-nephron", "dd-onetake-rbc", "dd-onetake-heart", "dd-krebs-cycle", "dd-folic-acid")]
@@ -135,7 +139,7 @@ def test_a_hit_is_recorded_once_and_hot_for_5_days(monkeypatch, tmp_path):
     monkeypatch.setattr(series, "_MAP", {})
     monkeypatch.setattr(series, "_INDEX", {"deepdive": DD, "formats": []})
     data = {"hits": []}
-    f = hits.detect(metrics(rec("p", 30, 5000, kind="deepdive", vid="dd-onetake-rbc"),
+    f = hits.detect(metrics(*peers("deepdive"), rec("p", 30, 5000, kind="deepdive", vid="dd-onetake-rbc"),
                             rec("q", 30, 5000, kind="quiz", vid="leg-03")), NOW)
     new = hits.record(data, f, date(2030, 1, 20))
     assert {(h["post"], h["series"], h["until"]) for h in new} == {("dd-onetake-rbc", "onetake", "2030-01-24"),
@@ -152,7 +156,7 @@ def test_run_saves_hits_json(monkeypatch, tmp_path):
     monkeypatch.setattr(hits, "PATH", tmp_path / "hits.json")
     monkeypatch.setattr(series, "_INDEX", {"deepdive": [], "formats": []})
     (tmp_path / "config.json").write_text(json.dumps({"timezone": "America/New_York"}))
-    m = metrics(rec("p", 30, 5000, kind="myth", vid="fmt-myth-03"))
+    m = metrics(*peers("myth"), rec("p", 30, 5000, kind="myth", vid="fmt-myth-03"))
     (tmp_path / "metrics.json").write_text(json.dumps(m))
     hits.run(NOW)
     saved = json.loads((tmp_path / "hits.json").read_text())["hits"]
