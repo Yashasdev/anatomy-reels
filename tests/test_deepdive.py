@@ -7,7 +7,7 @@ from zoneinfo import ZoneInfo
 
 import pytest
 
-from anatomy import buffer, publish, series
+from anatomy import buffer, hits, publish, series
 
 TZ = ZoneInfo("America/New_York")
 VIDEOS = [{"id": f"dd-{n}", "title": t, "hook": "Your kidneys filter about 180 liters a day.",
@@ -20,6 +20,7 @@ VIDEOS = [{"id": f"dd-{n}", "title": t, "hook": "Your kidneys filter about 180 l
 @pytest.fixture
 def setup(monkeypatch, tmp_path):
     monkeypatch.setattr(publish, "HISTORY", tmp_path / "history.json")
+    monkeypatch.setattr(hits, "PATH", tmp_path / "hits.json")  # no real hits in these plans
     monkeypatch.setattr(series, "_INDEX", {"deepdive": list(VIDEOS), "formats": []})
     monkeypatch.setitem(publish.CONFIG, "deepdive", {"slots": ["18:00"], "from": "2000-01-01"})
     monkeypatch.setitem(publish.CONFIG, "formats", {})

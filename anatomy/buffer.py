@@ -95,10 +95,12 @@ mutation CreatePost($input: CreatePostInput!) {
 """
 
 
-def post_metadata(service: str, title: str) -> dict | None:
+def post_metadata(service: str, title: str, first_comment: str | None = None) -> dict | None:
+    """Per-network settings. `first_comment` goes on Instagram only (InstagramPostMetadataInput.firstComment)."""
     service = service.lower()
     if service == "instagram":
-        return {"instagram": {"type": "reel", "shouldShareToFeed": True}}
+        return {"instagram": {"type": "reel", "shouldShareToFeed": True,
+                              **({"firstComment": first_comment} if first_comment else {})}}
     if service == "youtube":
         # Vertical videos under 3 minutes are published as Shorts automatically.
         return {"youtube": {
@@ -109,10 +111,12 @@ def post_metadata(service: str, title: str) -> dict | None:
 
 
 def schedule_video(channel: dict, text: str, video_url: str, due_at_utc_iso: str, title: str = "",
-                   thumbnail_ms: int = 1500, notify: str | None = None) -> str:
+                   thumbnail_ms: int = 1500, notify: str | None = None, first_comment: str | None = None) -> str:
     """Schedule a video post. With `notify` (a note shown in the Buffer app), Buffer doesn't publish it: at the due
     time it pushes a notification, and Yashas finishes the post in Instagram, where a trending sound can be added
-    (Buffer's API can't attach platform audio to an automatic post)."""
+    (Buffer's API can't attach platform audio to an automatic post). `first_comment` is posted under an Instagram
+    post as its first comment (Instagram only, never on a Notify-me post, which is finished by hand); check it was
+    kept with first_comment(post_id)."""
     # Networks don't accept a separate cover image through Buffer; Instagram and TikTok use the frame at
     # thumbnailOffset as the cover, which is why the cover is built into the end of the video.
     video = {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}
@@ -124,7 +128,7 @@ def schedule_video(channel: dict, text: str, video_url: str, due_at_utc_iso: str
         "dueAt": due_at_utc_iso,
         "assets": [{"video": video}],
     }
-    metadata = post_metadata(channel["service"], title)
+    metadata = post_metadata(channel["service"], title, None if notify else first_comment)
     if notify and channel["service"].lower() == "instagram":
         metadata = {"instagram": {**(metadata or {}).get("instagram", {}), "stickerFields": {"music": notify}}}
     if metadata:
@@ -148,6 +152,14 @@ def post_status(post_id: str) -> dict:
         except BufferError as e:
             last = e
     raise last
+
+
+def first_comment(post_id: str) -> str | None:
+    """The first comment Buffer has stored on an Instagram post (Post.metadata is a union per network; the Instagram
+    member, InstagramPostMetadata, has firstComment). None if it wasn't kept."""
+    post = _gql("query($id: PostId!) { post(input: {id: $id}) { metadata { ... on InstagramPostMetadata "
+                "{ firstComment } } } }", {"id": post_id})["post"] or {}
+    return (post.get("metadata") or {}).get("firstComment")
 
 
 METRIC_FIELDS = "status sentAt externalLink metricsUpdatedAt metrics { type value }"
@@ -183,10 +195,12 @@ mutation EditPost($input: EditPostInput!) {
 """
 
 
-def replace_video(post_id: str, service: str, video_url: str, thumbnail_ms: int, title: str = "") -> str:
-    """Swap a queued post's video for a new render (same post, time and caption)."""
+def replace_video(post_id: str, service: str, video_url: str, thumbnail_ms: int, title: str = "",
+                  first_comment: str | None = None) -> str:
+    """Swap a queued post's video for a new render (same post, time and caption). The edit sends the metadata again,
+    so an Instagram post's first comment is passed back in to keep it."""
     edit = {"id": post_id, "assets": [{"video": {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}}]}
-    metadata = post_metadata(service, title)
+    metadata = post_metadata(service, title, first_comment)
     if metadata:
         edit["metadata"] = metadata
     result = _gql(EDIT_POST, {"input": edit})["editPost"]

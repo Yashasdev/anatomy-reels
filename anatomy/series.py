@@ -17,6 +17,7 @@ has nothing ready the next one in the cycle steps in. With nothing ready at all,
 
 from __future__ import annotations
 
+import fnmatch
 import json
 import re
 import subprocess
@@ -81,10 +82,66 @@ def wanted_format(name: str, at: datetime) -> str | None:
     return s["cycle"][k % len(s["cycle"])]
 
 
-def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] = ()) -> dict | None:
+def family(video_id: str) -> str | None:
+    """A deep dive id's family prefix: dd-onetake-rbc -> onetake."""
+    rest = video_id[3:] if video_id.startswith("dd-") else video_id
+    return rest.split("-")[0] or None
+
+
+SERIES_MAP = ROOT / "series.json"
+_MAP: dict | None = None
+
+
+def series_map() -> dict[str, str]:
+    """series.json "series": deep dive id (or a pattern like dd-onetake-*) -> series name, kept in the repo so no
+    release asset has to be edited."""
+    global _MAP
+    if _MAP is None:
+        try:
+            _MAP = json.loads(SERIES_MAP.read_text()).get("series", {}) if SERIES_MAP.exists() else {}
+        except Exception as e:
+            print(f"::warning::Couldn't read series.json ({e}); deep dive series come from their ids.", file=sys.stderr)
+            _MAP = {}
+    return _MAP
+
+
+def named_series(v: dict) -> str | None:
+    """A deep dive's series when one is set: series.json (exact id first, then patterns), else its json's
+    "series_name"."""
+    m = series_map()
+    if v["id"] in m:
+        return m[v["id"]]
+    pattern = next((k for k in m if "*" in k and fnmatch.fnmatchcase(v["id"], k)), None)
+    return m[pattern] if pattern else v.get("series_name")
+
+
+def series_name(name: str, video: dict | str, videos: list[dict] | None = None) -> str | None:
+    """Which run of videos one belongs to, for the hit check (anatomy/hits.py). Formats: the format (types,
+    missing...). Deep dives: series.json or the video's own "series_name" (named_series), else the id's family
+    (dd-heart-electric -> heart) when two or more videos in the index share it, else the id itself (a one-off)."""
+    videos = index(name) if videos is None else videos
+    vid = video if isinstance(video, str) else video["id"]
+    v = video if isinstance(video, dict) else next((x for x in videos if x["id"] == vid), {"id": vid})
+    if name == "formats":
+        return v.get("format")
+    if named := named_series(v):
+        return named
+    fam = family(vid)
+    kin = [x for x in videos if (named_series(x) or family(x["id"])) == fam]
+    return fam if fam and len({x["id"] for x in kin} | {vid}) >= 2 else vid
+
+
+def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] = (),
+               hot: tuple[str, ...] = ()) -> dict | None:
     """The slot's next video. `today`: formats already planned that day, skipped so a day never repeats one
-    (unless nothing else is ready)."""
-    fresh = [v for v in index(name) if v["id"] not in used]
+    (unless nothing else is ready). `hot`: series with a recent hit (anatomy/hits.py), best first; the first one
+    with a video in stock goes before the usual pick (formats: the caller passes only formats not used that day)."""
+    videos = index(name)
+    fresh = [v for v in videos if v["id"] not in used]
+    for s in hot:
+        pick = next((v for v in fresh if series_name(name, v, videos) == s), None)
+        if pick:
+            return {**pick, "hot": s}
     want = wanted_format(name, at)
     if want is None:
         return fresh[0] if fresh else None

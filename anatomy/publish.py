@@ -21,12 +21,13 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import music, series
+from . import hits, music, series
 
 ROOT = Path(__file__).resolve().parent.parent
 MUSIC_FROM = date(2026, 11, 1)  # posts from this day get original music (anatomy/music.py) instead of the old bed
 CONFIG = json.loads((ROOT / "config.json").read_text())
 HISTORY = ROOT / "history.json"
+HINTS = ROOT / "hints.json"  # id -> "Hint: ..." for the Instagram first comment (first_comment_for)
 
 
 def history() -> list[dict]:
@@ -100,11 +101,15 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
     last = last_organ(hist)
     out = []
     unused = unused_questions(used)
+    hit_data = hits.load()
     for at in due_slots(now, hist, unused):
         name = series.series_for(at)
         if name:
             today = tuple(q2.get("format") for at2, q2 in out if at2.date() == at.date() and q2.get("format"))
-            video = series.next_video(name, at, used, today)
+            # a series with a recent hit goes first (anatomy/hits.py); a hot format at most once a day
+            on_day = set(today) | {h.get("format") for h in hist if datetime.fromisoformat(h["slot"]).astimezone(at.tzinfo).date() == at.date()}
+            hot = tuple(s for s in hits.hot(name, at.date(), hit_data) if name != "formats" or s not in on_day)
+            video = series.next_video(name, at, used, today, hot)
             if video:
                 out.append((at, {**video, "kind": name, "series": name, "day": len(hist) + len(out) + 1}))
                 used.append(video["id"])
@@ -172,11 +177,74 @@ def notify_for(at: datetime) -> dict | None:
     return n
 
 
+_HINTS: dict | None = None
+_COMMENT_WARNED = False
+
+
+def hints() -> dict[str, str]:
+    global _HINTS
+    if _HINTS is None:
+        _HINTS = json.loads(HINTS.read_text()) if HINTS.exists() else {}
+    return _HINTS
+
+
+def hint_for(q: dict) -> str | None:
+    """A video's hint: hints.json (id -> text) first, else the video's own "hint" (a series video's release json, or
+    a quiz's bank item). Always "Hint: ..."; none means no first comment."""
+    text = (hints().get(q["id"]) or q.get("hint") or "").strip()
+    if not text:
+        return None
+    return text if text.lower().startswith("hint:") else f"Hint: {text}"
+
+
+def first_comment_for(at: datetime, q: dict, service: str, notify: str | None = None) -> str | None:
+    """The Instagram first comment for a post (config "first_comment": {"instagram": true, "from": "YYYY-MM-DD"}):
+    its hint, on Instagram only, from that date, never on a Notify-me post (those are finished by hand)."""
+    fc = CONFIG.get("first_comment") or {}
+    if service != "instagram" or notify or not fc.get("instagram") or at.date().isoformat() < fc.get("from", ""):
+        return None
+    return hint_for(q)
+
+
+def confirm_first_comment(post_id: str, text: str) -> bool | None:
+    """Read the post back from Buffer and check it kept the first comment (Buffer once dropped firstComment on posts
+    made through the API). A miss only warns, once per run: the post itself is fine either way."""
+    global _COMMENT_WARNED
+    from . import buffer
+    try:
+        kept = buffer.first_comment(post_id)
+    except Exception as e:
+        ok, why = None, f"couldn't read the post back ({e})"
+    else:
+        ok = (kept or "").strip() == text.strip()
+        why = "Buffer didn't keep it" if not kept else f"Buffer kept different text: {kept!r}"
+    if ok:
+        print(f"  first comment saved on {post_id}")
+    elif not _COMMENT_WARNED:
+        _COMMENT_WARNED = True
+        print(f"::warning::Instagram first comment not confirmed on post {post_id}: {why}. The posts still go out, "
+              "without the hint.", file=sys.stderr)
+    else:
+        print(f"  first comment not confirmed on {post_id}: {why}")
+    return ok
+
+
+def queue_post(ch: dict, q: dict, url: str, due: str, cover_ms: int, note: str | None = None,
+               comment: str | None = None) -> tuple[str, bool | None]:
+    """Schedule one post; with a first comment, read it back. Returns the post ID and whether the comment was kept
+    (None: no comment, or it couldn't be checked)."""
+    from . import buffer
+    comment = comment if ch["service"].lower() == "instagram" and not note else None
+    pid = buffer.schedule_video(ch, caption(q), url, due, title=youtube_title(q), thumbnail_ms=cover_ms, notify=note,
+                                first_comment=comment)
+    return pid, (confirm_first_comment(pid, comment) if comment else None)
+
+
 def entry(at: datetime, q: dict, url: str, seconds: float, posts: dict) -> dict:
     return {"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q.get("organ"),
             "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
             **({"kind": q["kind"]} if q.get("kind") else {}), **({"format": q["format"]} if q.get("format") else {}),
-            **({"music": q["music"]} if q.get("music") else {})}
+            **({"music": q["music"]} if q.get("music") else {}), **({"hot": q["hot"]} if q.get("hot") else {})}
 
 
 def render_one(slot: str) -> int:
@@ -224,8 +292,8 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
             due = (now + timedelta(minutes=15)).isoformat()
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
-                new = buffer.schedule_video(ch, caption(q), h["video_url"], due, title=youtube_title(q),
-                                            thumbnail_ms=int((h["video_seconds"] - 0.25) * 1000))
+                comment = h.get("first_comment") if service == "instagram" and h.get("notify") != service else None
+                new, _ = queue_post(ch, q, h["video_url"], due, int((h["video_seconds"] - 0.25) * 1000), comment=comment)
             except Exception as e:
                 print(f"::error::Retry on {service} failed: {e}", file=sys.stderr)
                 failures += 1
@@ -258,21 +326,24 @@ def post() -> int:
         seconds = json.loads(out.with_suffix(".json").read_text())["seconds"]
         url = storage.upload_to_r2(out, out.name, CONFIG["r2"])
         cover_ms = int((seconds - 0.25) * 1000)  # the designed cover frame is the last half second
-        posts = {}
+        posts, sent_comment = {}, {}
         for service in CONFIG["platforms"]:
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
                 hand = notify_for(at)
                 note = hand["note"] if hand and service == hand["service"] else None
-                posts[service] = buffer.schedule_video(ch, caption(q), url, at.astimezone(ZoneInfo("UTC")).isoformat(),
-                                                       title=youtube_title(q), thumbnail_ms=cover_ms, notify=note)
+                comment = first_comment_for(at, q, service, note)
+                posts[service], saved = queue_post(ch, q, url, at.astimezone(ZoneInfo("UTC")).isoformat(), cover_ms,
+                                                   note=note, comment=comment)
+                if comment:
+                    sent_comment = {"first_comment": comment, "first_comment_saved": saved}
                 print(f"queued Day {q['day']} {q['id']} on {service} for {at:%a %b %d %I:%M %p} ET: {posts[service]}")
             except Exception as e:  # one network failing shouldn't stop the others
                 failed += 1
                 print(f"::error::{service} failed for {q['id']}: {e}", file=sys.stderr)
         if not posts:
             return 1
-        hist.append(entry(at, q, url, seconds, posts))
+        hist.append({**entry(at, q, url, seconds, posts), **sent_comment})
         hand = notify_for(at)
         if hand and hand["service"] in posts:
             hist[-1]["notify"] = hand["service"]
@@ -303,21 +374,24 @@ def publish(dry: bool) -> int:
             continue
         url = storage.upload_to_r2(out, f"{name}.mp4", CONFIG["r2"])
         cover_ms = int((seconds - 0.25) * 1000)  # the designed cover frame is the last half second
-        posts = {}
+        posts, sent_comment = {}, {}
         for service in CONFIG["platforms"]:
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
                 hand = notify_for(at)
                 note = hand["note"] if hand and service == hand["service"] else None
-                posts[service] = buffer.schedule_video(ch, caption(q), url, at.astimezone(ZoneInfo("UTC")).isoformat(),
-                                                       title=youtube_title(q), thumbnail_ms=cover_ms, notify=note)
+                comment = first_comment_for(at, q, service, note)
+                posts[service], saved = queue_post(ch, q, url, at.astimezone(ZoneInfo("UTC")).isoformat(), cover_ms,
+                                                   note=note, comment=comment)
+                if comment:
+                    sent_comment = {"first_comment": comment, "first_comment_saved": saved}
                 print(f"  queued on {service}: {posts[service]}")
             except Exception as e:  # one network failing shouldn't stop the others
                 failed += 1
                 print(f"::error::{service} failed for {q['id']}: {e}", file=sys.stderr)
         if not posts:
             continue
-        hist.append(entry(at, q, url, seconds, posts))
+        hist.append({**entry(at, q, url, seconds, posts), **sent_comment})
         hand = notify_for(at)
         if hand and hand["service"] in posts:
             hist[-1]["notify"] = hand["service"]
@@ -393,7 +467,8 @@ def swap_queued() -> int:
         cover_ms = int((info["seconds"] - 0.25) * 1000)
         for service, pid in h["buffer"].items():
             try:
-                buffer.replace_video(pid, service, url, cover_ms, title=youtube_title(q))
+                buffer.replace_video(pid, service, url, cover_ms, title=youtube_title(q),
+                                     **({"first_comment": h["first_comment"]} if service == "instagram" and h.get("first_comment") else {}))
                 print(f"swapped the video for Day {h['day']} {h['id']} on {service}")
             except Exception as e:
                 failed += 1
@@ -428,6 +503,8 @@ def write_status() -> None:
                        "cycle": series.settings(n).get("cycle"), "posted": sum(h.get("kind") == n for h in hist)}
                    for n in series.SERIES if series.settings(n)},
         "banks": {n: {"total": len(b), "unused": sum(q["id"] not in used for q in b)} for n, b in all_banks.items()},
+        # series with a recent hit (anatomy/hits.py) and what's left of them; make_more: under 3 left
+        "hot": hits.report(datetime.now(ZoneInfo(CONFIG["timezone"])).date(), used),
         "posts": [{"slot": h["slot"], "day": h["day"], "id": h["id"], "organ": h["organ"], "title": h["title"],
                    "video_url": h["video_url"], "platforms": sorted(h["buffer"]),
                    "sent": sorted(pl for pl, pid in h["buffer"].items() if pid in sent)} for h in hist[-30:]],
