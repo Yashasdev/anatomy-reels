@@ -109,10 +109,10 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
                 out.append((at, {**video, "kind": name, "series": name, "day": len(hist) + len(out) + 1}))
                 used.append(video["id"])
                 continue
-            print(f"::warning::no new {name} video is ready for {at:%b %d %H:%M}; posting a quiz there instead")
+            print(f"::warning::no new {name} video is ready for {at:%b %d %H:%M}; posting a quiz there instead", file=sys.stderr)
         q = next_question(used, last)
         if q is None:
-            print(f"::warning::the question banks are used up; nothing for {at:%b %d %H:%M}")
+            print(f"::warning::the question banks are used up; nothing for {at:%b %d %H:%M}", file=sys.stderr)
             break
         q["day"] = len(hist) + len(out) + 1
         q["label"] = CONFIG["label"]
@@ -128,10 +128,10 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
             counts = series.left(name, used)
             low = {k: counts.get(k, 0) for k in series.settings(name).get("cycle", [name]) if counts.get(k, 0) < 4}
             if low:
-                print(f"::warning::{name}: few videos left after this plan ({low}); make more")
+                print(f"::warning::{name}: few videos left after this plan ({low}); make more", file=sys.stderr)
     left = unused_questions(used)
     if left < 14:
-        print(f"::warning::only {left} unused anatomy questions left (about {left // per_day(left)} days)")
+        print(f"::warning::only {left} unused anatomy questions left (about {left // per_day(left)} days)", file=sys.stderr)
     return out
 
 
@@ -208,14 +208,14 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
             if service in h.get("retried", {}):
                 if service not in h.get("gave_up", []):
                     h.setdefault("gave_up", []).append(service)
-                    print(f"::error::Day {h['day']} on {service} failed again after one retry; check Buffer.")
+                    print(f"::error::Day {h['day']} on {service} failed again after one retry; check Buffer.", file=sys.stderr)
                     failures += 1
                     changed = True
                 continue
             if h.get("kind") in series.SERIES:
                 q = next((v for v in series.index(h["kind"]) if v["id"] == h["id"]), None)
                 if q is None:
-                    print(f"::error::{h['id']} isn't in the {h['kind']} index any more; not retried.")
+                    print(f"::error::{h['id']} isn't in the {h['kind']} index any more; not retried.", file=sys.stderr)
                     failures += 1
                     continue
                 q = {**q, "kind": h["kind"], "series": h["kind"]}
@@ -227,7 +227,7 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
                 new = buffer.schedule_video(ch, caption(q), h["video_url"], due, title=youtube_title(q),
                                             thumbnail_ms=int((h["video_seconds"] - 0.25) * 1000))
             except Exception as e:
-                print(f"::error::Retry on {service} failed: {e}")
+                print(f"::error::Retry on {service} failed: {e}", file=sys.stderr)
                 failures += 1
                 continue
             h.setdefault("retried", {})[service] = pid
@@ -250,10 +250,10 @@ def post() -> int:
     for at, q in plan():
         out = ROOT / "out" / f"{file_name(at, q)}.mp4"
         if not out.exists():
-            print(f"::warning::{out.name} wasn't rendered; it and the slots after it wait for the next run")
+            print(f"::warning::{out.name} wasn't rendered; it and the slots after it wait for the next run", file=sys.stderr)
             return 1
         if at < datetime.now(ZoneInfo("UTC")) + timedelta(minutes=5):
-            print(f"::warning::{out.name} is too close to its time to schedule; skipping")
+            print(f"::warning::{out.name} is too close to its time to schedule; skipping", file=sys.stderr)
             continue
         seconds = json.loads(out.with_suffix(".json").read_text())["seconds"]
         url = storage.upload_to_r2(out, out.name, CONFIG["r2"])
@@ -269,7 +269,7 @@ def post() -> int:
                 print(f"queued Day {q['day']} {q['id']} on {service} for {at:%a %b %d %I:%M %p} ET: {posts[service]}")
             except Exception as e:  # one network failing shouldn't stop the others
                 failed += 1
-                print(f"::error::{service} failed for {q['id']}: {e}")
+                print(f"::error::{service} failed for {q['id']}: {e}", file=sys.stderr)
         if not posts:
             return 1
         hist.append(entry(at, q, url, seconds, posts))
@@ -280,7 +280,7 @@ def post() -> int:
     try:
         failed += retry_failed(hist, channels)
     except Exception as e:
-        print(f"::warning::Couldn't check for failed posts: {e}")
+        print(f"::warning::Couldn't check for failed posts: {e}", file=sys.stderr)
     return 1 if failed else 0
 
 
@@ -314,7 +314,7 @@ def publish(dry: bool) -> int:
                 print(f"  queued on {service}: {posts[service]}")
             except Exception as e:  # one network failing shouldn't stop the others
                 failed += 1
-                print(f"::error::{service} failed for {q['id']}: {e}")
+                print(f"::error::{service} failed for {q['id']}: {e}", file=sys.stderr)
         if not posts:
             continue
         hist.append(entry(at, q, url, seconds, posts))
@@ -386,7 +386,7 @@ def swap_queued() -> int:
         h = next((x for x in hist if x["slot"] == info["slot"] and x["id"] == info["id"]), None)
         video = meta.with_suffix(".mp4")
         if h is None or not video.exists() or datetime.fromisoformat(h["slot"]) <= datetime.now(ZoneInfo("UTC")) + timedelta(minutes=10):
-            print(f"::warning::{meta.stem}: not queued any more (or too close to its time); left as it was")
+            print(f"::warning::{meta.stem}: not queued any more (or too close to its time); left as it was", file=sys.stderr)
             continue
         url = storage.upload_to_r2(video, video.name, CONFIG["r2"])
         q = queued_question(h)
@@ -397,7 +397,7 @@ def swap_queued() -> int:
                 print(f"swapped the video for Day {h['day']} {h['id']} on {service}")
             except Exception as e:
                 failed += 1
-                print(f"::error::{service} swap failed for {h['id']}: {e}")
+                print(f"::error::{service} swap failed for {h['id']}: {e}", file=sys.stderr)
         if q.get("series") and q.get("music"):  # a re-made series video may carry a different track
             h["music"] = q["music"]
         h.update(video_url=url, video_seconds=round(info["seconds"], 2), rerendered=datetime.now(ZoneInfo("UTC")).date().isoformat())
@@ -495,7 +495,7 @@ def main() -> int:
         print("R2 round trip: " + (err or "ok"))
         problems += [err] if err else []
         for p in problems:
-            print(f"::error::{p}")
+            print(f"::error::{p}", file=sys.stderr)
         return 1 if problems else 0
     raise SystemExit(f"unknown action {action!r}")
 

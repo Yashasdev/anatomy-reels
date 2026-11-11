@@ -156,3 +156,15 @@ def test_rerender_queued_swaps_the_video_into_the_same_posts(setup, monkeypatch,
     after = json.loads(publish.HISTORY.read_text())
     assert after[1]["video_url"].startswith("https://r2/") and after[1]["buffer"] == {"tiktok": "p1", "youtube": "p2"}
     assert after[0]["video_url"] == "old"
+
+
+def test_plan_json_stays_pure_json_when_the_plan_warns(setup, monkeypatch, capsys):
+    """Warnings go to stderr: on Nov 10, 2026 a "few videos left" warning landed in plan-json's output, the workflow
+    couldn't read the slots, and nothing was queued for a day."""
+    import sys
+    monkeypatch.setattr(sys, "argv", ["publish", "plan-json"])
+    monkeypatch.setattr(publish, "plan_now", lambda: datetime(2030, 1, 1, 6, 0, tzinfo=TZ))
+    publish.main()
+    captured = capsys.readouterr()
+    assert json.loads(captured.out), "stdout is only the JSON list of slots"
+    assert "few videos left" in captured.err

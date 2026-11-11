@@ -57,7 +57,7 @@ def index(name: str) -> list[dict]:
         try:
             _INDEX[name] = json.loads(fetch(f"{source(name)}/index.json"))
         except Exception as e:
-            print(f"::warning::Couldn't read the {name} index ({e}); its slots post quizzes this run.")
+            print(f"::warning::Couldn't read the {name} index ({e}); its slots post quizzes this run.", file=sys.stderr)
             _INDEX[name] = []
     return _INDEX[name]
 
