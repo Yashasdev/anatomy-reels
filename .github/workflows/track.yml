@@ -1,7 +1,8 @@
 name: Track anatomy engagement
 
 # Once a day: save every post's Buffer numbers (metrics.json) and rewrite scorecard.md, which compares the 3D
-# quizzes, the deep dives and the rotating formats at the same age. The Strategist reads both.
+# quizzes, the deep dives and the rotating formats at the same age. The Strategist reads both. Then the hit check
+# (anatomy/hits.py) marks series with a breakout post as hot in hits.json, so the next plans post more of them.
 on:
   schedule:
     - cron: "51 11 * * *"
@@ -26,6 +27,10 @@ jobs:
           python-version: "3.12"
       - run: pip install -q requests numpy
       - run: python -m anatomy.track
+      - name: Hit check (hot series for the next plans)
+        # a problem here never stops the numbers being saved
+        continue-on-error: true
+        run: python -m anatomy.hits
       - name: Refresh status.json for Reels HQ
         env:
           PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
@@ -34,7 +39,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add metrics.json scorecard.md status.json
+          git add metrics.json scorecard.md status.json hits.json
           git diff --cached --quiet && exit 0
           git commit -qm "Record anatomy engagement $(date -u +%F)"
           for i in 1 2 3 4; do git pull --rebase -q && git push -q && exit 0; sleep $((i * 5)); done

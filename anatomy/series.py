@@ -81,10 +81,39 @@ def wanted_format(name: str, at: datetime) -> str | None:
     return s["cycle"][k % len(s["cycle"])]
 
 
-def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] = ()) -> dict | None:
+def family(video_id: str) -> str | None:
+    """A deep dive id's family prefix: dd-onetake-rbc -> onetake."""
+    rest = video_id[3:] if video_id.startswith("dd-") else video_id
+    return rest.split("-")[0] or None
+
+
+def series_name(name: str, video: dict | str, videos: list[dict] | None = None) -> str | None:
+    """Which run of videos one belongs to, for the hit check (anatomy/hits.py). Formats: the format (types,
+    missing...). Deep dives: the video's own "series_name" if its json has one, else the id's family (dd-onetake-rbc
+    -> onetake) when two or more videos in the index share it, else the id itself (a one-off)."""
+    videos = index(name) if videos is None else videos
+    vid = video if isinstance(video, str) else video["id"]
+    v = video if isinstance(video, dict) else next((x for x in videos if x["id"] == vid), {"id": vid})
+    if name == "formats":
+        return v.get("format")
+    if v.get("series_name"):
+        return v["series_name"]
+    fam = family(vid)
+    kin = [x for x in videos if (x.get("series_name") or family(x["id"])) == fam]
+    return fam if fam and len({x["id"] for x in kin} | {vid}) >= 2 else vid
+
+
+def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] = (),
+               hot: tuple[str, ...] = ()) -> dict | None:
     """The slot's next video. `today`: formats already planned that day, skipped so a day never repeats one
-    (unless nothing else is ready)."""
-    fresh = [v for v in index(name) if v["id"] not in used]
+    (unless nothing else is ready). `hot`: series with a recent hit (anatomy/hits.py), best first; the first one
+    with a video in stock goes before the usual pick (formats: the caller passes only formats not used that day)."""
+    videos = index(name)
+    fresh = [v for v in videos if v["id"] not in used]
+    for s in hot:
+        pick = next((v for v in fresh if series_name(name, v, videos) == s), None)
+        if pick:
+            return {**pick, "hot": s}
     want = wanted_format(name, at)
     if want is None:
         return fresh[0] if fresh else None
