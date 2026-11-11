@@ -5,9 +5,13 @@
 Why: a small account grows when it follows a hit fast with more of the same (RedPenPrep posts sequels in the same
 series within a day). Once a day, after metrics.json is updated, an Instagram post 12-72 hours old is a **hit** when
 
-- its latest views are at least 3x the median of Anatomy's last 30 Instagram posts at about the same age (their
-  1-day snapshot where there is one, else their latest numbers if they're 12+ hours old) and at least 1,000, or
+- its latest views are at least 3x the median of the last 30 Instagram posts of its own type (quizzes, deep dives,
+  or that format) at about the same age (their 1-day snapshot where there is one, else their latest numbers if
+  they're 12+ hours old) and at least 1,000, or
 - its shares per person reached are at least 3x the median of the same posts, with 2 or more shares.
+
+A type with fewer than 6 such posts is compared with all of the last 30 Instagram posts instead, at 2x their median
+(the 3x-of-its-own rule can't apply yet).
 
 A hit makes its series **hot** for 5 days (the day it's found and the 4 after): a deep dive's series is its family
 (anatomy/series.py series_name: dd-onetake-rbc -> onetake, or one-offs by their own id), a format's is the format.
@@ -28,12 +32,14 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 PATH = ROOT / "hits.json"
-FACTOR = 3            # times the median
+FACTOR = 3            # times the median of the post's own type
+MIN_OWN = 6           # fewer of its own type than this: compare with all Instagram posts...
+FALLBACK_FACTOR = 2   # ...at 2x their median
 MIN_VIEWS = 1000      # and at least this many views
 MIN_SHARES = 2        # a share-rate hit needs at least this many shares
 AGE_HOURS = (12, 72)  # posts this old are checked
 BASELINE = 30         # the last 30 Instagram posts
-MIN_BASELINE = 10     # fewer comparable posts than this: no verdict
+MIN_BASELINE = 10     # and fewer than this in all: no verdict
 HOT_DAYS = 5
 LOW_STOCK = 3
 
@@ -76,7 +82,10 @@ def _rate(n: dict) -> float | None:
 
 
 def detect(metrics: dict, now: datetime) -> list[dict]:
-    """Instagram posts 12-72 hours old that are hits right now, with the numbers that made them one."""
+    """Instagram posts 12-72 hours old that are hits right now, with the numbers that made them one. Each post is
+    compared with the last 30 of its own type (quiz, deepdive, or that format): 3x their median. A type with fewer
+    than 6 comparable posts is compared with all Instagram posts instead, at 2x, so a new type isn't a hit just for
+    being different (deep dives get shared about 10x as much as quizzes)."""
     ig = sorted((dict(r, buffer_id=pid) for pid, r in metrics.get("posts", {}).items()
                  if r.get("platform") == "instagram" and r.get("sent_at") and parse_time(r["sent_at"]) <= now),
                 key=lambda r: r["sent_at"])
@@ -87,17 +96,23 @@ def detect(metrics: dict, now: datetime) -> list[dict]:
         latest = rec.get("latest") or {}
         if not AGE_HOURS[0] <= age <= AGE_HOURS[1] or not isinstance(latest.get("views"), (int, float)):
             continue
-        base = [n for r, n in comparable if r["buffer_id"] != rec["buffer_id"]][-BASELINE:]
-        if len(base) < MIN_BASELINE:
-            continue
+        kind = rec.get("type") or "quiz"
+        others = [(r, n) for r, n in comparable if r["buffer_id"] != rec["buffer_id"]]
+        own = [n for r, n in others if (r.get("type") or "quiz") == kind][-BASELINE:]
+        if len(own) >= MIN_OWN:
+            base, factor, against = own, FACTOR, f"{kind} ({len(own)} posts)"
+        else:
+            base, factor, against = [n for _, n in others][-BASELINE:], FALLBACK_FACTOR, f"all Instagram ({kind} has {len(own)})"
+            if len(base) < MIN_BASELINE:
+                continue
         views_base = statistics.median(n["views"] for n in base)
         rates = [x for n in base if (x := _rate(n)) is not None]
         rate_base = statistics.median(rates) if rates else None
         by = []
-        if latest["views"] >= max(FACTOR * views_base, MIN_VIEWS):
+        if latest["views"] >= max(factor * views_base, MIN_VIEWS):
             by.append("views")
         rate = _rate(latest)
-        if (rate is not None and rate_base and rate >= FACTOR * rate_base
+        if (rate is not None and rate_base and rate >= factor * rate_base
                 and latest.get("shares", 0) >= MIN_SHARES):
             by.append("shares")
         if by:
@@ -107,7 +122,8 @@ def detect(metrics: dict, now: datetime) -> list[dict]:
                         "age_hours": round(age, 1), "views": latest["views"], "baseline": round(views_base),
                         "shares": latest.get("shares"), "reach": latest.get("reach"),
                         "share_rate": round(rate, 4) if rate is not None else None,
-                        "share_baseline": round(rate_base, 4) if rate_base is not None else None, "by": by})
+                        "share_baseline": round(rate_base, 4) if rate_base is not None else None,
+                        "compared_with": against, "factor": factor, "by": by})
     return out
 
 

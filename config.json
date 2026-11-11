@@ -135,5 +135,5 @@
     "from": "2026-11-13",
     "note": "A 'Hint: ...' first comment under each Instagram post (hints.json, or a video's own \"hint\"). Off until Yashas approves: set \"instagram\" to true. Never on Notify-me posts. Each post is read back from Buffer and the run warns if Buffer dropped the comment."
   },
-  "hits_note": "Hit check (anatomy/hits.py, daily after the tracker): an Instagram post 12-72 h old with 3x the median views of the last 30 (and 1,000+), or 3x the median shares per reach (and 2+ shares), makes its series hot for 5 days; hot series post first in their slots. hits.json keeps the record."
+  "hits_note": "Hit check (anatomy/hits.py, daily after the tracker): an Instagram post 12-72 h old with 3x the median views (and 1,000+) or 3x the median shares per reach (and 2+ shares) of the last 30 Instagram posts of its own type makes its series hot for 5 days; a type with under 6 posts is compared with all Instagram posts at 2x. Deep dive series come from series.json. Hot series post first in their slots; hits.json keeps the record."
 }

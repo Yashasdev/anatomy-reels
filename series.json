@@ -1,0 +1,8 @@
+{
+ "note": "Which deep dives belong together, for the hit check (anatomy/hits.py): id (or a pattern with *) -> series name. Wins over a video's own \"series_name\" and the id-family rule. Formats are always their format.",
+ "series": {
+  "dd-onetake-*": "onetake",
+  "dd-folic-acid": "future-parents",
+  "dd-honey-baby": "future-parents"
+ }
+}

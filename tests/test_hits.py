@@ -81,20 +81,58 @@ def test_too_few_posts_to_compare_is_no_verdict():
     assert hits.detect({"posts": posts}, NOW) == []
 
 
+def test_each_type_is_compared_with_its_own_kind():
+    """Deep dives are shared about 10x as much as quizzes: a deep dive is a hit only against other deep dives."""
+    dives = [rec(f"d{k}", 100 + 24 * k, 2000, kind="deepdive", shares=20, reach=2000) for k in range(6)]  # 1% shares
+    assert found(*dives, rec("p", 30, 2000, kind="deepdive", shares=24, reach=2000)) == {}, "1.2%: usual for a deep dive"
+    assert found(*dives, rec("p", 30, 2000, kind="deepdive", shares=60, reach=2000)) == {"p": ["shares"]}, "3%: 3x"
+    assert found(*dives, rec("p", 30, 5000, kind="deepdive")) == {}, "5,000 isn't 3x the deep dives' 2,000"
+    assert found(*dives, rec("p", 30, 6000, kind="deepdive")) == {"p": ["views"]}
+    # quizzes keep their own baseline (1,000 views, 0.1%), deep dives don't move it
+    assert found(*dives, rec("p", 30, 3000)) == {"p": ["views"]}
+    out = hits.detect(metrics(*dives, rec("p", 30, 6000, kind="deepdive")), NOW)
+    assert out[0]["compared_with"] == "deepdive (6 posts)" and out[0]["baseline"] == 2000 and out[0]["factor"] == 3
+
+
+def test_a_new_type_is_compared_with_everything_at_2x():
+    few = [rec(f"m{k}", 100 + 24 * k, 5000, kind="myth") for k in range(5)]  # only 5 myths: not enough of its own
+    assert found(*few, rec("p", 30, 2000, kind="myth")) == {"p": ["views"]}, "2x the overall median (1,000)"
+    assert found(*few, rec("p", 30, 1900, kind="myth")) == {}
+    assert found(*few, rec("p", 30, 500, kind="myth", shares=2, reach=500)) == {"p": ["shares"]}, "0.4% vs 0.1%"
+    assert found(*few, rec("p", 30, 1000, kind="myth", shares=2, reach=1000)) == {"p": ["shares"]}, "0.2% is 2x"
+    assert found(*few, rec("p", 30, 1000, kind="myth", shares=1, reach=1000)) == {}
+    out = hits.detect(metrics(*few, rec("p", 30, 2000, kind="myth")), NOW)
+    assert out[0]["compared_with"].startswith("all Instagram") and out[0]["factor"] == 2
+
+
 DD = [{"id": i} for i in ("dd-nephron", "dd-onetake-rbc", "dd-onetake-heart", "dd-krebs-cycle", "dd-folic-acid")]
 
 
-def test_series_names():
+def test_series_names(monkeypatch):
+    monkeypatch.setattr(series, "_MAP", {})
     assert series.series_name("deepdive", "dd-onetake-rbc", DD) == "onetake", "a family shares the id prefix"
     assert series.series_name("deepdive", "dd-nephron", DD) == "dd-nephron", "a one-off is its own series"
     assert series.series_name("deepdive", "dd-krebs-cycle", DD) == "dd-krebs-cycle"
     named = DD + [{"id": "dd-honey-baby", "series_name": "future-parents"}]
     named[4] = {"id": "dd-folic-acid", "series_name": "future-parents"}
-    assert series.series_name("deepdive", "dd-folic-acid", named) == "future-parents", "series_name wins"
+    assert series.series_name("deepdive", "dd-folic-acid", named) == "future-parents", "a json's series_name"
     assert series.series_name("formats", {"id": "fmt-types-02", "format": "types"}, []) == "types"
+    # the repo's series.json wins: exact ids, then patterns
+    monkeypatch.setattr(series, "_MAP", {"dd-x-*": "xs", "dd-folic-acid": "parents", "dd-x-special": "special"})
+    assert series.series_name("deepdive", "dd-folic-acid", named) == "parents"
+    assert series.series_name("deepdive", "dd-x-one", []) == "xs" and series.series_name("deepdive", "dd-x-special", []) == "special"
+
+
+def test_the_repo_series_map(monkeypatch):
+    monkeypatch.setattr(series, "_MAP", None)  # read the real series.json
+    only = [{"id": "dd-onetake-rbc"}, {"id": "dd-folic-acid"}, {"id": "dd-honey-baby"}, {"id": "dd-nephron"}]
+    assert [series.series_name("deepdive", v["id"], only) for v in only] == \
+        ["onetake", "future-parents", "future-parents", "dd-nephron"]
+    assert series.series_name("deepdive", "dd-onetake-heart", only) == "onetake", "any dd-onetake-*"
 
 
 def test_a_hit_is_recorded_once_and_hot_for_5_days(monkeypatch, tmp_path):
+    monkeypatch.setattr(series, "_MAP", {})
     monkeypatch.setattr(series, "_INDEX", {"deepdive": DD, "formats": []})
     data = {"hits": []}
     f = hits.detect(metrics(rec("p", 30, 5000, kind="deepdive", vid="dd-onetake-rbc"),
@@ -144,6 +182,7 @@ def hit(post, kind, series_, day, **kw):
 def plan_setup(monkeypatch, tmp_path):
     monkeypatch.setattr(publish, "HISTORY", tmp_path / "history.json")
     monkeypatch.setattr(hits, "PATH", tmp_path / "hits.json")
+    monkeypatch.setattr(series, "_MAP", {})  # series from the id-family rule here
     monkeypatch.setattr(series, "_INDEX", {"deepdive": list(VIDEOS), "formats": list(FORMATS)})
     monkeypatch.setitem(publish.CONFIG, "deepdive", {"slots": ["18:00"], "from": "2030-01-01"})
     monkeypatch.setitem(publish.CONFIG, "formats", {"slots": ["12:30", "16:00"], "from": "2030-01-01", "cycle": CYCLE})

@@ -20,9 +20,10 @@ big, different install, and 3D rendering is slow, so it lives in its own repo.
   about an hour at full size; `preview ID DIR` makes a quick half-size check), then published with
   `python -m anatomy.series publish formats DIR`. Each new topic (joints, dislocations...) needs its own Blender script.
 - `anatomy/hits.py` and `hits.json`: the daily hit check (after the tracker). An Instagram post 12-72 hours old with 3x
-  the median views of the last 30 Instagram posts (and 1,000+), or 3x their median shares per person reached (and 2+
-  shares), makes its series hot for 5 days: a deep dive's family (`dd-onetake-rbc` -> `onetake`, or a `"series_name"`
-  in its json; one-offs are their own id) or a format. Hot series post first in their slots (a hot format at most once
+  the median views of the last 30 Instagram posts of its own type (quizzes, deep dives, or that format) and 1,000+, or
+  3x their median shares per person reached (and 2+ shares), makes its series hot for 5 days. A type with under 6
+  posts is compared with all Instagram posts at 2x. Series: a format, or for deep dives `series.json` (id or
+  `dd-onetake-*` -> name), else a `"series_name"` in the video's json, else the id family; one-offs are their own id. Hot series post first in their slots (a hot format at most once
   a day); quizzes are reported only. Under 3 left in stock: a "make more" warning and `status.json` `"hot"`.
 - `hints.json`: id -> "Hint: ..." posted as the Instagram first comment (config `"first_comment"`, off until approved;
   a video's own `"hint"` works too). Never on Notify-me posts. Each post is read back from Buffer; a dropped comment
