@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-11T20:12:14+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43094246611",
+ "generated_at": "2026-11-12T19:10:37+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43287402435",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -82,6 +82,7 @@
    "unused": 3
   }
  },
+ "hot": [],
  "posts": [
   {
    "slot": "2026-11-07T09:30:00-05:00",
@@ -473,7 +474,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-11T18:00:00-05:00",
@@ -487,7 +492,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-11T20:00:00-05:00",
@@ -501,7 +510,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-12T09:30:00-05:00",
@@ -515,7 +528,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-12T12:30:00-05:00",
@@ -529,7 +546,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-12T16:00:00-05:00",
@@ -589,33 +610,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-11T18:53:19Z",
+  "updated_at": "2026-11-12T19:10:34Z",
   "totals": {
-   "views": 72756,
-   "reactions": 1581,
+   "views": 77179,
+   "reactions": 1745,
    "comments": 10,
-   "shares": 113,
-   "saves": 214
+   "shares": 121,
+   "saves": 238
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 56,
-    "views": 37804,
-    "watched": 30.1,
-    "watch_samples": 31
+    "posts": 61,
+    "views": 40835,
+    "watched": 30.2,
+    "watch_samples": 35
    },
    {
     "platform": "tiktok",
-    "posts": 56,
-    "views": 15535,
-    "watched": 25.7,
-    "watch_samples": 33
+    "posts": 61,
+    "views": 16632,
+    "watched": 26.1,
+    "watch_samples": 38
    },
    {
     "platform": "youtube",
-    "posts": 56,
-    "views": 19417,
+    "posts": 61,
+    "views": 19712,
     "watched": null,
     "watch_samples": 0
    }
