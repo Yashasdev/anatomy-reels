@@ -245,5 +245,67 @@
   "answer_line": 5,
   "distance": 2.0,
   "focus": true
+ },
+ {
+  "id": "spine-08",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra L1",
+   "Vertebra L2",
+   "Vertebra L3",
+   "Vertebra L4",
+   "Vertebra L5"
+  ],
+  "start_degrees": 90,
+  "question": "Which section bears the most weight?",
+  "choices": [
+   "Cervical",
+   "Thoracic",
+   "Lumbar",
+   "Sacral"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your lower back does the heavy lifting. Which section bears the most?",
+   "Watch the glowing section of the lower back.",
+   "Which section bears the most weight?",
+   "The cervical bones in the neck are much smaller than these.",
+   "It's C. The lumbar spine.",
+   "Why it matters: the lumbar vertebrae are large to carry that load."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "spine-09",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)"
+  ],
+  "start_degrees": 90,
+  "distance": 1.8,
+  "focus": true,
+  "question": "Which vertebra holds up the skull?",
+  "choices": [
+   "Atlas",
+   "Axis",
+   "Vertebra C7",
+   "Vertebra T1"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "A Greek titan held up the sky. Which bone holds up your head?",
+   "Watch the glowing bone at the very top of the spine.",
+   "Which vertebra holds up the skull?",
+   "The axis sits just below it. This one carries the skull directly.",
+   "It's A. The atlas, or C1.",
+   "Why it matters: it is named after the titan Atlas, and it lets you nod."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

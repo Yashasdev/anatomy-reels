@@ -179,5 +179,64 @@
   "answer_line": 4,
   "focus": true,
   "distance": 1.4
+ },
+ {
+  "id": "thigh-07",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Semitendinosus muscle.r",
+   "Semimembranosus muscle.r"
+  ],
+  "start_degrees": 180,
+  "question": "Which group sits at the back of the thigh?",
+  "choices": [
+   "Hamstrings",
+   "Quadriceps",
+   "Adductors",
+   "Calf muscles"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Sit down and feel the back of your thigh. Which muscle group?",
+   "Watch the glowing muscles at the back of the thigh.",
+   "Which group sits at the back of the thigh?",
+   "The quadriceps are on the front. These are on the back.",
+   "It's A. The hamstrings.",
+   "Why it matters: they bend the knee and extend the hip as you walk."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "thigh-08",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Soleus muscle.r"
+  ],
+  "start_degrees": 180,
+  "distance": 1.6,
+  "focus": true,
+  "question": "What does the glowing calf muscle do?",
+  "choices": [
+   "Straightens the knee",
+   "Lifts the foot up",
+   "Bends the hip",
+   "Points the foot down"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Stand on tiptoe. This calf muscle is working. What does it do?",
+   "Watch the glowing muscle in the lower leg.",
+   "What does the glowing calf muscle do?",
+   "Lifting the foot up is the tibialis anterior, on the shin.",
+   "It's D. It points the foot down.",
+   "Why it matters: it is active whenever you stand, helping you stay upright."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

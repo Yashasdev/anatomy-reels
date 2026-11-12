@@ -227,5 +227,69 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "hand-08",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Proximal phalanx of first finger of hand.r",
+   "Proximal phalanx of second finger of hand.r",
+   "Proximal phalanx of third finger of hand.r",
+   "Proximal phalanx of fourth finger of hand.r",
+   "Proximal phalanx of fifth finger of hand.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "question": "Which finger bones are glowing?",
+  "choices": [
+   "Proximal",
+   "Distal",
+   "Middle",
+   "Metacarpal"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Each finger has bones at the base, middle and tip. Which are these?",
+   "Watch the glowing bones at the base of the fingers.",
+   "Which finger bones are glowing?",
+   "The distal bones are the tips. These are closest to the palm.",
+   "It's A. The proximal phalanges.",
+   "Why it matters: they are the longest finger bones and meet the palm."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "hand-09",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Proximal phalanx of second finger of hand.r",
+   "Middle phalanx of second finger of hand.r",
+   "Distal phalanx of second finger of hand.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.0,
+  "question": "How many phalanges are in the index finger?",
+  "choices": [
+   "2",
+   "4",
+   "3",
+   "5"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Look at your index finger. How many bones are inside it?",
+   "Watch the glowing bones of the index finger.",
+   "How many phalanges are in the index finger?",
+   "The thumb has two. The other fingers have one more.",
+   "It's C. Three phalanges.",
+   "Why it matters: those extra joints let your fingers curl to grip."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

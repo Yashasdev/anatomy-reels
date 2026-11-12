@@ -200,5 +200,93 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "skull-08",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Nasal bone.l",
+   "Nasal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.8,
+  "focus": true,
+  "question": "Which bones are glowing?",
+  "choices": [
+   "Maxilla",
+   "Lacrimal",
+   "Nasal",
+   "Zygomatic"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Pinch the top of your nose. Feel that hard bridge? Name it.",
+   "Watch the two small bones at the front of the face.",
+   "Which bones are glowing?",
+   "The maxilla is the upper jaw. These are smaller and higher up.",
+   "It's C. The nasal bones.",
+   "Why it matters: they form the bony bridge. The rest is cartilage."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "skull-09",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Mandible"
+  ],
+  "start_degrees": 40,
+  "question": "Which is the only movable skull bone?",
+  "choices": [
+   "Maxilla",
+   "Mandible",
+   "Temporal",
+   "Zygomatic"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Open and close your mouth. One skull bone is doing the moving.",
+   "Watch the glowing bone at the bottom of the skull.",
+   "Which is the only movable skull bone?",
+   "The maxilla is fixed in place. Only this bone moves.",
+   "It's B. The mandible, or lower jaw.",
+   "Why it matters: it hinges on the skull so you can chew and speak."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "skull-10",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Zygomatic bone.l",
+   "Zygomatic bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "What's their everyday name?",
+  "choices": [
+   "Jawbones",
+   "Brow bones",
+   "Nose bones",
+   "Cheekbones"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Press your fingers under your eyes. You can feel this bone.",
+   "Watch the glowing bones at the front of the skull.",
+   "What's their everyday name?",
+   "The jawbone is the mandible, lower down.",
+   "It's D. The zygomatic bones, the cheekbones.",
+   "Why it matters: they give the face its width and anchor chewing muscles."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]
