@@ -250,7 +250,7 @@
    "Hip bone.r"
   ],
   "start_degrees": 0,
-  "question": "Which bones are at your hips?",
+  "question": "Which bones form the flared sides?",
   "choices": [
    "Lowest ribs",
    "Femurs",
@@ -262,7 +262,7 @@
   "lines": [
    "Put your hands on your hips. Which bones are you touching?",
    "Watch the two large glowing bones.",
-   "Which bones are at your hips?",
+   "Which bones form the flared sides?",
    "The lowest ribs sit higher up. These wide, flaring bones sit lower.",
    "It's D. The hip bones.",
    "Why it matters: the thighbones fit into them, so they carry your weight."

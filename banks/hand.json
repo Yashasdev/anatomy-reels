@@ -272,7 +272,7 @@
   ],
   "start_degrees": 0,
   "distance": 2.0,
-  "question": "How many bones are in the index finger?",
+  "question": "How many phalanges are in the index finger?",
   "choices": [
    "2",
    "4",
@@ -284,7 +284,7 @@
   "lines": [
    "Look at your index finger. How many bones are inside it?",
    "Watch the glowing bones of the index finger.",
-   "How many bones are in the index finger?",
+   "How many phalanges are in the index finger?",
    "The thumb has two. The other fingers have one more.",
    "It's C. Three phalanges.",
    "Why it matters: those extra joints let your fingers curl to grip."

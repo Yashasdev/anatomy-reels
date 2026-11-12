@@ -221,8 +221,8 @@
   "question": "Which side of the forearm is it on?",
   "choices": [
    "Pinky side",
-   "Elbow side only",
-   "Inside the upper arm",
+   "Palm side only",
+   "Back side only",
    "Thumb side"
   ],
   "answer_index": 3,

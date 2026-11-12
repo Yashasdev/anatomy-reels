@@ -269,19 +269,19 @@
    "Zygomatic bone.r"
   ],
   "start_degrees": 0,
-  "question": "What's its everyday name?",
+  "question": "What's their everyday name?",
   "choices": [
-   "Jawbone",
-   "Brow bone",
-   "Nose bridge",
-   "Cheekbone"
+   "Jawbones",
+   "Brow bones",
+   "Nose bones",
+   "Cheekbones"
   ],
   "answer_index": 3,
   "trap_index": 0,
   "lines": [
    "Press your fingers under your eyes. You can feel this bone.",
    "Watch the glowing bones at the front of the skull.",
-   "What's its everyday name?",
+   "What's their everyday name?",
    "The jawbone is the mandible, lower down.",
    "It's D. The zygomatic bones, the cheekbones.",
    "Why it matters: they give the face its width and anchor chewing muscles."
