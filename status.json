@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T20:49:19+00:00",
+ "generated_at": "2026-11-12T21:25:15+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43304010310",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 21,
- "total": 86,
- "posted": 65,
+ "unused": 19,
+ "total": 89,
+ "posted": 70,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 6
+   "posted": 7
   },
   "formats": {
    "slots": [
@@ -45,7 +45,7 @@
     "rank",
     "types"
    ],
-   "posted": 10
+   "posted": 12
   }
  },
  "banks": {
@@ -63,11 +63,11 @@
   },
   "chest": {
    "total": 6,
-   "unused": 3
+   "unused": 2
   },
   "thigh": {
    "total": 6,
-   "unused": 3
+   "unused": 2
   },
   "arm": {
    "total": 7,
@@ -84,96 +84,6 @@
  },
  "hot": [],
  "posts": [
-  {
-   "slot": "2026-11-07T09:30:00-05:00",
-   "day": 36,
-   "id": "arm-04",
-   "organ": "arm",
-   "title": "The Arm",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-0930-arm-04.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-07T16:00:00-05:00",
-   "day": 37,
-   "id": "spine-03",
-   "organ": "spine",
-   "title": "The Spine",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-1600-spine-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-07T18:00:00-05:00",
-   "day": 38,
-   "id": "dd-nephron",
-   "organ": null,
-   "title": "Inside a nephron",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-1800-dd-nephron.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-07T20:00:00-05:00",
-   "day": 39,
-   "id": "hand-03",
-   "organ": "hand",
-   "title": "The Hand",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-07-2000-hand-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-08T09:30:00-05:00",
-   "day": 40,
-   "id": "skull-05",
-   "organ": "skull",
-   "title": "The Skull",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-0930-skull-05.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-08T12:30:00-05:00",
    "day": 41,
@@ -601,6 +511,76 @@
    "organ": "pelvis",
    "title": "The Pelvis",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-0930-pelvis-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-13T12:30:00-05:00",
+   "day": 66,
+   "id": "fmt-rank-02",
+   "organ": null,
+   "title": "Rank these",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-1230-fmt-rank-02.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-13T16:00:00-05:00",
+   "day": 67,
+   "id": "fmt-types-01",
+   "organ": null,
+   "title": "11 types of fracture",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-1600-fmt-types-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-13T18:00:00-05:00",
+   "day": 68,
+   "id": "dd-caffeine",
+   "organ": null,
+   "title": "What caffeine really does",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-1800-dd-caffeine.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-13T20:00:00-05:00",
+   "day": 69,
+   "id": "chest-04",
+   "organ": "chest",
+   "title": "The Rib Cage",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-2000-chest-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-14T09:30:00-05:00",
+   "day": 70,
+   "id": "thigh-04",
+   "organ": "thigh",
+   "title": "Leg Muscles",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-0930-thigh-04.mp4",
    "platforms": [
     "instagram",
     "tiktok",
