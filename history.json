@@ -1006,5 +1006,86 @@
       "youtube": "6af4b26bc8d020c384b63c9c"
     },
     "music": "house-4"
+  },
+  {
+    "slot": "2026-11-13T12:30:00-05:00",
+    "day": 66,
+    "id": "fmt-rank-02",
+    "organ": null,
+    "title": "Rank these",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-1230-fmt-rank-02.mp4",
+    "video_seconds": 21.85,
+    "buffer": {
+      "instagram": "6af62ea0c71c605d9eae089b",
+      "tiktok": "6af62ea0a01fb6efee4cc076",
+      "youtube": "6af62ea1446d978be7ea9e11"
+    },
+    "kind": "formats",
+    "format": "rank",
+    "music": "pop-1"
+  },
+  {
+    "slot": "2026-11-13T16:00:00-05:00",
+    "day": 67,
+    "id": "fmt-types-01",
+    "organ": null,
+    "title": "11 types of fracture",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-1600-fmt-types-01.mp4",
+    "video_seconds": 68.1,
+    "buffer": {
+      "instagram": "6af62ea448a8bf93e4274415",
+      "tiktok": "6af62ea5446d978be7ea9ec2",
+      "youtube": "6af62ea5a01fb6efee4cc1b2"
+    },
+    "kind": "formats",
+    "format": "types",
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-13T18:00:00-05:00",
+    "day": 68,
+    "id": "dd-caffeine",
+    "organ": null,
+    "title": "What caffeine really does",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-1800-dd-caffeine.mp4",
+    "video_seconds": 51.48,
+    "buffer": {
+      "instagram": "6af62ea8a01fb6efee4cc21f",
+      "tiktok": "6af62ea9f8f0d4b832a03085",
+      "youtube": "6af62eaa7d05892cceaa7df4"
+    },
+    "kind": "deepdive",
+    "music": "lofi-2"
+  },
+  {
+    "slot": "2026-11-13T20:00:00-05:00",
+    "day": 69,
+    "id": "chest-04",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-13-2000-chest-04.mp4",
+    "video_seconds": 20.82,
+    "buffer": {
+      "instagram": "6af62eab48a8bf93e4274547",
+      "tiktok": "6af62eada01fb6efee4cc33d",
+      "youtube": "6af62eada01fb6efee4cc373"
+    },
+    "music": "science-3",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-14T09:30:00-05:00",
+    "day": 70,
+    "id": "thigh-04",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-0930-thigh-04.mp4",
+    "video_seconds": 21.06,
+    "buffer": {
+      "instagram": "6af62eafc71c605d9eae0d38",
+      "tiktok": "6af62eb0446d978be7eaa05a",
+      "youtube": "6af62eb1c71c605d9eae0dc9"
+    },
+    "music": "pop-3"
   }
 ]
