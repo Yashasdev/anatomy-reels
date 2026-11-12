@@ -214,5 +214,66 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "chest-07",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "What is this pointed tip called?",
+  "choices": [
+   "Manubrium",
+   "Costal cartilage",
+   "Floating rib",
+   "Xiphoid process"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "The breastbone ends in a small tip. Do you know its name?",
+   "Watch the glowing tip at the bottom of the breastbone.",
+   "What is this pointed tip called?",
+   "The manubrium is the top of the breastbone. This is the opposite end.",
+   "It's D. The xiphoid process.",
+   "Why it matters: it is the smallest part of the sternum, a classic landmark."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "chest-08",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which pair of ribs is glowing?",
+  "choices": [
+   "First",
+   "Fourth",
+   "Seventh",
+   "Twelfth"
+  ],
+  "answer_index": 0,
+  "trap_index": 3,
+  "lines": [
+   "These ribs sit at the very top of your chest. Which pair?",
+   "Watch the glowing ribs just below the collarbones.",
+   "Which pair of ribs is glowing?",
+   "The twelfth ribs are floating at the bottom. These are at the top.",
+   "It's A. The first ribs.",
+   "Why it matters: they are the shortest, broadest ribs of the cage."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

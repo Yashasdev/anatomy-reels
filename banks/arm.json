@@ -208,5 +208,93 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "arm-08",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Radius.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "Which side of the forearm is it on?",
+  "choices": [
+   "Pinky side",
+   "Elbow side only",
+   "Inside the upper arm",
+   "Thumb side"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Hold your palm up and point to your thumb. This bone runs along it.",
+   "Watch the glowing forearm bone.",
+   "Which side of the forearm is it on?",
+   "The ulna is on the pinky side. This one is on the other side.",
+   "It's D. The radius, on the thumb side.",
+   "Why it matters: it rolls around the ulna so you can turn your palm over."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "arm-09",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Humerus.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "How many bones are in the upper arm?",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "From shoulder to elbow, how many bones do you have?",
+   "Watch the glowing bone in the upper arm.",
+   "How many bones are in the upper arm?",
+   "The forearm has two bones. The upper arm has fewer.",
+   "It's A. One. The humerus.",
+   "Why it matters: one long bone lets muscles swing the whole arm."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "arm-10",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Clavicle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "What does the glowing bone connect?",
+  "choices": [
+   "Ribs to spine",
+   "Chest to shoulder blade",
+   "Elbow to wrist",
+   "Hip to thigh"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "You can feel this bone along the top of your chest. What does it link?",
+   "Watch the glowing collarbone.",
+   "What does the glowing bone connect?",
+   "It does not touch the ribs or spine directly. It links chest to shoulder.",
+   "It's B. The breastbone to the shoulder blade.",
+   "Why it matters: it braces the shoulder so the arm can swing freely."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

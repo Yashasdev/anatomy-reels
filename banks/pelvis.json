@@ -209,5 +209,65 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-08",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r",
+   "Sacrum",
+   "Coccyx"
+  ],
+  "start_degrees": 0,
+  "question": "What do these bones form?",
+  "choices": [
+   "Pelvic girdle",
+   "Rib cage",
+   "Shoulder girdle",
+   "Skull base"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "A bony bowl sits at the base of your spine. What is it called?",
+   "Watch the glowing bones at your hips.",
+   "What do these bones form?",
+   "The shoulder girdle is at the top of the body. This is at the bottom.",
+   "It's A. The pelvic girdle.",
+   "Why it matters: it carries the upper body and links the spine to the legs."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "pelvis-09",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which bones are at your hips?",
+  "choices": [
+   "Lowest ribs",
+   "Femurs",
+   "Sacrum",
+   "Hip bones"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Put your hands on your hips. Which bones are you touching?",
+   "Watch the two large glowing bones.",
+   "Which bones are at your hips?",
+   "The lowest ribs sit higher up. These wide, flaring bones sit lower.",
+   "It's D. The hip bones.",
+   "Why it matters: the thighbones fit into them, so they carry your weight."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]

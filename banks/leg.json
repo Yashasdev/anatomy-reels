@@ -206,5 +206,69 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-08",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Patella.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Kneecap",
+   "Shinbone",
+   "Heel bone",
+   "Thighbone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Bend your knee and feel the small bone at the front. Name it.",
+   "Watch the glowing bone at the front of the knee.",
+   "What's its everyday name?",
+   "The shinbone is the long tibia. This one is small and flat.",
+   "It's A. The patella, the kneecap.",
+   "Why it matters: it sits in a thigh tendon and protects the knee."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
+ },
+ {
+  "id": "leg-09",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "First metatarsal bone.r",
+   "Second metatarsal bone.r",
+   "Third metatarsal bone.r",
+   "Fourth metatarsal bone.r",
+   "Fifth metatarsal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.0,
+  "focus": true,
+  "question": "How many bones are glowing?",
+  "choices": [
+   "7",
+   "5",
+   "10",
+   "14"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "The long bones in the middle of your foot. How many are there?",
+   "Watch the glowing bones between the ankle and the toes.",
+   "How many bones are glowing?",
+   "Each toe has one of these long bones behind it.",
+   "It's B. Five metatarsals.",
+   "Why it matters: they help form the foot's arch and bear weight."
+  ],
+  "ask_line": 2,
+  "answer_line": 4
  }
 ]
