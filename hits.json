@@ -1,4 +1,27 @@
 {
- "hits": [],
- "updated_at": "2026-11-12T19:10:37Z"
+ "hits": [
+  {
+   "post": "skull-06",
+   "buffer_id": "6af4b2547d06ac3b9c8185ea",
+   "day": 60,
+   "title": "The Skull",
+   "kind": "quiz",
+   "age_hours": 28.3,
+   "views": 279,
+   "baseline": 734,
+   "shares": 2,
+   "reach": 231,
+   "share_rate": 0.0087,
+   "share_baseline": 0.0009,
+   "compared_with": "quiz (30 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": null,
+   "date": "2026-11-13",
+   "until": "2026-11-17"
+  }
+ ],
+ "updated_at": "2026-11-13T18:48:45Z"
 }
