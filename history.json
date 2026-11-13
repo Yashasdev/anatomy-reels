@@ -1087,5 +1087,86 @@
       "youtube": "6af62eb1c71c605d9eae0dc9"
     },
     "music": "pop-3"
+  },
+  {
+    "slot": "2026-11-14T12:30:00-05:00",
+    "day": 71,
+    "id": "fmt-missing-03",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1230-fmt-missing-03.mp4",
+    "video_seconds": 19.42,
+    "buffer": {
+      "instagram": "6af77bf278196a0a971ec778",
+      "tiktok": "6af77bf3bb36d00909ca8bbc",
+      "youtube": "6af77bf3bb36d00909ca8be8"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-14T16:00:00-05:00",
+    "day": 72,
+    "id": "fmt-zoom-04",
+    "organ": null,
+    "title": "Zoom out: guess the body part",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-zoom-04.mp4",
+    "video_seconds": 20.94,
+    "buffer": {
+      "instagram": "6af77bf59257ce33980f24cc",
+      "tiktok": "6af77bf64b28296eb115fe15",
+      "youtube": "6af77bf7d16af15d4dd29bc7"
+    },
+    "kind": "formats",
+    "format": "zoom",
+    "music": "science-5"
+  },
+  {
+    "slot": "2026-11-14T18:00:00-05:00",
+    "day": 73,
+    "id": "dd-onetake-stove",
+    "organ": null,
+    "title": "One touch of a hot stove. One take.",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1800-dd-onetake-stove.mp4",
+    "video_seconds": 39.43,
+    "buffer": {
+      "instagram": "6af77bfbd16af15d4dd29f96",
+      "tiktok": "6af77bfc81e1228421c4013a",
+      "youtube": "6af77bfd4b28296eb115ff8b"
+    },
+    "kind": "deepdive",
+    "music": "ambient-4"
+  },
+  {
+    "slot": "2026-11-14T20:00:00-05:00",
+    "day": 74,
+    "id": "arm-06",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-arm-06.mp4",
+    "video_seconds": 18.49,
+    "buffer": {
+      "instagram": "6af77bfe78196a0a971ecd19",
+      "tiktok": "6af77bff4b28296eb1160048",
+      "youtube": "6af77c009257ce33980f2a22"
+    },
+    "music": "science-2",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-15T09:30:00-05:00",
+    "day": 75,
+    "id": "spine-05",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-spine-05.mp4",
+    "video_seconds": 21.79,
+    "buffer": {
+      "instagram": "6af77c024b28296eb11600f6",
+      "tiktok": "6af77c03bb36d00909ca9790",
+      "youtube": "6af77c039257ce33980f2e47"
+    },
+    "music": "pop-5"
   }
 ]
