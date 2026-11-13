@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T20:28:51+00:00",
+ "generated_at": "2026-11-13T21:07:33+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43501897487",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 19,
- "total": 89,
- "posted": 70,
+ "unused": 17,
+ "total": 92,
+ "posted": 75,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 7
+   "posted": 8
   },
   "formats": {
    "slots": [
@@ -45,7 +45,7 @@
     "rank",
     "types"
    ],
-   "posted": 12
+   "posted": 14
   }
  },
  "banks": {
@@ -71,11 +71,11 @@
   },
   "arm": {
    "total": 7,
-   "unused": 2
+   "unused": 1
   },
   "spine": {
    "total": 7,
-   "unused": 3
+   "unused": 2
   },
   "hand": {
    "total": 7,
@@ -84,96 +84,6 @@
  },
  "hot": [],
  "posts": [
-  {
-   "slot": "2026-11-08T12:30:00-05:00",
-   "day": 41,
-   "id": "fmt-missing-01",
-   "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1230-fmt-missing-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-08T16:00:00-05:00",
-   "day": 42,
-   "id": "fmt-zoom-01",
-   "organ": null,
-   "title": "Zoom out: guess the body part",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1600-fmt-zoom-01.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-08T18:00:00-05:00",
-   "day": 43,
-   "id": "dd-na-k-pump",
-   "organ": null,
-   "title": "The sodium-potassium pump",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-1800-dd-na-k-pump.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-08T20:00:00-05:00",
-   "day": 44,
-   "id": "leg-03",
-   "organ": "leg",
-   "title": "The Leg",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-08-2000-leg-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-09T09:30:00-05:00",
-   "day": 45,
-   "id": "pelvis-03",
-   "organ": "pelvis",
-   "title": "The Pelvis",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-09-0930-pelvis-03.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-09T12:30:00-05:00",
    "day": 46,
@@ -601,6 +511,76 @@
    "organ": "thigh",
    "title": "Leg Muscles",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-0930-thigh-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-14T12:30:00-05:00",
+   "day": 71,
+   "id": "fmt-missing-03",
+   "organ": null,
+   "title": "Which bone is missing?",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1230-fmt-missing-03.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-14T16:00:00-05:00",
+   "day": 72,
+   "id": "fmt-zoom-04",
+   "organ": null,
+   "title": "Zoom out: guess the body part",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-zoom-04.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-14T18:00:00-05:00",
+   "day": 73,
+   "id": "dd-onetake-stove",
+   "organ": null,
+   "title": "One touch of a hot stove. One take.",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1800-dd-onetake-stove.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-14T20:00:00-05:00",
+   "day": 74,
+   "id": "arm-06",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-arm-06.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-15T09:30:00-05:00",
+   "day": 75,
+   "id": "spine-05",
+   "organ": "spine",
+   "title": "The Spine",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-spine-05.mp4",
    "platforms": [
     "instagram",
     "tiktok",
