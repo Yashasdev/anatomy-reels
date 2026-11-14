@@ -196,10 +196,12 @@ mutation EditPost($input: EditPostInput!) {
 
 
 def replace_video(post_id: str, service: str, video_url: str, thumbnail_ms: int, title: str = "",
-                  first_comment: str | None = None) -> str:
-    """Swap a queued post's video for a new render (same post, time and caption). The edit sends the metadata again,
-    so an Instagram post's first comment is passed back in to keep it."""
+                  first_comment: str | None = None, text: str | None = None) -> str:
+    """Swap a queued post's video for a new render (same post and time; the caption too when text is given). The edit
+    sends the metadata again, so an Instagram post's first comment is passed back in to keep it."""
     edit = {"id": post_id, "assets": [{"video": {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}}]}
+    if text is not None:
+        edit["text"] = text
     metadata = post_metadata(service, title, first_comment)
     if metadata:
         edit["metadata"] = metadata

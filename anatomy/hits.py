@@ -82,9 +82,9 @@ def _rate(n: dict) -> float | None:
 
 def detect(metrics: dict, now: datetime) -> list[dict]:
     """Instagram posts 12-72 hours old that are hits right now, with the numbers that made them one. Each post is
-    compared with the last 30 of its own type (quiz, deepdive, or that format): 3x their median. A type with fewer
-    than 6 comparable posts is compared with all Instagram posts instead, at 2x, so a new type isn't a hit just for
-    being different (deep dives get shared about 10x as much as quizzes)."""
+    compared with the last 30 of its own type (quiz, deepdive, or that format): 3x their median. A format with
+    fewer than 6 of its own is compared with the last 30 of all formats instead; anything else with fewer than 6
+    gets no verdict (never compared across kinds: deep dives get shared about 10x as much as quizzes)."""
     ig = sorted((dict(r, buffer_id=pid) for pid, r in metrics.get("posts", {}).items()
                  if r.get("platform") == "instagram" and r.get("sent_at") and parse_time(r["sent_at"]) <= now),
                 key=lambda r: r["sent_at"])
@@ -98,9 +98,15 @@ def detect(metrics: dict, now: datetime) -> list[dict]:
         kind = rec.get("type") or "quiz"
         others = [(r, n) for r, n in comparable if r["buffer_id"] != rec["buffer_id"]]
         own = [n for r, n in others if (r.get("type") or "quiz") == kind][-BASELINE:]
-        if len(own) < MIN_OWN:  # too few of its own kind to call anything a hit yet (no false "make more" alarms)
+        base, against = own, f"{kind} ({len(own)} posts)"
+        if len(own) < MIN_OWN and series_kind(rec) == "formats":
+            # a new format is judged against the other formats (same slots, same kind of video), never quizzes or
+            # deep dives: on Nov 13, 2026 "11 types of fracture" was the only one of its type and went unflagged
+            fmts = [n for r, n in others if series_kind(r) == "formats"][-BASELINE:]
+            base, against = fmts, f"all formats ({len(fmts)} posts)"
+        if len(base) < MIN_OWN:  # too few to call anything a hit yet (no false "make more" alarms)
             continue
-        base, factor, against = own, FACTOR, f"{kind} ({len(own)} posts)"
+        factor = FACTOR
         views_base = statistics.median(n["views"] for n in base)
         rates = [x for n in base if (x := _rate(n)) is not None]
         rate_base = statistics.median(rates) if rates else None
