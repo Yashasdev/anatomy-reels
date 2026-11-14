@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-14T05:03:39+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43559627265",
+ "generated_at": "2026-11-14T17:20:12+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43620519224",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -82,7 +82,36 @@
    "unused": 3
   }
  },
- "hot": [],
+ "hot": [
+  {
+   "series": "types",
+   "kind": "formats",
+   "post": "fmt-types-01",
+   "views": 10296,
+   "baseline": 332,
+   "by": [
+    "views"
+   ],
+   "date": "2026-11-14",
+   "until": "2026-11-18",
+   "left": 1,
+   "make_more": true
+  },
+  {
+   "series": "diagnose",
+   "kind": "formats",
+   "post": "fmt-diagnose-02",
+   "views": 1275,
+   "baseline": 332,
+   "by": [
+    "views"
+   ],
+   "date": "2026-11-14",
+   "until": "2026-11-18",
+   "left": 6,
+   "make_more": false
+  }
+ ],
  "posts": [
   {
    "slot": "2026-11-09T12:30:00-05:00",
@@ -474,7 +503,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-13T18:00:00-05:00",
@@ -488,7 +521,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-13T20:00:00-05:00",
@@ -502,7 +539,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-14T09:30:00-05:00",
@@ -516,7 +557,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-14T12:30:00-05:00",
@@ -590,33 +635,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-13T18:48:43Z",
+  "updated_at": "2026-11-14T17:20:09Z",
   "totals": {
-   "views": 81467,
-   "reactions": 1871,
-   "comments": 10,
-   "shares": 130,
-   "saves": 250
+   "views": 95935,
+   "reactions": 2674,
+   "comments": 16,
+   "shares": 268,
+   "saves": 622
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 66,
-    "views": 43767,
-    "watched": 30.9,
-    "watch_samples": 39
+    "posts": 70,
+    "views": 55690,
+    "watched": 30.4,
+    "watch_samples": 42
    },
    {
     "platform": "tiktok",
-    "posts": 66,
-    "views": 17775,
-    "watched": 26.0,
-    "watch_samples": 43
+    "posts": 70,
+    "views": 18894,
+    "watched": 25.5,
+    "watch_samples": 47
    },
    {
     "platform": "youtube",
-    "posts": 66,
-    "views": 19925,
+    "posts": 70,
+    "views": 21351,
     "watched": null,
     "watch_samples": 0
    }

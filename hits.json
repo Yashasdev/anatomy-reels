@@ -6,13 +6,13 @@
    "day": 60,
    "title": "The Skull",
    "kind": "quiz",
-   "age_hours": 28.3,
-   "views": 279,
+   "age_hours": 50.8,
+   "views": 358,
    "baseline": 734,
    "shares": 2,
-   "reach": 231,
-   "share_rate": 0.0087,
-   "share_baseline": 0.0009,
+   "reach": 292,
+   "share_rate": 0.0068,
+   "share_baseline": 0.001,
    "compared_with": "quiz (30 posts)",
    "factor": 3,
    "by": [
@@ -21,7 +21,75 @@
    "series": null,
    "date": "2026-11-13",
    "until": "2026-11-17"
+  },
+  {
+   "post": "fmt-diagnose-02",
+   "buffer_id": "6af4b258cd1c54423956f0ae",
+   "day": 61,
+   "title": "Diagnose this",
+   "kind": "formats",
+   "format": "diagnose",
+   "age_hours": 47.8,
+   "views": 1275,
+   "baseline": 332,
+   "shares": 4,
+   "reach": 1091,
+   "share_rate": 0.0037,
+   "share_baseline": 0.0,
+   "compared_with": "all formats (11 posts)",
+   "factor": 3,
+   "by": [
+    "views"
+   ],
+   "series": "diagnose",
+   "date": "2026-11-14",
+   "until": "2026-11-18"
+  },
+  {
+   "post": "pelvis-04",
+   "buffer_id": "6af4b26aff6dbdf184e16164",
+   "day": 65,
+   "title": "The Pelvis",
+   "kind": "quiz",
+   "age_hours": 26.8,
+   "views": 517,
+   "baseline": 734,
+   "shares": 2,
+   "reach": 422,
+   "share_rate": 0.0047,
+   "share_baseline": 0.001,
+   "compared_with": "quiz (30 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": null,
+   "date": "2026-11-14",
+   "until": "2026-11-18"
+  },
+  {
+   "post": "fmt-types-01",
+   "buffer_id": "6af62ea448a8bf93e4274415",
+   "day": 67,
+   "title": "11 types of fracture",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 20.3,
+   "views": 10296,
+   "baseline": 332,
+   "shares": 131,
+   "reach": 8793,
+   "share_rate": 0.0149,
+   "share_baseline": 0.0,
+   "compared_with": "all formats (11 posts)",
+   "factor": 3,
+   "by": [
+    "views"
+   ],
+   "series": "types",
+   "date": "2026-11-14",
+   "until": "2026-11-18"
   }
  ],
- "updated_at": "2026-11-13T18:48:45Z"
+ "updated_at": "2026-11-14T17:20:12Z"
 }
