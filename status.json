@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-14T19:01:43+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43629789781",
+ "generated_at": "2026-11-14T20:15:06+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43636469010",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -94,7 +94,7 @@
    ],
    "date": "2026-11-14",
    "until": "2026-11-18",
-   "left": 0,
+   "left": 1,
    "make_more": true
   },
   {
