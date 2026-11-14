@@ -199,7 +199,7 @@ def _caption(q: dict) -> str:
             + " ".join(tags) + "\n\n.\n.\n.\n"
             f"✅ Answer: {answer_text(q)}\n"
             + re.sub(r"^[A-D][:,.)]\s*", "", q["why"]) + "\n"
-            + medical + credit)
+            + medical + credit + (f"\n{q['credit_voice']}" if q.get("credit_voice") else ""))
 
 
 def youtube_title(q: dict) -> str:

@@ -36,3 +36,9 @@ def test_promote_swaps_a_queued_post_for_a_series_video(monkeypatch, tmp_path):
 def test_captions_drop_pronunciation_marks():
     q = {"format": "types", "hook": "Hook.", "question": "Q?", "why": "a ligament [tears](tˈɛɹz) here", "hashtags": ["#a"]}
     assert "[tears]" not in series.caption(q) and "ligament tears here" in series.caption(q)
+
+
+def test_a_cloned_voice_is_credited_in_the_caption():
+    q = {"format": "diagnose", "hook": "Numb at night.", "question": "Which nerve?", "choices": ["Median", "Radial", "Ulnar", "Axillary"],
+         "answer": "A", "why": "Carpal tunnel.", "hashtags": ["#a"], "credit_voice": "AI voice: a clone of my voice (OmniVoice)."}
+    assert series.caption(q).endswith("Educational, not medical advice.\nAI voice: a clone of my voice (OmniVoice).")
