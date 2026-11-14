@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T20:15:06+00:00",
+ "generated_at": "2026-11-14T20:49:30+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43636469010",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -25,7 +25,8 @@
  "series": {
   "deepdive": {
    "slots": [
-    "18:00"
+    "18:00",
+    "20:00"
    ],
    "from": "2026-11-07",
    "cycle": null,
@@ -38,12 +39,9 @@
    ],
    "from": "2026-11-08",
    "cycle": [
-    "missing",
-    "zoom",
+    "types",
     "diagnose",
-    "myth",
-    "rank",
-    "types"
+    "missing"
    ],
    "posted": 19
   }
@@ -493,7 +491,7 @@
    "id": "fmt-types-03",
    "organ": null,
    "title": "6 types of joint",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-types-03-v0127.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-types-03-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -507,7 +505,7 @@
    "id": "dd-onetake-stove",
    "organ": null,
    "title": "One touch of a hot stove. One take.",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1800-dd-onetake-stove-v0127.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1800-dd-onetake-stove-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -521,7 +519,7 @@
    "id": "fmt-types-04",
    "organ": null,
    "title": "4 shoulder injuries athletes get",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-fmt-types-04-v0127.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-fmt-types-04-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -535,7 +533,7 @@
    "id": "fmt-types-06",
    "organ": null,
    "title": "7 bones people break all the time",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-fmt-types-06.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-fmt-types-06-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -549,7 +547,7 @@
    "id": "fmt-diagnose-03",
    "organ": null,
    "title": "Diagnose this",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1230-fmt-diagnose-03.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1230-fmt-diagnose-03-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -563,7 +561,7 @@
    "id": "fmt-types-07",
    "organ": null,
    "title": "Migraine or just a headache? 6 headaches and where you feel them",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-types-07.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-types-07-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -577,7 +575,7 @@
    "id": "dd-cotton-swabs",
    "organ": null,
    "title": "Cotton swabs",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1800-dd-cotton-swabs.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1800-dd-cotton-swabs-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -591,7 +589,7 @@
    "id": "thigh-04",
    "organ": "thigh",
    "title": "Leg Muscles",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-2000-thigh-04.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-2000-thigh-04-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -605,7 +603,7 @@
    "id": "arm-06",
    "organ": "arm",
    "title": "The Arm",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-0930-arm-06.mp4",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-0930-arm-06-v2015.mp4",
    "platforms": [
     "instagram",
     "tiktok",
