@@ -1188,5 +1188,87 @@
     "music": "pop-1",
     "promoted": "2026-11-14",
     "replaced": "spine-05"
+  },
+  {
+    "slot": "2026-11-15T12:30:00-05:00",
+    "day": 76,
+    "id": "fmt-diagnose-03",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1230-fmt-diagnose-03.mp4",
+    "video_seconds": 25.35,
+    "buffer": {
+      "instagram": "6af8ae5be86a5789a6c69eee",
+      "tiktok": "6af8ae5be86a5789a6c69f36",
+      "youtube": "6af8ae5c76c23bf1c7347df2"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "lofi-3",
+    "hot": "diagnose"
+  },
+  {
+    "slot": "2026-11-15T16:00:00-05:00",
+    "day": 77,
+    "id": "fmt-myth-03",
+    "organ": null,
+    "title": "Myth or fact?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-myth-03.mp4",
+    "video_seconds": 24.41,
+    "buffer": {
+      "instagram": "6af8ae5d918fe79d2e9a891a",
+      "tiktok": "6af8ae5eb9a106584c632d24",
+      "youtube": "6af8ae5f76c23bf1c7347e6f"
+    },
+    "kind": "formats",
+    "format": "myth",
+    "music": "lofi-4"
+  },
+  {
+    "slot": "2026-11-15T18:00:00-05:00",
+    "day": 78,
+    "id": "dd-cotton-swabs",
+    "organ": null,
+    "title": "Cotton swabs",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1800-dd-cotton-swabs.mp4",
+    "video_seconds": 28.12,
+    "buffer": {
+      "instagram": "6af8ae60918fe79d2e9a89a6",
+      "tiktok": "6af8ae61918fe79d2e9a89d7",
+      "youtube": "6af8ae62e5a113497aa0a2a6"
+    },
+    "kind": "deepdive",
+    "music": "pop-1"
+  },
+  {
+    "slot": "2026-11-15T20:00:00-05:00",
+    "day": 79,
+    "id": "thigh-04",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-2000-thigh-04.mp4",
+    "video_seconds": 21.06,
+    "buffer": {
+      "instagram": "6af8ae63918fe79d2e9a8a41",
+      "tiktok": "6af8ae64e86a5789a6c6a1d4",
+      "youtube": "6af8ae64b9a106584c632e11"
+    },
+    "music": "pop-4",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-16T09:30:00-05:00",
+    "day": 80,
+    "id": "arm-06",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-0930-arm-06.mp4",
+    "video_seconds": 18.49,
+    "buffer": {
+      "instagram": "6af8ae66e5a113497aa0a426",
+      "tiktok": "6af8ae67918fe79d2e9a8b0f",
+      "youtube": "6af8ae67b9a106584c632f76"
+    },
+    "music": "pop-2"
   }
 ]
