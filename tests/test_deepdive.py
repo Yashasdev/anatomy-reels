@@ -169,3 +169,49 @@ def test_plan_json_stays_pure_json_when_the_plan_warns(setup, monkeypatch, capsy
     captured = capsys.readouterr()
     assert json.loads(captured.out), "stdout is only the JSON list of slots"
     assert "few videos left" in captured.err
+
+
+def test_publish_never_rebuilds_the_index_from_nothing(tmp_path, monkeypatch):
+    """If the old index can't be read (urllib and gh both fail), publishing stops before uploading a new index.json,
+    which would otherwise list only the new video and drop every other one."""
+    import subprocess
+    import pytest
+    from anatomy import series
+    (tmp_path / "dd-new.json").write_text('{"id": "dd-new"}')
+    (tmp_path / "dd-new.mp4").write_bytes(b"x")
+    calls = []
+
+    def run(cmd, **kw):
+        calls.append(cmd)
+        failed = "download" in cmd
+        return subprocess.CompletedProcess(cmd, 1 if failed else 0, stdout="", stderr="HTTP 502" if failed else "")
+
+    def no_fetch(*a, **k):
+        raise OSError("certificate verify failed")
+    monkeypatch.setattr(series.subprocess, "run", run)
+    monkeypatch.setattr(series, "fetch", no_fetch)
+    with pytest.raises(SystemExit):
+        series.publish_dir("deepdive", tmp_path)
+    assert not any("index.json" in str(c) for c in calls if "upload" in c), "no index.json was uploaded"
+    assert not (tmp_path / "index.json").exists()
+
+
+def test_publish_reads_the_old_index_through_gh_when_urllib_fails(tmp_path, monkeypatch):
+    import json
+    import subprocess
+    from anatomy import series
+    (tmp_path / "dd-new.json").write_text('{"id": "dd-new", "hold": true}')
+    (tmp_path / "dd-new.mp4").write_bytes(b"x")
+    old = [{"id": "dd-nephron"}, {"id": "dd-na-k-pump"}]
+
+    def run(cmd, **kw):
+        out = json.dumps(old) if "download" in cmd else ""
+        return subprocess.CompletedProcess(cmd, 0, stdout=out, stderr="")
+
+    def no_fetch(*a, **k):
+        raise OSError("certificate verify failed")
+    monkeypatch.setattr(series.subprocess, "run", run)
+    monkeypatch.setattr(series, "fetch", no_fetch)
+    series.publish_dir("deepdive", tmp_path)
+    ids = [v["id"] for v in json.loads((tmp_path / "index.json").read_text())]
+    assert set(ids) == {"dd-nephron", "dd-na-k-pump", "dd-new"}

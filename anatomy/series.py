@@ -226,8 +226,12 @@ def publish_dir(name: str, folder: Path) -> None:
                         str(folder / f"{vid}.mp4"), str(folder / f"{vid}.json")], check=True)
     try:
         old = {v["id"]: v for v in json.loads(fetch(f"{source(name)}/index.json"))}
-    except Exception:
-        old = {}
+    except Exception as e:  # e.g. a Python without SSL certificates: ask gh, and never rebuild from an empty list by mistake
+        r = subprocess.run(["gh", "release", "download", rel, "-R", REPO, "-p", "index.json", "-O", "-"], capture_output=True, text=True)
+        if r.returncode and "no assets match" not in (r.stderr or "").lower():
+            raise SystemExit(f"Couldn't read the {name} index ({e}; gh: {(r.stderr or '').strip()[:200]}); "
+                             "index.json not rebuilt, or it would drop every other video.")
+        old = {v["id"]: v for v in json.loads(r.stdout)} if r.returncode == 0 else {}
     merged = {**old, **infos}
     order = settings(name).get("order", [])
     listing = [merged[i] for i in order if i in merged] + [v for i, v in merged.items() if i not in order]
