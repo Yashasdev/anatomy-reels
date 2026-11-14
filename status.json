@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-14T18:54:52+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43627234787",
+ "generated_at": "2026-11-14T19:01:43+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43629789781",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -94,7 +94,7 @@
    ],
    "date": "2026-11-14",
    "until": "2026-11-18",
-   "left": 1,
+   "left": 0,
    "make_more": true
   },
   {
@@ -560,10 +560,10 @@
   {
    "slot": "2026-11-15T16:00:00-05:00",
    "day": 77,
-   "id": "fmt-myth-03",
+   "id": "fmt-types-07",
    "organ": null,
-   "title": "Myth or fact?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-myth-03.mp4",
+   "title": "Migraine or just a headache? 6 headaches and where you feel them",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-types-07.mp4",
    "platforms": [
     "instagram",
     "tiktok",
