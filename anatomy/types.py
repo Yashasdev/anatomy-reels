@@ -415,7 +415,7 @@ def watermark(img: Image.Image, s: float) -> None:
     and below y 200 (Nov 13, 2026: at x 58 it showed as "TOMY CE" on an iPhone)."""
     d = ImageDraw.Draw(img)
     x = 150 * s
-    d.line([(x, 204 * s), (x, 246 * s)], fill=(235, 238, 242), width=max(1, int(2 * s)))
+    d.line([(x, 0), (x, 246 * s)], fill=(235, 238, 242), width=max(1, int(2 * s)))  # hangs from the top (Yashas, Nov 14)
     for i, word in enumerate(("ANATOMY", "ACE")):
         d.text((x, 258 * s + i * 24 * s), word, font=BOLD(int(19 * s)), fill=(235, 238, 242), anchor="mt")
 
