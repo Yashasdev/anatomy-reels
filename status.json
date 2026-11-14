@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-14T00:31:35+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43530373542",
+ "generated_at": "2026-11-14T00:49:22+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43536638596",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -9,8 +9,8 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 17,
- "total": 92,
+ "unused": 18,
+ "total": 93,
  "posted": 75,
  "ramp": [
   [
@@ -45,7 +45,7 @@
     "rank",
     "types"
    ],
-   "posted": 14
+   "posted": 15
   }
  },
  "banks": {
@@ -71,7 +71,7 @@
   },
   "arm": {
    "total": 7,
-   "unused": 1
+   "unused": 2
   },
   "spine": {
    "total": 7,
@@ -521,10 +521,10 @@
   {
    "slot": "2026-11-14T12:30:00-05:00",
    "day": 71,
-   "id": "fmt-missing-03",
+   "id": "fmt-types-02",
    "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1230-fmt-missing-03-v2353.mp4",
+   "title": "5 knee injuries athletes get",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1230-fmt-types-02.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -535,10 +535,10 @@
   {
    "slot": "2026-11-14T16:00:00-05:00",
    "day": 72,
-   "id": "fmt-zoom-04",
+   "id": "fmt-types-03",
    "organ": null,
-   "title": "Zoom out: guess the body part",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-zoom-04-v2354.mp4",
+   "title": "6 types of joint",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-types-03.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -563,10 +563,10 @@
   {
    "slot": "2026-11-14T20:00:00-05:00",
    "day": 74,
-   "id": "arm-06",
-   "organ": "arm",
-   "title": "The Arm",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-arm-06-v2353.mp4",
+   "id": "fmt-types-04",
+   "organ": null,
+   "title": "4 shoulder injuries athletes get",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-fmt-types-04.mp4",
    "platforms": [
     "instagram",
     "tiktok",
