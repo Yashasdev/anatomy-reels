@@ -70,7 +70,8 @@
   "deepdive": {
     "release": "deepdives",
     "slots": [
-      "18:00"
+      "18:00",
+      "20:00"
     ],
     "from": "2026-11-07",
     "order": [
@@ -97,7 +98,7 @@
       "dd-transcription",
       "dd-translation"
     ],
-    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready. Nov 10, 2026 (share plan, approved by Yashas): share-first videos go first (One Take, future parents, everyday warnings, then the most sendable of the rest); textbook processes (membrane transport, transcription, translation) last."
+    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready. Nov 10, 2026 (share plan, approved by Yashas): share-first videos go first (One Take, future parents, everyday warnings, then the most sendable of the rest); textbook processes (membrane transport, transcription, translation) last. Nov 14, 2026 (Yashas): a second deep dive at 20:00 replaces that quiz (deep dives: 1,258 median views and 0.91% shares per reach vs quizzes' 361 and 0.21%); with none ready it posts a quiz."
   },
   "formats": {
     "release": "formats",
@@ -107,14 +108,11 @@
     ],
     "from": "2026-11-08",
     "cycle": [
-      "missing",
-      "zoom",
+      "types",
       "diagnose",
-      "myth",
-      "rank",
-      "types"
+      "missing"
     ],
-    "note": "Two of the five daily quizzes rotate through five short formats (Yashas, Nov 6, 2026): Which bone is missing?, Zoom out, Diagnose this, Myth or fact, Rank these. Each day takes the next two in the cycle; a format with nothing ready passes to the next, and with nothing ready at all the slot posts a quiz. Keep it until the Strategist has data on which formats win. Nov 9, 2026: a sixth format, \"types\" (Types of fracture: one femur broken 11 ways in a gray studio, anatomy/types.py), copied from a breakdown reel Yashas liked; with six formats each comes round every three days."
+    "note": "Two of the five daily quizzes rotate through five short formats (Yashas, Nov 6, 2026): Which bone is missing?, Zoom out, Diagnose this, Myth or fact, Rank these. Each day takes the next two in the cycle; a format with nothing ready passes to the next, and with nothing ready at all the slot posts a quiz. Keep it until the Strategist has data on which formats win. Nov 9, 2026: a sixth format, \"types\" (Types of fracture: one femur broken 11 ways in a gray studio, anatomy/types.py), copied from a breakdown reel Yashas liked; with six formats each comes round every three days. Nov 14, 2026 (Yashas): Zoom out, Rank these and Myth or fact are dropped (0 shares in 7 posts, 184-288 median views at 1 day); the cycle is Types, Diagnose this, Which bone is missing."
   },
   "rotation_note": "Nov 6, 2026: on Instagram, bone and muscle quizzes about famous, feel-it-yourself parts got 750-1,400 views at 1 day (10 of 15 since Nov 1); organ quizzes (heart, lungs, abdomen, eye, teeth) got 128-417 (0 of 6). So the two daily 3D quizzes use bone and muscle regions only. The organ banks stay for later (deep dives cover organs).",
   "ramp_note": "Only the 09:30 and 20:00 slots use quiz stock now (the others are deep dives and formats), so 14 unused questions (a week) is enough for all 5 slots.",
