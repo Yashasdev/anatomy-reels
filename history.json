@@ -1210,19 +1210,21 @@
   {
     "slot": "2026-11-15T16:00:00-05:00",
     "day": 77,
-    "id": "fmt-myth-03",
+    "id": "fmt-types-07",
     "organ": null,
-    "title": "Myth or fact?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-myth-03.mp4",
-    "video_seconds": 24.41,
+    "title": "Migraine or just a headache? 6 headaches and where you feel them",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1600-fmt-types-07.mp4",
+    "video_seconds": 71.37,
     "buffer": {
       "instagram": "6af8ae5d918fe79d2e9a891a",
       "tiktok": "6af8ae5eb9a106584c632d24",
       "youtube": "6af8ae5f76c23bf1c7347e6f"
     },
     "kind": "formats",
-    "format": "myth",
-    "music": "lofi-4"
+    "format": "types",
+    "music": "ambient-2",
+    "promoted": "2026-11-14",
+    "replaced": "fmt-myth-03"
   },
   {
     "slot": "2026-11-15T18:00:00-05:00",
