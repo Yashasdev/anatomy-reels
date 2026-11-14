@@ -480,6 +480,68 @@ def swap_queued() -> int:
     return 1 if failed else 0
 
 
+def promotions(spec: str) -> list[tuple[str, str]]:
+    """PROMOTE="2026-11-14 12:30=fmt-types-02; 2026-11-14 16:00=fmt-types-03": queued slots (Eastern) and the
+    series video each should post instead."""
+    tz = ZoneInfo(CONFIG["timezone"])
+    out = []
+    for part in filter(None, (p.strip() for p in spec.replace("\n", ";").split(";"))):
+        when, vid = (x.strip() for x in part.split("="))
+        out.append((datetime.strptime(when, "%Y-%m-%d %H:%M").replace(tzinfo=tz).isoformat(), vid))
+    return out
+
+
+def promote(spec: str, now: datetime | None = None) -> int:
+    """Sequels after a hit, sooner than the plan would post them (the Red Pen Prep move: more of a hit within a
+    day). Each named queued post becomes the named series video: same Buffer posts, time and day number, new video,
+    caption and YouTube title. What it replaces goes back to unused, so it simply posts later. History records
+    "promoted" (the date) and "replaced" (the old id)."""
+    from . import buffer, storage
+    now = now or datetime.now(ZoneInfo("UTC"))
+    hist, failed = history(), 0
+    used = {h["id"] for h in hist}
+    for slot, vid in promotions(spec):
+        h = next((x for x in hist if x["slot"] == slot), None)
+        if h is None or datetime.fromisoformat(slot) <= now + timedelta(minutes=30):
+            print(f"::error::{slot}: no queued post there (or it's within 30 minutes); not changed", file=sys.stderr)
+            failed += 1
+            continue
+        if vid in used:
+            print(f"::error::{vid} is already in history; not promoted to {slot}", file=sys.stderr)
+            failed += 1
+            continue
+        name, video = next(((n, v) for n in series.SERIES for v in series.index(n) if v["id"] == vid), (None, None))
+        if video is None:
+            print(f"::error::{vid} isn't in any series index", file=sys.stderr)
+            failed += 1
+            continue
+        q = {**video, "kind": name, "series": name, "day": h["day"]}
+        text, title = caption(q), youtube_title(q)  # before any download or edit, so a bad video changes nothing
+        out = ROOT / "out" / f"{file_name(datetime.fromisoformat(slot), q)}.mp4"
+        seconds = render(q, out)
+        url = storage.upload_to_r2(out, out.name, CONFIG["r2"])
+        cover_ms = int((seconds - 0.25) * 1000)
+        ok = {}
+        for service, pid in h["buffer"].items():
+            try:
+                buffer.replace_video(pid, service, url, cover_ms, title=title, text=text)
+                ok[service] = pid
+                print(f"Day {h['day']} {slot}: {h['id']} -> {vid} on {service}")
+            except Exception as e:
+                failed += 1
+                print(f"::error::{service} promote failed for {slot}: {e}", file=sys.stderr)
+        if not ok:
+            continue
+        if len(ok) < len(h["buffer"]):
+            print(f"::error::{slot} is now mixed (only {sorted(ok)} changed); fix the rest in Buffer", file=sys.stderr)
+        new = {**entry(datetime.fromisoformat(slot), q, url, seconds, h["buffer"]),
+               "promoted": now.date().isoformat(), "replaced": h["id"]}
+        hist[hist.index(h)] = new
+        used.add(vid)
+        HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
+    return 1 if failed else 0
+
+
 def write_status() -> None:
     """status.json: what Reels HQ shows for Anatomy Ace (stock, daily rate, recent and queued posts). The daily
     workflow commits it, so the dashboard reads one public file instead of every bank."""
@@ -534,6 +596,8 @@ def main() -> int:
         return render_queued(sys.argv[2])
     if action == "swap-queued":
         return swap_queued()
+    if action == "promote":
+        return promote(os.environ.get("PROMOTE", ""))
     if action == "post":
         return post()
     if action in ("render-only", "publish"):

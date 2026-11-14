@@ -249,3 +249,12 @@ def test_low_stock_warns_and_shows_in_status(plan_setup, capsys):
     assert {(r["series"], r["left"], r["make_more"]) for r in rows} == {("onetake", 2, True), ("zoom", 2, True)}
     assert "onetake is a hit: make more" in capsys.readouterr().err
     assert hits.report(date(2030, 1, 9), [], data) == [], "nothing hot after it expires"
+
+
+def test_a_new_format_is_judged_against_the_other_formats():
+    """Nov 13, 2026: "11 types of fracture" was the only "types" post and the hit check said nothing."""
+    others = [rec(f"f{k}", 100 + 24 * k, 1000, kind=("myth", "zoom", "rank")[k % 3]) for k in range(6)]
+    out = hits.detect(metrics(*others, rec("p", 30, 3000, kind="types")), NOW)
+    assert [h["buffer_id"] for h in out] == ["p"] and out[0]["compared_with"] == "all formats (6 posts)"
+    assert found(*others, rec("p", 30, 2999, kind="types")) == {}
+    assert found(*others[:5], rec("p", 30, 50000, kind="types")) == {}, "5 formats in all: no verdict"

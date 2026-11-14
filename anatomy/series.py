@@ -172,8 +172,17 @@ def answer_text(q: dict) -> str:
     return f"{q['answer']}) {q['choices']['ABCD'.index(letters[0])]}"
 
 
+def spoken(text: str) -> str:
+    """Drops the narrator's pronunciation marks ("[tears](tˈɛɹz)" -> "tears"), which belong to the voice, not captions."""
+    return re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
+
+
 def caption(q: dict) -> str:
     """Hook, the question with its choices, then the answer far below so people comment first."""
+    return spoken(_caption(q))
+
+
+def _caption(q: dict) -> str:
     if q.get("format") == "types":  # a breakdown (anatomy/types.py): no choices, the comment prompt is the question
         tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]
         return (f"{q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
