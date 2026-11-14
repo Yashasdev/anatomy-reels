@@ -137,7 +137,7 @@ def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] 
     (unless nothing else is ready). `hot`: series with a recent hit (anatomy/hits.py), best first; the first one
     with a video in stock goes before the usual pick (formats: the caller passes only formats not used that day)."""
     videos = index(name)
-    fresh = [v for v in videos if v["id"] not in used]
+    fresh = [v for v in videos if v["id"] not in used and not v.get("hold")]  # "hold": waiting for Yashas's OK
     for s in hot:
         pick = next((v for v in fresh if series_name(name, v, videos) == s), None)
         if pick:

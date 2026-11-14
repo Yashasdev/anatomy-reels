@@ -42,3 +42,10 @@ def test_a_cloned_voice_is_credited_in_the_caption():
     q = {"format": "diagnose", "hook": "Numb at night.", "question": "Which nerve?", "choices": ["Median", "Radial", "Ulnar", "Axillary"],
          "answer": "A", "why": "Carpal tunnel.", "hashtags": ["#a"], "credit_voice": "AI voice: a clone of my voice (OmniVoice)."}
     assert series.caption(q).endswith("Educational, not medical advice.\nAI voice: a clone of my voice (OmniVoice).")
+
+
+def test_a_held_video_is_never_picked(monkeypatch):
+    from datetime import datetime
+    held = {"id": "fmt-types-08", "format": "types", "hold": True}
+    monkeypatch.setattr(series, "index", lambda name: [held])
+    assert series.next_video("formats", datetime(2026, 11, 16, 12, 30), [], (), ("types",)) is None
