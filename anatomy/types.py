@@ -479,9 +479,12 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     frames = int(round(length * FPS))
     script, spec = scene_for(q, segs, frames, work / "frames", W, H, samples)
     cache = os.environ.get("TYPES_CACHE")  # keep the 3D frames (one set per video), so 2D-only fixes skip Blender
-    text = script.read_text()
-    if not any(x.get("chips") for sh in spec.get("shows", {}).values() for x in sh.get("tears", [])):
-        text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)  # 02-04's frames stay cached
+    text = script.read_text()  # opt-in blocks a video doesn't use stay out of its key, so older videos stay cached
+    shows = spec.get("shows", {}).values()
+    if not any(x.get("chips") for sh in shows for x in sh.get("tears", [])):
+        text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)
+    if not any(sh.get("pulse") for sh in shows):
+        text = re.sub(r"# --- pulse .*?# --- end pulse\n\n", "", text, flags=re.S)
     key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + text).encode()).hexdigest()
     if cache:
         keep = Path(cache).expanduser() / q["id"]

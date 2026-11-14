@@ -725,6 +725,24 @@ for name, frames in poses.items():
     ks = sorted(frames)
     for k in ks:
         sh.pose(frames[k], k)
+# --- pulse (fmt-types-07 on): a show with "pulse": hz throbs its red glow that many times a second once it is hurt
+# (a headache, where nothing breaks). anatomy/types.py leaves this block out of the 3D cache key when no show pulses.
+for name, frames in poses.items():
+    sh = SHOWN[name]
+    hz = sh.s.get("pulse")
+    if not hz:
+        continue
+    for k in sorted(frames):
+        te = frames[k]
+        if te < 0.35:
+            continue
+        beat = 0.5 + 0.5 * math.cos(2 * math.pi * hz * (te - 0.35))
+        for n in sh.hurt:
+            b = sh.mats[n].node_tree.nodes["Principled BSDF"]
+            b.inputs["Emission Strength"].default_value = 0.2 + 1.1 * beat
+            b.inputs["Emission Strength"].keyframe_insert("default_value", frame=k)
+# --- end pulse
+
 for k in range(TOTAL):
     vis = shown.get(k, set())
     prev = shown.get(k - 1, set())

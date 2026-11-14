@@ -1,0 +1,485 @@
+[
+ {
+  "id": "fmt-types-07",
+  "scene": "parts",
+  "for": "Anyone who gets headaches (most adults do). They send it to the friend who always has a headache: it names what theirs might be, and says which one is an emergency.",
+  "title": "Migraine or just a headache? 6 headaches and where you feel them",
+  "question": "6 headaches and where you feel them. Which one do you get?",
+  "hook": "A *migraine* isn't just a bad headache. Here's how to tell.",
+  "intro": "Here are 6 headaches, and where you feel them.",
+  "flash": [
+   "tension",
+   "migraine",
+   "cluster",
+   "sinus",
+   "thunderclap"
+  ],
+  "types": [
+   {
+    "name": "tension",
+    "label": "TENSION",
+    "chart": [
+     "Tension",
+     "tight band, both sides"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Tension headache. The most common kind.",
+     "It feels like a tight band pressing on both sides of your head."
+    ],
+    "show": {
+     "model": "head",
+     "orient": [
+      0,
+      0,
+      25
+     ],
+     "lit": [
+      "Frontal bone",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Occipital bone"
+     ],
+     "hurt": [
+      "Frontal bone",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Occipital bone"
+     ],
+     "pin": {
+      "part": "Parietal bone.r",
+      "at": [
+       0.3,
+       0.3,
+       0.7
+      ]
+     },
+     "zoom": 0.8,
+     "chart_t": 1.0,
+     "moves": [
+      {
+       "parts": [
+        "Mandible"
+       ],
+       "pivot": {
+        "part": "Mandible",
+        "at": [
+         0.5,
+         1.0,
+         1.0
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         -12,
+         0,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "name": "migraine",
+    "label": "MIGRAINE",
+    "chart": [
+     "Migraine",
+     "throbs, often one side"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Migraine. Often throbbing, on one side, worse when you move,",
+     "with nausea, or light and sound that feel like too much.",
+     "An attack usually lasts 4 hours to 3 days.",
+     "About 1 in 4 people with migraine see an aura, like zigzag lights."
+    ],
+    "show": {
+     "model": "head",
+     "orient": [
+      0,
+      0,
+      60
+     ],
+     "lit": [
+      "Temporal bone.r",
+      "Parietal bone.r"
+     ],
+     "hurt": [
+      "Temporal bone.r",
+      "Parietal bone.r"
+     ],
+     "pin": {
+      "part": "Temporal bone.r",
+      "at": [
+       0.2,
+       0.4,
+       0.8
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 1.0,
+     "moves": [
+      {
+       "parts": [
+        "Mandible"
+       ],
+       "pivot": {
+        "part": "Mandible",
+        "at": [
+         0.5,
+         1.0,
+         1.0
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         -12,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "pulse": 1.4
+    }
+   },
+   {
+    "name": "cluster",
+    "label": "CLUSTER",
+    "chart": [
+     "Cluster",
+     "around one eye"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Cluster headache. Severe pain around one eye,",
+     "with a watery eye or runny nose on that side.",
+     "It comes in bouts that can last weeks or months."
+    ],
+    "show": {
+     "model": "head",
+     "orient": [
+      0,
+      0,
+      20
+     ],
+     "lit": [
+      "Zygomatic bone.r",
+      "Lacrimal bone.r"
+     ],
+     "hurt": [
+      "Zygomatic bone.r",
+      "Lacrimal bone.r"
+     ],
+     "pin": {
+      "part": "Zygomatic bone.r",
+      "at": [
+       0.6,
+       0.2,
+       0.9
+      ]
+     },
+     "zoom": 0.32,
+     "chart_t": 1.0,
+     "moves": [
+      {
+       "parts": [
+        "Mandible"
+       ],
+       "pivot": {
+        "part": "Mandible",
+        "at": [
+         0.5,
+         1.0,
+         1.0
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         -12,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "pulse": 2.0,
+     "focus": {
+      "part": "Zygomatic bone.r",
+      "at": [
+       0.6,
+       0.3,
+       0.9
+      ]
+     }
+    }
+   },
+   {
+    "name": "sinus",
+    "label": "SINUS",
+    "chart": [
+     "\"Sinus\"",
+     "often a migraine"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Sinus headache? In one big study, 8 in 10 people",
+     "with repeated \"sinus headaches\" actually had migraine."
+    ],
+    "show": {
+     "model": "head",
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "lit": [
+      "Maxilla.l",
+      "Maxilla.r",
+      "Nasal bone.l",
+      "Nasal bone.r",
+      "Frontal bone"
+     ],
+     "hurt": [
+      "Maxilla.l",
+      "Maxilla.r",
+      "Nasal bone.l",
+      "Nasal bone.r",
+      "Frontal bone"
+     ],
+     "pin": {
+      "part": "Maxilla.r",
+      "at": [
+       0.4,
+       0.1,
+       0.6
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 1.0,
+     "moves": [
+      {
+       "parts": [
+        "Mandible"
+       ],
+       "pivot": {
+        "part": "Mandible",
+        "at": [
+         0.5,
+         1.0,
+         1.0
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         -12,
+         0,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "name": "rebound",
+    "label": "REBOUND",
+    "chart": [
+     "Rebound",
+     "too many painkillers"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Rebound headache. Using painkillers for headaches",
+     "on most days of the month can make them come more often."
+    ],
+    "show": {
+     "model": "head",
+     "orient": [
+      0,
+      0,
+      -25
+     ],
+     "lit": [
+      "Frontal bone",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Occipital bone"
+     ],
+     "hurt": [
+      "Frontal bone",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Occipital bone"
+     ],
+     "pin": {
+      "part": "Parietal bone.l",
+      "at": [
+       0.7,
+       0.3,
+       0.7
+      ]
+     },
+     "zoom": 0.8,
+     "chart_t": 1.0,
+     "moves": [
+      {
+       "parts": [
+        "Mandible"
+       ],
+       "pivot": {
+        "part": "Mandible",
+        "at": [
+         0.5,
+         1.0,
+         1.0
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         -12,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "pulse": 0.7
+    }
+   },
+   {
+    "name": "thunderclap",
+    "label": "THUNDERCLAP",
+    "chart": [
+     "Thunderclap",
+     "emergency: call 911"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Thunderclap headache. Sudden, severe pain that peaks in under a minute.",
+     "That's an emergency. Call 911."
+    ],
+    "show": {
+     "model": "head",
+     "orient": [
+      0,
+      0,
+      15
+     ],
+     "lit": [
+      "Frontal bone",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Occipital bone",
+      "Sphenoid bone",
+      "Zygomatic bone.l",
+      "Zygomatic bone.r",
+      "Maxilla.l",
+      "Maxilla.r"
+     ],
+     "hurt": [
+      "Frontal bone",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Occipital bone",
+      "Sphenoid bone",
+      "Zygomatic bone.l",
+      "Zygomatic bone.r",
+      "Maxilla.l",
+      "Maxilla.r"
+     ],
+     "pin": {
+      "part": "Frontal bone",
+      "at": [
+       0.3,
+       0.1,
+       0.8
+      ]
+     },
+     "zoom": 0.8,
+     "chart_t": 1.0,
+     "moves": [
+      {
+       "parts": [
+        "Mandible"
+       ],
+       "pivot": {
+        "part": "Mandible",
+        "at": [
+         0.5,
+         1.0,
+         1.0
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         -12,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "pulse": 3.0
+    }
+   }
+  ],
+  "outro": [
+   "Headaches that keep coming back? A doctor can help.",
+   "Which one do *you* get?",
+   "Send this to the friend who always has a headache."
+  ],
+  "grid_title": "WHERE HEADACHES HURT",
+  "why": "Tension-type: the most common kind; a pressing or tightening band on both sides, not worse with activity. Migraine: often one-sided and throbbing, worse with movement, with nausea or sensitivity to light and sound; attacks usually last 4 to 72 hours. Aura: about 1 in 4 people with migraine get visual (or other) symptoms like zigzag or flashing lights. Cluster: severe pain around one eye or temple, with a watery eye or runny nose on that side, in bouts lasting weeks or months. \"Sinus\" headache: in a study of almost 3,000 people with repeated self- or doctor-diagnosed sinus headache and no infection, 80% met full migraine criteria. Rebound (medication-overuse) headache: using painkillers for headaches on most days of the month (10-15 or more) for months can make headaches more frequent. Thunderclap: sudden, severe pain that peaks in under a minute is an emergency: call 911. Headaches that keep coming back: see a doctor.",
+  "hashtags": [
+   "#migraine",
+   "#headache",
+   "#anatomy",
+   "#health",
+   "#premed"
+  ],
+  "sources": [
+   "https://www.who.int/news-room/fact-sheets/detail/headache-disorders",
+   "https://ichd-3.org/2-tension-type-headache/",
+   "https://www.mayoclinic.org/diseases-conditions/tension-headache/symptoms-causes/syc-20353977",
+   "https://www.nhs.uk/conditions/tension-headaches/",
+   "https://ichd-3.org/1-migraine/1-1-migraine-without-aura/",
+   "https://www.nhs.uk/conditions/migraine/",
+   "https://www.migrainetrust.org/about-migraine/types-of-migraine/migraine-with-aura/",
+   "https://ichd-3.org/3-trigeminal-autonomic-cephalalgias/3-1-cluster-headache/",
+   "https://pubmed.ncbi.nlm.nih.gov/15364670/",
+   "https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/",
+   "https://www.nice.org.uk/guidance/cg150/resources/could-painkillers-be-causing-your-headaches",
+   "https://ichd-3.org/4-other-primary-headache-disorders/4-4-primary-thunderclap-headache/",
+   "https://www.mayoclinic.org/diseases-conditions/thunderclap-headaches/symptoms-causes/syc-20378361"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the friend who always has a headache 🤕",
+  "music": "ambient-2"
+ }
+]

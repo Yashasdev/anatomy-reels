@@ -332,5 +332,27 @@
   "Trapezoid bone.r",
   "Triquetrum bone.r",
   "Ulna.r"
+ ],
+ "head": [
+  "Ethmoid bone",
+  "Frontal bone",
+  "Lacrimal bone.l",
+  "Lacrimal bone.r",
+  "Mandible",
+  "Maxilla.l",
+  "Maxilla.r",
+  "Nasal bone.l",
+  "Nasal bone.r",
+  "Occipital bone",
+  "Palatine bone.l",
+  "Palatine bone.r",
+  "Parietal bone.l",
+  "Parietal bone.r",
+  "Sphenoid bone",
+  "Temporal bone.l",
+  "Temporal bone.r",
+  "Vomer",
+  "Zygomatic bone.l",
+  "Zygomatic bone.r"
  ]
 }

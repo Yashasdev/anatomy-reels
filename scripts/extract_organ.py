@@ -31,6 +31,11 @@ MODELS = {
     # fmt-types-05/06: the forearm and hand in place together (Colles', Smith's, nightstick, a child's forearm); the
     # old "arm" model predates the baked transforms, so each of its parts sits at the origin
     "forearm": ["Humerus.r", "Radius.r", "Ulna.r"],
+    # fmt-types-07 (headaches): the skull with every bone in place (the old "skull" model has each at the origin)
+    "head": ["Frontal bone", "Parietal bone.l", "Parietal bone.r", "Occipital bone", "Temporal bone.l",
+             "Temporal bone.r", "Sphenoid bone", "Zygomatic bone.l", "Zygomatic bone.r", "Maxilla.l", "Maxilla.r",
+             "Nasal bone.l", "Nasal bone.r", "Mandible", "Vomer", "Ethmoid bone", "Lacrimal bone.l", "Lacrimal bone.r",
+             "Palatine bone.l", "Palatine bone.r"],
 }
 
 # larger regions, picked by name pattern (right side unless both sides read better); never ligaments or markers
