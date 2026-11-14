@@ -1,0 +1,1139 @@
+[
+ {
+  "id": "fmt-types-06",
+  "scene": "parts",
+  "for": "Nearly everyone: most people have broken one of these or know someone who has. They send it to the friend who's broken half of them, and the chart is a list of their injury history.",
+  "title": "7 bones people break all the time",
+  "question": "7 bones people break all the time. Which one did you break?",
+  "hook": "Broke a bone? I bet it was one of these 7.",
+  "intro": "Here are 7 bones people break all the time.",
+  "flash": [
+   "wrist",
+   "collarbone",
+   "ankle",
+   "toe",
+   "hip"
+  ],
+  "flash_mystery": [
+   "wrist"
+  ],
+  "types": [
+   {
+    "name": "wrist",
+    "label": "WRIST",
+    "chart": [
+     "Wrist",
+     "fall on a hand"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Wrist. Fall onto an outstretched hand,",
+     "and the end of your forearm bone breaks.",
+     "It's a very common break, at any age."
+    ],
+    "show": {
+     "model": "forearm",
+     "parts": [
+      "Radius.r",
+      "Ulna.r",
+      "Capitate bone.r",
+      "Hamate bone.r",
+      "Lunate bone.r",
+      "Pisiform bone.r",
+      "Scaphoid bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Triquetrum bone.r",
+      "First metacarpal bone.r",
+      "Second metacarpal bone.r",
+      "Third metacarpal bone.r",
+      "Fourth metacarpal bone.r",
+      "Fifth metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r",
+      "Proximal phalanx of second finger of hand.r",
+      "Middle phalanx of second finger of hand.r",
+      "Distal phalanx of second finger of hand.r",
+      "Proximal phalanx of third finger of hand.r",
+      "Middle phalanx of third finger of hand.r",
+      "Distal phalanx of third finger of hand.r",
+      "Proximal phalanx of fourth finger of hand.r",
+      "Middle phalanx of fourth finger of hand.r",
+      "Distal phalanx of fourth finger of hand.r",
+      "Proximal phalanx of fifth finger of hand.r",
+      "Middle phalanx of fifth finger of hand.r",
+      "Distal phalanx of fifth finger of hand.r"
+     ],
+     "orient": [
+      0,
+      0,
+      60
+     ],
+     "frame": [
+      [
+       -0.335,
+       -0.1,
+       0.7
+      ],
+      [
+       -0.2,
+       0.065,
+       1.0
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Capitate bone.r",
+        "Hamate bone.r",
+        "Lunate bone.r",
+        "Pisiform bone.r",
+        "Scaphoid bone.r",
+        "Trapezium bone.r",
+        "Trapezoid bone.r",
+        "Triquetrum bone.r",
+        "First metacarpal bone.r",
+        "Second metacarpal bone.r",
+        "Third metacarpal bone.r",
+        "Fourth metacarpal bone.r",
+        "Fifth metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r",
+        "Proximal phalanx of second finger of hand.r",
+        "Middle phalanx of second finger of hand.r",
+        "Distal phalanx of second finger of hand.r",
+        "Proximal phalanx of third finger of hand.r",
+        "Middle phalanx of third finger of hand.r",
+        "Distal phalanx of third finger of hand.r",
+        "Proximal phalanx of fourth finger of hand.r",
+        "Middle phalanx of fourth finger of hand.r",
+        "Distal phalanx of fourth finger of hand.r",
+        "Proximal phalanx of fifth finger of hand.r",
+        "Middle phalanx of fifth finger of hand.r",
+        "Distal phalanx of fifth finger of hand.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.2707,
+         -0.0119,
+         0.8786
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.16,
+         20,
+         0,
+         0,
+         0,
+         0.004,
+         0
+        ],
+        [
+         1.6,
+         20,
+         0,
+         0,
+         0,
+         0.004,
+         0
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Radius.r",
+       "at": {
+        "xyz": [
+         -0.2707,
+         -0.0119,
+         0.8786
+        ]
+       },
+       "normal": [
+        -0.155,
+        -0.192,
+        -0.969
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.0015,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Radius.r"
+     ],
+     "hurt": [
+      "Radius.r"
+     ],
+     "pin": {
+      "part": "Radius.r",
+      "at": [
+       0.4,
+       0.5,
+       0.1
+      ]
+     },
+     "zoom": 0.5,
+     "chart_t": 1.0
+    }
+   },
+   {
+    "name": "collarbone",
+    "label": "COLLARBONE",
+    "chart": [
+     "Collarbone",
+     "fall on the shoulder"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Collarbone. A fall onto your shoulder can snap it.",
+     "It's about 1 in 20 adult fractures."
+    ],
+    "show": {
+     "model": "shoulder",
+     "parts": [
+      "Clavicle.r",
+      "Scapula.r",
+      "Humerus.r",
+      "Manubrium of sternum",
+      "First rib.r"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.26,
+       -0.06,
+       1.18
+      ],
+      [
+       0.0,
+       0.12,
+       1.45
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Scapula.r",
+        "Humerus.r"
+       ],
+       "pivot": {
+        "part": "Clavicle.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         0,
+         0,
+         0,
+         -0.004,
+         -0.012
+        ],
+        [
+         1.6,
+         0,
+         0,
+         0,
+         0,
+         -0.004,
+         -0.012
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Clavicle.r",
+       "at": {
+        "part": "Clavicle.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ]
+       },
+       "normal": [
+        -0.83,
+        0.56,
+        0.11
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.002,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Clavicle.r"
+     ],
+     "hurt": [
+      "Clavicle.r"
+     ],
+     "pin": {
+      "part": "Clavicle.r",
+      "at": [
+       0.5,
+       0.2,
+       0.7
+      ]
+     },
+     "zoom": 0.55,
+     "chart_t": 1.0
+    }
+   },
+   {
+    "name": "ankle",
+    "label": "ANKLE",
+    "chart": [
+     "Ankle",
+     "roll or twist"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Ankle. Roll or twist it hard, and the ends of your leg bones can break.",
+     "In adults, it's one of the most common breaks."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Tibia.r",
+      "Fibula.r",
+      "Talus.r",
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "orient": [
+      0,
+      0,
+      30
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.2
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.15,
+         0,
+         -22,
+         0
+        ],
+        [
+         1.6,
+         0,
+         -10,
+         0
+        ]
+       ]
+      },
+      {
+       "parts": [],
+       "pivot": {
+        "part": "Fibula.r",
+        "at": [
+         0.5,
+         0.5,
+         0.07
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.15,
+         0,
+         -8,
+         0,
+         -0.003,
+         0,
+         0
+        ],
+        [
+         1.6,
+         0,
+         -8,
+         0,
+         -0.003,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Fibula.r",
+       "at": {
+        "part": "Fibula.r",
+        "at": [
+         0.5,
+         0.5,
+         0.07
+        ]
+       },
+       "normal": [
+        0.2,
+        0.5,
+        1.0
+       ],
+       "groups": [
+        0,
+        2
+       ],
+       "gap": 0.0015,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Fibula.r"
+     ],
+     "hurt": [
+      "Fibula.r"
+     ],
+     "pin": {
+      "part": "Fibula.r",
+      "at": [
+       0.3,
+       0.5,
+       0.06
+      ]
+     },
+     "zoom": 0.4,
+     "chart_t": 1.0
+    }
+   },
+   {
+    "name": "finger",
+    "label": "HAND & FINGER",
+    "chart": [
+     "Hand & finger",
+     "sports"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Hand and finger bones. In teens and adults,",
+     "they're among the most common sports fractures."
+    ],
+    "show": {
+     "model": "hand",
+     "orient": [
+      15,
+      -25,
+      -15
+     ],
+     "frame": [
+      [
+       -0.3,
+       -0.1,
+       0.7
+      ],
+      [
+       -0.22,
+       -0.01,
+       0.86
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Middle phalanx of fourth finger of hand.r",
+        "Distal phalanx of fourth finger of hand.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.256,
+         -0.0494,
+         0.7562
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.16,
+         -22,
+         0,
+         0
+        ],
+        [
+         1.6,
+         -22,
+         0,
+         0
+        ]
+       ],
+       "axes": {
+        "x": [
+         {
+          "part": "Second metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Fifth metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         }
+        ],
+        "z": [
+         {
+          "part": "Distal phalanx of third finger of hand.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Capitate bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.5
+          ],
+          "snap": false
+         }
+        ]
+       }
+      }
+     ],
+     "tears": [
+      {
+       "part": "Proximal phalanx of fourth finger of hand.r",
+       "at": {
+        "xyz": [
+         -0.256,
+         -0.0494,
+         0.7562
+        ]
+       },
+       "normal": [
+        -0.06,
+        -0.479,
+        -0.876
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.0012,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Proximal phalanx of fourth finger of hand.r"
+     ],
+     "hurt": [
+      "Proximal phalanx of fourth finger of hand.r"
+     ],
+     "pin": {
+      "part": "Proximal phalanx of fourth finger of hand.r",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 0.4,
+     "chart_t": 1.0
+    }
+   },
+   {
+    "name": "toe",
+    "label": "TOE",
+    "chart": [
+     "Toe",
+     "kicked or crushed"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Toe. Kick something hard, catch it on furniture,",
+     "or drop something heavy on it."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Talus.r",
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "orient": [
+      70,
+      0,
+      180
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.06,
+       0.0,
+       0.07
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.136,
+         -0.069,
+         0.013
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.15,
+         0,
+         0,
+         18
+        ],
+        [
+         1.6,
+         0,
+         0,
+         18
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Proximal phalanx of fifth finger of foot.r",
+       "at": {
+        "xyz": [
+         -0.136,
+         -0.069,
+         0.013
+        ]
+       },
+       "normal": [
+        -0.28,
+        -0.959,
+        -0.04
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.0012,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Proximal phalanx of fifth finger of foot.r"
+     ],
+     "hurt": [
+      "Proximal phalanx of fifth finger of foot.r"
+     ],
+     "pin": {
+      "part": "Proximal phalanx of fifth finger of foot.r",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "focus": {
+      "part": "Fifth metatarsal bone.r",
+      "at": [
+       0.5,
+       0.2,
+       0.5
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.0
+    }
+   },
+   {
+    "name": "kids",
+    "label": "FOREARM (KIDS)",
+    "chart": [
+     "Forearm",
+     "kids"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Forearm. It's the most common break in kids,",
+     "often from a fall onto an outstretched arm."
+    ],
+    "show": {
+     "model": "forearm",
+     "parts": [
+      "Radius.r",
+      "Ulna.r",
+      "Capitate bone.r",
+      "Hamate bone.r",
+      "Lunate bone.r",
+      "Pisiform bone.r",
+      "Scaphoid bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Triquetrum bone.r",
+      "First metacarpal bone.r",
+      "Second metacarpal bone.r",
+      "Third metacarpal bone.r",
+      "Fourth metacarpal bone.r",
+      "Fifth metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r",
+      "Proximal phalanx of second finger of hand.r",
+      "Middle phalanx of second finger of hand.r",
+      "Distal phalanx of second finger of hand.r",
+      "Proximal phalanx of third finger of hand.r",
+      "Middle phalanx of third finger of hand.r",
+      "Distal phalanx of third finger of hand.r",
+      "Proximal phalanx of fourth finger of hand.r",
+      "Middle phalanx of fourth finger of hand.r",
+      "Distal phalanx of fourth finger of hand.r",
+      "Proximal phalanx of fifth finger of hand.r",
+      "Middle phalanx of fifth finger of hand.r",
+      "Distal phalanx of fifth finger of hand.r"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.335,
+       -0.1,
+       0.7
+      ],
+      [
+       -0.2,
+       0.065,
+       1.115
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Capitate bone.r",
+        "Hamate bone.r",
+        "Lunate bone.r",
+        "Pisiform bone.r",
+        "Scaphoid bone.r",
+        "Trapezium bone.r",
+        "Trapezoid bone.r",
+        "Triquetrum bone.r",
+        "First metacarpal bone.r",
+        "Second metacarpal bone.r",
+        "Third metacarpal bone.r",
+        "Fourth metacarpal bone.r",
+        "Fifth metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r",
+        "Proximal phalanx of second finger of hand.r",
+        "Middle phalanx of second finger of hand.r",
+        "Distal phalanx of second finger of hand.r",
+        "Proximal phalanx of third finger of hand.r",
+        "Middle phalanx of third finger of hand.r",
+        "Distal phalanx of third finger of hand.r",
+        "Proximal phalanx of fourth finger of hand.r",
+        "Middle phalanx of fourth finger of hand.r",
+        "Distal phalanx of fourth finger of hand.r",
+        "Proximal phalanx of fifth finger of hand.r",
+        "Middle phalanx of fifth finger of hand.r",
+        "Distal phalanx of fifth finger of hand.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.2523,
+         -0.0027,
+         0.9174
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.16,
+         14,
+         0,
+         0,
+         0,
+         0.003,
+         0
+        ],
+        [
+         1.6,
+         14,
+         0,
+         0,
+         0,
+         0.003,
+         0
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Radius.r",
+       "at": {
+        "xyz": [
+         -0.2651,
+         -0.0049,
+         0.914
+        ]
+       },
+       "normal": [
+        -0.155,
+        -0.192,
+        -0.969
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.0015,
+       "chips": 24
+      },
+      {
+       "part": "Ulna.r",
+       "at": {
+        "xyz": [
+         -0.2396,
+         -0.0004,
+         0.9207
+        ]
+       },
+       "normal": [
+        -0.128,
+        -0.236,
+        -0.963
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.0015,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Radius.r",
+      "Ulna.r"
+     ],
+     "hurt": [
+      "Radius.r",
+      "Ulna.r"
+     ],
+     "pin": {
+      "part": "Radius.r",
+      "at": [
+       0.3,
+       0.5,
+       0.25
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 1.0
+    }
+   },
+   {
+    "name": "hip",
+    "label": "HIP",
+    "chart": [
+     "Hip",
+     "falls, 65 and older"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Hip. More than 300,000 people 65 and older",
+     "are hospitalized for a broken hip every year, usually from a fall."
+    ],
+    "show": {
+     "model": "thigh",
+     "parts": [
+      "Hip bone.r",
+      "Femur.r"
+     ],
+     "orient": [
+      0,
+      0,
+      30
+     ],
+     "frame": [
+      [
+       -0.16,
+       -0.06,
+       0.62
+      ],
+      [
+       0.0,
+       0.09,
+       1.02
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "part": "Femur.r",
+        "at": [
+         0.72,
+         0.45,
+         0.93
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         0,
+         -18,
+         0,
+         0,
+         0.007
+        ],
+        [
+         1.6,
+         0,
+         0,
+         -18,
+         0,
+         0,
+         0.007
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Femur.r",
+       "at": {
+        "part": "Femur.r",
+        "at": [
+         0.72,
+         0.45,
+         0.93
+        ]
+       },
+       "normal": [
+        -0.8,
+        0.0,
+        -0.6
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.003,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Femur.r"
+     ],
+     "hurt": [
+      "Femur.r"
+     ],
+     "pin": {
+      "part": "Femur.r",
+      "at": [
+       0.72,
+       0.3,
+       0.93
+      ]
+     },
+     "zoom": 0.5,
+     "chart_t": 1.0
+    }
+   }
+  ],
+  "outro": [
+   "Looks bent, or you can't put weight on it? Get it checked.",
+   "Which one did *you* break?",
+   "Send this to the friend who's broken half of these."
+  ],
+  "grid_title": "BONES PEOPLE BREAK",
+  "why": "Wrist (distal radius): a fall onto an outstretched hand breaks the end of the forearm bone; very common at any age. Collarbone: a fall onto the shoulder or an outstretched arm; about 5% of adult fractures. Ankle: rolling or twisting it; one of the most common breaks in adults. Hand and finger: finger and hand-bone (metacarpal) fractures are among the most common sports fractures in teens and adults. Toe: kicking something hard, catching it on furniture, or dropping something heavy on it. Forearm in kids: the most common break in children (up to half of all childhood fractures), often from a fall onto an outstretched arm. Hip: more than 300,000 people 65 and older are hospitalized for a broken hip each year in the US, usually from a fall. A limb that looks bent, or one you can't put weight on: get it checked.",
+  "hashtags": [
+   "#brokenbone",
+   "#fracture",
+   "#anatomy",
+   "#orthopedics",
+   "#premed"
+  ],
+  "sources": [
+   "https://www.orthoinfo.org/en/diseases--conditions/distal-radius-fractures-broken-wrist/",
+   "https://www.orthoinfo.org/en/diseases--conditions/clavicle-fracture-broken-collarbone/",
+   "https://www.orthoinfo.org/en/diseases--conditions/ankle-fractures-broken-ankle/",
+   "https://www.aafp.org/pubs/afp/issues/2012/0415/p805.html",
+   "https://www.orthoinfo.org/en/diseases--conditions/toe-and-forefoot-fractures/",
+   "https://www.orthoinfo.org/en/diseases--conditions/forearm-fractures-in-children/",
+   "https://www.orthoinfo.org/en/diseases--conditions/hip-fractures/",
+   "https://www.cdc.gov/falls/data-research/index.html"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the friend who's broken half of these 🦴",
+  "music": "pop-1"
+ }
+]
