@@ -1093,38 +1093,40 @@
   {
     "slot": "2026-11-14T12:30:00-05:00",
     "day": 71,
-    "id": "fmt-missing-03",
+    "id": "fmt-types-02",
     "organ": null,
-    "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1230-fmt-missing-03-v2353.mp4",
-    "video_seconds": 19.42,
+    "title": "5 knee injuries athletes get",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1230-fmt-types-02.mp4",
+    "video_seconds": 54.07,
     "buffer": {
       "instagram": "6af77bf278196a0a971ec778",
       "tiktok": "6af77bf3bb36d00909ca8bbc",
       "youtube": "6af77bf3bb36d00909ca8be8"
     },
     "kind": "formats",
-    "format": "missing",
-    "music": "ambient-2",
-    "rerendered": "2026-11-14"
+    "format": "types",
+    "music": "pop-2",
+    "promoted": "2026-11-14",
+    "replaced": "fmt-missing-03"
   },
   {
     "slot": "2026-11-14T16:00:00-05:00",
     "day": 72,
-    "id": "fmt-zoom-04",
+    "id": "fmt-types-03",
     "organ": null,
-    "title": "Zoom out: guess the body part",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-zoom-04-v2354.mp4",
-    "video_seconds": 20.94,
+    "title": "6 types of joint",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-types-03.mp4",
+    "video_seconds": 55.77,
     "buffer": {
       "instagram": "6af77bf59257ce33980f24cc",
       "tiktok": "6af77bf64b28296eb115fe15",
       "youtube": "6af77bf7d16af15d4dd29bc7"
     },
     "kind": "formats",
-    "format": "zoom",
-    "music": "science-5",
-    "rerendered": "2026-11-14"
+    "format": "types",
+    "music": "ambient-3",
+    "promoted": "2026-11-14",
+    "replaced": "fmt-zoom-04"
   },
   {
     "slot": "2026-11-14T18:00:00-05:00",
@@ -1146,19 +1148,21 @@
   {
     "slot": "2026-11-14T20:00:00-05:00",
     "day": 74,
-    "id": "arm-06",
-    "organ": "arm",
-    "title": "The Arm",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-arm-06-v2353.mp4",
-    "video_seconds": 18.49,
+    "id": "fmt-types-04",
+    "organ": null,
+    "title": "4 shoulder injuries athletes get",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-fmt-types-04.mp4",
+    "video_seconds": 46.03,
     "buffer": {
       "instagram": "6af77bfe78196a0a971ecd19",
       "tiktok": "6af77bff4b28296eb1160048",
       "youtube": "6af77c009257ce33980f2a22"
     },
-    "music": "science-2",
-    "notify": "instagram",
-    "rerendered": "2026-11-14"
+    "kind": "formats",
+    "format": "types",
+    "music": "house-3",
+    "promoted": "2026-11-14",
+    "replaced": "arm-06"
   },
   {
     "slot": "2026-11-15T09:30:00-05:00",
