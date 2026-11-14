@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-14T02:06:15+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43540597732",
+ "generated_at": "2026-11-14T05:03:39+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43559627265",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -9,8 +9,8 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 18,
- "total": 93,
+ "unused": 20,
+ "total": 95,
  "posted": 75,
  "ramp": [
   [
@@ -45,7 +45,7 @@
     "rank",
     "types"
    ],
-   "posted": 15
+   "posted": 17
   }
  },
  "banks": {
@@ -67,7 +67,7 @@
   },
   "thigh": {
    "total": 6,
-   "unused": 2
+   "unused": 3
   },
   "arm": {
    "total": 7,
@@ -75,7 +75,7 @@
   },
   "spine": {
    "total": 7,
-   "unused": 2
+   "unused": 3
   },
   "hand": {
    "total": 7,
@@ -507,10 +507,10 @@
   {
    "slot": "2026-11-14T09:30:00-05:00",
    "day": 70,
-   "id": "thigh-04",
-   "organ": "thigh",
-   "title": "Leg Muscles",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-0930-thigh-04-v0127.mp4",
+   "id": "fmt-types-05",
+   "organ": null,
+   "title": "6 fractures and how you get them",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-0930-fmt-types-05.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -577,10 +577,10 @@
   {
    "slot": "2026-11-15T09:30:00-05:00",
    "day": 75,
-   "id": "spine-05",
-   "organ": "spine",
-   "title": "The Spine",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-spine-05-v0127.mp4",
+   "id": "fmt-types-06",
+   "organ": null,
+   "title": "7 bones people break all the time",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-fmt-types-06.mp4",
    "platforms": [
     "instagram",
     "tiktok",
