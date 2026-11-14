@@ -34,7 +34,10 @@ def test_item(q):
     for t in q["types"]:
         assert types.shown(t["lines"][0]).split(".")[0].split(",")[0].upper().startswith(t["label"].split()[0]), \
             "say the name first"
-        assert d.textlength(t["label"], font=types.LABEL(70)) < 400
+        for label in (t["label"], t.get("label2", "")):  # parts items' labels are placed inside x 120-960 (840 wide)
+            assert d.textlength(label, font=types.LABEL(70)) < (480 if q.get("scene") == "parts" else 400)
+        if t.get("label2"):  # a pair: its second line names the second term, and starts its moves' "keys2"
+            assert types.shown(t["lines"][t.get("switch_line", 1)]).upper().startswith(t["label2"].split()[0])
     for line in q["script"]:
         assert len(types.wrap(d, types.shown(line), types.CAPTION(52), types.CAPTION_W)) <= 3, line
         assert not set("*[]()") & set(types.shown(line)), "markup must be well formed"

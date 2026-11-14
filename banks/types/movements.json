@@ -1,0 +1,1281 @@
+[
+ {
+  "id": "fmt-types-08",
+  "scene": "parts",
+  "for": "Med, PT, nursing and kinesiology students who mix up movement terms before a practical or exam. They send it to their study partner: every pair is shown moving on real bones, with a memory hook.",
+  "title": "8 body movement terms, shown on real bones",
+  "question": "8 body movement terms. Which pair still trips you up?",
+  "hook": "Supination versus [pronation](pɹoʊnˈeɪʃən). You'll never mix them up again.",
+  "intro": "8 movement terms, all from anatomical position.",
+  "flash": [
+   "pronation",
+   "flexion",
+   "abduction",
+   "dorsiflexion",
+   "circumduction"
+  ],
+  "types": [
+   {
+    "name": "pronation",
+    "label": "SUPINATION",
+    "label2": "PRONATION",
+    "chart": [
+     "Supination",
+     "& pronation"
+    ],
+    "sound": "none",
+    "lines": [
+     "Supination. Palm forward, or up, like scooping soup.",
+     "[Pronation](pɹoʊnˈeɪʃən). Palm back, and the radius crosses over the ulna."
+    ],
+    "show": {
+     "model": "forearm",
+     "parts": [
+      "Radius.r",
+      "Ulna.r",
+      "Capitate bone.r",
+      "Hamate bone.r",
+      "Lunate bone.r",
+      "Pisiform bone.r",
+      "Scaphoid bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Triquetrum bone.r",
+      "First metacarpal bone.r",
+      "Second metacarpal bone.r",
+      "Third metacarpal bone.r",
+      "Fourth metacarpal bone.r",
+      "Fifth metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r",
+      "Proximal phalanx of second finger of hand.r",
+      "Middle phalanx of second finger of hand.r",
+      "Distal phalanx of second finger of hand.r",
+      "Proximal phalanx of third finger of hand.r",
+      "Middle phalanx of third finger of hand.r",
+      "Distal phalanx of third finger of hand.r",
+      "Proximal phalanx of fourth finger of hand.r",
+      "Middle phalanx of fourth finger of hand.r",
+      "Distal phalanx of fourth finger of hand.r",
+      "Proximal phalanx of fifth finger of hand.r",
+      "Middle phalanx of fifth finger of hand.r",
+      "Distal phalanx of fifth finger of hand.r"
+     ],
+     "orient": [
+      10,
+      0,
+      0
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Radius.r",
+        "Capitate bone.r",
+        "Hamate bone.r",
+        "Lunate bone.r",
+        "Pisiform bone.r",
+        "Scaphoid bone.r",
+        "Trapezium bone.r",
+        "Trapezoid bone.r",
+        "Triquetrum bone.r",
+        "First metacarpal bone.r",
+        "Second metacarpal bone.r",
+        "Third metacarpal bone.r",
+        "Fourth metacarpal bone.r",
+        "Fifth metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r",
+        "Proximal phalanx of second finger of hand.r",
+        "Middle phalanx of second finger of hand.r",
+        "Distal phalanx of second finger of hand.r",
+        "Proximal phalanx of third finger of hand.r",
+        "Middle phalanx of third finger of hand.r",
+        "Distal phalanx of third finger of hand.r",
+        "Proximal phalanx of fourth finger of hand.r",
+        "Middle phalanx of fourth finger of hand.r",
+        "Distal phalanx of fourth finger of hand.r",
+        "Proximal phalanx of fifth finger of hand.r",
+        "Middle phalanx of fifth finger of hand.r",
+        "Distal phalanx of fifth finger of hand.r"
+       ],
+       "pivot": {
+        "xyz": [
+         -0.2365,
+         0.0305,
+         1.0927
+        ]
+       },
+       "axes": {
+        "x": [
+         {
+          "xyz": [
+           -0.2481,
+           -0.016,
+           0.8571
+          ]
+         },
+         {
+          "xyz": [
+           -0.2365,
+           0.0305,
+           1.0927
+          ]
+         }
+        ],
+        "z": [
+         {
+          "xyz": [
+           -0.3,
+           0.0,
+           0.95
+          ]
+         },
+         {
+          "xyz": [
+           -0.2,
+           0.0,
+           0.95
+          ]
+         }
+        ]
+       },
+       "keys": [
+        [
+         0,
+         85,
+         0,
+         0
+        ],
+        [
+         0.7,
+         0,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.8,
+         85,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Radius.r"
+     ],
+     "pin": {
+      "part": "Radius.r",
+      "at": [
+       0.4,
+       0.5,
+       0.3
+      ]
+     },
+     "zoom": 0.7,
+     "chart_t": 0.75
+    }
+   },
+   {
+    "name": "flexion",
+    "label": "FLEXION",
+    "label2": "EXTENSION",
+    "chart": [
+     "Flexion",
+     "& extension"
+    ],
+    "sound": "none",
+    "lines": [
+     "Flexion. Bending closes the angle between the bones.",
+     "Extension opens it back up."
+    ],
+    "show": {
+     "model": "forearm",
+     "orient": [
+      0,
+      0,
+      90
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Radius.r",
+        "Ulna.r",
+        "Capitate bone.r",
+        "Hamate bone.r",
+        "Lunate bone.r",
+        "Pisiform bone.r",
+        "Scaphoid bone.r",
+        "Trapezium bone.r",
+        "Trapezoid bone.r",
+        "Triquetrum bone.r",
+        "First metacarpal bone.r",
+        "Second metacarpal bone.r",
+        "Third metacarpal bone.r",
+        "Fourth metacarpal bone.r",
+        "Fifth metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r",
+        "Proximal phalanx of second finger of hand.r",
+        "Middle phalanx of second finger of hand.r",
+        "Distal phalanx of second finger of hand.r",
+        "Proximal phalanx of third finger of hand.r",
+        "Middle phalanx of third finger of hand.r",
+        "Distal phalanx of third finger of hand.r",
+        "Proximal phalanx of fourth finger of hand.r",
+        "Middle phalanx of fourth finger of hand.r",
+        "Distal phalanx of fourth finger of hand.r",
+        "Proximal phalanx of fifth finger of hand.r",
+        "Middle phalanx of fifth finger of hand.r",
+        "Distal phalanx of fifth finger of hand.r"
+       ],
+       "pivot": {
+        "part": "Humerus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.04
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.8,
+         -115,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         -115,
+         0,
+         0
+        ],
+        [
+         0.9,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "frame": [
+      [
+       -0.34,
+       -0.28,
+       0.7
+      ],
+      [
+       -0.14,
+       0.07,
+       1.41
+      ]
+     ],
+     "lit": [
+      "Radius.r",
+      "Ulna.r"
+     ],
+     "pin": {
+      "part": "Ulna.r",
+      "at": [
+       0.5,
+       0.5,
+       0.9
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.6
+    }
+   },
+   {
+    "name": "abduction",
+    "label": "ABDUCTION",
+    "label2": "ADDUCTION",
+    "chart": [
+     "Abduction",
+     "& adduction"
+    ],
+    "sound": "none",
+    "lines": [
+     "[Abduction](æbdˈʌkʃən). Your arm moves out, away from the midline.",
+     "[Adduction](ædˈʌkʃən) *adds* it back to your body."
+    ],
+    "show": {
+     "model": "shoulder",
+     "parts": [
+      "Clavicle.r",
+      "Scapula.r",
+      "Humerus.r",
+      "Manubrium of sternum",
+      "First rib.r"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.46,
+       -0.06,
+       1.08
+      ],
+      [
+       -0.02,
+       0.12,
+       1.45
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Humerus.r"
+       ],
+       "pivot": {
+        "fit": "Humerus.r",
+        "at": [
+         0.9,
+         0.5,
+         0.92
+        ],
+        "r": 0.02
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.8,
+         0,
+         80,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         80,
+         0
+        ],
+        [
+         0.9,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Humerus.r"
+     ],
+     "pin": {
+      "part": "Humerus.r",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 0.75,
+     "chart_t": 0.6
+    }
+   },
+   {
+    "name": "rotation",
+    "label": "MEDIAL ROTATION",
+    "label2": "LATERAL ROTATION",
+    "chart": [
+     "Medial",
+     "& lateral rotation"
+    ],
+    "sound": "none",
+    "lines": [
+     "Medial rotation turns the front of your thigh in, toward the midline.",
+     "Lateral rotation turns it out."
+    ],
+    "show": {
+     "model": "thigh",
+     "parts": [
+      "Hip bone.r",
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Patella.r"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Femur.r",
+        "Tibia.r",
+        "Fibula.r",
+        "Patella.r"
+       ],
+       "pivot": {
+        "fit": "Femur.r",
+        "at": [
+         0.85,
+         0.4,
+         0.97
+        ],
+        "r": 0.022
+       },
+       "axes": {
+        "x": [
+         {
+          "xyz": [
+           -0.0745,
+           0.03,
+           0.43
+          ]
+         },
+         {
+          "fit": "Femur.r",
+          "at": [
+           0.85,
+           0.4,
+           0.97
+          ],
+          "r": 0.022
+         }
+        ],
+        "z": [
+         {
+          "xyz": [
+           -0.15,
+           0.0,
+           0.6
+          ]
+         },
+         {
+          "xyz": [
+           0.0,
+           0.0,
+           0.6
+          ]
+         }
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.7,
+         35,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         35,
+         0,
+         0
+        ],
+        [
+         1.0,
+         -35,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Patella.r"
+     ],
+     "pin": {
+      "part": "Patella.r",
+      "at": [
+       0.5,
+       0.0,
+       0.5
+      ]
+     },
+     "focus": {
+      "part": "Patella.r",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.5
+    }
+   },
+   {
+    "name": "dorsiflexion",
+    "label": "DORSIFLEXION",
+    "label2": "PLANTAR FLEXION",
+    "chart": [
+     "Dorsiflexion",
+     "& plantar flexion"
+    ],
+    "sound": "none",
+    "lines": [
+     "[Dorsiflexion](dˌɔːɹsᵻflˈɛkʃən). The top of your foot comes up toward your shin.",
+     "Plantar flexion points your toes down, like pressing a gas pedal."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Tibia.r",
+      "Fibula.r",
+      "Talus.r",
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "orient": [
+      0,
+      0,
+      90
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.14,
+       0.0
+      ],
+      [
+       -0.03,
+       0.1,
+       0.25
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.85
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.6,
+         -20,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         -20,
+         0,
+         0
+        ],
+        [
+         0.8,
+         40,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Talus.r",
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "pin": {
+      "part": "First metatarsal bone.r",
+      "at": [
+       0.5,
+       0.5,
+       1.0
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.4
+    }
+   },
+   {
+    "name": "inversion",
+    "label": "INVERSION",
+    "label2": "EVERSION",
+    "chart": [
+     "Inversion",
+     "& eversion"
+    ],
+    "sound": "none",
+    "lines": [
+     "Inversion turns your sole in, toward the midline.",
+     "Eversion turns it out."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Tibia.r",
+      "Fibula.r",
+      "Talus.r",
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "orient": [
+      0,
+      0,
+      20
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.14,
+       0.0
+      ],
+      [
+       -0.03,
+       0.1,
+       0.25
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.2
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.6,
+         0,
+         -25,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         -25,
+         0
+        ],
+        [
+         0.8,
+         0,
+         15,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "pin": {
+      "part": "Calcaneus.r",
+      "at": [
+       0.0,
+       0.5,
+       0.3
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.4
+    }
+   },
+   {
+    "name": "circumduction",
+    "label": "CIRCUMDUCTION",
+    "chart": [
+     "Circumduction",
+     "a circle"
+    ],
+    "sound": "none",
+    "lines": [
+     "Circumduction. Your hand draws a circle while the shoulder stays put."
+    ],
+    "show": {
+     "model": "forearm",
+     "parts": [
+      "Humerus.r",
+      "Radius.r",
+      "Ulna.r",
+      "Capitate bone.r",
+      "Hamate bone.r",
+      "Lunate bone.r",
+      "Pisiform bone.r",
+      "Scaphoid bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Triquetrum bone.r",
+      "First metacarpal bone.r",
+      "Second metacarpal bone.r",
+      "Third metacarpal bone.r",
+      "Fourth metacarpal bone.r",
+      "Fifth metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r",
+      "Proximal phalanx of second finger of hand.r",
+      "Middle phalanx of second finger of hand.r",
+      "Distal phalanx of second finger of hand.r",
+      "Proximal phalanx of third finger of hand.r",
+      "Middle phalanx of third finger of hand.r",
+      "Distal phalanx of third finger of hand.r",
+      "Proximal phalanx of fourth finger of hand.r",
+      "Middle phalanx of fourth finger of hand.r",
+      "Distal phalanx of fourth finger of hand.r",
+      "Proximal phalanx of fifth finger of hand.r",
+      "Middle phalanx of fifth finger of hand.r",
+      "Distal phalanx of fifth finger of hand.r"
+     ],
+     "orient": [
+      0,
+      0,
+      25
+     ],
+     "frame": [
+      [
+       -0.5,
+       -0.25,
+       0.75
+      ],
+      [
+       -0.1,
+       0.05,
+       1.42
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Humerus.r",
+        "Radius.r",
+        "Ulna.r",
+        "Capitate bone.r",
+        "Hamate bone.r",
+        "Lunate bone.r",
+        "Pisiform bone.r",
+        "Scaphoid bone.r",
+        "Trapezium bone.r",
+        "Trapezoid bone.r",
+        "Triquetrum bone.r",
+        "First metacarpal bone.r",
+        "Second metacarpal bone.r",
+        "Third metacarpal bone.r",
+        "Fourth metacarpal bone.r",
+        "Fifth metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r",
+        "Proximal phalanx of second finger of hand.r",
+        "Middle phalanx of second finger of hand.r",
+        "Distal phalanx of second finger of hand.r",
+        "Proximal phalanx of third finger of hand.r",
+        "Middle phalanx of third finger of hand.r",
+        "Distal phalanx of third finger of hand.r",
+        "Proximal phalanx of fourth finger of hand.r",
+        "Middle phalanx of fourth finger of hand.r",
+        "Distal phalanx of fourth finger of hand.r",
+        "Proximal phalanx of fifth finger of hand.r",
+        "Middle phalanx of fifth finger of hand.r",
+        "Distal phalanx of fifth finger of hand.r"
+       ],
+       "pivot": {
+        "fit": "Humerus.r",
+        "at": [
+         0.9,
+         0.5,
+         0.95
+        ],
+        "r": 0.02
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         -43,
+         15,
+         0
+        ],
+        [
+         0.6,
+         -37.7,
+         27.7,
+         0
+        ],
+        [
+         0.9,
+         -25.0,
+         33.0,
+         0
+        ],
+        [
+         1.2,
+         -12.3,
+         27.7,
+         0
+        ],
+        [
+         1.5,
+         -7.0,
+         15.0,
+         0
+        ],
+        [
+         1.8,
+         -12.3,
+         2.3,
+         0
+        ],
+        [
+         2.1,
+         -25.0,
+         -3.0,
+         0
+        ],
+        [
+         2.4,
+         -37.7,
+         2.3,
+         0
+        ],
+        [
+         2.7,
+         -43.0,
+         15.0,
+         0
+        ],
+        [
+         3.0,
+         -37.7,
+         27.7,
+         0
+        ],
+        [
+         3.3,
+         -25.0,
+         33.0,
+         0
+        ],
+        [
+         3.6,
+         -12.3,
+         27.7,
+         0
+        ],
+        [
+         3.9,
+         -7.0,
+         15.0,
+         0
+        ],
+        [
+         4.2,
+         -12.3,
+         2.3,
+         0
+        ],
+        [
+         4.5,
+         -25.0,
+         -3.0,
+         0
+        ],
+        [
+         4.8,
+         -37.7,
+         2.3,
+         0
+        ],
+        [
+         5.1,
+         -43.0,
+         15.0,
+         0
+        ]
+       ]
+      }
+     ],
+     "lit": [
+      "Capitate bone.r",
+      "Hamate bone.r",
+      "Lunate bone.r",
+      "Pisiform bone.r",
+      "Scaphoid bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Triquetrum bone.r",
+      "First metacarpal bone.r",
+      "Second metacarpal bone.r",
+      "Third metacarpal bone.r",
+      "Fourth metacarpal bone.r",
+      "Fifth metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r",
+      "Proximal phalanx of second finger of hand.r",
+      "Middle phalanx of second finger of hand.r",
+      "Distal phalanx of second finger of hand.r",
+      "Proximal phalanx of third finger of hand.r",
+      "Middle phalanx of third finger of hand.r",
+      "Distal phalanx of third finger of hand.r",
+      "Proximal phalanx of fourth finger of hand.r",
+      "Middle phalanx of fourth finger of hand.r",
+      "Distal phalanx of fourth finger of hand.r",
+      "Proximal phalanx of fifth finger of hand.r",
+      "Middle phalanx of fifth finger of hand.r",
+      "Distal phalanx of fifth finger of hand.r"
+     ],
+     "pin": {
+      "part": "Third metacarpal bone.r",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 1.0,
+     "chart_t": 1.2
+    }
+   },
+   {
+    "name": "opposition",
+    "label": "OPPOSITION",
+    "chart": [
+     "Opposition",
+     "thumb to fingertip"
+    ],
+    "sound": "none",
+    "lines": [
+     "Opposition. Your thumb swings across to touch a fingertip."
+    ],
+    "show": {
+     "model": "hand",
+     "orient": [
+      30,
+      -25,
+      -10
+     ],
+     "moves": [
+      {
+       "parts": [
+        "First metacarpal bone.r",
+        "Proximal phalanx of first finger of hand.r",
+        "Distal phalanx of first finger of hand.r"
+       ],
+       "pivot": {
+        "part": "First metacarpal bone.r",
+        "at": [
+         0.75,
+         0.5,
+         0.92
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.8,
+         -15,
+         -55,
+         0
+        ],
+        [
+         2.0,
+         -15,
+         -55,
+         0
+        ],
+        [
+         2.8,
+         0,
+         0,
+         0
+        ]
+       ],
+       "axes": {
+        "x": [
+         {
+          "part": "Second metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Fifth metacarpal bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         }
+        ],
+        "z": [
+         {
+          "part": "Distal phalanx of third finger of hand.r",
+          "at": [
+           0.5,
+           0.5,
+           0.0
+          ],
+          "snap": false
+         },
+         {
+          "part": "Capitate bone.r",
+          "at": [
+           0.5,
+           0.5,
+           0.5
+          ],
+          "snap": false
+         }
+        ]
+       }
+      }
+     ],
+     "lit": [
+      "First metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r"
+     ],
+     "pin": {
+      "part": "Distal phalanx of first finger of hand.r",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "focus": {
+      "part": "First metacarpal bone.r",
+      "at": [
+       0.5,
+       0.5,
+       0.3
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.0
+    }
+   }
+  ],
+  "outro": [
+   "Which pair still trips *you* up?",
+   "Send this to your study partner before the practical."
+  ],
+  "grid_title": "MOVEMENT TERMS",
+  "why": "All from anatomical position (standing, palms forward). Supination: palm forward (or up, scooping soup), radius and ulna parallel; pronation: palm back, the radius crosses over the ulna in an X. Flexion: bending, the angle between the bones gets smaller; extension: it gets bigger. Abduction: away from the midline; adduction: back toward it. Medial (internal) rotation: the front of the arm or thigh turns toward the midline; lateral (external) rotation: away from it. Dorsiflexion: the top of the foot moves toward the shin; plantar flexion: toes point down. Inversion: the sole turns toward the midline; eversion: away from it (these happen below the ankle, in the tarsal joints). Circumduction: one end stays put while the other draws a circle (the hand, with the shoulder still). Opposition: the thumb tip touches a fingertip of the same hand.",
+  "hashtags": [
+   "#anatomy",
+   "#physicaltherapy",
+   "#nursingstudent",
+   "#kinesiology",
+   "#premed"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-5-types-of-body-movements",
+   "https://teachmeanatomy.info/the-basics/anatomical-terminology/terms-of-movement/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to your study partner before the practical 📚",
+  "music": "lofi-4"
+ }
+]

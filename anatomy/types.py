@@ -180,11 +180,15 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
     t = segs[-1]["end"]
     for i, ty in enumerate(q["types"]):
         at = t + SAY_AT
+        starts = []
         for _ in ty["lines"]:
+            starts.append(at)
             at = say(at) + gap
         seg_end = max(t + TYPE_MIN, at - gap + 0.25 + WHIP)
         segs.append({"kind": "type", "name": ty["name"], "label": ty["label"], "start": t, "end": seg_end,
                      "whip_in": i > 0})
+        if ty.get("label2"):  # a pair (fmt-types-08): the second term's line starts its own move and label
+            segs[-1]["switch"] = round(starts[ty.get("switch_line", 1)] - (t + 0.45), 3)
         t = seg_end
     segs.append({"kind": "outro", "start": t, "end": t + OUTRO})
     t += OUTRO
@@ -388,14 +392,18 @@ def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], ag
         if f < 1:
             pic.putalpha(pic.getchannel("A").point(lambda a: int(a * f)))
         img.paste(pic, (int(cx * s - pic.width / 2), int((y + h) * s - pic.height)), pic)
-        chart_label(d, (cx * s, (y + h + 12) * s), label, f, s)
+        chart_label(d, (cx * s, (y + h + 12) * s), label, f, s, w)
 
 
-def chart_label(d: ImageDraw.ImageDraw, xy, rows: list[str], fade: float, s: float) -> None:
-    """Under each picture in the closing chart: the name in bold white, then a smaller gray line or two."""
+def chart_label(d: ImageDraw.ImageDraw, xy, rows: list[str], fade: float, s: float, width: float = 1e9) -> None:
+    """Under each picture in the closing chart: the name in bold white, then a smaller gray line or two. A row wider
+    than its picture's cell (`width`, 1080 x 1920 units) gets a smaller font, so neighbours never run together."""
     y = xy[1]
     for j, row in enumerate(rows):
-        f = BOLD(int(30 * s)) if j == 0 else CAPTION(int(23 * s))
+        size = 30 if j == 0 else 23
+        while size > 16 and d.textlength(row, font=(BOLD if j == 0 else CAPTION)(int(size * s))) > (width - 8) * s:
+            size -= 1
+        f = BOLD(int(size * s)) if j == 0 else CAPTION(int(size * s))
         col = (255, 255, 255) if j == 0 else (190, 194, 202)
         d.text((xy[0], y), row, font=f, fill=tuple(int(c * fade) for c in col), anchor="mt")
         y += (38 if j == 0 else 29) * s
@@ -461,12 +469,22 @@ def whoosh(length: float = 0.32) -> np.ndarray:
 
 
 # --- render ------------------------------------------------------------------------------------------------
+def paired(show: dict, switch: float | None) -> dict:
+    """A pair's show (fmt-types-08): each move's "keys2" play from the second term's line, after its "keys"."""
+    if switch is None or not any(mv.get("keys2") for mv in show.get("moves", [])):
+        return show
+    moves = [{k: v for k, v in mv.items() if k != "keys2"} | {"keys": mv["keys"] + [[k[0] + switch] + k[1:] for k in mv.get("keys2", [])]}
+             for mv in show["moves"]]
+    return {**show, "moves": moves}
+
+
 def scene_for(q: dict, segs: list[dict], frames: int, out: Path, W: int, H: int, samples: int) -> tuple[Path, dict]:
     """The Blender script and its spec. The fracture item (no "scene") gets exactly what it always got."""
     spec = {"root": str(ROOT), "out": str(out), "fps": FPS, "width": W, "height": H,
             "samples": samples, "frames": frames, "timeline": segs}
     if q.get("scene") == "parts":
-        spec["shows"] = {t["name"]: t["show"] for t in q["types"]}
+        spec["shows"] = {t["name"]: paired(t["show"], next((s.get("switch") for s in segs if s.get("name") == t["name"]), None))
+                         for t in q["types"]}
         return ROOT / "render" / "types_scene.py", spec
     return ROOT / "render" / "fracture_scene.py", spec
 
@@ -507,6 +525,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             (keep / "key.txt").write_text(key)
     anchors = {int(k): v for k, v in json.loads((work / "frames" / "anchors.json").read_text()).items()}
     labels = {t["name"]: t["label"] for t in q["types"]}
+    labels2 = {t["name"]: t["label2"] for t in q["types"] if t.get("label2")}
     charts = {t["name"]: t.get("chart") or [t["label"].title()] for t in q["types"]}
     places: dict[int, tuple] = {}  # segment -> where its label sits (new items)
     thumbs = [crop(Image.open(work / "frames" / f"thumb_{t['name']}.png").convert("RGBA")) for t in q["types"]
@@ -558,12 +577,14 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             spot = None
             if q.get("scene") == "parts":
                 if i not in places:
+                    widest = max(labels[a["label"]], labels2.get(a["label"], ""), key=lambda x: ImageDraw.Draw(img).textlength(x, font=LABEL(74)))
                     places[i] = place_label(coverage(work / "frames", int((crack + 0.1) * FPS), int(sg["end"] * FPS)),
-                                            a["xy"], ImageDraw.Draw(img).textlength(labels[a["label"]], font=LABEL(74)),
-                                            scale)
+                                            a["xy"], ImageDraw.Draw(img).textlength(widest, font=LABEL(74)), scale)
                 spot = places[i]
-            callout(img, a["xy"], labels[a["label"]], t - crack - 0.12, fade, scale, clamp=q.get("scene") == "parts",
-                    place=spot)
+            text, age = labels[a["label"]], t - crack - 0.12
+            if sg.get("switch") is not None and t - crack >= sg["switch"]:  # the pair's second term
+                text, age = labels2[a["label"]], t - crack - sg["switch"]
+            callout(img, a["xy"], text, age, fade, scale, clamp=q.get("scene") == "parts", place=spot)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
             grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
