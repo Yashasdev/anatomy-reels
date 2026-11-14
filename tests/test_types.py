@@ -6,6 +6,7 @@ import json
 import re
 from pathlib import Path
 
+import PIL
 import pytest
 from PIL import Image, ImageDraw
 
@@ -111,7 +112,12 @@ def test_the_fracture_video_is_unchanged():
     types.caption(img, "Transverse. A straight break, right across the bone.", s)
     types.watermark(img, s)
     types.small_label(img, (200, 400), "OBLIQUE", s)
-    assert hashlib.sha256(img.tobytes()).hexdigest() == "0fe4ca57e127873fea7ae07819482602cc049050879161a200465013e68a315e"
+    # text rendering differs a little between Pillow releases (CI moved to Pillow 13 on Nov 14, 2026)
+    golden = {"12": "0e7a0af38dbd861e8da1300d7ed3fd91ea642dbfb04a7d227a8b896d5c05c656",
+              "13": "0195f8af7088c97b26aace9381d123dfc0aa63407296a0b6a136988d8393d9eb"}
+    major = PIL.__version__.split(".")[0]
+    assert major in golden, f"no golden 2D layer for Pillow {PIL.__version__}: add one after checking a frame by eye"
+    assert hashlib.sha256(img.tobytes()).hexdigest() == golden[major]
     assert hashlib.sha256(types.snap(3).tobytes()).hexdigest() == \
         "04672fe431fa9505760730903b9be5aee3b99fbe7d0953e3de5fe52c37ca7cc0"
     assert hashlib.sha256(types.whoosh().tobytes()).hexdigest() == \
@@ -172,3 +178,16 @@ def test_markup():
         "Which one have you had? Avulsion. Not every"
     assert types.stressed("juː") == "ˈjuː" and types.stressed("ˌæŋɡəl") == "ˈæŋɡəl"
     assert "ː" * 2 not in "".join(FRACTURE["script"]), "never stretch vowels: it sounds wrong"
+
+
+@pytest.mark.parametrize("label", ["TOE", "SCAPHOID", "FOREARM (KIDS)", "NIGHTSTICK"])
+def test_new_labels_stay_clear_of_tall_phone_crops(label):
+    """Tall phones crop about 100 px off each side, so the new items' names stay within LABEL_X wherever they go."""
+    import numpy as np
+    w = d.textlength(label, font=types.LABEL(74))
+    for seed in range(6):
+        cover = np.random.default_rng(seed).random((240, 135)).astype(np.float32)
+        for pin in [(40, 600), (540, 900), (1040, 400)]:
+            (ex, ey), side = types.place_label(cover, pin, w, 1.0)
+            t0, t1 = (ex + 6, ex + 6 + w) if side > 0 else (ex - 6 - w, ex - 6)
+            assert types.LABEL_X[0] <= t0 and t1 <= types.LABEL_X[1]

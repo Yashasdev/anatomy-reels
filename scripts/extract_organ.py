@@ -28,6 +28,9 @@ MODELS = {
     "shoulder": ["Clavicle.r", "Scapula.r", "Humerus.r", "Supraspinatus muscle.r", "Infraspinatus muscle.r",
                  "Teres minor muscle.r", "Subscapularis muscle.r", "Glenoid labrum.r", "Acromioclavicular ligament.r",
                  "First rib.r", "Manubrium of sternum"],
+    # fmt-types-05/06: the forearm and hand in place together (Colles', Smith's, nightstick, a child's forearm); the
+    # old "arm" model predates the baked transforms, so each of its parts sits at the origin
+    "forearm": ["Humerus.r", "Radius.r", "Ulna.r"],
 }
 
 # larger regions, picked by name pattern (right side unless both sides read better); never ligaments or markers
@@ -45,6 +48,7 @@ import re
 for name, pat in PATTERNS.items():
     MODELS[name] = sorted(o.name for o in bpy.data.objects if o.type == "MESH" and re.match(pat, o.name)
                           and max(o.dimensions) > 0.005)
+MODELS["forearm"] += MODELS["hand"]
 
 only = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 bpy.context.view_layer.update()

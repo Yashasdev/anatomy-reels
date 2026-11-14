@@ -651,6 +651,70 @@ if grid:
         pivots[k] = 0.0
         pins[k] = {"grid": []}
 
+# --- chips (fmt-types-05 on): a tear with "chips": n bursts bone chips from its point, as in the fracture video.
+# anatomy/types.py leaves this block out of the 3D cache key when no tear asks for chips, so 02-04 keep their cache.
+import random  # noqa: E402
+
+CHIPS = [material("chip_marrow", (0.55, 0.16, 0.10), 0.6), material("chip_ivory", KINDS["bone"][0], 0.5)]
+
+
+def burst(sh, t, at, rng, n):
+    """n chips flying out of tear t's point from frame `at` for ~0.7 s, in the show's body coordinates."""
+    p0 = sh.point(t["at"])[0]
+    rot = Euler([math.radians(a) for a in sh.s.get("orient", [0, 0, 0])]).to_matrix()
+    down = rot.inverted() @ Vector((0, 0, -1))  # the screen's down, in body coordinates
+    unit = 1 / sh.scale  # one metre of the fracture video's 0.45 m femur, in body units
+    for i in range(n):
+        bm = bmesh.new()
+        bmesh.ops.create_icosphere(bm, subdivisions=1, radius=1.0)
+        for v in bm.verts:
+            v.co *= rng.uniform(0.6, 1.3)
+        me = bpy.data.meshes.new("chip")
+        bm.to_mesh(me)
+        bm.free()
+        me.materials.append(CHIPS[0] if rng.random() < 0.55 else CHIPS[1])
+        o = bpy.data.objects.new("chip", me)
+        scene.collection.objects.link(o)
+        o.parent = sh.root
+        d = Vector((rng.uniform(-1, 1), rng.uniform(-1, 1), rng.uniform(-1, 1))).normalized()
+        v0 = d * rng.uniform(0.05, 0.2) * unit
+        size = rng.uniform(0.0016, 0.0045) * unit  # bigger than the fracture video's: these are seen wide
+        spin = Vector((rng.uniform(-20, 20), rng.uniform(-20, 20), rng.uniform(-20, 20)))
+        life = rng.uniform(0.5, 0.9)
+        o.hide_render = True
+        o.keyframe_insert("hide_render", frame=0)
+        for k in range(0, int(life * FPS) + 2, 2):
+            s_ = k / FPS
+            o.location = p0 + v0 * (1 - math.exp(-2.2 * s_)) / 2.2 + down * 0.08 * unit * s_ * s_
+            o.rotation_euler = spin * s_
+            o.scale = Vector((1, 1, 1)) * size * max(0.0, 1 - (s_ / life) ** 2)
+            o.keyframe_insert("location", frame=at + k)
+            o.keyframe_insert("rotation_euler", frame=at + k)
+            o.keyframe_insert("scale", frame=at + k)
+        show([o], at, at + int(life * FPS) + 2)
+
+
+rng = random.Random(9)
+for seg in TL:
+    a, b = F(seg["start"]), F(seg["end"])
+    if seg["kind"] == "flash":
+        step = (b - a) / len(seg["types"])
+        for i, n in enumerate(seg["types"]):
+            sh = SHOWN[n]
+            fa, fb = a + int(i * step), a + int((i + 1) * step)
+            last = max((mv["keys"][-1][0] for mv in sh.moves), default=0.4)
+            last = max([last] + [t["delay"] + 0.35 for t in sh.tears])
+            speed = max(1.0, last / ((fb - fa - 3) / FPS))
+            for t, spec_t in zip(sh.tears, sh.s.get("tears", [])):
+                if spec_t.get("chips"):
+                    burst(sh, spec_t, fa + 1 + int(round(t["delay"] * FPS / speed)), rng, max(6, spec_t["chips"] * 2 // 3))
+    elif seg["kind"] == "type":
+        sh = SHOWN[seg["name"]]
+        for t, spec_t in zip(sh.tears, sh.s.get("tears", [])):
+            if spec_t.get("chips"):
+                burst(sh, spec_t, a + F(seg.get("crack", 0.45)) + F(t["delay"]), rng, spec_t["chips"])
+# --- end chips
+
 # key everything frame by frame
 everything = [o for sh in SHOWN.values() for o in sh.all_objects()]
 for o in everything:

@@ -53,6 +53,7 @@ YELLOW = (246, 222, 64)
 FLASH, INTRO_MIN, TYPE_MIN, WHIP, OUTRO, COVER_TAIL = 2.9, 3.0, 3.4, 0.27, 0.8, 0.5
 SAY_AT = 0.32  # each type's name is said just as the bone breaks (the break is at 0.45 s)
 CAPTION_Y, CAPTION_W = 1335, 720  # inside the phone's safe area: the like/comment column covers x > 900 down here
+LABEL_X = (120, 960)  # where the new items' yellow names stay: tall phones crop about 100 px off each side (Nov 13)
 
 
 def items() -> list[dict]:
@@ -286,8 +287,8 @@ def callout(img: Image.Image, pin, text: str, age: float, fade: float, s: float,
         shown = text[: int(round(len(text) * min(1.0, (age - 0.2) / 0.38)))] if age > 0.2 else ""
         if shown:
             x = elbow[0] + 6 * s if side > 0 else elbow[0] - 6 * s - d.textlength(shown, font=f)
-            if clamp:  # keep the whole name inside the phone's safe area (x 60-1020), however far left the pin is
-                x = max(x, 60 * s) if side < 0 else min(x, 1020 * s - full_w)
+            if clamp:  # keep the whole name inside the phone's safe area (LABEL_X), however far left the pin is
+                x = min(max(x, LABEL_X[0] * s), LABEL_X[1] * s - full_w)
             if place:
                 d.text((x, elbow[1] - 6 * s), shown, font=f, fill=YELLOW + (alpha,), anchor="ls",
                        stroke_width=max(2, int(4 * s)), stroke_fill=(12, 12, 14, int(alpha * 0.9)))
@@ -304,7 +305,7 @@ def small_label(img: Image.Image, pin, text: str, s: float, big: bool = False) -
     d = ImageDraw.Draw(img)
     if big:  # the new items' hook montage: readable, outlined, inside the safe area
         f = LABEL(int(56 * s))
-        x = min(max(pin[0] + 40 * s, 60 * s), 1020 * s - d.textlength(text, font=f))
+        x = min(max(pin[0] + 40 * s, LABEL_X[0] * s), LABEL_X[1] * s - d.textlength(text, font=f))
         d.text((x, min(max(pin[1], 300 * s), 1200 * s)), text, font=f, fill=YELLOW, anchor="lm",
                stroke_width=max(2, int(4 * s)), stroke_fill=(12, 12, 14))
         return
@@ -335,7 +336,8 @@ def place_label(cover: np.ndarray, pin, text_w: float, s: float) -> tuple:
     for side in (1, -1):
         for ex in range(100, 1000, 30):
             x0, x1 = (ex, ex + text_w + 40) if side > 0 else (ex - text_w - 40, ex)
-            if x0 < 60 or x1 > 1020:
+            t0, t1 = (ex + 6, ex + 6 + text_w) if side > 0 else (ex - 6 - text_w, ex - 6)  # the name itself
+            if t0 < LABEL_X[0] or t1 > LABEL_X[1]:
                 continue
             for ey in range(330, CAPTION_Y - 150, 30):
                 if ey > 1100 and x1 > 900:
@@ -400,12 +402,14 @@ def chart_label(d: ImageDraw.ImageDraw, xy, rows: list[str], fade: float, s: flo
 
 
 def watermark(img: Image.Image, s: float) -> None:
-    """Our mark where the reference has its logo: a hairline from the top and the name under it."""
+    """Our mark where the reference has its logo: a short hairline and the name under it. Tall phones crop about
+    100 px off each side of a 9:16 video and Instagram's back arrow sits near (180, 190), so the mark stays at x 150
+    and below y 200 (Nov 13, 2026: at x 58 it showed as "TOMY CE" on an iPhone)."""
     d = ImageDraw.Draw(img)
-    x = 58 * s
-    d.line([(x, 0), (x, 150 * s)], fill=(235, 238, 242), width=max(1, int(2 * s)))
+    x = 150 * s
+    d.line([(x, 204 * s), (x, 246 * s)], fill=(235, 238, 242), width=max(1, int(2 * s)))
     for i, word in enumerate(("ANATOMY", "ACE")):
-        d.text((x, 166 * s + i * 24 * s), word, font=BOLD(int(19 * s)), fill=(235, 238, 242), anchor="mt")
+        d.text((x, 258 * s + i * 24 * s), word, font=BOLD(int(19 * s)), fill=(235, 238, 242), anchor="mt")
 
 
 # --- sound -------------------------------------------------------------------------------------------------
@@ -475,7 +479,10 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     frames = int(round(length * FPS))
     script, spec = scene_for(q, segs, frames, work / "frames", W, H, samples)
     cache = os.environ.get("TYPES_CACHE")  # keep the 3D frames (one set per video), so 2D-only fixes skip Blender
-    key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + script.read_text()).encode()).hexdigest()
+    text = script.read_text()
+    if not any(x.get("chips") for sh in spec.get("shows", {}).values() for x in sh.get("tears", [])):
+        text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)  # 02-04's frames stay cached
+    key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + text).encode()).hexdigest()
     if cache:
         keep = Path(cache).expanduser() / q["id"]
         if (keep / "key.txt").exists() and (keep / "key.txt").read_text() == key and (keep / "frames" / "anchors.json").exists():
@@ -485,8 +492,9 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         else:
             r = True
     if not cache or r is True:
-        r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(script),
-                            "--", json.dumps(spec)], capture_output=True, text=True)
+        # threads capped (the Mac overheats): BLENDER_THREADS, default 4
+        r = subprocess.run([blender(), "-b", "--factory-startup", "-t", os.environ.get("BLENDER_THREADS", "4"),
+                            "--python", str(script), "--", json.dumps(spec)], capture_output=True, text=True)
         if r.returncode or not (work / "frames" / "anchors.json").exists():
             print(r.stdout[-3000:], r.stderr[-3000:])
             raise SystemExit("Blender failed")
