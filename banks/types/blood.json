@@ -1,0 +1,1169 @@
+[
+ {
+  "id": "fmt-types-09",
+  "scene": "parts",
+  "for": "Everyone has a blood type, and most people half-remember theirs or don't know it. The closing chart lets them find their own type and how rare it is, and they send it to the family group chat to compare.",
+  "title": "8 blood types: how common each one is, and who can give blood to whom",
+  "question": "8 blood types. What's your blood type?",
+  "hook": "Your blood is one of these 8 types.",
+  "intro": "All 8, and who can give blood to whom.",
+  "flash": [
+   "o_pos",
+   "a_pos",
+   "b_pos",
+   "ab_pos",
+   "o_neg",
+   "ab_neg"
+  ],
+  "types": [
+   {
+    "name": "o_pos",
+    "label": "O POSITIVE",
+    "chart": [
+     "O+",
+     "nearly 4 in 10"
+    ],
+    "sound": "pop",
+    "lines": [
+     "O positive. The most common: nearly 4 in 10 Americans.",
+     "O means no [A](ˈeɪ) or B markers on your red cells.",
+     "Positive means one more marker, called [Rh](ˈɑɹ ˈeɪʧ)."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "O+ 1",
+      "O+ 1 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "O+ 1",
+        "O+ 1 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         -180
+        ],
+        [
+         0.35,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "O+ 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.55,
+     "chart_t": 30.0
+    }
+   },
+   {
+    "name": "a_pos",
+    "label": "A POSITIVE",
+    "chart": [
+     "A+",
+     "1 in 3"
+    ],
+    "sound": "thud",
+    "lines": [
+     "[A](ˈeɪ) positive. About 1 in 3. [A](ˈeɪ) markers,",
+     "and plasma that attacks B, so B blood clumps."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "A+ 1",
+      "A+ 1 A",
+      "A+ 1 Rh",
+      "B+ 2",
+      "B+ 2 B",
+      "B+ 2 Rh",
+      "B+ 3",
+      "B+ 3 B",
+      "B+ 3 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "B+ 2",
+        "B+ 2 B",
+        "B+ 2 Rh",
+        "B+ 3",
+        "B+ 3 B",
+        "B+ 3 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0.32,
+         0,
+         0.06
+        ],
+        [
+         0.28,
+         0,
+         0,
+         0,
+         -0.008,
+         0,
+         -0.004
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "A+ 1",
+        "A+ 1 A",
+        "A+ 1 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "A+ 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.78,
+     "chart_t": 30.0,
+     "hurt": [
+      "B+ 2",
+      "B+ 3"
+     ],
+     "chart_hide": [
+      "B+ 2",
+      "B+ 2 B",
+      "B+ 2 Rh",
+      "B+ 3",
+      "B+ 3 B",
+      "B+ 3 Rh"
+     ]
+    }
+   },
+   {
+    "name": "b_pos",
+    "label": "B POSITIVE",
+    "chart": [
+     "B+",
+     "about 9%"
+    ],
+    "sound": "thud",
+    "lines": [
+     "B positive. About 9 percent.",
+     "B markers, and plasma that attacks A."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "B+ 1",
+      "B+ 1 B",
+      "B+ 1 Rh",
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh",
+      "A+ 3",
+      "A+ 3 A",
+      "A+ 3 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "A+ 2",
+        "A+ 2 A",
+        "A+ 2 Rh",
+        "A+ 3",
+        "A+ 3 A",
+        "A+ 3 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0.32,
+         0,
+         0.06
+        ],
+        [
+         0.28,
+         0,
+         0,
+         0,
+         -0.008,
+         0,
+         -0.004
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "B+ 1",
+        "B+ 1 B",
+        "B+ 1 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "B+ 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.78,
+     "chart_t": 30.0,
+     "hurt": [
+      "A+ 2",
+      "A+ 3"
+     ],
+     "chart_hide": [
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh",
+      "A+ 3",
+      "A+ 3 A",
+      "A+ 3 Rh"
+     ]
+    }
+   },
+   {
+    "name": "o_neg",
+    "label": "O NEGATIVE",
+    "chart": [
+     "O-",
+     "7%, gives to all"
+    ],
+    "sound": "pop",
+    "lines": [
+     "O negative. Only 7 percent. No markers at all,",
+     "so almost anyone can get its red cells.",
+     "It's the universal donor."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "O- 1",
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh",
+      "B+ 3",
+      "B+ 3 B",
+      "B+ 3 Rh",
+      "AB+ 4",
+      "AB+ 4 A",
+      "AB+ 4 B",
+      "AB+ 4 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "O- 1"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         90,
+         -0.34,
+         0,
+         0.04
+        ],
+        [
+         0.28,
+         0,
+         0,
+         0,
+         0.0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "O- 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.78,
+     "chart_t": 30.0,
+     "chart_hide": [
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh",
+      "B+ 3",
+      "B+ 3 B",
+      "B+ 3 Rh",
+      "AB+ 4",
+      "AB+ 4 A",
+      "AB+ 4 B",
+      "AB+ 4 Rh"
+     ]
+    }
+   },
+   {
+    "name": "a_neg",
+    "label": "A NEGATIVE",
+    "chart": [
+     "A-",
+     "1 in 16"
+    ],
+    "sound": "pop",
+    "lines": [
+     "[A](ˈeɪ) negative. 1 in 16. No [Rh](ˈɑɹ ˈeɪʧ) marker,",
+     "so only red cells from negative donors."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "A- 1",
+      "A- 1 A",
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "A+ 2",
+        "A+ 2 A",
+        "A+ 2 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0.32,
+         0,
+         0.05
+        ],
+        [
+         0.28,
+         0,
+         0,
+         0,
+         0.02,
+         0,
+         0.004
+        ],
+        [
+         0.4,
+         0,
+         0,
+         0,
+         0.02,
+         0,
+         0.004
+        ],
+        [
+         0.8300000000000001,
+         0,
+         0,
+         0,
+         0.2,
+         0,
+         0.04
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "A- 1",
+        "A- 1 A"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "A- 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.78,
+     "chart_t": 30.0,
+     "chart_hide": [
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh"
+     ]
+    }
+   },
+   {
+    "name": "ab_pos",
+    "label": "AB POSITIVE",
+    "chart": [
+     "AB+",
+     "under 4%, takes all"
+    ],
+    "sound": "pop",
+    "lines": [
+     "AB positive. Under 4 percent. Every marker,",
+     "so it can get red cells from anyone.",
+     "The universal recipient."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "AB+ 1",
+      "AB+ 1 A",
+      "AB+ 1 B",
+      "AB+ 1 Rh",
+      "O+ 2",
+      "O+ 2 Rh",
+      "A+ 3",
+      "A+ 3 A",
+      "A+ 3 Rh",
+      "B+ 4",
+      "B+ 4 B",
+      "B+ 4 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "O+ 2",
+        "O+ 2 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0.3,
+         0,
+         0.12
+        ],
+        [
+         0.28,
+         0,
+         0,
+         0,
+         0.012,
+         0,
+         0.006
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "A+ 3",
+        "A+ 3 A",
+        "A+ 3 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0.3,
+         0,
+         -0.12
+        ],
+        [
+         0.34,
+         0,
+         0,
+         0,
+         0.012,
+         0,
+         -0.006
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "B+ 4",
+        "B+ 4 B",
+        "B+ 4 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         -0.3,
+         0,
+         0.1
+        ],
+        [
+         0.4,
+         0,
+         0,
+         0,
+         -0.012,
+         0,
+         0.006
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "AB+ 1",
+        "AB+ 1 A",
+        "AB+ 1 B",
+        "AB+ 1 Rh"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "AB+ 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.78,
+     "chart_t": 30.0,
+     "chart_hide": [
+      "O+ 2",
+      "O+ 2 Rh",
+      "A+ 3",
+      "A+ 3 A",
+      "A+ 3 Rh",
+      "B+ 4",
+      "B+ 4 B",
+      "B+ 4 Rh"
+     ]
+    }
+   },
+   {
+    "name": "b_neg",
+    "label": "B NEGATIVE",
+    "chart": [
+     "B-",
+     "under 2%"
+    ],
+    "sound": "pop",
+    "lines": [
+     "B negative. Under 2 percent."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "B- 1",
+      "B- 1 B",
+      "O- 2"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "O- 2"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0.32,
+         0,
+         0.05
+        ],
+        [
+         0.28,
+         0,
+         0,
+         0,
+         0.012,
+         0,
+         0.006
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "B- 1",
+        "B- 1 B"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "B- 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.78,
+     "chart_t": 30.0,
+     "chart_hide": [
+      "O- 2"
+     ]
+    }
+   },
+   {
+    "name": "ab_neg",
+    "label": "AB NEGATIVE",
+    "chart": [
+     "AB-",
+     "under 1%, rarest"
+    ],
+    "sound": "pop",
+    "lines": [
+     "AB negative. The rarest, under 1 percent.",
+     "Plasma is the reverse: AB plasma can go to anyone."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "AB- 1",
+      "AB- 1 A",
+      "AB- 1 B"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "AB- 1",
+        "AB- 1 A",
+        "AB- 1 B"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         -180
+        ],
+        [
+         0.35,
+         0,
+         0,
+         0
+        ],
+        [
+         3.0,
+         0,
+         0,
+         20
+        ],
+        [
+         29.0,
+         0,
+         0,
+         20
+        ],
+        [
+         30.0,
+         -36,
+         0,
+         -12
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "AB- 1",
+      "at": [
+       0.15,
+       0.0,
+       0.8
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0.02,
+       0,
+       0
+      ]
+     },
+     "zoom": 0.55,
+     "chart_t": 30.0
+    }
+   }
+  ],
+  "outro": [
+   "What's *your* blood type?",
+   "Send this to your family group chat."
+  ],
+  "grid_title": "BLOOD TYPES IN THE US",
+  "why": "Blood type is set by two markers (antigens), A and B, on the red cells, plus the Rh factor (RhD): present is positive, absent is negative. Group A has anti-B antibodies in the plasma, group B has anti-A, group O has both and AB has neither; the wrong ABO group can be life-threatening. US share (American Red Cross): O+ 37-38% (most common), A+ about 1 in 3, B+ about 9%, O- 7%, A- 1 in 16, AB+ under 4%, B- under 2%, AB- under 1% (rarest). O negative is the universal red cell donor; AB positive is the universal recipient; Rh-negative patients get Rh-negative red cells. For plasma the rules are reversed: AB plasma can go to any type.",
+  "hashtags": [
+   "#bloodtype",
+   "#blood",
+   "#anatomy",
+   "#health",
+   "#premed"
+  ],
+  "sources": [
+   "https://www.redcrossblood.org/donate-blood/blood-types.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/o-blood-type.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/a-blood-type.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/b-blood-type.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/ab-blood-type.html",
+   "https://www.nhs.uk/conditions/blood-groups/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK580518/"
+  ],
+  "credit": "3D red blood cells: made in Blender for Anatomy Ace",
+  "send": "Send this to your family group chat 🩸",
+  "music": "ambient-2"
+ }
+]

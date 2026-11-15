@@ -1,0 +1,1416 @@
+[
+ {
+  "id": "fmt-types-10",
+  "scene": "parts",
+  "for": "Anyone who plays a sport or has ever stepped off a curb wrong: most people have rolled an ankle. They send it to the friend who rolls theirs every game, and the chart is their own ankle history.",
+  "title": "Every way you can hurt your ankle: the 6 big ones",
+  "question": "6 ways people hurt their ankle. Which one have you had?",
+  "hook": "6 ways people hurt their ankle. You've probably had one.",
+  "intro": "Here are 6 ways people hurt their ankle.",
+  "flash": [
+   "rolled",
+   "high",
+   "broken",
+   "fifth",
+   "achilles"
+  ],
+  "types": [
+   {
+    "name": "rolled",
+    "label": "ROLLED ANKLE",
+    "chart": [
+     "Rolled ankle",
+     "outer ligament, ATFL"
+    ],
+    "sound": "pop",
+    "lines": [
+     "Rolled ankle. Most sprains happen this way:",
+     "your foot turns in, and the outside ligaments [tear](tˈɛɹ),",
+     "most often the front one, the [ATFL](ˈeɪ tˈi ˈɛf ˈɛl)."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      40
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.2
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         -30,
+         0
+        ],
+        [
+         1.4,
+         0,
+         -28,
+         0
+        ],
+        [
+         2.4,
+         0,
+         -12,
+         0
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "ATFL",
+       "from": {
+        "part": "Fibula.r",
+        "at": [
+         0.25,
+         0.1,
+         0.02
+        ]
+       },
+       "to": {
+        "part": "Talus.r",
+        "at": [
+         0.05,
+         0.12,
+         0.55
+        ]
+       },
+       "width": 0.008,
+       "thick": 0.003
+      }
+     ],
+     "tears": [
+      {
+       "part": "ATFL",
+       "at": {
+        "part": "ATFL",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ]
+       },
+       "normal": [
+        0.3,
+        -0.9,
+        0.2
+       ],
+       "groups": [
+        1,
+        0
+       ],
+       "gap": 0.002,
+       "delay": 0.1
+      }
+     ],
+     "lit": [
+      "ATFL"
+     ],
+     "hurt": [
+      "ATFL"
+     ],
+     "pin": {
+      "part": "ATFL",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 0.42,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.15
+      ]
+     ]
+    }
+   },
+   {
+    "name": "high",
+    "label": "HIGH ANKLE SPRAIN",
+    "chart": [
+     "High sprain",
+     "foot twists out"
+    ],
+    "sound": "pop",
+    "lines": [
+     "High ankle sprain. Your foot twists outward,",
+     "and [tears](tˈɛɹz) the ligaments joining your two leg bones,",
+     "just above the ankle. It's slower to heal."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      25
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.3
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.2,
+         0,
+         0,
+         -28
+        ],
+        [
+         1.4,
+         0,
+         0,
+         -28
+        ],
+        [
+         2.4,
+         0,
+         0,
+         -12
+        ]
+       ]
+      },
+      {
+       "parts": [
+        "Fibula.r"
+       ],
+       "pivot": {
+        "part": "Fibula.r",
+        "at": [
+         0.5,
+         0.5,
+         0.9
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.2,
+         0,
+         0,
+         -6,
+         -0.0035,
+         -0.001,
+         0
+        ],
+        [
+         1.4,
+         0,
+         0,
+         -6,
+         -0.0035,
+         -0.001,
+         0
+        ],
+        [
+         2.4,
+         0,
+         0,
+         -3,
+         -0.002,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "AITFL",
+       "from": {
+        "part": "Fibula.r",
+        "at": [
+         0.75,
+         0.05,
+         0.1
+        ]
+       },
+       "to": {
+        "part": "Tibia.r",
+        "at": [
+         0.05,
+         0.1,
+         0.04
+        ]
+       },
+       "width": 0.009,
+       "thick": 0.0028
+      },
+      {
+       "name": "Syndesmosis",
+       "from": {
+        "part": "Fibula.r",
+        "at": [
+         0.8,
+         0.2,
+         0.17
+        ]
+       },
+       "to": {
+        "part": "Tibia.r",
+        "at": [
+         0.05,
+         0.3,
+         0.12
+        ]
+       },
+       "width": 0.012,
+       "thick": 0.0025
+      }
+     ],
+     "tears": [
+      {
+       "part": "AITFL",
+       "at": {
+        "part": "AITFL",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ]
+       },
+       "normal": [
+        1,
+        0,
+        0
+       ],
+       "groups": [
+        2,
+        0
+       ],
+       "gap": 0.0015,
+       "delay": 0.12
+      }
+     ],
+     "lit": [
+      "AITFL",
+      "Syndesmosis"
+     ],
+     "hurt": [
+      "AITFL",
+      "Syndesmosis"
+     ],
+     "pin": {
+      "part": "AITFL",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "focus": {
+      "part": "AITFL",
+      "at": [
+       0.5,
+       0.5,
+       0.9
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.22
+      ]
+     ]
+    }
+   },
+   {
+    "name": "broken",
+    "label": "BROKEN ANKLE",
+    "chart": [
+     "Broken ankle",
+     "end of the fibula"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Broken ankle. Most breaks are the end of your fibula,",
+     "the bump on the outside: the lateral malleolus."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Tibia.r",
+      "Fibula.r",
+      "Talus.r",
+      "Calcaneus.r",
+      "Navicular bone.r",
+      "Cuboid bone.r",
+      "Medial cuneiform bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "First metatarsal bone.r",
+      "Second metatarsal bone.r",
+      "Third metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Fifth metatarsal bone.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Distal phalanx of fifth finger of foot.r"
+     ],
+     "orient": [
+      0,
+      0,
+      30
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.2
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.15,
+         0,
+         -22,
+         0
+        ],
+        [
+         1.6,
+         0,
+         -10,
+         0
+        ]
+       ]
+      },
+      {
+       "parts": [],
+       "pivot": {
+        "part": "Fibula.r",
+        "at": [
+         0.5,
+         0.5,
+         0.07
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.15,
+         0,
+         -8,
+         0,
+         -0.003,
+         0,
+         0
+        ],
+        [
+         1.6,
+         0,
+         -8,
+         0,
+         -0.003,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "tears": [
+      {
+       "part": "Fibula.r",
+       "at": {
+        "part": "Fibula.r",
+        "at": [
+         0.5,
+         0.5,
+         0.07
+        ]
+       },
+       "normal": [
+        0.2,
+        0.5,
+        1.0
+       ],
+       "groups": [
+        0,
+        2
+       ],
+       "gap": 0.0015,
+       "chips": 24
+      }
+     ],
+     "lit": [
+      "Fibula.r"
+     ],
+     "hurt": [
+      "Fibula.r"
+     ],
+     "pin": {
+      "part": "Fibula.r",
+      "at": [
+       0.3,
+       0.5,
+       0.06
+      ]
+     },
+     "zoom": 0.4,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.15
+      ]
+     ]
+    }
+   },
+   {
+    "name": "fifth",
+    "label": "FIFTH METATARSAL",
+    "chart": [
+     "5th metatarsal",
+     "chip pulled off"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Fifth metatarsal. Roll your ankle, and a ligament",
+     "can pull a chip off the bone on the outside of your foot.",
+     "So a rolled ankle can be a break."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      75
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.2
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         -24,
+         0
+        ],
+        [
+         1.4,
+         0,
+         -24,
+         0
+        ],
+        [
+         2.4,
+         0,
+         -10,
+         0
+        ]
+       ]
+      },
+      {
+       "parts": [],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         -24,
+         0
+        ],
+        [
+         0.18,
+         0,
+         -24,
+         0
+        ],
+        [
+         0.3,
+         0,
+         -24,
+         0,
+         0.0,
+         0.004,
+         0.003
+        ],
+        [
+         1.4,
+         0,
+         -24,
+         0,
+         0.0,
+         0.004,
+         0.003
+        ],
+        [
+         2.4,
+         0,
+         -10,
+         0,
+         0.0,
+         0.004,
+         0.003
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Lateral band",
+       "from": {
+        "part": "Calcaneus.r",
+        "at": [
+         0.0,
+         0.25,
+         0.4
+        ]
+       },
+       "to": {
+        "part": "Fifth metatarsal bone.r",
+        "at": [
+         0.1,
+         0.95,
+         0.5
+        ],
+        "group": 2
+       },
+       "width": 0.007,
+       "thick": 0.003
+      }
+     ],
+     "tears": [
+      {
+       "part": "Fifth metatarsal bone.r",
+       "at": {
+        "part": "Fifth metatarsal bone.r",
+        "at": [
+         0.3,
+         0.86,
+         0.5
+        ]
+       },
+       "normal": [
+        0.2,
+        1,
+        0.2
+       ],
+       "groups": [
+        2,
+        1
+       ],
+       "gap": 0.0008,
+       "delay": 0.18,
+       "chips": 10
+      }
+     ],
+     "lit": [
+      "Fifth metatarsal bone.r"
+     ],
+     "hurt": [
+      "Fifth metatarsal bone.r"
+     ],
+     "pin": {
+      "part": "Fifth metatarsal bone.r",
+      "at": [
+       0.2,
+       0.95,
+       0.5
+      ]
+     },
+     "zoom": 0.42,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.15
+      ]
+     ]
+    }
+   },
+   {
+    "name": "peroneal",
+    "label": "PERONEAL TENDONS",
+    "chart": [
+     "Peroneal",
+     "behind the fibula"
+    ],
+    "sound": "thud",
+    "lines": [
+     "[Peroneal](pɛɹoʊnˈiəl) tendons. Two tendons run behind that bump.",
+     "They can get inflamed, [tear](tˈɛɹ), or slip out of place."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      100
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.3
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "xyz": [
+         -0.1015,
+         0.064,
+         0.05
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.22,
+         0,
+         0,
+         0,
+         -0.012,
+         -0.016,
+         0.006
+        ],
+        [
+         1.6,
+         0,
+         0,
+         0,
+         -0.012,
+         -0.016,
+         0.006
+        ],
+        [
+         2.6,
+         0,
+         0,
+         0,
+         -0.01,
+         -0.013,
+         0.005
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Peroneal tendons",
+       "from": {
+        "xyz": [
+         -0.1035,
+         0.066,
+         0.21
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.1015,
+         0.064,
+         0.05
+        ],
+        "group": 1
+       },
+       "width": 0.012,
+       "thick": 0.005
+      },
+      {
+       "name": "Brevis to foot",
+       "from": {
+        "xyz": [
+         -0.1015,
+         0.064,
+         0.05
+        ],
+        "group": 1
+       },
+       "to": {
+        "part": "Fifth metatarsal bone.r",
+        "at": [
+         0.1,
+         0.97,
+         0.5
+        ]
+       },
+       "width": 0.007,
+       "thick": 0.004
+      },
+      {
+       "name": "Longus to foot",
+       "from": {
+        "xyz": [
+         -0.1015,
+         0.064,
+         0.05
+        ],
+        "group": 1
+       },
+       "to": {
+        "part": "Cuboid bone.r",
+        "at": [
+         0.1,
+         0.6,
+         0.05
+        ]
+       },
+       "width": 0.007,
+       "thick": 0.004
+      }
+     ],
+     "lit": [
+      "Peroneal tendons",
+      "Brevis to foot",
+      "Longus to foot"
+     ],
+     "hurt": [
+      "Peroneal tendons"
+     ],
+     "pin": {
+      "part": "Fibula.r",
+      "at": [
+       0.3,
+       0.85,
+       0.06
+      ]
+     },
+     "focus": {
+      "xyz": [
+       -0.1,
+       0.055,
+       0.08
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.22
+      ]
+     ]
+    }
+   },
+   {
+    "name": "achilles",
+    "label": "ACHILLES RUPTURE",
+    "chart": [
+     "Achilles rupture",
+     "a pop, like a kick"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Achilles rupture. The biggest tendon in your body snaps.",
+     "You might hear a pop, and feel like you got kicked in the leg."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      95
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.3
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         18,
+         0,
+         0
+        ],
+        [
+         0.5,
+         18,
+         0,
+         0
+        ],
+        [
+         1.2,
+         4,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Achilles tendon",
+       "from": {
+        "xyz": [
+         -0.074,
+         0.088,
+         0.27
+        ]
+       },
+       "to": {
+        "part": "Calcaneus.r",
+        "at": [
+         0.5,
+         1.0,
+         0.6
+        ]
+       },
+       "width": 0.017,
+       "thick": 0.009
+      }
+     ],
+     "tears": [
+      {
+       "part": "Achilles tendon",
+       "at": {
+        "part": "Achilles tendon",
+        "at": [
+         0.5,
+         0.5,
+         0.35
+        ]
+       },
+       "normal": [
+        0,
+        0,
+        1
+       ],
+       "groups": [
+        0,
+        1
+       ],
+       "gap": 0.007,
+       "delay": 0.3
+      }
+     ],
+     "lit": [
+      "Achilles tendon"
+     ],
+     "hurt": [
+      "Achilles tendon"
+     ],
+     "pin": {
+      "part": "Achilles tendon",
+      "at": [
+       0.5,
+       0.5,
+       0.35
+      ]
+     },
+     "zoom": 0.5,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.22
+      ]
+     ]
+    }
+   }
+  ],
+  "outro": [
+   "Can't put weight on it? Get it checked.",
+   "Which one have *you* had?",
+   "Send this to the friend who rolls their ankle every game."
+  ],
+  "grid_title": "WAYS TO HURT YOUR ANKLE",
+  "why": "Rolled ankle (lateral sprain): most ankle sprains (around 90%) are inversion injuries (the foot turns in) to the outside ligaments, the anterior talofibular ligament (ATFL) most often. High ankle sprain: the ligaments joining the tibia and fibula just above the ankle (the syndesmosis), usually from the foot twisting outward; less common, slower to heal. Broken ankle: isolated fractures of the end of the fibula (the lateral malleolus, the outer bump) are the majority of ankle fractures. Fifth metatarsal: when the foot and ankle twist down and in, a ligament can pull a fragment off the base of the bone on the outside of the foot (an avulsion fracture). Peroneal tendons: two tendons that run behind the outer ankle bone; they can be inflamed (tendonitis), torn, or slip out of place (subluxation). Achilles rupture: the largest tendon in the body; a pop, and a feeling like being kicked in the lower leg, often in sports with jumps and quick starts. Trouble putting weight on it: get it checked.",
+  "hashtags": [
+   "#anklesprain",
+   "#ankle",
+   "#anatomy",
+   "#sportsinjury",
+   "#premed"
+  ],
+  "sources": [
+   "https://www.orthoinfo.org/en/diseases--conditions/sprained-ankle/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK459212/",
+   "https://www.orthoinfo.org/en/diseases--conditions/ankle-fractures-broken-ankle/",
+   "https://pubmed.ncbi.nlm.nih.gov/34055584/",
+   "https://www.orthoinfo.org/en/diseases--conditions/toe-and-forefoot-fractures/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK544354/",
+   "https://www.orthoinfo.org/en/diseases--conditions/achilles-tendon-rupture-tear/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK430844/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the friend who rolls their ankle every game 🏀",
+  "music": "ambient-4"
+ }
+]
