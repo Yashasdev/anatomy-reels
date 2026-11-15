@@ -1278,5 +1278,90 @@
     },
     "music": "pop-2",
     "rerendered": "2026-11-14"
+  },
+  {
+    "slot": "2026-11-16T12:30:00-05:00",
+    "day": 81,
+    "id": "fmt-types-08",
+    "organ": null,
+    "title": "8 body movement terms, shown on real bones",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-1230-fmt-types-08.mp4",
+    "video_seconds": 65.57,
+    "buffer": {
+      "instagram": "6afa11c9ee359588b54da86f",
+      "tiktok": "6afa11c9c5b364e0627cc54f",
+      "youtube": "6afa11ca4f0276ab945e4213"
+    },
+    "kind": "formats",
+    "format": "types",
+    "music": "lofi-4",
+    "hot": "types"
+  },
+  {
+    "slot": "2026-11-16T16:00:00-05:00",
+    "day": 82,
+    "id": "fmt-diagnose-04",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-1600-fmt-diagnose-04.mp4",
+    "video_seconds": 25.69,
+    "buffer": {
+      "instagram": "6afa11cbb9a106584cd149cb",
+      "tiktok": "6afa11ccc5b364e0627cc650",
+      "youtube": "6afa11cc4f0276ab945e42c4"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "pop-2",
+    "hot": "diagnose"
+  },
+  {
+    "slot": "2026-11-16T18:00:00-05:00",
+    "day": 83,
+    "id": "dd-honey-baby",
+    "organ": null,
+    "title": "No honey before one",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-1800-dd-honey-baby.mp4",
+    "video_seconds": 36.2,
+    "buffer": {
+      "instagram": "6afa11ce4f0276ab945e451b",
+      "tiktok": "6afa11cec5b364e0627cc747",
+      "youtube": "6afa11cfee359588b54dabeb"
+    },
+    "kind": "deepdive",
+    "music": "lofi-1"
+  },
+  {
+    "slot": "2026-11-16T20:00:00-05:00",
+    "day": 84,
+    "id": "dd-onetake-bite",
+    "organ": null,
+    "title": "One bite of food. One take.",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-16-2000-dd-onetake-bite.mp4",
+    "video_seconds": 44.97,
+    "buffer": {
+      "instagram": "6afa11d2ee359588b54dacbb",
+      "tiktok": "6afa11d2e5a113497a0ed184",
+      "youtube": "6afa11d34f0276ab945e47ae"
+    },
+    "kind": "deepdive",
+    "music": "lofi-3",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-17T09:30:00-05:00",
+    "day": 85,
+    "id": "spine-05",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-17-0930-spine-05.mp4",
+    "video_seconds": 21.54,
+    "buffer": {
+      "instagram": "6afa11d5c5b364e0627cc8b6",
+      "tiktok": "6afa11d6e5a113497a0ed2b5",
+      "youtube": "6afa11d7ee359588b54dadbf"
+    },
+    "music": "house-4",
+    "look": "studio"
   }
 ]
