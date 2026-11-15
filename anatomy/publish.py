@@ -127,6 +127,9 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
             recent = [h["music"] for h in hist if h.get("music")] + [q2.get("music") for _, q2 in out]
             q["music"] = music.pick(q["day"] * 7919, avoid=[m for m in recent if m][-8:],
                                     styles=CONFIG.get("music_styles"))
+            fixed = (CONFIG.get("slot_music") or {}).get(f"{at:%H:%M}")
+            if fixed and at.date().isoformat() >= fixed.get("from", ""):  # a slot pinned to one track (config slot_music)
+                q["music"] = fixed["track"]
         out.append((at, q))
         used.append(q["id"])
         last = q["organ"]

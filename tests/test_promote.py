@@ -49,3 +49,11 @@ def test_a_held_video_is_never_picked(monkeypatch):
     held = {"id": "fmt-types-08", "format": "types", "hold": True}
     monkeypatch.setattr(series, "index", lambda name: [held])
     assert series.next_video("formats", datetime(2026, 11, 16, 12, 30), [], (), ("types",)) is None
+
+
+def test_the_8pm_quiz_uses_the_hit_track_from_nov_17():
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    plan = dict((at.isoformat(), q) for at, q in publish.plan(datetime(2026, 11, 17, 12, 0, tzinfo=ZoneInfo("UTC"))))
+    eight = [q for at, q in plan.items() if at.startswith("2026-11-17T20:00")]
+    assert eight and eight[0].get("music") == "ambient-2" and eight[0].get("kind") not in ("deepdive",)

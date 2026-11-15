@@ -70,8 +70,7 @@
   "deepdive": {
     "release": "deepdives",
     "slots": [
-      "18:00",
-      "20:00"
+      "18:00"
     ],
     "from": "2026-11-07",
     "order": [
@@ -99,7 +98,7 @@
       "dd-transcription",
       "dd-translation"
     ],
-    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready. Nov 10, 2026 (share plan, approved by Yashas): share-first videos go first (One Take, future parents, everyday warnings, then the most sendable of the rest); textbook processes (membrane transport, transcription, translation) last. Nov 14, 2026 (Yashas): a second deep dive at 20:00 replaces that quiz (deep dives: 1,258 median views and 0.91% shares per reach vs quizzes' 361 and 0.21%); with none ready it posts a quiz."
+    "note": "One Anatomy Deep Dive a day at 18:00 from Nov 7, 2026 (Yashas approved Nov 6). The 18:00 slot posts a quiz when no new deep dive is ready. Nov 10, 2026 (share plan, approved by Yashas): share-first videos go first (One Take, future parents, everyday warnings, then the most sendable of the rest); textbook processes (membrane transport, transcription, translation) last. Nov 14, 2026 (Yashas): a second deep dive at 20:00 replaces that quiz (deep dives: 1,258 median views and 0.91% shares per reach vs quizzes' 361 and 0.21%); with none ready it posts a quiz. Nov 15, 2026 (Yashas): 20:00 goes back to an automatic quiz from Nov 17 (Monday's queued One Take stays)."
   },
   "formats": {
     "release": "formats",
@@ -146,5 +145,12 @@
     "from": "2026-11-17",
     "studio_days": "odd",
     "note": "Quiz look A/B test (Yashas, Nov 15, 2026): the 09:30 quiz renders in the studio look (the gray sweep and realistic bone of the Types videos, anatomy/make.py look=\"studio\") on odd days counted from \"from\" (Nov 17, 19, 21...) and in the classic black card on the others. History records \"look\"; the scorecard's \"Quiz look A/B\" table compares them. Posts before \"from\" render exactly as before."
+  },
+  "slot_music": {
+    "20:00": {
+      "track": "ambient-2",
+      "from": "2026-11-17",
+      "note": "Yashas, Nov 15: the 20:00 quiz uses the background track of our most viral post (11 types of fracture, ambient-2)."
+    }
   }
 }
