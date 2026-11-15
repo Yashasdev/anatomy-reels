@@ -74,22 +74,114 @@
    "title": "11 types of fracture",
    "kind": "formats",
    "format": "types",
-   "age_hours": 20.3,
-   "views": 10296,
-   "baseline": 332,
-   "shares": 131,
-   "reach": 8793,
-   "share_rate": 0.0149,
-   "share_baseline": 0.0,
+   "age_hours": 44.9,
+   "views": 204142,
+   "baseline": 1207,
+   "shares": 2748,
+   "reach": 188203,
+   "share_rate": 0.0146,
+   "share_baseline": 0.0013,
    "compared_with": "all formats (11 posts)",
    "factor": 3,
    "by": [
+    "shares",
     "views"
    ],
    "series": "types",
    "date": "2026-11-14",
    "until": "2026-11-18"
+  },
+  {
+   "post": "dd-caffeine",
+   "buffer_id": "6af62ea8a01fb6efee4cc21f",
+   "day": 68,
+   "title": "What caffeine really does",
+   "kind": "deepdive",
+   "age_hours": 43.0,
+   "views": 586,
+   "baseline": 1258,
+   "shares": 15,
+   "reach": 492,
+   "share_rate": 0.0305,
+   "share_baseline": 0.0066,
+   "compared_with": "deepdive (7 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "dd-caffeine",
+   "date": "2026-11-15",
+   "until": "2026-11-19"
+  },
+  {
+   "post": "fmt-types-05",
+   "buffer_id": "6af62eafc71c605d9eae0d38",
+   "day": 70,
+   "title": "6 fractures and how you get them",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 27.5,
+   "views": 2361,
+   "baseline": 1207,
+   "shares": 10,
+   "reach": 2090,
+   "share_rate": 0.0048,
+   "share_baseline": 0.0013,
+   "compared_with": "all formats (14 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "types",
+   "date": "2026-11-15",
+   "until": "2026-11-19"
+  },
+  {
+   "post": "fmt-types-02",
+   "buffer_id": "6af77bf278196a0a971ec778",
+   "day": 71,
+   "title": "5 knee injuries athletes get",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 24.5,
+   "views": 1684,
+   "baseline": 1207,
+   "shares": 9,
+   "reach": 1524,
+   "share_rate": 0.0059,
+   "share_baseline": 0.0013,
+   "compared_with": "all formats (14 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "types",
+   "date": "2026-11-15",
+   "until": "2026-11-19"
+  },
+  {
+   "post": "fmt-types-03",
+   "buffer_id": "6af77bf59257ce33980f24cc",
+   "day": 72,
+   "title": "6 types of joint",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 21.0,
+   "views": 1521,
+   "baseline": 1207,
+   "shares": 10,
+   "reach": 1329,
+   "share_rate": 0.0075,
+   "share_baseline": 0.0013,
+   "compared_with": "all formats (14 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "types",
+   "date": "2026-11-15",
+   "until": "2026-11-19"
   }
  ],
- "updated_at": "2026-11-14T17:20:12Z"
+ "updated_at": "2026-11-15T18:00:18Z"
 }
