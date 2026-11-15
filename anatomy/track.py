@@ -40,7 +40,7 @@ def post_type(entry: dict) -> str:
 def describe(entry: dict, platform: str) -> dict:
     return {"slot": entry["slot"], "day": entry["day"], "id": entry["id"], "type": post_type(entry),
             "organ": entry.get("organ"), "title": entry.get("title"), "platform": platform,
-            "video_seconds": entry.get("video_seconds"), "music": entry.get("music"),
+            "video_seconds": entry.get("video_seconds"), "music": entry.get("music"), "look": entry.get("look"),
             "sound": "trending (by hand)" if entry.get("notify") == platform else "original track"}
 
 
@@ -157,6 +157,16 @@ def scorecard(data: dict) -> str:
         out += ["## Trending sound vs original track (Instagram, 1 day old)", "",
                 "The 8 PM quiz goes out as Buffer 'Notify me' and is finished by hand with an Instagram trending sound.", ""]
         out += _table(g, "1d", "Type / sound") + [""]
+    looked = [r for r in recs if "1d" in r["snapshots"] and r["type"] == "quiz" and r.get("look")]
+    if looked:
+        g = defaultdict(list)
+        for r in looked:
+            g[f"{r['platform']} / {r['look']}"].append(r)
+        out += ["## Quiz look A/B (1 day old)", "",
+                "The 09:30 quiz alternates days between the classic black card and the studio look (config quiz_look; "
+                "other quiz slots stay classic). Compare views at 1 day and shares per reach on each platform. Buffer "
+                "doesn't report non-follower reach; read it in Instagram's insights if needed.", ""]
+        out += _table(g, "1d", "Platform / look") + [""]
     sendable = [r for r in recs if r["platform"] == "instagram" and (r.get("latest") or {}).get("reach", 0) >= 200]
     best = sorted(sendable, key=lambda r: -(per_reach([r], "shares") or 0))[:10]
     if best:

@@ -54,6 +54,8 @@ FORMATS = {  # kind: (label in the header, lead-in before the first line)
 }
 FADE = 0.7  # seconds for the hidden bone to fade back in, or the part to light up
 LOOKS = ("classic", "studio")
+STUDIO_BOX = (120, 364, 840)  # the studio 3D layer: below the header, above the question, inside x 120-960
+STUDIO_ZOOM = 1.5  # the studio model is drawn about this much bigger than the classic one, where it fits (Yashas, Nov 15)
 STUDIO_X = (120, 900)  # studio text and choices: tall phones crop ~100 px a side, the like column covers x > 900
 
 
@@ -81,6 +83,36 @@ KOKORO = Path(os.environ.get("KOKORO_DIR", Path.home() / ".cache" / "kokoro"))
 MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
 
 
+# Words Kokoro says wrong, as the Kokoro phonemes to say instead (its own reading in the comment). Every voice line
+# (quizzes, formats, Types videos) swaps them in; lines without them are voiced from plain text exactly as before.
+PRONOUNCE = {
+    "vertebrae": "vˈɜːtəbɹiː",  # VER-tuh-bree, /ˈvɜːrtəbriː/ (Kokoro: vˈɜːɾɪbɹˌiː, "VER-di-BREE")
+    "vertebra": "vˈɜːtəbɹə",    # VER-tuh-bruh (Kokoro: vˈɜːɾɪbɹə)
+    "vertebral": "vˈɜːtəbɹəl",  # VER-tuh-brul (Kokoro: vˈɜːɾɪbɹəl)
+}
+
+
+def respell(tokenizer, text: str, full: str | None = None, strict: bool = True) -> str | None:
+    """The line as Kokoro phonemes with the PRONOUNCE words swapped in (full: the line already phonemized), or None
+    when it has none of them. strict=False skips a word whose usual phonemes aren't there (marked by hand)."""
+    from .types import _find
+    words = [w.lower() for w in re.findall(r"[A-Za-z]+", text) if w.lower() in PRONOUNCE]
+    if not words:
+        return None
+    full = full if full is not None else tokenizer.phonemize(text, "en-us").strip()
+    pos = 0
+    for w in words:
+        try:
+            i, j = _find(full, tokenizer.phonemize(w, "en-us").strip(), pos)
+        except ValueError:
+            if strict:
+                raise
+            continue
+        full = full[:i] + PRONOUNCE[w] + full[j:]
+        pos = i + len(PRONOUNCE[w])
+    return full
+
+
 def voice_lines(texts: list[str], out: Path, voice: str, speed: float) -> list[tuple[Path, float]]:
     import urllib.request
 
@@ -94,7 +126,11 @@ def voice_lines(texts: list[str], out: Path, voice: str, speed: float) -> list[t
     lines = []
     for i, t in enumerate(texts):
         said = t.replace("%", " percent")
-        samples, sr = k.create(said, voice=voice, speed=speed, lang="en-us")
+        ph = respell(k.tokenizer, said)
+        if ph:
+            samples, sr = k.create(ph, voice=voice, speed=speed, lang="en-us", is_phonemes=True)
+        else:
+            samples, sr = k.create(said, voice=voice, speed=speed, lang="en-us")
         x = np.asarray(samples, np.float32)
         loud = np.flatnonzero(np.abs(x) > 0.01)
         x = x[max(loud[0] - 400, 0): loud[-1] + 2400] if len(loud) else x
@@ -288,8 +324,8 @@ def studio_frame(q, backdrop, work, tt, k, edge, kind, reveal_at, starts, lines,
         lit = Image.open(work / "reveal" / f"f{k:04d}.png").convert("RGBA")
         layer = Image.blend(layer, lit, min(1.0, (tt - reveal_at) / FADE))
     layer.putalpha(ImageChops.multiply(layer.getchannel("A"), edge))
-    soft_shadow(img, layer, MODEL_BOX[:2])
-    img.paste(layer, MODEL_BOX[:2], layer)
+    soft_shadow(img, layer, STUDIO_BOX[:2])
+    img.paste(layer, STUDIO_BOX[:2], layer)
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(ov)
     mid = W / 2
@@ -311,11 +347,15 @@ def studio_frame(q, backdrop, work, tt, k, edge, kind, reveal_at, starts, lines,
     if tt >= starts[answer_line]:
         outlined(d, (mid, 380), q["choices"][q["answer_index"]], BOLD(54), LIME, stroke=5)
     if countdown_at <= tt < countdown_at + 3:
-        num = 3 - int(tt - countdown_at)
-        d.ellipse((mid - 58, 1087, mid + 58, 1203), outline=(12, 12, 14, 235), width=14)
-        d.ellipse((mid - 55, 1090, mid + 55, 1200), outline=(246, 222, 64), width=8)
-        outlined(d, (mid, 1145), str(num), BOLD(60), (246, 222, 64), anchor="mm")
-        outlined(d, (mid, 1534), "Comment your answer", BOLD(46), WHITE)
+        # the 3-2-1 sits beside "Comment your answer", so it never covers the bigger model (or its lit part)
+        num, f, cy = 3 - int(tt - countdown_at), BOLD(46), 1554  # ring y 1509-1599
+        tw = d.textlength("Comment your answer", font=f)
+        x0 = mid - (tw + 24 + 84) / 2
+        outlined(d, (x0, cy), "Comment your answer", f, WHITE, anchor="lm")
+        cx = x0 + tw + 24 + 42
+        d.ellipse((cx - 45, cy - 45, cx + 45, cy + 45), outline=(12, 12, 14, 235), width=12)
+        d.ellipse((cx - 42, cy - 42, cx + 42, cy + 42), outline=(246, 222, 64), width=7)
+        outlined(d, (cx, cy), str(num), f, (246, 222, 64), anchor="mm")
     else:
         cur = next((c for c in cue_words if c[0] <= tt < c[1]), None)
         if cur:
@@ -372,8 +412,9 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
         spec["zoom"] = {"target": z.get("target", q["reveal"]), "aim": z.get("aim", [0.5, 0.5, 0.5]),
                         "start": z.get("start", 0.03), "orbit": z.get("orbit", 20),
                         "frames": int((countdown_at + 3.0 - z.get("early", 0.0)) * LAYER_FPS)}
-    if studio:
-        spec["studio"] = True
+    if studio:  # the model fills the space between the header and the question
+        spec.update(studio=True, width=STUDIO_BOX[2], height=STUDIO_BOX[2],
+                    fit=[STUDIO_ZOOM * MODEL_BOX[2] / STUDIO_BOX[2], 0.94])
     threads = ["-t", os.environ["BLENDER_THREADS"]] if os.environ.get("BLENDER_THREADS") else []
     r = subprocess.run([blender(), "-b", "--factory-startup", *threads, "--python",
                         str(ROOT / "render" / "blender_scene.py"), "--", json.dumps(spec)], capture_output=True, text=True)
@@ -403,7 +444,11 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     if studio:
         from .types import studio as sweep, watermark
         backdrop = sweep(W, H, True)
-    if kind or studio:  # soft edges, so a close-up that fills the 3D square fades into the black instead of ending in a hard line
+    if studio:  # the fitted model stays inside its square; a light edge only guards against a hard line
+        edge = Image.new("L", (STUDIO_BOX[2],) * 2, 0)
+        ImageDraw.Draw(edge).rectangle((8, 8, STUDIO_BOX[2] - 8, STUDIO_BOX[2] - 8), fill=255)
+        edge = edge.filter(ImageFilter.GaussianBlur(6))
+    elif kind:  # soft edges, so a close-up that fills the 3D square fades into the black instead of ending in a hard line
         edge = Image.new("L", (MODEL_BOX[2],) * 2, 0)
         ImageDraw.Draw(edge).rounded_rectangle((40, 40, MODEL_BOX[2] - 40, MODEL_BOX[2] - 40), 80, fill=255)
         edge = edge.filter(ImageFilter.GaussianBlur(28))

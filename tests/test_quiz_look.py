@@ -34,9 +34,8 @@ Q = {"id": "test-quiz", "model": "spine", "title": "The Spine", "highlight": ["S
 SECONDS = [1.1, 0.7, 0.9, 0.8, 0.5, 0.9]
 
 
-def fake_layer(k: int) -> Image.Image:
+def fake_layer(k: int, s: int = 920) -> Image.Image:
     """A stand-in for one Blender frame: a soft disc that drifts with k on a transparent square."""
-    s = make.MODEL_BOX[2]
     img = Image.new("RGBA", (s, s), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     x = 260 + (k * 37) % 300
@@ -65,7 +64,7 @@ def run(monkeypatch, tmp_path: Path, **kw) -> tuple[dict, dict[str, np.ndarray]]
             seen["spec"] = spec
             Path(spec["out"]).mkdir(parents=True)
             for k in range(1, spec["frames"] + 1):
-                fake_layer(k).save(Path(spec["out"]) / f"f{k:04d}.png")
+                fake_layer(k, spec["width"]).save(Path(spec["out"]) / f"f{k:04d}.png")
         return SimpleNamespace(returncode=0, stdout="", stderr="")
 
     monkeypatch.setattr(make, "voice_lines", voice_lines)
@@ -124,3 +123,55 @@ def record(tmp: Path) -> None:
 if __name__ == "__main__" and sys.argv[1:] == ["record"]:
     import tempfile
     record(Path(tempfile.mkdtemp()))
+
+
+def test_studio_frames_the_model_bigger(monkeypatch, tmp_path):
+    spec, _ = run(monkeypatch, tmp_path, look="studio")
+    x, y, size = make.STUDIO_BOX
+    assert (spec["width"], spec["height"]) == (size, size) and spec["fit"][0] * size >= 1.5 * make.MODEL_BOX[2] - 1
+    assert y >= 360 and y + size <= 1215, "below the header (ends ~y 355), above the question (y 1222)"
+    assert x >= 120 and x + size <= 960, "inside the tall-phone crop"
+
+
+def test_look_ab_test_dates():
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from anatomy import publish
+    et = ZoneInfo("America/New_York")
+    cfg = publish.CONFIG["quiz_look"]
+    start = datetime.fromisoformat(cfg["from"]).replace(hour=9, minute=30, tzinfo=et)
+    from datetime import timedelta
+    assert publish.look_for(start - timedelta(days=1)) is None, "before the test, quizzes render as before"
+    assert publish.look_for(start - timedelta(days=30)) is None
+    looks = [publish.look_for(start + timedelta(days=k)) for k in range(4)]
+    assert looks == (["studio", "classic"] * 2 if cfg["studio_days"] == "odd" else ["classic", "studio"] * 2)
+    assert publish.look_for(start.replace(hour=20, minute=0)) == "classic", "only the test's slots change"
+    assert "look" not in publish.entry(start, {"day": 1, "id": "x", "title": "X"}, "u", 20, {})
+    assert publish.entry(start, {"day": 1, "id": "x", "title": "X", "look": "studio"}, "u", 20, {})["look"] == "studio"
+
+
+def test_plan_before_the_test_has_no_look(monkeypatch):
+    """Quizzes planned before "from" carry no look, so they build (and record) exactly as before."""
+    from datetime import date
+    from anatomy import publish
+    monkeypatch.setitem(publish.CONFIG, "quiz_look", {**publish.CONFIG["quiz_look"], "from": "2099-01-01"})
+    planned = [q for _, q in publish.plan() if not q.get("kind")]
+    assert all("look" not in q for q in planned)
+    monkeypatch.setitem(publish.CONFIG, "quiz_look", {**publish.CONFIG["quiz_look"], "from": date.today().isoformat()})
+    assert all(q.get("look") in ("studio", "classic") for _, q in publish.plan() if not q.get("kind"))
+
+
+def test_vertebrae_is_said_ver_tuh_bree():
+    """Every bank line with vertebra(e)/vertebral gets the PRONOUNCE phonemes; other lines are voiced as plain text."""
+    import glob
+    import re
+    from kokoro_onnx.tokenizer import Tokenizer
+    tok = Tokenizer()
+    lines = [line for f in glob.glob(str(make.ROOT / "banks" / "**" / "*.json"), recursive=True)
+             for q in json.loads(Path(f).read_text()) if isinstance(q, dict) for line in q.get("lines", [])]
+    said = [line for line in lines if re.search(r"\bvertebra", line, re.I)]
+    assert said, "the banks mention vertebrae"
+    for line in said:
+        ph = make.respell(tok, line.replace("%", " percent"))
+        assert ph and "ɾɪb" not in ph and any(v in ph for v in make.PRONOUNCE.values()), line
+    assert make.respell(tok, "How many bones are in the skull?") is None

@@ -21,6 +21,8 @@ Optional keys for the other formats (absent in the classic quiz, which renders e
   "studio": true           the light-gray studio look (anatomy/make.py look="studio"): softer, bigger lights with a
                            gray ambient matching the backdrop, bone with a little subsurface and grain, wet-looking
                            soft tissue, a lit part that glows a little so it reads on gray. Off, nothing changes.
+  "fit": [zoom_in, fill]   (studio) bring the camera zoom_in times closer, but no closer than keeps the whole model
+                           (or, with "focus", the lit part) inside `fill` of the frame at every angle of its turn
 """
 
 import json
@@ -208,6 +210,37 @@ cam.location = center + mathutils.Vector((0, -size * spec.get("distance", 6.0), 
 cam.rotation_euler = (center - cam.location).to_track_quat("-Z", "Y").to_euler()
 cam.location.z -= size * spec.get("lift", 0.0)  # positive lift moves the organ up in the frame
 scene.camera = cam
+
+def fit_camera(zoom_in, fill):
+    """Move the camera along its line of sight: zoom_in times closer, or as close as keeps every corner of the parts'
+    boxes within `fill` of the frame while the model turns about its vertical axis."""
+    from bpy_extras.object_utils import world_to_camera_view
+    scene.render.resolution_x, scene.render.resolution_y = spec.get("width", 1080), spec.get("height", 1920)
+    hl = spec.get("highlight") if isinstance(spec.get("highlight"), list) else [spec.get("highlight")]
+    keep = set(spec.get("focus_on") or hl) if spec.get("focus") else None
+    shown = [o for o in parts if not o.hide_render and (keep is None or o.name in keep)] or parts
+    corners = [o.matrix_world @ mathutils.Vector(c) for o in shown for c in o.bound_box]
+    pts = [center + mathutils.Matrix.Rotation(math.radians(a), 3, "Z") @ (p - center)
+           for a in range(0, 360, 15) for p in corners]
+    base = cam.location - center
+
+    def spread(k):
+        cam.location = center + base * k
+        bpy.context.view_layer.update()
+        return max(max(abs(v.x - 0.5), abs(v.y - 0.5)) * 2 for v in (world_to_camera_view(scene, cam, p) for p in pts))
+
+    lo, hi = 0.15, 1.0  # binary search for the closest camera that still fits
+    if spread(hi) > fill:
+        lo, hi = 1.0, 4.0
+    for _ in range(24):
+        mid = (lo + hi) / 2
+        lo, hi = (lo, mid) if spread(mid) <= fill else (mid, hi)
+    cam.location = center + base * max(hi, 1 / zoom_in)
+    bpy.context.view_layer.update()
+
+
+if spec.get("studio") and spec.get("fit") and not zoom:
+    fit_camera(*spec["fit"])
 
 if zoom:  # start on the target's surface, pull straight back to the framing above
     scene.frame_set(1)

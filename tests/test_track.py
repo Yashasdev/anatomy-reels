@@ -47,3 +47,16 @@ def test_shares_per_reach_is_the_main_score():
     assert table.index("| deepdive | 1 | 2.00%") < table.index("| quiz | 2 | 0.20%"), "best sharer first"
     top = text.split("by shares per person reached")[1]
     assert top.index("| 2 |") < top.index("| 3 |") < top.index("| 1 |")
+
+
+def test_quiz_look_ab_table():
+    def rec(i, look, views, shares, reach):
+        n = {"views": views, "reach": reach, "shares": shares, "saves": 0, "averageTimeWatched": 5.0}
+        return {"day": i, "id": f"q{i}", "type": "quiz", "title": "Q", "platform": "instagram", "video_seconds": 20,
+                "look": look, "latest": n, "snapshots": {"1d": n}}
+    data = {"posts": {"a": rec(1, "studio", 900, 4, 800), "b": rec(2, "classic", 300, 0, 280)}}
+    card = track.scorecard(data)
+    table = card.split("## Quiz look A/B")[1]
+    assert "| instagram / studio | 1 | 0.50%" in table and "| instagram / classic | 1 | 0.00%" in table
+    entry = {"slot": "s", "day": 1, "id": "q1", "title": "Q", "look": "studio", "buffer": {}}
+    assert track.describe(entry, "instagram")["look"] == "studio"
