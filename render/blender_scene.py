@@ -18,6 +18,11 @@ Optional keys for the other formats (absent in the classic quiz, which renders e
                            the camera starts very close to the target's surface (the point seen from the final
                            camera direction, aimed at fractions fx/fy/fz of its box) and pulls back to the normal
                            framing over "frames"; the model holds still until then, then turns
+  "studio": true           the light-gray studio look (anatomy/make.py look="studio"): softer, bigger lights with a
+                           gray ambient matching the backdrop, bone with a little subsurface and grain, wet-looking
+                           soft tissue, a lit part that glows a little so it reads on gray. Off, nothing changes.
+  "fit": [zoom_in, fill]   (studio) bring the camera zoom_in times closer, but no closer than keeps the whole model
+                           (or, with "focus", the lit part) inside `fill` of the frame at every angle of its turn
 """
 
 import json
@@ -118,6 +123,57 @@ if spec.get("focus"):  # small parts of a big region: turn around the glowing pa
         center = (mathutils.Vector([min(p[i] for p in pts) for i in range(3)])
                   + mathutils.Vector([max(p[i] for p in pts) for i in range(3)])) / 2
 
+
+
+def studio_look():
+    """Realistic materials and soft studio light for the gray sweep make.py puts behind the model."""
+    def grain(m, scale, strength):
+        nt = m.node_tree
+        tc, tex, bump = (nt.nodes.new(t) for t in ("ShaderNodeTexCoord", "ShaderNodeTexNoise", "ShaderNodeBump"))
+        tex.inputs["Scale"].default_value = scale
+        tex.inputs["Detail"].default_value = 6
+        bump.inputs["Strength"].default_value = strength
+        nt.links.new(tc.outputs["Object"], tex.inputs["Vector"])
+        nt.links.new(tex.outputs["Fac"], bump.inputs["Height"])
+        nt.links.new(bump.outputs["Normal"], nt.nodes["Principled BSDF"].inputs["Normal"])
+
+    for m in {m for o in parts for m in o.data.materials if m}:
+        b = m.node_tree.nodes["Principled BSDF"]
+        rgb = tuple(b.inputs["Base Color"].default_value)[:3]
+        b.inputs["Subsurface Scale"].default_value = size * 0.01
+        if m is lit:
+            b.inputs["Emission Color"].default_value = (0.30, 0.85, 0.02, 1)
+            b.inputs["Emission Strength"].default_value = max(0.15, b.inputs["Emission Strength"].default_value)
+            b.inputs["Coat Weight"].default_value = 0.2
+        elif rgb[0] > 0.8 and rgb[2] < rgb[0] * 0.8:  # bone and teeth: ivory, matte, a fine grain
+            b.inputs["Base Color"].default_value = (rgb[0] * 0.86, rgb[1] * 0.86, rgb[2] * 0.88, 1)  # the Types ivory
+            b.inputs["Roughness"].default_value = 0.55
+            b.inputs["Coat Weight"].default_value = 0.0
+            b.inputs["Subsurface Weight"].default_value = 0.15
+            b.inputs["Subsurface Radius"].default_value = (1.0, 0.7, 0.45)
+            grain(m, 90 / size, 0.08)
+        else:  # soft tissue: light scatters through it and it looks wet
+            b.inputs["Subsurface Weight"].default_value = 0.25
+            b.inputs["Subsurface Radius"].default_value = (1.0, 0.35, 0.25)
+            b.inputs["Roughness"].default_value = 0.38
+            b.inputs["Coat Weight"].default_value = 0.45
+            b.inputs["Coat Roughness"].default_value = 0.12
+            grain(m, 60 / size, 0.04)
+    for obj in scene.objects:  # bigger lights for softer shadows, a little brighter on the gray
+        if obj.type == "LIGHT":
+            obj.data.size = size * 2.2
+            obj.data.energy *= {"key": 1.2, "fill": 0.9, "rim": 0.9}[obj.name]
+    bg = scene.world.node_tree.nodes["Background"]
+    bg.inputs[0].default_value = (0.32, 0.33, 0.35, 1)  # the backdrop's gray, as soft fill from every side
+    bg.inputs[1].default_value = spec.get("world", 0.22)
+    scene.view_settings.look = spec.get("agx_look", "AgX - Medium High Contrast")
+    scene.view_settings.exposure = spec.get("exposure", -0.6)
+    if hasattr(scene.eevee, "use_raytracing"):  # contact shadows and occlusion where parts touch
+        scene.eevee.use_raytracing = True
+    if hasattr(scene.eevee, "use_shadows"):
+        scene.eevee.use_shadows = True
+
+
 pivot = bpy.data.objects.new("pivot", None)
 scene.collection.objects.link(pivot)
 pivot.location = center
@@ -154,6 +210,37 @@ cam.location = center + mathutils.Vector((0, -size * spec.get("distance", 6.0), 
 cam.rotation_euler = (center - cam.location).to_track_quat("-Z", "Y").to_euler()
 cam.location.z -= size * spec.get("lift", 0.0)  # positive lift moves the organ up in the frame
 scene.camera = cam
+
+def fit_camera(zoom_in, fill):
+    """Move the camera along its line of sight: zoom_in times closer, or as close as keeps every corner of the parts'
+    boxes within `fill` of the frame while the model turns about its vertical axis."""
+    from bpy_extras.object_utils import world_to_camera_view
+    scene.render.resolution_x, scene.render.resolution_y = spec.get("width", 1080), spec.get("height", 1920)
+    hl = spec.get("highlight") if isinstance(spec.get("highlight"), list) else [spec.get("highlight")]
+    keep = set(spec.get("focus_on") or hl) if spec.get("focus") else None
+    shown = [o for o in parts if not o.hide_render and (keep is None or o.name in keep)] or parts
+    corners = [o.matrix_world @ mathutils.Vector(c) for o in shown for c in o.bound_box]
+    pts = [center + mathutils.Matrix.Rotation(math.radians(a), 3, "Z") @ (p - center)
+           for a in range(0, 360, 15) for p in corners]
+    base = cam.location - center
+
+    def spread(k):
+        cam.location = center + base * k
+        bpy.context.view_layer.update()
+        return max(max(abs(v.x - 0.5), abs(v.y - 0.5)) * 2 for v in (world_to_camera_view(scene, cam, p) for p in pts))
+
+    lo, hi = 0.15, 1.0  # binary search for the closest camera that still fits
+    if spread(hi) > fill:
+        lo, hi = 1.0, 4.0
+    for _ in range(24):
+        mid = (lo + hi) / 2
+        lo, hi = (lo, mid) if spread(mid) <= fill else (mid, hi)
+    cam.location = center + base * max(hi, 1 / zoom_in)
+    bpy.context.view_layer.update()
+
+
+if spec.get("studio") and spec.get("fit") and not zoom:
+    fit_camera(*spec["fit"])
 
 if zoom:  # start on the target's surface, pull straight back to the framing above
     scene.frame_set(1)
@@ -232,6 +319,8 @@ scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"
 scene.view_settings.view_transform = "AgX"
 scene.view_settings.look = "AgX - Medium High Contrast"
+if spec.get("studio"):  # the light-gray studio of the Types videos (render/fracture_scene.py)
+    studio_look()
 scene.frame_start, scene.frame_end = 1, frames
 scene.render.fps = fps
 scene.render.filepath = spec["out"] + "/f"

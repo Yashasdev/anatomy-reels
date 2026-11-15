@@ -138,5 +138,13 @@
     "from": "2026-11-13",
     "note": "A 'Hint: ...' first comment under each Instagram post (hints.json, or a video's own \"hint\"). Off until Yashas approves: set \"instagram\" to true. Never on Notify-me posts. Each post is read back from Buffer and the run warns if Buffer dropped the comment."
   },
-  "hits_note": "Hit check (anatomy/hits.py, daily after the tracker): an Instagram post 12-72 h old with 3x the median views (and 1,000+) or 3x the median shares per reach (and 2+ shares) of the last 30 Instagram posts of its own type makes its series hot for 5 days; a type with under 6 posts is compared with all Instagram posts at 2x. Deep dive series come from series.json. Hot series post first in their slots; hits.json keeps the record."
+  "hits_note": "Hit check (anatomy/hits.py, daily after the tracker): an Instagram post 12-72 h old with 3x the median views (and 1,000+) or 3x the median shares per reach (and 2+ shares) of the last 30 Instagram posts of its own type makes its series hot for 5 days; a type with under 6 posts is compared with all Instagram posts at 2x. Deep dive series come from series.json. Hot series post first in their slots; hits.json keeps the record.",
+  "quiz_look": {
+    "slots": [
+      "09:30"
+    ],
+    "from": "2026-11-17",
+    "studio_days": "odd",
+    "note": "Quiz look A/B test (Yashas, Nov 15, 2026): the 09:30 quiz renders in the studio look (the gray sweep and realistic bone of the Types videos, anatomy/make.py look=\"studio\") on odd days counted from \"from\" (Nov 17, 19, 21...) and in the classic black card on the others. History records \"look\"; the scorecard's \"Quiz look A/B\" table compares them. Posts before \"from\" render exactly as before."
+  }
 }

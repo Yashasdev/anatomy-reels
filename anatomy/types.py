@@ -42,7 +42,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from . import music
 import re
 
-from .make import KOKORO, MODEL_URL, blender, ffmpeg
+from .make import KOKORO, MODEL_URL, blender, ffmpeg, respell
 
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / "assets" / "fonts"
@@ -152,7 +152,9 @@ def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED)
     out.mkdir(parents=True, exist_ok=True)
     lines = []
     for i, t in enumerate(texts):
-        x, sr = k.create(phonemes(k, t), voice=voice, speed=speed, lang="en-us", is_phonemes=True)
+        ph = phonemes(k, t)
+        ph = respell(k.tokenizer, shown(t), ph, strict=False) or ph  # words Kokoro says wrong (make.PRONOUNCE)
+        x, sr = k.create(ph, voice=voice, speed=speed, lang="en-us", is_phonemes=True)
         x = _trim(np.asarray(x, np.float32))
         path = out / f"line{i:02d}.wav"
         sf.write(path, x, sr)

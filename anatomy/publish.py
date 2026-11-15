@@ -121,6 +121,8 @@ def plan(now: datetime | None = None) -> list[tuple[datetime, dict]]:
             break
         q["day"] = len(hist) + len(out) + 1
         q["label"] = CONFIG["label"]
+        if look_for(at):
+            q["look"] = look_for(at)
         if at.date() >= MUSIC_FROM:  # an original track, never one of the last eight
             recent = [h["music"] for h in hist if h.get("music")] + [q2.get("music") for _, q2 in out]
             q["music"] = music.pick(q["day"] * 7919, avoid=[m for m in recent if m][-8:],
@@ -166,6 +168,20 @@ def render(q: dict, out: Path) -> float:
 
 def file_name(at: datetime, q: dict) -> str:
     return f"{at:%Y-%m-%d-%H%M}-{q['id']}"
+
+
+def look_for(at: datetime) -> str | None:
+    """The quiz look A/B test (config "quiz_look": {"slots", "from", "studio_days"}): from that date, quizzes in those
+    slots alternate days between "studio" and "classic" ("odd": the 1st, 3rd, 5th... day counted from "from" is
+    studio). None before the date (or with no test): the quiz renders and records exactly as before."""
+    cfg = CONFIG.get("quiz_look")
+    day = at.astimezone(ZoneInfo(CONFIG["timezone"])).date()
+    if not cfg or day < date.fromisoformat(cfg["from"]):
+        return None
+    if f"{at.astimezone(ZoneInfo(CONFIG['timezone'])):%H:%M}" not in cfg["slots"]:
+        return "classic"
+    nth = (day - date.fromisoformat(cfg["from"])).days + 1
+    return "studio" if (nth % 2 == 1) == (cfg.get("studio_days", "odd") == "odd") else "classic"
 
 
 def notify_for(at: datetime) -> dict | None:
@@ -244,7 +260,8 @@ def entry(at: datetime, q: dict, url: str, seconds: float, posts: dict) -> dict:
     return {"slot": at.isoformat(), "day": q["day"], "id": q["id"], "organ": q.get("organ"),
             "title": q["title"], "video_url": url, "video_seconds": round(seconds, 2), "buffer": posts,
             **({"kind": q["kind"]} if q.get("kind") else {}), **({"format": q["format"]} if q.get("format") else {}),
-            **({"music": q["music"]} if q.get("music") else {}), **({"hot": q["hot"]} if q.get("hot") else {})}
+            **({"music": q["music"]} if q.get("music") else {}), **({"hot": q["hot"]} if q.get("hot") else {}),
+            **({"look": q["look"]} if q.get("look") else {})}
 
 
 def render_one(slot: str) -> int:
@@ -435,7 +452,7 @@ def queued_question(h: dict) -> dict:
         return {**video, "kind": h["kind"], "series": h["kind"], "day": h["day"]}
     q = next(q for b in banks(active_only=False).values() for q in b if q["id"] == h["id"])
     return {**q, "organ": h.get("organ"), "day": h["day"], "label": CONFIG["label"],
-            **({"music": h["music"]} if h.get("music") else {})}
+            **({"music": h["music"]} if h.get("music") else {}), **({"look": h["look"]} if h.get("look") else {})}
 
 
 def render_queued(slot: str) -> int:

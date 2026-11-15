@@ -13,6 +13,12 @@ order with a different 3D layer:
   "zoom"     the camera starts on an extreme close-up of one part and pulls back until it's obvious ("zoom");
              at the answer the part lights up
 Both show their hook in big letters for its first line. The classic quiz (no kind) renders exactly as before.
+
+look="studio" (or an item's "look": "studio"; off by default, an A/B test from Nov 14, 2026): the realistic look of
+the Types videos instead of the flat black card. The 3D layer renders over the light-gray studio sweep of
+anatomy/types.py with soft light and realistic bone and tissue (render/blender_scene.py "studio"), casting a soft
+shadow on the backdrop; the text is white or yellow with a dark outline and soft shadow, the choices sit on dark
+glass, and the ANATOMY ACE tag hangs from the top as in the Types videos. Same timeline, layout and safe area.
 """
 
 from __future__ import annotations
@@ -47,6 +53,10 @@ FORMATS = {  # kind: (label in the header, lead-in before the first line)
     "zoom": ("ZOOM OUT", 0.25),
 }
 FADE = 0.7  # seconds for the hidden bone to fade back in, or the part to light up
+LOOKS = ("classic", "studio")
+STUDIO_BOX = (120, 364, 840)  # the studio 3D layer: below the header, above the question, inside x 120-960
+STUDIO_ZOOM = 1.5  # the studio model is drawn about this much bigger than the classic one, where it fits (Yashas, Nov 15)
+STUDIO_X = (120, 900)  # studio text and choices: tall phones crop ~100 px a side, the like column covers x > 900
 
 
 def font(name: str, size: int) -> ImageFont.FreeTypeFont:
@@ -73,6 +83,36 @@ KOKORO = Path(os.environ.get("KOKORO_DIR", Path.home() / ".cache" / "kokoro"))
 MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
 
 
+# Words Kokoro says wrong, as the Kokoro phonemes to say instead (its own reading in the comment). Every voice line
+# (quizzes, formats, Types videos) swaps them in; lines without them are voiced from plain text exactly as before.
+PRONOUNCE = {
+    "vertebrae": "vˈɜːtəbɹiː",  # VER-tuh-bree, /ˈvɜːrtəbriː/ (Kokoro: vˈɜːɾɪbɹˌiː, "VER-di-BREE")
+    "vertebra": "vˈɜːtəbɹə",    # VER-tuh-bruh (Kokoro: vˈɜːɾɪbɹə)
+    "vertebral": "vˈɜːtəbɹəl",  # VER-tuh-brul (Kokoro: vˈɜːɾɪbɹəl)
+}
+
+
+def respell(tokenizer, text: str, full: str | None = None, strict: bool = True) -> str | None:
+    """The line as Kokoro phonemes with the PRONOUNCE words swapped in (full: the line already phonemized), or None
+    when it has none of them. strict=False skips a word whose usual phonemes aren't there (marked by hand)."""
+    from .types import _find
+    words = [w.lower() for w in re.findall(r"[A-Za-z]+", text) if w.lower() in PRONOUNCE]
+    if not words:
+        return None
+    full = full if full is not None else tokenizer.phonemize(text, "en-us").strip()
+    pos = 0
+    for w in words:
+        try:
+            i, j = _find(full, tokenizer.phonemize(w, "en-us").strip(), pos)
+        except ValueError:
+            if strict:
+                raise
+            continue
+        full = full[:i] + PRONOUNCE[w] + full[j:]
+        pos = i + len(PRONOUNCE[w])
+    return full
+
+
 def voice_lines(texts: list[str], out: Path, voice: str, speed: float) -> list[tuple[Path, float]]:
     import urllib.request
 
@@ -86,7 +126,11 @@ def voice_lines(texts: list[str], out: Path, voice: str, speed: float) -> list[t
     lines = []
     for i, t in enumerate(texts):
         said = t.replace("%", " percent")
-        samples, sr = k.create(said, voice=voice, speed=speed, lang="en-us")
+        ph = respell(k.tokenizer, said)
+        if ph:
+            samples, sr = k.create(ph, voice=voice, speed=speed, lang="en-us", is_phonemes=True)
+        else:
+            samples, sr = k.create(said, voice=voice, speed=speed, lang="en-us")
         x = np.asarray(samples, np.float32)
         loud = np.flatnonzero(np.abs(x) > 0.01)
         x = x[max(loud[0] - 400, 0): loud[-1] + 2400] if len(loud) else x
@@ -212,9 +256,120 @@ def choice_boxes(d, choices: list[str], marks: dict[int, tuple]) -> None:
         d.text((x0 + 88, y0 + 39 - g.size * 0.55), c, font=g, fill=WHITE)
 
 
+# --- the studio look -----------------------------------------------------------------------------------------
+def studio_fonts():
+    from .types import BOLD, CAPTION
+    return BOLD, CAPTION
+
+
+def outlined(d, xy, text: str, f, fill, anchor: str = "mt", stroke: int = 4) -> None:
+    d.text(xy, text, font=f, fill=fill, anchor=anchor, stroke_width=stroke, stroke_fill=(12, 12, 14, 235))
+
+
+def studio_caption(d, text: str, word: int) -> None:
+    """White words with a dark outline (the Types captions), the word being said in yellow, inside x 120-900."""
+    _, CAPTION = studio_fonts()
+    f = fit(d, text, CAPTION, 50, STUDIO_X[1] - STUDIO_X[0] - 20)
+    words = text.split()
+    widths = [d.textlength(w, font=f) for w in words]
+    gap = d.textlength(" ", font=f)
+    x = (STUDIO_X[0] + STUDIO_X[1]) / 2 - (sum(widths) + gap * (len(words) - 1)) / 2
+    for i, (w, ww) in enumerate(zip(words, widths)):
+        outlined(d, (x, 1534), w, f, (246, 222, 64) if i == word else WHITE, anchor="lt")
+        x += ww + gap
+
+
+def studio_choices(d, choices: list[str], marks: dict[int, tuple]) -> None:
+    """The four choices on dark glass, in the same 2 x 2 grid, inside x 120-900."""
+    BOLD, CAPTION = studio_fonts()
+    badge = BOLD(30)
+    cw = (STUDIO_X[1] - STUDIO_X[0] - 16) / 2
+    for i, c in enumerate(choices):
+        x0, y0 = STUDIO_X[0] + (i % 2) * (cw + 16), 1292 + (i // 2) * 88
+        box = (x0, y0, x0 + cw, y0 + 78)
+        if i in marks:
+            d.rounded_rectangle(box, 16, fill=(*(int(v * 0.35) for v in marks[i]), 225), outline=marks[i], width=6)
+        else:
+            d.rounded_rectangle(box, 16, fill=(16, 17, 20, 185), outline=(255, 255, 255, 200), width=2)
+        d.ellipse((x0 + 20, y0 + 14, x0 + 70, y0 + 64), fill=WHITE)
+        d.text((x0 + 45, y0 + 39), "ABCD"[i], font=badge, fill=(16, 17, 20), anchor="mm")
+        g = fit(d, c, CAPTION, 40, cw - 104)
+        d.text((x0 + 86, y0 + 39), c, font=g, fill=WHITE, anchor="lm")
+
+
+def soft_shadow(img: Image.Image, layer: Image.Image, at: tuple[int, int]) -> None:
+    """The model's soft shadow on the studio backdrop: its own outline, blurred, a little below and to the right
+    (the key light is up and to the left), and a darker, tighter one right under it for contact."""
+    a = layer.getchannel("A")
+    for blur, offset, strength in ((26, (18, 30), 0.30), (8, (5, 9), 0.22)):
+        sh = a.filter(ImageFilter.GaussianBlur(blur)).point(lambda v, k=strength: int(v * k))
+        img.paste((14, 15, 18), (at[0] + offset[0], at[1] + offset[1]), sh)
+
+
+def studio_text(img: Image.Image, overlay: Image.Image) -> None:
+    """Puts the text layer on with a soft dark shadow under it, so it reads over the bright middle of the sweep."""
+    shadow = overlay.getchannel("A").filter(ImageFilter.GaussianBlur(7)).point(lambda v: int(v * 0.4))
+    img.paste((0, 0, 0), (0, 0), shadow)
+    img.paste(overlay, (0, 0), overlay)
+
+
 # --- the reel -----------------------------------------------------------------------------------------------
-def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engine: str = "") -> float:
+def studio_frame(q, backdrop, work, tt, k, edge, kind, reveal_at, starts, lines, ask_line, answer_line,
+                 countdown_at, cue_words) -> Image.Image:
+    """One frame in the studio look: the same elements, timing and places as the classic frame in build()."""
+    BOLD, CAPTION = studio_fonts()
+    img = backdrop.copy()
+    layer = Image.open(work / "layer" / f"f{k:04d}.png").convert("RGBA")
+    if kind and tt >= reveal_at:
+        lit = Image.open(work / "reveal" / f"f{k:04d}.png").convert("RGBA")
+        layer = Image.blend(layer, lit, min(1.0, (tt - reveal_at) / FADE))
+    layer.putalpha(ImageChops.multiply(layer.getchannel("A"), edge))
+    soft_shadow(img, layer, STUDIO_BOX[:2])
+    img.paste(layer, STUDIO_BOX[:2], layer)
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(ov)
+    mid = W / 2
+    if kind:
+        outlined(d, (mid, 250), FORMATS[kind][0], BOLD(44), WHITE)
+        outlined(d, (mid, 312), f"#{q['day']} · {q['title']}" if q.get("day") else q["title"], CAPTION(40), WHITE)
+        if tt < starts[0] + lines[0][1] + GAP:
+            hook_banner(d, q["lines"][0])
+        elif q.get("note") and tt < starts[answer_line]:
+            outlined(d, (mid, 372), q["note"], CAPTION(36), WHITE)
+    else:
+        outlined(d, (mid, 250), q.get("label", "ANATOMY CHECK"), BOLD(44), WHITE)
+        outlined(d, (mid, 312), f"#{q.get('day', 1)} · {q['title']}", CAPTION(40), (235, 238, 242))
+    if tt >= starts[ask_line]:
+        f = fit(d, q["question"], BOLD, 50, STUDIO_X[1] - STUDIO_X[0])
+        outlined(d, (mid, 1222), q["question"], f, (246, 222, 64))
+        marks = {q["answer_index"]: GREEN, q["trap_index"]: RED} if tt >= starts[answer_line] else {}
+        studio_choices(d, q["choices"], marks)
+    if tt >= starts[answer_line]:
+        outlined(d, (mid, 380), q["choices"][q["answer_index"]], BOLD(54), LIME, stroke=5)
+    if countdown_at <= tt < countdown_at + 3:
+        # the 3-2-1 sits beside "Comment your answer", so it never covers the bigger model (or its lit part)
+        num, f, cy = 3 - int(tt - countdown_at), BOLD(46), 1554  # ring y 1509-1599
+        tw = d.textlength("Comment your answer", font=f)
+        x0 = mid - (tw + 24 + 84) / 2
+        outlined(d, (x0, cy), "Comment your answer", f, WHITE, anchor="lm")
+        cx = x0 + tw + 24 + 42
+        d.ellipse((cx - 45, cy - 45, cx + 45, cy + 45), outline=(12, 12, 14, 235), width=12)
+        d.ellipse((cx - 42, cy - 42, cx + 42, cy + 42), outline=(246, 222, 64), width=7)
+        outlined(d, (cx, cy), str(num), f, (246, 222, 64), anchor="mm")
+    else:
+        cur = next((c for c in cue_words if c[0] <= tt < c[1]), None)
+        if cur:
+            studio_caption(d, cur[2], cur[3])
+    studio_text(img, ov)
+    return img
+
+
+def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engine: str = "", look: str = "") -> float:
     engine = engine or os.environ.get("ANATOMY_ENGINE", "BLENDER_EEVEE_NEXT")
+    look = look or q.get("look") or "classic"
+    if look not in LOOKS:
+        raise ValueError(f"unknown look {look!r} (one of {LOOKS})")
+    studio = look == "studio"
     kind = q.get("kind") if q.get("kind") in FORMATS else None
     work = Path(tempfile.mkdtemp(prefix=f"anatomy-{q['id']}-"))
     lines = voice_lines(q["lines"], work / "voice", voice, speed)
@@ -257,8 +412,12 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
         spec["zoom"] = {"target": z.get("target", q["reveal"]), "aim": z.get("aim", [0.5, 0.5, 0.5]),
                         "start": z.get("start", 0.03), "orbit": z.get("orbit", 20),
                         "frames": int((countdown_at + 3.0 - z.get("early", 0.0)) * LAYER_FPS)}
-    r = subprocess.run([blender(), "-b", "--factory-startup", "--python", str(ROOT / "render" / "blender_scene.py"),
-                        "--", json.dumps(spec)], capture_output=True, text=True)
+    if studio:  # the model fills the space between the header and the question
+        spec.update(studio=True, width=STUDIO_BOX[2], height=STUDIO_BOX[2],
+                    fit=[STUDIO_ZOOM * MODEL_BOX[2] / STUDIO_BOX[2], 0.94])
+    threads = ["-t", os.environ["BLENDER_THREADS"]] if os.environ.get("BLENDER_THREADS") else []
+    r = subprocess.run([blender(), "-b", "--factory-startup", *threads, "--python",
+                        str(ROOT / "render" / "blender_scene.py"), "--", json.dumps(spec)], capture_output=True, text=True)
     if r.returncode or not (work / "layer" / "f0001.png").exists():
         raise RuntimeError(f"Blender failed for {q['id']}:\n{(r.stdout + r.stderr)[-3000:]}")
 
@@ -281,12 +440,28 @@ def build(q: dict, out: Path, voice: str = "af_heart", speed: float = 1.25, engi
     n = int(length * FPS)
     cover = None
     edge = None
-    if kind:  # soft edges, so a close-up that fills the 3D square fades into the black instead of ending in a hard line
+    backdrop = None
+    if studio:
+        from .types import studio as sweep, watermark
+        backdrop = sweep(W, H, True)
+    if studio:  # the fitted model stays inside its square; a light edge only guards against a hard line
+        edge = Image.new("L", (STUDIO_BOX[2],) * 2, 0)
+        ImageDraw.Draw(edge).rectangle((8, 8, STUDIO_BOX[2] - 8, STUDIO_BOX[2] - 8), fill=255)
+        edge = edge.filter(ImageFilter.GaussianBlur(6))
+    elif kind:  # soft edges, so a close-up that fills the 3D square fades into the black instead of ending in a hard line
         edge = Image.new("L", (MODEL_BOX[2],) * 2, 0)
         ImageDraw.Draw(edge).rounded_rectangle((40, 40, MODEL_BOX[2] - 40, MODEL_BOX[2] - 40), 80, fill=255)
         edge = edge.filter(ImageFilter.GaussianBlur(28))
     for i in range(n):
         tt = i / FPS
+        if studio:
+            img = studio_frame(q, backdrop, work, tt, layer_index(tt), edge, kind, reveal_at, starts, lines, ask_line,
+                               answer_line, countdown_at, cue_words)
+            watermark(img, 1.0)
+            if cover is None and tt >= cover_at:
+                cover = img.copy()
+            img.save(frame_dir / f"{i:05d}.png")
+            continue
         img = Image.new("RGB", (W, H), (0, 0, 0))
         layer = Image.open(work / "layer" / f"f{layer_index(tt):04d}.png").convert("RGBA")
         if kind and tt >= reveal_at:  # the hidden bone fades back in, glowing (or the part lights up)
