@@ -319,7 +319,7 @@
   ],
   "start_degrees": 180,
   "distance": 2.8,
-  "question": "Which spine bones are made of fused vertebrae?",
+  "question": "Which bones are fused vertebrae?",
   "choices": [
    "Sacrum and coccyx",
    "Atlas and axis",
@@ -331,7 +331,7 @@
   "lines": [
    "Some spine bones start as separate vertebrae, then fuse together.",
    "Watch the glowing bones at the bottom of the spine.",
-   "Which spine bones are made of fused vertebrae?",
+   "Which bones are fused vertebrae?",
    "The lumbar vertebrae stay separate and movable.",
    "These two bones at the base of the spine are fused vertebrae.",
    "It's A. The sacrum and the coccyx.",
