@@ -214,5 +214,131 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "chest-07",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which part of the breastbone is glowing?",
+  "choices": [
+   "Manubrium",
+   "Body",
+   "Costal cartilage",
+   "Xiphoid process"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "The breastbone has three parts. One ends in a little point.",
+   "Watch the tip at the very bottom of the breastbone.",
+   "Which part of the breastbone is it?",
+   "The body is the long middle section above it.",
+   "This small, pointed tip is the lowest part of the sternum.",
+   "It's D. The xiphoid process.",
+   "Why it matters: it's a landmark for finding the bottom of the sternum."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-08",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Costal cartilage of first rib.l",
+   "Costal cartilage of first rib.r",
+   "Costal cartilage of second rib.l",
+   "Costal cartilage of second rib.r",
+   "Costal cartilage of third rib.l",
+   "Costal cartilage of third rib.r",
+   "Costal cartilage of fourth rib.l",
+   "Costal cartilage of fourth rib.r",
+   "Costal cartilage of fifth rib.l",
+   "Costal cartilage of fifth rib.r",
+   "Costal cartilage of sixth rib.l",
+   "Costal cartilage of sixth rib.r",
+   "Costal cartilage of seventh rib.l",
+   "Costal cartilage of seventh rib.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.6,
+  "question": "What connects the ribs to the sternum?",
+  "choices": [
+   "Tendon",
+   "Costal cartilage",
+   "Ligament",
+   "Muscle"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "Your ribs don't all attach to the breastbone with bone. What does?",
+   "Watch the glowing strips at the front of the rib cage.",
+   "What connects the ribs to the sternum?",
+   "Ligaments join bone to bone, but these strips are something else.",
+   "These bendy strips of cartilage let the rib cage flex.",
+   "It's B. Costal cartilage.",
+   "Why it matters: it lets your chest expand when you breathe."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-09",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r",
+   "Second rib.l",
+   "Second rib.r",
+   "Third rib.l",
+   "Third rib.r",
+   "Fourth rib.l",
+   "Fourth rib.r",
+   "Fifth rib.l",
+   "Fifth rib.r",
+   "Sixth rib.l",
+   "Sixth rib.r",
+   "Seventh rib.l",
+   "Seventh rib.r",
+   "Eighth rib.l",
+   "Eighth rib.r",
+   "Ninth rib.l",
+   "Ninth rib.r",
+   "Tenth rib.l",
+   "Tenth rib.r",
+   "Eleventh rib.l",
+   "Eleventh rib.r",
+   "Twelfth rib.l",
+   "Twelfth rib.r"
+  ],
+  "start_degrees": 90,
+  "question": "Where do the ribs attach at the back?",
+  "choices": [
+   "Thoracic vertebrae",
+   "Lumbar vertebrae",
+   "Scapula",
+   "Sacrum"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Your ribs wrap around your chest. Where do they start at the back?",
+   "Watch the glowing ribs from the side.",
+   "Where do the ribs attach at the back?",
+   "The lumbar vertebrae are lower and have no ribs.",
+   "Each rib joins one of the twelve vertebrae in the mid-back.",
+   "It's A. The thoracic vertebrae.",
+   "Why it matters: it's how the rib cage wraps around the heart and lungs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

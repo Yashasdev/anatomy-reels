@@ -245,5 +245,97 @@
   "answer_line": 5,
   "distance": 2.0,
   "focus": true
+ },
+ {
+  "id": "spine-08",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Sacrum"
+  ],
+  "start_degrees": 180,
+  "distance": 2.8,
+  "question": "Which spine bone joins the pelvis?",
+  "choices": [
+   "Coccyx",
+   "Sacrum",
+   "Axis",
+   "Atlas"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One bone of the spine locks into your hips. Name it.",
+   "Watch the glowing wedge at the bottom of the spine.",
+   "Which spine bone joins the pelvis?",
+   "The coccyx hangs below it, at the very end.",
+   "The glowing wedge sits between the two hip bones.",
+   "It's B. The sacrum.",
+   "Why it matters: it passes your body weight from the spine to the legs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-09",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)"
+  ],
+  "start_degrees": 180,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which vertebra carries the skull?",
+  "choices": [
+   "Atlas",
+   "Axis",
+   "Sacrum",
+   "Coccyx"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "One vertebra is named for the myth of the titan who held up the sky.",
+   "Watch the glowing ring right under the skull.",
+   "Which vertebra carries the skull?",
+   "The axis is just below it and lets your head turn.",
+   "The glowing ring sits directly under the skull.",
+   "It's A. The atlas, or C1.",
+   "Why it matters: it's the joint that lets you nod yes."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-10",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra C7"
+  ],
+  "start_degrees": 180,
+  "distance": 1.8,
+  "focus": true,
+  "question": "Which vertebra sticks out at the neck?",
+  "choices": [
+   "Atlas",
+   "C4",
+   "C7",
+   "L5"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Bend your head forward. You can feel a bump at the base of your neck.",
+   "Watch the glowing vertebra at the base of the neck.",
+   "Which vertebra is it?",
+   "The atlas is at the top of the neck, hidden under the skull.",
+   "Its long spine sticks out just under the skin.",
+   "It's C. It's the seventh cervical vertebra, C7.",
+   "Why it matters: its long bump helps you count the other vertebrae."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

@@ -200,5 +200,130 @@
   ],
   "ask_line": 2,
   "answer_line": 4
+ },
+ {
+  "id": "skull-08",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Nasal bone.l",
+   "Nasal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.6,
+  "question": "Which bones form the bridge of the nose?",
+  "choices": [
+   "Maxilla",
+   "Lacrimal",
+   "Nasal",
+   "Vomer"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Pinch the top of your nose. You're feeling bone, not cartilage.",
+   "Watch the two small glowing bones on the front of the face.",
+   "Which bones form the bridge of the nose?",
+   "The maxillae are next to them, but they form the cheeks and upper jaw.",
+   "These two small bones meet in the middle, right between the eyes.",
+   "It's C. The nasal bones.",
+   "Why it matters: they hold up the top of the nose; the rest is cartilage."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-09",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Sphenoid bone"
+  ],
+  "start_degrees": 90,
+  "question": "Which bone is shaped like a butterfly?",
+  "choices": [
+   "Ethmoid",
+   "Sphenoid",
+   "Temporal",
+   "Frontal"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One skull bone is shaped like a butterfly. Can you find it?",
+   "It sits at the base of the skull, reaching out toward the temples.",
+   "Which bone is shaped like a butterfly?",
+   "The ethmoid is a small, spongy bone between the eyes.",
+   "Its wings spread to both sides of the skull and touch many other bones.",
+   "It's B. The sphenoid bone.",
+   "Why it matters: it links many skull bones together like a keystone."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-10",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Mandible"
+  ],
+  "start_degrees": 90,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Cheekbone",
+   "Brow bone",
+   "Collarbone",
+   "Jawbone"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "You use this bone every time you talk or chew. What's it called?",
+   "Watch the glowing bone at the bottom of the face.",
+   "What's its everyday name?",
+   "The cheekbone is higher up, under the eye.",
+   "This is the only skull bone that moves a lot when you open your mouth.",
+   "It's D. The jawbone, or mandible.",
+   "Why it matters: it lets you chew and speak."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-11",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Frontal bone",
+   "Parietal bone.l",
+   "Parietal bone.r",
+   "Temporal bone.l",
+   "Temporal bone.r",
+   "Occipital bone",
+   "Sphenoid bone",
+   "Ethmoid bone"
+  ],
+  "start_degrees": 60,
+  "question": "How many bones form the cranium?",
+  "choices": [
+   "8",
+   "14",
+   "22",
+   "6"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "Your brain sits inside a bony case. How many bones make it?",
+   "Watch the glowing bones that wrap around the brain.",
+   "How many bones form the cranium?",
+   "The face has 14 bones. Those aren't part of the cranium.",
+   "Count: frontal, 2 parietal, 2 temporal, occipital, sphenoid, ethmoid.",
+   "It's A. Eight bones.",
+   "Why it matters: they form the protective case around the brain."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
