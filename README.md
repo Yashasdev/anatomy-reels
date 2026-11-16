@@ -24,6 +24,10 @@ big, different install, and 3D rendering is slow, so it lives in its own repo.
   (drawn straps for tendons the atlas lacks), light up or turn red, and where the label pins. `python -m anatomy.types
   say ID` voices a script and prints what whisper hears, to catch mispronounced words before rendering.
   `scripts/extract_organ.py` has the `knee` and `shoulder` models (bones, cruciates, menisci, rotator cuff, labrum).
+  From fmt-types-09 a show can also add `blobs` (discs between vertebrae, a disc bulge, bone spurs; they can swell
+  in at the event), tear a drawn strap, crop the chart picture (`chart_frame`) or use `"model": "cells"`: red blood
+  cells built in the scene (A = lime spikes, B = grey beads, Rh = blue studs), no model file. These sit in an opt-in
+  block of `render/types_scene.py`, left out of the 3D cache key when unused, so earlier videos keep their caches.
 - `anatomy/hits.py` and `hits.json`: the daily hit check (after the tracker). An Instagram post 12-72 hours old with 3x
   the median views of the last 30 Instagram posts of its own type (quizzes, deep dives, or that format) and 1,000+, or
   3x their median shares per person reached (and 2+ shares), makes its series hot for 5 days. A type with under 6

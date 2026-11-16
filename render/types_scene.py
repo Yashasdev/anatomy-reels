@@ -468,6 +468,240 @@ def sample(keys, t):
     return k[1:4], k[4:7]
 
 
+# --- extras (fmt-types-09 on): shapes the atlas lacks, all opt-in, so earlier videos keep their cache keys.
+#   "blobs": [{"name", "at": P, "size": [rx, ry, rz], "kind", "square": 0-1, "grow": [t0, t1]}]
+#       a rounded solid (a disc between vertebrae, a bulge of disc jelly, a bone spur) centred on P, in P's group;
+#       "square" flattens its sides toward a puck; with "grow" it swells from nothing between event + t0 and + t1
+#   "model": "cells": no atlas file; red blood cells built here (biconcave discs) with antigen markers: A = lime
+#       spikes, B = grey beads, Rh = small blue studs. Parts "<type> <k>" (k 1-4: the slots in CELL_SLOTS) and
+#       "<type> <k> A", "<type> <k> B", "<type> <k> Rh" for the markers that type carries
+#   "chart_hide": [names] left out of the closing chart's picture (cells flying in, so the chart shows the type)
+#   "ghost_alpha": how solid the "ghost" parts stay (default 0.22)
+#   "chart_frame": the box the closing chart's picture fits (default "frame"), to crop in on the injury
+KINDS.update({
+    "disc": ((0.70, 0.80, 0.88), 0.35, 0.3),     # intervertebral disc: pale blue-white, like the menisci
+    "nucleus": ((0.93, 0.85, 0.55), 0.3, 0.4),   # the disc's soft centre, pushed out
+    "nerve": ((0.95, 0.80, 0.28), 0.4, 0.15),    # nerves are drawn yellow in atlases
+    "spur": ((0.80, 0.74, 0.62), 0.5, 0.1),      # bone overgrowth, a shade off the bone
+    "cell": ((0.42, 0.012, 0.01), 0.3, 0.2),   # a red blood cell
+    "antigen_a": ((0.42, 0.86, 0.04), 0.4, 0.0),
+    "antigen_b": ((0.56, 0.58, 0.62), 0.25, 0.0),
+    "rh": ((0.12, 0.42, 0.98), 0.35, 0.0),
+})
+CLUMPED = (0.09, 0.008, 0.02)  # a cell that clumps darkens to this instead of the usual red
+import re  # noqa: E402
+_kind_of, _part_material = kind_of, part_material
+
+
+def kind_of(name):
+    if re.fullmatch(r"(AB|A|B|O)[+-] \d", name):
+        return "cell"
+    m = re.fullmatch(r"(AB|A|B|O)[+-] \d (A|B|Rh)", name)
+    if m:
+        return {"A": "antigen_a", "B": "antigen_b", "Rh": "rh"}[m.group(2)]
+    return _kind_of(name)
+
+
+def part_material(tag, kind, lit=False, hurt=False):
+    m = _part_material(tag, kind, lit, hurt)
+    if kind == "cell" and hurt:
+        m.node_tree.nodes[m["mix"]].inputs["B"].default_value = (*CLUMPED, 1)
+    return m
+
+
+def blob_mesh(name, centre, size, square=0.0, seg=40, rings=20):
+    bm = bmesh.new()
+    bmesh.ops.create_uvsphere(bm, u_segments=seg, v_segments=rings, radius=1.0)
+    for v in bm.verts:
+        x, y, z = v.co
+        r = math.hypot(x, y)
+        if square and r > 1e-6:  # push the sides out toward a puck
+            k = r ** (1 - 0.7 * square) / r
+            x, y = x * k, y * k
+            z = math.copysign(abs(z) ** (1 + 1.5 * square), z) if square > 0.5 else z
+        v.co = Vector((centre.x + x * size[0], centre.y + y * size[1], centre.z + z * size[2]))
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    o = bpy.data.objects.new(name, me)
+    scene.collection.objects.link(o)
+    for p in o.data.polygons:
+        p.use_smooth = True
+    return o
+
+
+# --- red blood cells ---
+
+CELL_R = 0.04
+CELL_SLOTS = {1: ((0, 0, 0), (42, 0, 14)), 2: ((0.074, -0.004, 0.036), (0, 18, 28)),
+              3: ((0.07, 0.006, -0.042), (10, -20, -22)), 4: ((-0.074, 0.004, 0.032), (-8, 15, -30))}
+CELL_TYPES = {"O+": "Rh", "O-": "", "A+": "A Rh", "A-": "A", "B+": "B Rh", "B-": "B", "AB+": "A B Rh", "AB-": "A B"}
+
+
+def cell_height(r):
+    """Half-thickness of a red cell at radius r (Evans and Fung's shape), scaled to CELL_R."""
+    s = min(1.0, r / CELL_R) ** 2
+    return CELL_R * 0.5 * math.sqrt(max(0.0, 1 - s)) * (0.207 + 2.003 * s - 1.123 * s * s) * 0.82
+
+
+def cell_body(seg=64, rings=40):
+    """A biconcave disc in the x-z plane (its faces look along y), as (verts, faces)."""
+    verts, faces = [], []
+    for i in range(rings + 1):
+        th = math.pi * i / rings
+        r = CELL_R * math.sin(th)
+        y = -math.copysign(cell_height(r) + 0.0012 * math.sin(th) ** 8, math.cos(th) if i != rings // 2 else 1) \
+            if i != rings // 2 else 0.0
+        for j in range(seg):
+            ph = 2 * math.pi * j / seg
+            verts.append((r * math.cos(ph), y, r * math.sin(ph)))
+    for i in range(rings):
+        for j in range(seg):
+            a, b = i * seg + j, i * seg + (j + 1) % seg
+            faces.append((a, b, b + seg, a + seg))
+    return verts, faces
+
+
+def surface(n, rng):
+    """n points spread over the cell's surface, with their outward normals (more on the rim, where they show)."""
+    pts = []
+    golden = math.pi * (3 - math.sqrt(5))
+    for i in range(n):
+        u = (i + 0.5) / n
+        th = math.acos(1 - 2 * u)
+        ph = golden * i
+        r = CELL_R * math.sin(th) ** 0.6
+        side = -1 if th < math.pi / 2 else 1
+        y = side * (cell_height(r) + 0.0004)
+        dr = 1e-4
+        slope = (cell_height(min(CELL_R, r + dr)) - cell_height(max(0.0, r - dr))) / (2 * dr)
+        nrm = Vector((-side * slope * math.cos(ph), side, -side * slope * math.sin(ph)))
+        if r > CELL_R * 0.93:  # the rim faces outward
+            nrm = Vector((math.cos(ph), side * 0.3, math.sin(ph)))
+        pts.append((Vector((r * math.cos(ph), y, r * math.sin(ph))), nrm.normalized()))
+    return pts
+
+
+def marker_mesh(name, kind, pts, size):
+    bm = bmesh.new()
+    for p, n in pts:
+        if kind == "A":  # a spike: a cone on the surface
+            res = bmesh.ops.create_cone(bm, cap_ends=True, segments=8, radius1=size * 0.45, radius2=0.0, depth=size * 1.6)
+            off = 0.8 * size
+        elif kind == "B":  # a bead on a short stalk
+            res = bmesh.ops.create_icosphere(bm, subdivisions=2, radius=size * 0.55)
+            off = 0.75 * size
+        else:  # Rh: a squat stud
+            res = bmesh.ops.create_cone(bm, cap_ends=True, segments=10, radius1=size * 0.42, radius2=size * 0.42, depth=size * 0.7)
+            off = 0.3 * size
+        rot = n.to_track_quat("Z", "Y").to_matrix().to_4x4()
+        bmesh.ops.transform(bm, matrix=Matrix.Translation(p + n * off) @ rot, verts=res["verts"])
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    o = bpy.data.objects.new(name, me)
+    for f in o.data.polygons:
+        f.use_smooth = True
+    return o
+
+
+def cell_library():
+    import random
+    out = {}
+    bv, bf = cell_body()
+    for t, marks in CELL_TYPES.items():
+        for k, (loc, rot) in CELL_SLOTS.items():
+            m = Matrix.Translation(loc) @ Euler([math.radians(a) for a in rot]).to_matrix().to_4x4()
+            me = bpy.data.meshes.new(f"{t} {k}")
+            me.from_pydata(bv, [], bf)
+            o = bpy.data.objects.new(f"{t} {k}", me)
+            o.matrix_world = m
+            out[o.name] = o
+            rng = random.Random(f"{t}{k}")
+            spots = surface(170, rng)
+            rng.shuffle(spots)
+            have = marks.split()
+            i = 0
+            for kind, n, size in (("A", 52, 0.0046), ("B", 52, 0.0046), ("Rh", 26, 0.0042)):
+                if kind not in have:
+                    continue
+                mk = marker_mesh(f"{t} {k} {kind}", kind, spots[i:i + n], size)
+                i += n
+                mk.matrix_world = m
+                out[mk.name] = mk
+    return out
+
+
+_library = library
+
+
+def library(model):
+    if model == "cells":
+        if model not in LIB:
+            LIB[model] = cell_library()
+        return LIB[model]
+    return _library(model)
+
+
+_show_init, _show_visible, _show_pose = Show.__init__, Show.visible, Show.pose
+
+
+def _init(self, name, s, tag):
+    blobs = {b["name"] for b in s.get("blobs", [])}
+    later = {key: s[key] for key in ("pin", "focus") if s.get(key, {}).get("part") in blobs}
+    framed = {"frame": s["chart_frame"]} if s.get("chart_frame") and tag.endswith("_grid") else {}
+    _show_init(self, name, {**s, **{key: {"xyz": [0, 0, 0]} for key in later}, **framed}, tag)
+    self.tag, self.grows = tag, []
+    if s.get("ghost_alpha"):  # "ghost_alpha": how solid the see-through parts stay (default 0.22)
+        for n in s.get("ghost", []):
+            self.mats[n].node_tree.nodes["Principled BSDF"].inputs["Alpha"].default_value = s["ghost_alpha"]
+            self.mats[n].surface_render_method = "DITHERED"  # no sorting stripes on what shows through
+    for b in s.get("blobs", []):
+        p, g = self.point(b["at"])
+        n = b["name"]
+        o = blob_mesh(f"{tag}:{n}", p, b["size"], b.get("square", 0.0))
+        m = part_material(f"{tag}:{n}", b.get("kind", "disc"), n in self.lit, n in self.hurt)
+        o.data.materials.append(m)
+        self.mats[n] = m
+        holder = bpy.data.objects.new(f"{tag}:{n}:grow", None)
+        scene.collection.objects.link(holder)
+        holder.parent = self.groups[g]
+        holder.matrix_parent_inverse = self.inverse(g)
+        holder.location = p
+        o.parent = holder
+        o.matrix_parent_inverse = Matrix.Translation(-p)
+        self.parts[n] = o
+        self.group_of[n] = g
+        self.objs.append(o)
+        if b.get("grow"):
+            self.grows.append((holder, b["grow"]))
+    if "pin" in later:
+        self.pin_obj, self.pin_co = self.anchor(later["pin"])
+    if "focus" in later:
+        self.focus = self.point(later["focus"])[0]
+
+
+def _visible(self, t_event):
+    out = _show_visible(self, t_event)
+    hide = self.s.get("chart_hide")
+    if hide and self.tag.endswith("_grid"):
+        gone = {self.parts[n] for n in hide if n in self.parts}
+        out = [o for o in out if o not in gone]
+    return out
+
+
+def _pose(self, t_event, k=None):
+    _show_pose(self, t_event, k)
+    for holder, (t0, t1) in self.grows:
+        f = ease((t_event - t0) / max(1e-3, t1 - t0)) if t_event > t0 else 0.0
+        holder.scale = (max(1e-3, f),) * 3
+        if k is not None:
+            holder.keyframe_insert("scale", frame=k)
+
+
+Show.__init__, Show.visible, Show.pose = _init, _visible, _pose
+# --- end extras
+
 SHOWN = {n: Show(n, s, n) for n, s in SHOWS.items()}
 
 

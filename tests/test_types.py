@@ -20,6 +20,9 @@ PARTS = json.loads((ROOT / "assets" / "models" / "parts.json").read_text())
 ITEMS = types.items()
 FRACTURE = next(q for q in ITEMS if q["id"] == "fmt-types-01")
 PARTS_ITEMS = [q for q in ITEMS if q.get("scene") == "parts"]
+CELL_TYPES = re.search(r"CELL_TYPES = (\{.*?\})", (ROOT / "render" / "types_scene.py").read_text()).group(1)
+CELLS = [f"{t} {k}{m}" for t, marks in eval(CELL_TYPES).items() for k in range(1, 5)  # noqa: S307
+         for m in [""] + [" " + x for x in marks.split()]]
 d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
 
 
@@ -62,6 +65,8 @@ def points(show: dict):
         yield b["to"]
     for t in show.get("tears", []):
         yield t["at"]
+    for b in show.get("blobs", []):
+        yield b["at"]
 
 
 @pytest.mark.parametrize("q", PARTS_ITEMS, ids=[q["id"] for q in PARTS_ITEMS])
@@ -69,18 +74,21 @@ def test_parts_items_name_real_parts(q):
     """Every part a show uses is in its model (assets/models/parts.json) or is one of its own straps."""
     for t in q["types"]:
         s = t["show"]
-        assert (ROOT / "assets" / "models" / f"{s['model']}.blend").exists()
-        parts = set(s.get("parts") or PARTS[s["model"]])
-        assert parts <= set(PARTS[s["model"]]), t["name"]
-        bands = {b["name"] for b in s.get("bands", [])}
+        model = CELLS if s["model"] == "cells" else PARTS[s["model"]]  # red cells are built in the scene, no file
+        assert s["model"] == "cells" or (ROOT / "assets" / "models" / f"{s['model']}.blend").exists()
+        parts = set(s.get("parts") or model)
+        assert parts <= set(model), t["name"]
+        bands = {b["name"] for b in s.get("bands", [])} | {b["name"] for b in s.get("blobs", [])}
         known = parts | bands
-        for key in ("smooth", "lit", "hurt", "ghost"):
+        for key in ("smooth", "lit", "hurt", "ghost", "chart_hide"):
             assert set(s.get(key, [])) <= known, (t["name"], key)
         for mv in s.get("moves", []):
             assert set(mv["parts"]) <= parts and all(len(k) in (4, 7) for k in mv["keys"])
             assert [k[0] for k in mv["keys"]] == sorted(k[0] for k in mv["keys"]), "keys in time order"
-        for x in s.get("spans", []) + s.get("tears", []):
+        for x in s.get("spans", []):
             assert x["part"] in parts
+        for x in s.get("tears", []):  # a drawn strap can tear too (fmt-types-10's ankle ligaments)
+            assert x["part"] in known
         for p in points(s):
             if "xyz" in p:
                 continue
@@ -88,7 +96,8 @@ def test_parts_items_name_real_parts(q):
         assert t.get("sound", "thud") in ("pop", "thud", "snap", "none")
         for j, row in enumerate(t.get("chart") or [t["label"].title()]):  # fits under its picture (3 across)
             assert d.textlength(row, font=types.BOLD(30) if j == 0 else types.CAPTION(23)) < 270, row
-    assert q["credit"] == "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)"
+    assert q["credit"] == ("3D red blood cells: made in Blender for Anatomy Ace" if s["model"] == "cells"
+                           else "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)")
 
 
 def test_parts_items_use_the_generic_scene_and_the_fracture_keeps_its_own():
@@ -142,7 +151,7 @@ def test_the_chart_stays_in_the_phone_safe_area(n):
 
 
 def test_the_caption_has_no_answer_key_and_credits_the_model():
-    for q, credit in [(FRACTURE, "NIH 3D")] + [(x, "Z-Anatomy") for x in PARTS_ITEMS]:
+    for q, credit in [(FRACTURE, "NIH 3D")] + [(x, "made in Blender" if x["id"] == "fmt-types-09" else "Z-Anatomy") for x in PARTS_ITEMS]:
         info = types.info({**q, "music": "lofi-1"}, 64.0)
         text = publish.caption({**info, "kind": "formats", "series": "formats"})
         assert text.startswith(types.shown(q["hook"])) and "Comment below" in text and "Answer:" not in text

@@ -119,7 +119,12 @@ def phonemes(k, line: str) -> str:
         except ValueError:
             if not m.group(3):
                 raise
-            i, j = _find(full, m.group(3), pos)  # in this line Kokoro already says it the way we want
+            try:
+                i, j = _find(full, m.group(3), pos)  # in this line Kokoro already says it the way we want
+            except ValueError:
+                if word.lower() != "a":
+                    raise
+                i, j = _find(full, "ɐ", pos)  # the letter A (a blood type), which Kokoro reads as "uh" mid-line
         if m.group(1):
             a = full.rfind(" ", 0, max(0, full.rfind(" ", 0, i)))  # the word before, kept light
             b = full.find(" ", j + 1)
@@ -505,6 +510,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)
     if not any(sh.get("pulse") for sh in shows):
         text = re.sub(r"# --- pulse .*?# --- end pulse\n\n", "", text, flags=re.S)
+    if not any(sh.get("blobs") or sh.get("chart_hide") or sh.get("ghost_alpha") or sh.get("chart_frame") or sh.get("model") == "cells" for sh in shows):
+        text = re.sub(r"# --- extras .*?# --- end extras\n\n", "", text, flags=re.S)
     key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + text).encode()).hexdigest()
     if cache:
         keep = Path(cache).expanduser() / q["id"]

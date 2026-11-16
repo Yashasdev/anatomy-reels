@@ -1,0 +1,1621 @@
+[
+ {
+  "id": "fmt-types-11",
+  "scene": "parts",
+  "for": "Most adults get back pain at some point, and nearly every family has someone with a bad back. They send it to their dad with the bad back: it names what his might be, and the one sign that means the ER.",
+  "title": "Types of back pain: 6 kinds, and the one that means the ER",
+  "question": "6 kinds of back pain. Which one do you have?",
+  "hook": "6 kinds of back pain. One means go to the ER.",
+  "intro": "Here are all 6, and where they come from.",
+  "flash": [
+   "strain",
+   "disc",
+   "stenosis",
+   "slip",
+   "redflag"
+  ],
+  "types": [
+   {
+    "name": "strain",
+    "label": "MUSCLE STRAIN",
+    "chart": [
+     "Muscle strain",
+     "lift or twist wrong"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Muscle strain. Lift or twist wrong,",
+     "and a muscle in your lower back gets overstretched.",
+     "It's very common, and usually gets better in a few weeks."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Vertebra T11",
+      "Vertebra T12",
+      "Vertebra L1",
+      "Vertebra L2",
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum",
+      "Coccyx"
+     ],
+     "orient": [
+      0,
+      0,
+      215
+     ],
+     "frame": [
+      [
+       -0.07,
+       -0.03,
+       0.84
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Vertebra T11",
+        "Vertebra T12",
+        "Vertebra L1",
+        "Vertebra L2",
+        "Vertebra L3",
+        "Vertebra L4"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         22,
+         0,
+         -5
+        ],
+        [
+         1.5,
+         22,
+         0,
+         -5
+        ],
+        [
+         2.6,
+         8,
+         0,
+         -2
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Back muscle L",
+       "from": {
+        "xyz": [
+         0.027,
+         0.08,
+         0.9
+        ]
+       },
+       "to": {
+        "xyz": [
+         0.027,
+         0.078,
+         1.17
+        ],
+        "group": 1
+       },
+       "width": 0.02,
+       "thick": 0.011,
+       "kind": "muscle"
+      },
+      {
+       "name": "Back muscle R",
+       "from": {
+        "xyz": [
+         -0.027,
+         0.08,
+         0.9
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.027,
+         0.078,
+         1.17
+        ],
+        "group": 1
+       },
+       "width": 0.02,
+       "thick": 0.011,
+       "kind": "muscle"
+      }
+     ],
+     "blobs": [
+      {
+       "name": "Disc T12-L1",
+       "at": {
+        "xyz": [
+         0,
+         0.007,
+         1.135
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L1-L2",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         1.1007
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L2-L3",
+       "at": {
+        "xyz": [
+         0,
+         -0.0035,
+         1.066
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L3-L4",
+       "at": {
+        "xyz": [
+         0,
+         -0.004,
+         1.0308
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L4-L5",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L5-S1",
+       "at": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      }
+     ],
+     "lit": [
+      "Back muscle L",
+      "Back muscle R"
+     ],
+     "hurt": [
+      "Back muscle L",
+      "Back muscle R"
+     ],
+     "pin": {
+      "xyz": [
+       -0.03,
+       0.095,
+       1.0
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0,
+       0.07,
+       1.0
+      ]
+     },
+     "zoom": 0.55,
+     "chart_t": 1.2,
+     "chart_frame": [
+      [
+       -0.07,
+       -0.03,
+       0.88
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ]
+    }
+   },
+   {
+    "name": "disc",
+    "label": "HERNIATED DISC",
+    "chart": [
+     "Herniated disc",
+     "sciatica down a leg"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Herniated disc. The soft center of a disc pushes out",
+     "and presses on a nerve. That's the top cause of sciatica:",
+     "pain shooting down your leg."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Vertebra T11",
+      "Vertebra T12",
+      "Vertebra L1",
+      "Vertebra L2",
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum",
+      "Coccyx"
+     ],
+     "orient": [
+      0,
+      0,
+      95
+     ],
+     "frame": [
+      [
+       -0.07,
+       -0.03,
+       0.84
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ],
+     "blobs": [
+      {
+       "name": "Disc T12-L1",
+       "at": {
+        "xyz": [
+         0,
+         0.007,
+         1.135
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L1-L2",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         1.1007
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L2-L3",
+       "at": {
+        "xyz": [
+         0,
+         -0.0035,
+         1.066
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L3-L4",
+       "at": {
+        "xyz": [
+         0,
+         -0.004,
+         1.0308
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L4-L5",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L5-S1",
+       "at": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Bulge",
+       "at": {
+        "xyz": [
+         -0.016,
+         0.015,
+         0.9958
+        ]
+       },
+       "size": [
+        0.01,
+        0.009,
+        0.0052
+       ],
+       "kind": "nucleus",
+       "grow": [
+        0.0,
+        0.35
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "Nerve root",
+       "from": {
+        "xyz": [
+         -0.015,
+         0.022,
+         1.0
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.036,
+         0.0,
+         0.94
+        ]
+       },
+       "width": 0.006,
+       "thick": 0.006,
+       "kind": "nerve"
+      },
+      {
+       "name": "Sciatic nerve",
+       "from": {
+        "xyz": [
+         -0.036,
+         0.0,
+         0.94
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.058,
+         0.012,
+         0.84
+        ]
+       },
+       "width": 0.008,
+       "thick": 0.008,
+       "kind": "nerve"
+      }
+     ],
+     "lit": [
+      "Bulge"
+     ],
+     "hurt": [
+      "Nerve root",
+      "Sciatic nerve"
+     ],
+     "pulse": 2.0,
+     "pin": {
+      "xyz": [
+       -0.02,
+       0.015,
+       0.9958
+      ]
+     },
+     "focus": {
+      "xyz": [
+       -0.015,
+       0.015,
+       0.975
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.5,
+     "chart_frame": [
+      [
+       -0.07,
+       -0.03,
+       0.86
+      ],
+      [
+       0.07,
+       0.1,
+       1.08
+      ]
+     ]
+    }
+   },
+   {
+    "name": "stenosis",
+    "label": "SPINAL STENOSIS",
+    "chart": [
+     "Stenosis",
+     "eases leaning forward"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Spinal [stenosis](stəˈnoʊsɪs). Usually after 60, the space for your nerves narrows.",
+     "Standing or walking makes it worse. Sitting or leaning forward helps."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Vertebra T11",
+      "Vertebra T12",
+      "Vertebra L1",
+      "Vertebra L2",
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum",
+      "Coccyx"
+     ],
+     "orient": [
+      0,
+      0,
+      120
+     ],
+     "frame": [
+      [
+       -0.07,
+       -0.03,
+       0.84
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ],
+     "bands": [
+      {
+       "name": "Nerves",
+       "from": {
+        "xyz": [
+         0,
+         0.03,
+         1.13
+        ]
+       },
+       "to": {
+        "xyz": [
+         0,
+         0.035,
+         0.9
+        ]
+       },
+       "width": 0.011,
+       "thick": 0.009,
+       "kind": "nerve"
+      }
+     ],
+     "blobs": [
+      {
+       "name": "Disc T12-L1",
+       "at": {
+        "xyz": [
+         0,
+         0.007,
+         1.135
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L1-L2",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         1.1007
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L2-L3",
+       "at": {
+        "xyz": [
+         0,
+         -0.0035,
+         1.066
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L3-L4",
+       "at": {
+        "xyz": [
+         0,
+         -0.004,
+         1.0308
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L4-L5",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L5-S1",
+       "at": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Spur L",
+       "at": {
+        "xyz": [
+         0.011,
+         0.034,
+         1.012
+        ]
+       },
+       "size": [
+        0.009,
+        0.007,
+        0.01
+       ],
+       "kind": "spur",
+       "grow": [
+        0.0,
+        0.4
+       ]
+      },
+      {
+       "name": "Spur R",
+       "at": {
+        "xyz": [
+         -0.011,
+         0.034,
+         1.012
+        ]
+       },
+       "size": [
+        0.009,
+        0.007,
+        0.01
+       ],
+       "kind": "spur",
+       "grow": [
+        0.0,
+        0.4
+       ]
+      }
+     ],
+     "lit": [
+      "Spur L",
+      "Spur R"
+     ],
+     "hurt": [
+      "Nerves"
+     ],
+     "ghost": [
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5"
+     ],
+     "ghost_alpha": 0.4,
+     "pin": {
+      "xyz": [
+       0.0,
+       0.032,
+       1.012
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0,
+       0.03,
+       1.01
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.5,
+     "chart_frame": [
+      [
+       -0.06,
+       -0.03,
+       0.94
+      ],
+      [
+       0.06,
+       0.1,
+       1.09
+      ]
+     ]
+    }
+   },
+   {
+    "name": "stress",
+    "label": "STRESS FRACTURE",
+    "chart": [
+     "Stress fracture",
+     "teen athletes"
+    ],
+    "sound": "snap",
+    "lines": [
+     "Stress fracture. In teens whose sport arches the back,",
+     "like gymnastics, a thin bridge at the back of a vertebra can crack.",
+     "It's called [spondylolysis](ˌspɑndəˈlɑləsɪs)."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Vertebra T11",
+      "Vertebra T12",
+      "Vertebra L1",
+      "Vertebra L2",
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum",
+      "Coccyx"
+     ],
+     "orient": [
+      0,
+      0,
+      205
+     ],
+     "frame": [
+      [
+       -0.07,
+       -0.03,
+       0.84
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Vertebra T11",
+        "Vertebra T12",
+        "Vertebra L1",
+        "Vertebra L2",
+        "Vertebra L3",
+        "Vertebra L4",
+        "Vertebra L5"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.15,
+         -7,
+         0,
+         0
+        ],
+        [
+         0.3,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         -7,
+         0,
+         0
+        ],
+        [
+         0.6,
+         0,
+         0,
+         0
+        ],
+        [
+         0.75,
+         -8,
+         0,
+         0
+        ],
+        [
+         0.95,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "blobs": [
+      {
+       "name": "Disc T12-L1",
+       "at": {
+        "xyz": [
+         0,
+         0.007,
+         1.135
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L1-L2",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         1.1007
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L2-L3",
+       "at": {
+        "xyz": [
+         0,
+         -0.0035,
+         1.066
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L3-L4",
+       "at": {
+        "xyz": [
+         0,
+         -0.004,
+         1.0308
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L4-L5",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L5-S1",
+       "at": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      }
+     ],
+     "tears": [
+      {
+       "part": "Vertebra L5",
+       "at": {
+        "part": "Vertebra L5",
+        "at": [
+         0.3,
+         0.62,
+         0.45
+        ]
+       },
+       "normal": [
+        0.2,
+        0.5,
+        0.85
+       ],
+       "groups": [
+        1,
+        1
+       ],
+       "gap": 0.0008,
+       "delay": 0.75,
+       "chips": 10
+      }
+     ],
+     "lit": [
+      "Vertebra L5"
+     ],
+     "hurt": [
+      "Vertebra L5"
+     ],
+     "pin": {
+      "part": "Vertebra L5",
+      "at": [
+       0.3,
+       0.65,
+       0.45
+      ]
+     },
+     "zoom": 0.45,
+     "chart_t": 1.5,
+     "chart_frame": [
+      [
+       -0.07,
+       -0.03,
+       0.9
+      ],
+      [
+       0.07,
+       0.1,
+       1.06
+      ]
+     ]
+    }
+   },
+   {
+    "name": "slip",
+    "label": "SLIPPED VERTEBRA",
+    "chart": [
+     "Slipped vertebra",
+     "slides forward"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Slipped vertebra. One vertebra slides forward over the one below.",
+     "It's called [spondylolisthesis](spˌɑndɪloʊlɪsθˈisɪs)."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Vertebra T11",
+      "Vertebra T12",
+      "Vertebra L1",
+      "Vertebra L2",
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum",
+      "Coccyx"
+     ],
+     "orient": [
+      0,
+      0,
+      80
+     ],
+     "frame": [
+      [
+       -0.07,
+       -0.03,
+       0.84
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Vertebra T11",
+        "Vertebra T12",
+        "Vertebra L1",
+        "Vertebra L2",
+        "Vertebra L3",
+        "Vertebra L4",
+        "Vertebra L5"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0.003,
+         0.977
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.35,
+         0,
+         0,
+         0,
+         0,
+         -0.016,
+         -0.003
+        ],
+        [
+         1.6,
+         0,
+         0,
+         0,
+         0,
+         -0.016,
+         -0.003
+        ]
+       ]
+      }
+     ],
+     "blobs": [
+      {
+       "name": "Disc T12-L1",
+       "at": {
+        "xyz": [
+         0,
+         0.007,
+         1.135
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L1-L2",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         1.1007
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L2-L3",
+       "at": {
+        "xyz": [
+         0,
+         -0.0035,
+         1.066
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L3-L4",
+       "at": {
+        "xyz": [
+         0,
+         -0.004,
+         1.0308
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L4-L5",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ],
+        "group": 1
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L5-S1",
+       "at": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      }
+     ],
+     "lit": [
+      "Vertebra L5"
+     ],
+     "pin": {
+      "part": "Vertebra L5",
+      "at": [
+       0.5,
+       0.1,
+       0.5
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0,
+       0.01,
+       0.97
+      ]
+     },
+     "zoom": 0.5,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.07,
+       -0.03,
+       0.88
+      ],
+      [
+       0.07,
+       0.1,
+       1.06
+      ]
+     ]
+    }
+   },
+   {
+    "name": "redflag",
+    "label": "RED FLAG",
+    "chart": [
+     "Red flag",
+     "numb groin: the ER"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Red flag. Back pain with a numb groin,",
+     "or losing control of your bladder?",
+     "The nerves may be squeezed. Go to the ER."
+    ],
+    "show": {
+     "model": "spine",
+     "parts": [
+      "Vertebra T11",
+      "Vertebra T12",
+      "Vertebra L1",
+      "Vertebra L2",
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum",
+      "Coccyx"
+     ],
+     "orient": [
+      0,
+      0,
+      125
+     ],
+     "frame": [
+      [
+       -0.07,
+       -0.03,
+       0.84
+      ],
+      [
+       0.07,
+       0.1,
+       1.19
+      ]
+     ],
+     "bands": [
+      {
+       "name": "Cauda 0",
+       "from": {
+        "xyz": [
+         -0.006,
+         0.03,
+         1.08
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.009600000000000001,
+         0.045,
+         0.9
+        ]
+       },
+       "width": 0.004,
+       "thick": 0.004,
+       "kind": "nerve"
+      },
+      {
+       "name": "Cauda 1",
+       "from": {
+        "xyz": [
+         0.0,
+         0.03,
+         1.08
+        ]
+       },
+       "to": {
+        "xyz": [
+         0.0,
+         0.045,
+         0.9
+        ]
+       },
+       "width": 0.004,
+       "thick": 0.004,
+       "kind": "nerve"
+      },
+      {
+       "name": "Cauda 2",
+       "from": {
+        "xyz": [
+         0.006,
+         0.03,
+         1.08
+        ]
+       },
+       "to": {
+        "xyz": [
+         0.009600000000000001,
+         0.045,
+         0.9
+        ]
+       },
+       "width": 0.004,
+       "thick": 0.004,
+       "kind": "nerve"
+      }
+     ],
+     "blobs": [
+      {
+       "name": "Disc T12-L1",
+       "at": {
+        "xyz": [
+         0,
+         0.007,
+         1.135
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L1-L2",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         1.1007
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L2-L3",
+       "at": {
+        "xyz": [
+         0,
+         -0.0035,
+         1.066
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L3-L4",
+       "at": {
+        "xyz": [
+         0,
+         -0.004,
+         1.0308
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L4-L5",
+       "at": {
+        "xyz": [
+         0,
+         0.0,
+         0.9958
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Disc L5-S1",
+       "at": {
+        "xyz": [
+         0,
+         0.011,
+         0.9605
+        ],
+        "group": 0
+       },
+       "size": [
+        0.021,
+        0.014,
+        0.0042
+       ],
+       "kind": "disc",
+       "square": 0.6
+      },
+      {
+       "name": "Big bulge",
+       "at": {
+        "xyz": [
+         0.0,
+         0.02,
+         0.9958
+        ]
+       },
+       "size": [
+        0.012,
+        0.012,
+        0.006
+       ],
+       "kind": "nucleus",
+       "grow": [
+        0.0,
+        0.35
+       ]
+      }
+     ],
+     "lit": [
+      "Big bulge"
+     ],
+     "hurt": [
+      "Cauda 0",
+      "Cauda 1",
+      "Cauda 2"
+     ],
+     "pulse": 3.0,
+     "ghost": [
+      "Vertebra L3",
+      "Vertebra L4",
+      "Vertebra L5",
+      "Sacrum"
+     ],
+     "ghost_alpha": 0.4,
+     "pin": {
+      "xyz": [
+       0.0,
+       0.03,
+       0.975
+      ]
+     },
+     "focus": {
+      "xyz": [
+       0,
+       0.03,
+       0.98
+      ]
+     },
+     "zoom": 0.5,
+     "chart_t": 1.5,
+     "chart_frame": [
+      [
+       -0.06,
+       -0.03,
+       0.9
+      ],
+      [
+       0.06,
+       0.1,
+       1.07
+      ]
+     ]
+    }
+   }
+  ],
+  "outro": [
+   "Back pain that won't go away? See a doctor.",
+   "Which one do *you* have?",
+   "Send this to your dad with the bad back."
+  ],
+  "grid_title": "KINDS OF BACK PAIN",
+  "why": "Muscle strain (a pulled muscle): a common cause of back pain; most back pain improves within a few weeks. Herniated disc: the soft, jelly-like center of a disc pushes through its tough outer ring and presses on a nerve; a slipped disc is the most common cause of sciatica (pain down the leg). Lumbar spinal stenosis: the space for the nerves in the lower spine narrows, most often in adults over 60; standing and walking make it worse, sitting or leaning forward helps. Spondylolysis: a stress fracture of the pars interarticularis (a thin bridge of bone at the back of a vertebra), in teens whose sports repeatedly arch the lower back (gymnastics, football, weightlifting). Spondylolisthesis: a vertebra slips forward on the one below. Red flag (cauda equina syndrome): back pain with numbness around the genitals or bottom, or changes in bladder or bowel control, is an emergency: go to the ER. Back pain that doesn't improve after a few weeks: see a doctor.",
+  "hashtags": [
+   "#backpain",
+   "#sciatica",
+   "#anatomy",
+   "#health",
+   "#premed"
+  ],
+  "sources": [
+   "https://www.nhs.uk/conditions/back-pain/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK542314/",
+   "https://www.orthoinfo.org/en/diseases--conditions/herniated-disk-in-the-lower-back/",
+   "https://www.nhs.uk/conditions/sciatica/",
+   "https://www.orthoinfo.org/en/diseases--conditions/lumbar-spinal-stenosis/",
+   "https://www.orthoinfo.org/en/diseases--conditions/spondylolysis-and-spondylolisthesis/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK537200/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to your dad with the bad back 👨",
+  "music": "lofi-3"
+ }
+]
