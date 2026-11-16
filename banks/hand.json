@@ -227,5 +227,127 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "hand-08",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Trapezium bone.r",
+   "Trapezoid bone.r",
+   "Capitate bone.r",
+   "Hamate bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.5,
+  "question": "Which wrist bones touch the palm bones?",
+  "choices": [
+   "Proximal row",
+   "Distal row",
+   "Pisiform and lunate",
+   "Scaphoid only"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your wrist is a stack of small bones. Which ones meet your palm?",
+   "Watch the four glowing wrist bones.",
+   "Which wrist bones touch the palm bones?",
+   "The proximal row sits closer to the forearm.",
+   "These four form the row that meets the metacarpals.",
+   "It's B. The distal row of carpal bones.",
+   "Why it matters: they connect the wrist to the palm bones."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "hand-09",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Proximal phalanx of first finger of hand.r",
+   "Proximal phalanx of second finger of hand.r",
+   "Proximal phalanx of third finger of hand.r",
+   "Proximal phalanx of fourth finger of hand.r",
+   "Proximal phalanx of fifth finger of hand.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.6,
+  "question": "Which finger bones are glowing?",
+  "choices": [
+   "Middle",
+   "Proximal",
+   "Distal",
+   "Metacarpal"
+  ],
+  "answer_index": 1,
+  "trap_index": 3,
+  "lines": [
+   "Every finger has bones in a row. Which ones are glowing?",
+   "Watch the glowing bones closest to the palm.",
+   "Which finger bones are glowing?",
+   "The metacarpals are in the palm, just before these.",
+   "These bones form the first segment of each finger, next to the knuckles.",
+   "It's B. The proximal phalanges.",
+   "Why it matters: they connect your fingers to your palm bones."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "hand-10",
+  "model": "hand",
+  "title": "The Hand",
+  "highlight": [
+   "Capitate bone.r",
+   "Hamate bone.r",
+   "Lunate bone.r",
+   "Pisiform bone.r",
+   "Scaphoid bone.r",
+   "Trapezium bone.r",
+   "Trapezoid bone.r",
+   "Triquetrum bone.r",
+   "First metacarpal bone.r",
+   "Second metacarpal bone.r",
+   "Third metacarpal bone.r",
+   "Fourth metacarpal bone.r",
+   "Fifth metacarpal bone.r",
+   "Proximal phalanx of first finger of hand.r",
+   "Proximal phalanx of second finger of hand.r",
+   "Proximal phalanx of third finger of hand.r",
+   "Proximal phalanx of fourth finger of hand.r",
+   "Proximal phalanx of fifth finger of hand.r",
+   "Middle phalanx of second finger of hand.r",
+   "Middle phalanx of third finger of hand.r",
+   "Middle phalanx of fourth finger of hand.r",
+   "Middle phalanx of fifth finger of hand.r",
+   "Distal phalanx of first finger of hand.r",
+   "Distal phalanx of second finger of hand.r",
+   "Distal phalanx of third finger of hand.r",
+   "Distal phalanx of fourth finger of hand.r",
+   "Distal phalanx of fifth finger of hand.r"
+  ],
+  "start_degrees": 0,
+  "question": "How many bones are in one hand?",
+  "choices": [
+   "14",
+   "19",
+   "27",
+   "32"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your hand is built from many small bones. How many?",
+   "Watch the glowing bones of the whole hand and wrist.",
+   "How many bones are in one hand?",
+   "Fourteen is only the number of finger bones.",
+   "Add the wrist, the palm and the fingers together.",
+   "It's C. 27 bones.",
+   "Why it matters: so many small bones allow fine, precise movements."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

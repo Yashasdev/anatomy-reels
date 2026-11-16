@@ -209,5 +209,67 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-08",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which bones fuse to form the hip bone?",
+  "choices": [
+   "Ilium, sacrum, pubis",
+   "Ischium, femur, pubis",
+   "Ilium, femur, sacrum",
+   "Ilium, ischium, pubis"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Each hip bone started as three separate bones. Which three?",
+   "Watch the two big glowing bones of the pelvis.",
+   "Which bones fuse to form the hip bone?",
+   "The sacrum and femur are separate bones that meet the hip bone.",
+   "They start separate in childhood and fuse in the teens.",
+   "It's D. The ilium, ischium and pubis.",
+   "Why it matters: it's why a hip bone has distinct regions."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-09",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r",
+   "Sacrum",
+   "Coccyx"
+  ],
+  "start_degrees": 0,
+  "question": "What is this ring of bones called?",
+  "choices": [
+   "Shoulder girdle",
+   "Pelvis",
+   "Rib cage",
+   "Cranium"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your hips form a bony ring. What's it called?",
+   "Watch the glowing ring of bones at the base of the spine.",
+   "What is this ring of bones called?",
+   "The shoulder girdle is the pair of bones at the top of the arms.",
+   "This ring holds up the spine and connects it to the legs.",
+   "It's B. The pelvis.",
+   "Why it matters: it supports your upper body and attaches your legs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

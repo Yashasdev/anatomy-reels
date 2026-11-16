@@ -206,5 +206,102 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-08",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Tibia.r"
+  ],
+  "start_degrees": 0,
+  "question": "What's its everyday name?",
+  "choices": [
+   "Shinbone",
+   "Thighbone",
+   "Kneecap",
+   "Anklebone"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "You can feel this bone along the front of your lower leg.",
+   "Watch the long glowing bone below the knee.",
+   "What's its everyday name?",
+   "The thighbone is the long bone above the knee.",
+   "This is the thicker of the two lower-leg bones.",
+   "It's A. The shinbone, or tibia.",
+   "Why it matters: it's the bone you feel when you bump your shin."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-09",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Femur.r",
+   "Patella.r",
+   "Tibia.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which joint do these bones form?",
+  "choices": [
+   "Hip",
+   "Knee",
+   "Ankle",
+   "Elbow"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Three bones meet in one of your biggest joints. Which joint?",
+   "Watch the thighbone, kneecap and shinbone glow together.",
+   "Which joint do these bones form?",
+   "The hip also uses the thighbone, but with the pelvis.",
+   "The glowing bones meet at the middle of the leg.",
+   "It's B. The knee.",
+   "Why it matters: it's the joint that bends and straightens your leg."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "leg-10",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "Calcaneus.r",
+   "Talus.r",
+   "Navicular bone.r",
+   "Cuboid bone.r",
+   "Medial cuneiform bone.r",
+   "Intermediate cuneiform bone.r",
+   "Lateral cuneiform bone.r"
+  ],
+  "start_degrees": 90,
+  "distance": 2.0,
+  "focus": true,
+  "question": "How many ankle and heel bones are glowing?",
+  "choices": [
+   "5",
+   "7",
+   "9",
+   "14"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your ankle and heel are built from a cluster of small bones.",
+   "Watch the glowing bones between the shin and the toes.",
+   "How many ankle and heel bones are glowing?",
+   "Five is the number of long bones in front of them.",
+   "They are the heel bone, talus, navicular, cuboid and three cuneiforms.",
+   "It's B. Seven tarsal bones.",
+   "Why it matters: they take your weight and absorb shock when you walk."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

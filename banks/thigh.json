@@ -179,5 +179,99 @@
   "answer_line": 4,
   "focus": true,
   "distance": 1.4
+ },
+ {
+  "id": "thigh-07",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Semitendinosus muscle.r",
+   "Semimembranosus muscle.r"
+  ],
+  "start_degrees": 180,
+  "question": "Which muscle group is it?",
+  "choices": [
+   "Hamstrings",
+   "Quadriceps",
+   "Adductors",
+   "Glutes"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "These muscles bend your knee when you curl your leg back.",
+   "We're looking at the back of the right thigh.",
+   "Which muscle group is it?",
+   "The quadriceps are on the front of the thigh.",
+   "These two run down the back of the thigh, from hip to knee.",
+   "It's A. The hamstrings.",
+   "Why it matters: they bend the knee and help extend the hip when you run."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 1.6,
+  "focus": true
+ },
+ {
+  "id": "thigh-08",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Soleus muscle.r"
+  ],
+  "start_degrees": 180,
+  "question": "What does the glowing muscle do?",
+  "choices": [
+   "Lifts the foot up",
+   "Straightens the knee",
+   "Bends the hip",
+   "Points the foot down"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "This calf muscle works every time you stand on your tiptoes.",
+   "We're looking at the back of the lower leg.",
+   "What does the glowing muscle do?",
+   "Lifting the foot is the job of the shin muscle, on the front.",
+   "It pulls on the heel, pointing the foot down.",
+   "It's D. It points the foot down.",
+   "Why it matters: it helps you stand, walk and push off the ground."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 1.5,
+  "focus": true
+ },
+ {
+  "id": "thigh-09",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Vastus lateralis muscle.r"
+  ],
+  "start_degrees": 60,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which quad muscle is glowing?",
+  "choices": [
+   "Vastus medialis",
+   "Vastus lateralis",
+   "Vastus intermedius",
+   "Rectus femoris"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your quadriceps has four parts. One runs down the outer thigh.",
+   "Watch the glowing muscle on the outside of the thigh.",
+   "Which quad muscle is glowing?",
+   "The vastus medialis is on the inner side, near the knee.",
+   "This one runs along the outer side of the thigh bone.",
+   "It's B. The vastus lateralis.",
+   "Why it matters: it's the largest part of the quadriceps."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

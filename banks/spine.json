@@ -245,5 +245,99 @@
   "answer_line": 5,
   "distance": 2.0,
   "focus": true
+ },
+ {
+  "id": "spine-08",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Sacrum"
+  ],
+  "start_degrees": 180,
+  "distance": 2.8,
+  "question": "Which spine bone joins the pelvis?",
+  "choices": [
+   "Coccyx",
+   "Sacrum",
+   "Axis",
+   "Atlas"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One bone of the spine locks into your hips. Name it.",
+   "Watch the glowing wedge at the bottom of the spine.",
+   "Which spine bone joins the pelvis?",
+   "The coccyx hangs below it, at the very end.",
+   "The glowing wedge sits between the two hip bones.",
+   "It's B. The sacrum.",
+   "Why it matters: it passes your body weight from the spine to the legs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-09",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra L1",
+   "Vertebra L2",
+   "Vertebra L3",
+   "Vertebra L4",
+   "Vertebra L5"
+  ],
+  "start_degrees": 90,
+  "question": "Which spine section is the lower back?",
+  "choices": [
+   "Cervical",
+   "Thoracic",
+   "Lumbar",
+   "Sacral"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "You use this part of your spine every time you bend over.",
+   "Watch the glowing section of the spine.",
+   "Which spine section is the lower back?",
+   "The thoracic section is higher, and its bones carry the ribs.",
+   "These five large vertebrae sit between the ribs and the pelvis.",
+   "It's C. The lumbar spine.",
+   "Why it matters: these big vertebrae carry much of your body weight."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-10",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Sacrum",
+   "Coccyx"
+  ],
+  "start_degrees": 180,
+  "distance": 2.8,
+  "question": "Which bones are fused vertebrae?",
+  "choices": [
+   "Sacrum and coccyx",
+   "Atlas and axis",
+   "Lumbar vertebrae",
+   "Thoracic vertebrae"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Some spine bones start as separate vertebrae, then fuse together.",
+   "Watch the glowing bones at the bottom of the spine.",
+   "Which bones are fused vertebrae?",
+   "The lumbar vertebrae stay separate and movable.",
+   "These two bones at the base of the spine are fused vertebrae.",
+   "It's A. The sacrum and the coccyx.",
+   "Why it matters: fusing makes the base of the spine strong and stable."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
