@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-15T20:11:14+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43752031321",
+ "generated_at": "2026-11-16T21:16:31+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43958352678",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -9,8 +9,8 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 17,
- "total": 102,
+ "unused": 42,
+ "total": 127,
  "posted": 85,
  "ramp": [
   [
@@ -25,8 +25,7 @@
  "series": {
   "deepdive": {
    "slots": [
-    "18:00",
-    "20:00"
+    "18:00"
    ],
    "from": "2026-11-07",
    "cycle": null,
@@ -48,59 +47,59 @@
  },
  "banks": {
   "skull": {
-   "total": 7,
-   "unused": 1
+   "total": 11,
+   "unused": 5
   },
   "leg": {
-   "total": 7,
-   "unused": 3
+   "total": 10,
+   "unused": 6
   },
   "pelvis": {
-   "total": 7,
-   "unused": 3
+   "total": 9,
+   "unused": 5
   },
   "chest": {
-   "total": 6,
-   "unused": 2
+   "total": 9,
+   "unused": 5
   },
   "thigh": {
-   "total": 6,
-   "unused": 2
+   "total": 9,
+   "unused": 5
   },
   "arm": {
-   "total": 7,
-   "unused": 1
+   "total": 11,
+   "unused": 5
   },
   "spine": {
-   "total": 7,
-   "unused": 2
+   "total": 10,
+   "unused": 5
   },
   "hand": {
-   "total": 7,
-   "unused": 3
+   "total": 10,
+   "unused": 6
   }
  },
  "hot": [
   {
    "series": "types",
    "kind": "formats",
-   "post": "fmt-types-05",
-   "views": 2361,
-   "baseline": 1207,
+   "post": "fmt-types-07",
+   "views": 2119,
+   "baseline": 1338,
    "by": [
     "shares"
    ],
-   "date": "2026-11-15",
-   "until": "2026-11-19",
-   "left": 0,
-   "make_more": true
+   "date": "2026-11-16",
+   "until": "2026-11-20",
+   "left": 3,
+   "make_more": false
   },
   {
    "series": "dd-caffeine",
    "kind": "deepdive",
    "post": "dd-caffeine",
-   "views": 586,
-   "baseline": 1258,
+   "views": 661,
+   "baseline": 1324,
    "by": [
     "shares"
    ],
@@ -515,7 +514,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-15T18:00:00-05:00",
@@ -529,7 +532,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-15T20:00:00-05:00",
@@ -543,7 +550,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-16T09:30:00-05:00",
@@ -557,7 +568,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-16T12:30:00-05:00",
@@ -571,7 +586,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-16T16:00:00-05:00",
@@ -585,7 +604,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-16T18:00:00-05:00",
@@ -631,33 +654,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-15T17:59:59Z",
+  "updated_at": "2026-11-16T21:16:26Z",
   "totals": {
-   "views": 305174,
-   "reactions": 12362,
-   "comments": 39,
-   "shares": 2939,
-   "saves": 5557
+   "views": 396594,
+   "reactions": 16522,
+   "comments": 102,
+   "shares": 3540,
+   "saves": 6633
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 76,
-    "views": 260471,
-    "watched": 29.0,
-    "watch_samples": 47
+    "posts": 82,
+    "views": 311652,
+    "watched": 28.6,
+    "watch_samples": 52
    },
    {
     "platform": "tiktok",
-    "posts": 76,
-    "views": 20913,
-    "watched": 24.9,
-    "watch_samples": 53
+    "posts": 82,
+    "views": 57164,
+    "watched": 24.7,
+    "watch_samples": 59
    },
    {
     "platform": "youtube",
-    "posts": 76,
-    "views": 23790,
+    "posts": 82,
+    "views": 27778,
     "watched": null,
     "watch_samples": 0
    }
