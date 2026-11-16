@@ -206,32 +206,42 @@
   "model": "skull",
   "title": "The Skull",
   "highlight": [
+   "Mandible",
+   "Maxilla.l",
+   "Maxilla.r",
+   "Zygomatic bone.l",
+   "Zygomatic bone.r",
    "Nasal bone.l",
-   "Nasal bone.r"
+   "Nasal bone.r",
+   "Lacrimal bone.l",
+   "Lacrimal bone.r",
+   "Palatine bone.l",
+   "Palatine bone.r",
+   "Inferior nasal concha bone.l",
+   "Inferior nasal concha bone.r",
+   "Vomer"
   ],
   "start_degrees": 0,
-  "distance": 1.5,
-  "question": "Which bones form the bridge of the nose?",
+  "question": "How many bones form the face?",
   "choices": [
-   "Maxilla",
-   "Lacrimal",
-   "Nasal",
-   "Vomer"
+   "8",
+   "22",
+   "14",
+   "6"
   ],
   "answer_index": 2,
   "trap_index": 0,
   "lines": [
-   "Pinch the top of your nose. You're feeling bone, not cartilage.",
-   "Watch the two small glowing bones on the front of the face.",
-   "Which bones form the bridge of the nose?",
-   "The maxillae are next to them, but they form the cheeks and upper jaw.",
-   "These two small bones meet in the middle, right between the eyes.",
-   "It's C. The nasal bones.",
-   "Why it matters: they hold up the top of the nose; the rest is cartilage."
+   "Your face is built from a lot of small bones. How many?",
+   "Watch the glowing bones of the face and jaw.",
+   "How many bones form the face?",
+   "Eight is the number of bones around the brain.",
+   "Count the jaw, cheeks, nose, eye sockets and palate together.",
+   "It's C. Fourteen facial bones.",
+   "Why it matters: they shape your face and hold your teeth."
   ],
   "ask_line": 2,
-  "answer_line": 5,
-  "focus": true
+  "answer_line": 5
  },
  {
   "id": "skull-09",
@@ -319,7 +329,7 @@
    "Your brain sits inside a bony case. How many bones make it?",
    "Watch the glowing bones that wrap around the brain.",
    "How many bones form the cranium?",
-   "The face has 14 bones. Those aren't part of the cranium.",
+   "The face bones are a separate group. This one wraps the brain.",
    "Count: frontal, 2 parietal, 2 temporal, occipital, sphenoid, ethmoid.",
    "It's A. Eight bones.",
    "Why it matters: they form the protective case around the brain."

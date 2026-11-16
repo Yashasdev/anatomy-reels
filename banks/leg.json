@@ -212,28 +212,26 @@
   "model": "leg",
   "title": "The Leg",
   "highlight": [
-   "Patella.r"
+   "Tibia.r"
   ],
   "start_degrees": 0,
-  "distance": 2.2,
-  "focus": true,
   "question": "What's its everyday name?",
   "choices": [
-   "Kneecap",
    "Shinbone",
-   "Anklebone",
-   "Thighbone"
+   "Thighbone",
+   "Kneecap",
+   "Anklebone"
   ],
   "answer_index": 0,
   "trap_index": 1,
   "lines": [
-   "You can feel this small bone on the front of your knee.",
-   "Watch the glowing bone at the front of the knee.",
+   "You can feel this bone along the front of your lower leg.",
+   "Watch the long glowing bone below the knee.",
    "What's its everyday name?",
-   "The shinbone is the long bone below it.",
-   "This small, rounded bone sits in front of the knee joint.",
-   "It's A. The kneecap, or patella.",
-   "Why it matters: it protects the knee and helps straighten it."
+   "The thighbone is the long bone above the knee.",
+   "This is the thicker of the two lower-leg bones.",
+   "It's A. The shinbone, or tibia.",
+   "Why it matters: it's the bone you feel when you bump your shin."
   ],
   "ask_line": 2,
   "answer_line": 5
@@ -243,32 +241,28 @@
   "model": "leg",
   "title": "The Leg",
   "highlight": [
-   "First metatarsal bone.r",
-   "Second metatarsal bone.r",
-   "Third metatarsal bone.r",
-   "Fourth metatarsal bone.r",
-   "Fifth metatarsal bone.r"
+   "Femur.r",
+   "Patella.r",
+   "Tibia.r"
   ],
-  "start_degrees": 90,
-  "distance": 1.8,
-  "focus": true,
-  "question": "How many bones are glowing?",
+  "start_degrees": 0,
+  "question": "Which joint do these bones form?",
   "choices": [
-   "7",
-   "14",
-   "3",
-   "5"
+   "Hip",
+   "Knee",
+   "Ankle",
+   "Elbow"
   ],
-  "answer_index": 3,
+  "answer_index": 1,
   "trap_index": 0,
   "lines": [
-   "The middle of your foot is built from a row of long bones.",
-   "Watch the glowing bones between the ankle and the toes.",
-   "How many bones are glowing?",
-   "Seven is the number of ankle and heel bones, not these.",
-   "One metatarsal leads to each toe.",
-   "It's D. Five metatarsals.",
-   "Why it matters: they form the arch and push you forward with every step."
+   "Three bones meet in one of your biggest joints. Which joint?",
+   "Watch the thighbone, kneecap and shinbone glow together.",
+   "Which joint do these bones form?",
+   "The hip also uses the thighbone, but with the pelvis.",
+   "The glowing bones meet at the middle of the leg.",
+   "It's B. The knee.",
+   "Why it matters: it's the joint that bends and straightens your leg."
   ],
   "ask_line": 2,
   "answer_line": 5

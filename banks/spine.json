@@ -281,28 +281,30 @@
   "model": "spine",
   "title": "The Spine",
   "highlight": [
-   "Atlas (C1)"
+   "Vertebra L1",
+   "Vertebra L2",
+   "Vertebra L3",
+   "Vertebra L4",
+   "Vertebra L5"
   ],
   "start_degrees": 90,
-  "distance": 1.8,
-  "focus": true,
-  "question": "Which vertebra carries the skull?",
+  "question": "Which spine section is the lower back?",
   "choices": [
-   "Atlas",
-   "Axis",
-   "Sacrum",
-   "Coccyx"
+   "Cervical",
+   "Thoracic",
+   "Lumbar",
+   "Sacral"
   ],
-  "answer_index": 0,
+  "answer_index": 2,
   "trap_index": 1,
   "lines": [
-   "One vertebra is named for the myth of the titan who held up the sky.",
-   "Watch the glowing ring right under the skull.",
-   "Which vertebra carries the skull?",
-   "The axis is just below it and lets your head turn.",
-   "The glowing ring sits directly under the skull.",
-   "It's A. The atlas, or C1.",
-   "Why it matters: it's the joint that lets you nod yes."
+   "You use this part of your spine every time you bend over.",
+   "Watch the glowing section of the spine.",
+   "Which spine section is the lower back?",
+   "The thoracic section is higher, and its bones carry the ribs.",
+   "These five large vertebrae sit between the ribs and the pelvis.",
+   "It's C. The lumbar spine.",
+   "Why it matters: these big vertebrae carry much of your body weight."
   ],
   "ask_line": 2,
   "answer_line": 5
@@ -312,28 +314,28 @@
   "model": "spine",
   "title": "The Spine",
   "highlight": [
-   "Vertebra C7"
+   "Sacrum",
+   "Coccyx"
   ],
-  "start_degrees": 90,
-  "distance": 2.0,
-  "focus": true,
-  "question": "Which vertebra sticks out at the neck?",
+  "start_degrees": 180,
+  "distance": 2.8,
+  "question": "Which spine bones are made of fused vertebrae?",
   "choices": [
-   "Atlas",
-   "C4",
-   "C7",
-   "L5"
+   "Sacrum and coccyx",
+   "Atlas and axis",
+   "Lumbar vertebrae",
+   "Thoracic vertebrae"
   ],
-  "answer_index": 2,
-  "trap_index": 1,
+  "answer_index": 0,
+  "trap_index": 2,
   "lines": [
-   "Bend your head forward. You can feel a bump at the base of your neck.",
-   "Watch the glowing vertebra at the base of the neck.",
-   "Which vertebra is it?",
-   "The atlas is at the top of the neck, hidden under the skull.",
-   "Its long spine sticks out just under the skin.",
-   "It's C. It's the seventh cervical vertebra, C7.",
-   "Why it matters: its long bump helps you count the other vertebrae."
+   "Some spine bones start as separate vertebrae, then fuse together.",
+   "Watch the glowing bones at the bottom of the spine.",
+   "Which spine bones are made of fused vertebrae?",
+   "The lumbar vertebrae stay separate and movable.",
+   "These two bones at the base of the spine are fused vertebrae.",
+   "It's A. The sacrum and the coccyx.",
+   "Why it matters: fusing makes the base of the spine strong and stable."
   ],
   "ask_line": 2,
   "answer_line": 5
