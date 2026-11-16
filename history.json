@@ -1363,5 +1363,107 @@
     },
     "music": "house-4",
     "look": "studio"
+  },
+  {
+    "slot": "2026-11-17T12:30:00-05:00",
+    "day": 86,
+    "id": "fmt-diagnose-05",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-17-1230-fmt-diagnose-05.mp4",
+    "video_seconds": 26.24,
+    "buffer": {
+      "instagram": "6afb932b3e42cd001e3a9d08",
+      "tiktok": "6afb932cdf36f4d825559e1f",
+      "youtube": "6afb932ddf36f4d825559e79"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "ambient-4",
+    "hot": "diagnose"
+  },
+  {
+    "slot": "2026-11-17T16:00:00-05:00",
+    "day": 87,
+    "id": "fmt-missing-03",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-17-1600-fmt-missing-03.mp4",
+    "video_seconds": 19.42,
+    "buffer": {
+      "instagram": "6afb932edf36f4d825559f14",
+      "tiktok": "6afb932fdf36f4d825559f69",
+      "youtube": "6afb933085dca6b14a08be8c"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-17T18:00:00-05:00",
+    "day": 88,
+    "id": "dd-onetake-nerve",
+    "organ": null,
+    "title": "One nerve impulse. One take.",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-17-1800-dd-onetake-nerve.mp4",
+    "video_seconds": 40.55,
+    "buffer": {
+      "instagram": "6afb933385dca6b14a08c020",
+      "tiktok": "6afb9334df36f4d82555a21f",
+      "youtube": "6afb933485dca6b14a08c144"
+    },
+    "kind": "deepdive",
+    "music": "drone-A"
+  },
+  {
+    "slot": "2026-11-17T20:00:00-05:00",
+    "day": 89,
+    "id": "hand-05",
+    "organ": "hand",
+    "title": "The Hand",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-17-2000-hand-05.mp4",
+    "video_seconds": 20.67,
+    "buffer": {
+      "instagram": "6afb93363e42cd001e3aa0a1",
+      "tiktok": "6afb93364b26315855a9a532",
+      "youtube": "6afb93374b26315855a9a59b"
+    },
+    "music": "ambient-2",
+    "look": "classic",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-18T09:30:00-05:00",
+    "day": 90,
+    "id": "skull-07",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-18-0930-skull-07.mp4",
+    "video_seconds": 18.5,
+    "buffer": {
+      "instagram": "6afb9339f83aaca8f395f14d",
+      "tiktok": "6afb9339df36f4d82555a401",
+      "youtube": "6afb933a3e42cd001e3aa285"
+    },
+    "music": "lofi-4",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-18T12:30:00-05:00",
+    "day": 91,
+    "id": "fmt-diagnose-06",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-18-1230-fmt-diagnose-06.mp4",
+    "video_seconds": 24.0,
+    "buffer": {
+      "instagram": "6afb933cf83aaca8f395f1e7",
+      "tiktok": "6afb933df83aaca8f395f233",
+      "youtube": "6afb933d4b26315855a9a8a8"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "lofi-4",
+    "hot": "diagnose"
   }
 ]
