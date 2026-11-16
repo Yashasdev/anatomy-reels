@@ -283,8 +283,8 @@
   "highlight": [
    "Atlas (C1)"
   ],
-  "start_degrees": 180,
-  "distance": 1.6,
+  "start_degrees": 90,
+  "distance": 1.8,
   "focus": true,
   "question": "Which vertebra carries the skull?",
   "choices": [
@@ -314,8 +314,8 @@
   "highlight": [
    "Vertebra C7"
   ],
-  "start_degrees": 180,
-  "distance": 1.8,
+  "start_degrees": 90,
+  "distance": 2.0,
   "focus": true,
   "question": "Which vertebra sticks out at the neck?",
   "choices": [

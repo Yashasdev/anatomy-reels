@@ -217,7 +217,7 @@
    "Clavicle.r"
   ],
   "start_degrees": 0,
-  "distance": 2.6,
+  "distance": 1.6,
   "question": "What's its everyday name?",
   "choices": [
    "Collarbone",
@@ -237,7 +237,8 @@
    "Why it matters: it links your arm to the rest of the skeleton."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "focus": true
  },
  {
   "id": "arm-09",
@@ -246,7 +247,7 @@
   "highlight": [
    "Radius.r"
   ],
-  "start_degrees": 0,
+  "start_degrees": -30,
   "question": "Which forearm bone is on the thumb side?",
   "choices": [
    "Ulna",
@@ -266,7 +267,8 @@
    "Why it matters: it turns around the ulna when you rotate your forearm."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 3.0
  },
  {
   "id": "arm-10",

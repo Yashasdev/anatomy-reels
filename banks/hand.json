@@ -233,28 +233,30 @@
   "model": "hand",
   "title": "The Hand",
   "highlight": [
-   "Pisiform bone.r"
+   "Trapezium bone.r",
+   "Trapezoid bone.r",
+   "Capitate bone.r",
+   "Hamate bone.r"
   ],
   "start_degrees": 0,
-  "distance": 1.5,
-  "focus": true,
-  "question": "Which pea-shaped wrist bone is glowing?",
+  "distance": 2.5,
+  "question": "Which wrist bones touch the palm bones?",
   "choices": [
-   "Pisiform",
-   "Capitate",
-   "Lunate",
-   "Hamate"
+   "Proximal row",
+   "Distal row",
+   "Pisiform and lunate",
+   "Scaphoid only"
   ],
-  "answer_index": 0,
-  "trap_index": 1,
+  "answer_index": 1,
+  "trap_index": 0,
   "lines": [
-   "One wrist bone is named for a pea. Can you find it?",
-   "Watch the small glowing bone on the pinky side of the wrist.",
-   "Which pea-shaped wrist bone is glowing?",
-   "The capitate is the biggest wrist bone, in the middle.",
-   "Its name comes from the Latin word for pea.",
-   "It's A. The pisiform.",
-   "Why it matters: it's a tiny bone that sits inside a tendon at the wrist."
+   "Your wrist is a stack of small bones. Which ones meet your palm?",
+   "Watch the four glowing wrist bones.",
+   "Which wrist bones touch the palm bones?",
+   "The proximal row sits closer to the forearm.",
+   "These four form the row that meets the metacarpals.",
+   "It's B. The distal row of carpal bones.",
+   "Why it matters: they connect the wrist to the palm bones."
   ],
   "ask_line": 2,
   "answer_line": 5

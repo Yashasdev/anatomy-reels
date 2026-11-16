@@ -210,7 +210,7 @@
    "Nasal bone.r"
   ],
   "start_degrees": 0,
-  "distance": 2.6,
+  "distance": 1.5,
   "question": "Which bones form the bridge of the nose?",
   "choices": [
    "Maxilla",
@@ -230,7 +230,8 @@
    "Why it matters: they hold up the top of the nose; the rest is cartilage."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "focus": true
  },
  {
   "id": "skull-09",
