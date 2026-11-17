@@ -1465,5 +1465,88 @@
     "format": "diagnose",
     "music": "lofi-4",
     "hot": "diagnose"
+  },
+  {
+    "slot": "2026-11-18T16:00:00-05:00",
+    "day": 92,
+    "id": "fmt-diagnose-07",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-18-1600-fmt-diagnose-07.mp4",
+    "video_seconds": 25.69,
+    "buffer": {
+      "instagram": "6afcd3958e2194ed032a3390",
+      "tiktok": "6afcd396536cf08383cbc837",
+      "youtube": "6afcd3978e2194ed032a33e4"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "ambient-5"
+  },
+  {
+    "slot": "2026-11-18T18:00:00-05:00",
+    "day": 93,
+    "id": "dd-carbon-monoxide",
+    "organ": null,
+    "title": "Carbon monoxide",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-18-1800-dd-carbon-monoxide.mp4",
+    "video_seconds": 53.18,
+    "buffer": {
+      "instagram": "6afcd39a97117502d4a52078",
+      "tiktok": "6afcd39b2c5bd1de81430e8d",
+      "youtube": "6afcd39cc68ceea50aaa5616"
+    },
+    "kind": "deepdive",
+    "music": "ambient-2"
+  },
+  {
+    "slot": "2026-11-18T20:00:00-05:00",
+    "day": 94,
+    "id": "leg-05",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-18-2000-leg-05.mp4",
+    "video_seconds": 19.94,
+    "buffer": {
+      "instagram": "6afcd39e536cf08383cbc9af",
+      "tiktok": "6afcd39f97117502d4a5215e",
+      "youtube": "6afcd3a097117502d4a521a1"
+    },
+    "music": "ambient-2",
+    "look": "classic",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-19T09:30:00-05:00",
+    "day": 95,
+    "id": "pelvis-05",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-0930-pelvis-05.mp4",
+    "video_seconds": 20.2,
+    "buffer": {
+      "instagram": "6afcd3a297117502d4a522e7",
+      "tiktok": "6afcd3a38e2194ed032a385f",
+      "youtube": "6afcd3a4c68ceea50aaa5867"
+    },
+    "music": "pop-4",
+    "look": "studio"
+  },
+  {
+    "slot": "2026-11-19T12:30:00-05:00",
+    "day": 96,
+    "id": "fmt-diagnose-08",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-1230-fmt-diagnose-08.mp4",
+    "video_seconds": 24.41,
+    "buffer": {
+      "instagram": "6afcd3a6c68ceea50aaa5902",
+      "tiktok": "6afcd3a6b1f02ae62297328a",
+      "youtube": "6afcd3a7536cf08383cbccf2"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "pop-4"
   }
 ]
