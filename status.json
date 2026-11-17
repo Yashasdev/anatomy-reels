@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-16T23:35:41+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/43974202972",
+ "generated_at": "2026-11-17T20:03:51+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44165230975",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -514,7 +514,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-16T20:00:00-05:00",
@@ -528,7 +532,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-17T09:30:00-05:00",
@@ -542,7 +550,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-17T12:30:00-05:00",
@@ -556,7 +568,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-17T16:00:00-05:00",
@@ -630,33 +646,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-16T21:16:26Z",
+  "updated_at": "2026-11-17T20:03:47Z",
   "totals": {
-   "views": 396594,
-   "reactions": 16522,
-   "comments": 102,
-   "shares": 3540,
-   "saves": 6633
+   "views": 433517,
+   "reactions": 18778,
+   "comments": 153,
+   "shares": 3655,
+   "saves": 6720
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 82,
-    "views": 311652,
-    "watched": 28.6,
-    "watch_samples": 52
+    "posts": 86,
+    "views": 316509,
+    "watched": 28.0,
+    "watch_samples": 55
    },
    {
     "platform": "tiktok",
-    "posts": 82,
-    "views": 57164,
-    "watched": 24.7,
-    "watch_samples": 59
+    "posts": 86,
+    "views": 87423,
+    "watched": 24.4,
+    "watch_samples": 63
    },
    {
     "platform": "youtube",
-    "posts": 82,
-    "views": 27778,
+    "posts": 86,
+    "views": 29585,
     "watched": null,
     "watch_samples": 0
    }
