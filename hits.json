@@ -204,7 +204,78 @@
    "series": "types",
    "date": "2026-11-16",
    "until": "2026-11-20"
+  },
+  {
+   "post": "fmt-types-08",
+   "buffer_id": "6afa11c9ee359588b54da86f",
+   "day": 81,
+   "title": "8 body movement terms, shown on real bones",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 50.1,
+   "views": 33573,
+   "baseline": 2908,
+   "shares": 927,
+   "reach": 30391,
+   "share_rate": 0.0305,
+   "share_baseline": 0.0082,
+   "compared_with": "types (6 posts)",
+   "factor": 3,
+   "by": [
+    "views",
+    "shares"
+   ],
+   "series": "types",
+   "date": "2026-11-18",
+   "until": "2026-11-22"
+  },
+  {
+   "post": "fmt-diagnose-04",
+   "buffer_id": "6afa11cbb9a106584cd149cb",
+   "day": 82,
+   "title": "Diagnose this",
+   "kind": "formats",
+   "format": "diagnose",
+   "age_hours": 46.6,
+   "views": 6350,
+   "baseline": 1351,
+   "shares": 108,
+   "reach": 5110,
+   "share_rate": 0.0211,
+   "share_baseline": 0.0025,
+   "compared_with": "all formats (21 posts)",
+   "factor": 3,
+   "by": [
+    "views",
+    "shares"
+   ],
+   "series": "diagnose",
+   "date": "2026-11-18",
+   "until": "2026-11-22"
+  },
+  {
+   "post": "fmt-diagnose-05",
+   "buffer_id": "6afb932b3e42cd001e3a9d08",
+   "day": 86,
+   "title": "Diagnose this",
+   "kind": "formats",
+   "format": "diagnose",
+   "age_hours": 26.1,
+   "views": 1098,
+   "baseline": 1371,
+   "shares": 29,
+   "reach": 887,
+   "share_rate": 0.0327,
+   "share_baseline": 0.0025,
+   "compared_with": "all formats (21 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "diagnose",
+   "date": "2026-11-18",
+   "until": "2026-11-22"
   }
  ],
- "updated_at": "2026-11-17T20:03:51Z"
+ "updated_at": "2026-11-18T19:38:32Z"
 }
