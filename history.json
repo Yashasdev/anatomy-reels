@@ -1443,10 +1443,13 @@
     "buffer": {
       "instagram": "6afb9339f83aaca8f395f14d",
       "tiktok": "6afb9339df36f4d82555a401",
-      "youtube": "6afb933a3e42cd001e3aa285"
+      "youtube": "6afe21e9c69bd1cb88867858"
     },
     "music": "lofi-4",
-    "look": "classic"
+    "look": "classic",
+    "retried": {
+      "youtube": "6afb933a3e42cd001e3aa285"
+    }
   },
   {
     "slot": "2026-11-18T12:30:00-05:00",
@@ -1458,13 +1461,16 @@
     "video_seconds": 24.0,
     "buffer": {
       "instagram": "6afb933cf83aaca8f395f1e7",
-      "tiktok": "6afb933df83aaca8f395f233",
+      "tiktok": "6afe21ea4cace847b3783aa8",
       "youtube": "6afb933d4b26315855a9a8a8"
     },
     "kind": "formats",
     "format": "diagnose",
     "music": "lofi-4",
-    "hot": "diagnose"
+    "hot": "diagnose",
+    "retried": {
+      "tiktok": "6afb933df83aaca8f395f233"
+    }
   },
   {
     "slot": "2026-11-18T16:00:00-05:00",
@@ -1548,5 +1554,88 @@
     "kind": "formats",
     "format": "diagnose",
     "music": "pop-4"
+  },
+  {
+    "slot": "2026-11-19T16:00:00-05:00",
+    "day": 97,
+    "id": "fmt-missing-04",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-1600-fmt-missing-04.mp4",
+    "video_seconds": 22.29,
+    "buffer": {
+      "instagram": "6afe21d4a588bd66879d7d21",
+      "tiktok": "6afe21d501ba7c5e7916bc7b",
+      "youtube": "6afe21d5c69bd1cb888671a3"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "pop-2"
+  },
+  {
+    "slot": "2026-11-19T18:00:00-05:00",
+    "day": 98,
+    "id": "dd-blind-spot",
+    "organ": null,
+    "title": "Your blind spot",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-1800-dd-blind-spot.mp4",
+    "video_seconds": 52.97,
+    "buffer": {
+      "instagram": "6afe21d9c462756e9e2120dc",
+      "tiktok": "6afe21daa588bd66879d8034",
+      "youtube": "6afe21dba588bd66879d8079"
+    },
+    "kind": "deepdive",
+    "music": "ambient-5"
+  },
+  {
+    "slot": "2026-11-19T20:00:00-05:00",
+    "day": 99,
+    "id": "chest-05",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-2000-chest-05.mp4",
+    "video_seconds": 20.61,
+    "buffer": {
+      "instagram": "6afe21dd01ba7c5e7916c1fa",
+      "tiktok": "6afe21ddc69bd1cb888674ce",
+      "youtube": "6afe21dec69bd1cb8886751c"
+    },
+    "music": "ambient-2",
+    "look": "classic",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-20T09:30:00-05:00",
+    "day": 100,
+    "id": "thigh-05",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-0930-thigh-05.mp4",
+    "video_seconds": 20.7,
+    "buffer": {
+      "instagram": "6afe21e0c69bd1cb888675da",
+      "tiktok": "6afe21e1c462756e9e21254c",
+      "youtube": "6afe21e2ebd4409dc9fbda88"
+    },
+    "music": "ambient-3",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-20T12:30:00-05:00",
+    "day": 101,
+    "id": "fmt-missing-05",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1230-fmt-missing-05.mp4",
+    "video_seconds": 21.82,
+    "buffer": {
+      "instagram": "6afe21e301ba7c5e7916c974",
+      "tiktok": "6afe21e4a588bd66879d84b1",
+      "youtube": "6afe21e5c462756e9e21269f"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "pop-1"
   }
 ]
