@@ -28,6 +28,9 @@ big, different install, and 3D rendering is slow, so it lives in its own repo.
   in at the event), tear a drawn strap, crop the chart picture (`chart_frame`) or use `"model": "cells"`: red blood
   cells built in the scene (A = lime spikes, B = grey beads, Rh = blue studs), no model file. These sit in an opt-in
   block of `render/types_scene.py`, left out of the 3D cache key when unused, so earlier videos keep their caches.
+  From fmt-types-12: `"model": "skeleton"` (the head, spine, chest, pelvis, shoulder, forearm and leg bones joined,
+  right side mirrored), glowing see-through panes (`"shape": "box"`, kind `slab`) for body planes, and label pins
+  that ride a move's group, so a pin slides between two spots as a pair's second term is said.
 - `anatomy/hits.py` and `hits.json`: the daily hit check (after the tracker). An Instagram post 12-72 hours old with 3x
   the median views of the last 30 Instagram posts of its own type (quizzes, deep dives, or that format) and 1,000+, or
   3x their median shares per person reached (and 2+ shares), makes its series hot for 5 days. A type with under 6

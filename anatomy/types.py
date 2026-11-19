@@ -510,7 +510,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)
     if not any(sh.get("pulse") for sh in shows):
         text = re.sub(r"# --- pulse .*?# --- end pulse\n\n", "", text, flags=re.S)
-    if not any(sh.get("blobs") or sh.get("chart_hide") or sh.get("ghost_alpha") or sh.get("chart_frame") or sh.get("model") == "cells" for sh in shows):
+    if not any(sh.get("blobs") or sh.get("chart_hide") or sh.get("ghost_alpha") or sh.get("chart_frame") or sh.get("model") in ("cells", "skeleton") or sh.get("pin", {}).get("group") for sh in shows):
         text = re.sub(r"# --- extras .*?# --- end extras\n\n", "", text, flags=re.S)
     key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + text).encode()).hexdigest()
     if cache:

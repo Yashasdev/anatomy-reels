@@ -478,6 +478,9 @@ def sample(keys, t):
 #   "chart_hide": [names] left out of the closing chart's picture (cells flying in, so the chart shows the type)
 #   "ghost_alpha": how solid the "ghost" parts stay (default 0.22)
 #   "chart_frame": the box the closing chart's picture fits (default "frame"), to crop in on the injury
+#   "model": "skeleton": the Z-Anatomy pieces in SKELETON joined, right-side parts mirrored to make the left
+#   blobs with "shape": "box", "kind": "slab": a glowing see-through pane (a body plane, fmt-types-12)
+#   a "pin" with "group": rides that move's group, so the label's pin slides between two spots (fmt-types-13)
 KINDS.update({
     "disc": ((0.70, 0.80, 0.88), 0.35, 0.3),     # intervertebral disc: pale blue-white, like the menisci
     "nucleus": ((0.93, 0.85, 0.55), 0.3, 0.4),   # the disc's soft centre, pushed out
@@ -487,6 +490,7 @@ KINDS.update({
     "antigen_a": ((0.42, 0.86, 0.04), 0.4, 0.0),
     "antigen_b": ((0.56, 0.58, 0.62), 0.25, 0.0),
     "rh": ((0.12, 0.42, 0.98), 0.35, 0.0),
+    "slab": ((0.30, 0.78, 1.0), 0.2, 0.0),       # a body plane: a glowing, see-through pane
 })
 CLUMPED = (0.09, 0.008, 0.02)  # a cell that clumps darkens to this instead of the usual red
 import re  # noqa: E402
@@ -506,11 +510,28 @@ def part_material(tag, kind, lit=False, hurt=False):
     m = _part_material(tag, kind, lit, hurt)
     if kind == "cell" and hurt:
         m.node_tree.nodes[m["mix"]].inputs["B"].default_value = (*CLUMPED, 1)
+    if kind == "slab":
+        b = m.node_tree.nodes["Principled BSDF"]
+        b.inputs["Emission Color"].default_value = (*KINDS["slab"][0], 1)
+        b.inputs["Emission Strength"].default_value = 0.9
+        b.inputs["Alpha"].default_value = 0.2
+        m.surface_render_method = "BLENDED"
     return m
 
 
-def blob_mesh(name, centre, size, square=0.0, seg=40, rings=20):
+def blob_mesh(name, centre, size, square=0.0, seg=40, rings=20, box=False):
     bm = bmesh.new()
+    if box:  # a thin pane (a body plane), its half-sizes in `size`
+        bmesh.ops.create_cube(bm, size=2.0)
+        for v in bm.verts:
+            v.co = Vector((centre.x + v.co.x * size[0], centre.y + v.co.y * size[1], centre.z + v.co.z * size[2]))
+        me = bpy.data.meshes.new(name)
+        bm.to_mesh(me)
+        bm.free()
+        o = bpy.data.objects.new(name, me)
+        scene.collection.objects.link(o)
+        o.visible_shadow = False
+        return o
     bmesh.ops.create_uvsphere(bm, u_segments=seg, v_segments=rings, radius=1.0)
     for v in bm.verts:
         x, y, z = v.co
@@ -635,10 +656,27 @@ def cell_library():
 _library = library
 
 
+SKELETON = ("head", "spine", "chest", "pelvis", "shoulder", "forearm", "leg")  # these share body coordinates
+
+
 def library(model):
     if model == "cells":
         if model not in LIB:
             LIB[model] = cell_library()
+        return LIB[model]
+    if model == "skeleton":  # a whole skeleton: the pieces joined, each right-side part mirrored to make the left
+        if model not in LIB:
+            out = {}
+            for piece in SKELETON:
+                for n, o in _library(piece).items():
+                    if _kind_of(n) == "bone":  # bones only (the shoulder model has muscles and a labrum too)
+                        out.setdefault(n, o)
+            for n, o in list(out.items()):
+                if n.endswith(".r") and n[:-2] + ".l" not in out:
+                    m = bpy.data.objects.new(n[:-2] + ".l", o.data)
+                    m.matrix_world = Matrix.Diagonal((-1, 1, 1, 1)) @ o.matrix_world
+                    out[n[:-2] + ".l"] = m
+            LIB[model] = out
         return LIB[model]
     return _library(model)
 
@@ -659,7 +697,7 @@ def _init(self, name, s, tag):
     for b in s.get("blobs", []):
         p, g = self.point(b["at"])
         n = b["name"]
-        o = blob_mesh(f"{tag}:{n}", p, b["size"], b.get("square", 0.0))
+        o = blob_mesh(f"{tag}:{n}", p, b["size"], b.get("square", 0.0), box=b.get("shape") == "box")
         m = part_material(f"{tag}:{n}", b.get("kind", "disc"), n in self.lit, n in self.hurt)
         o.data.materials.append(m)
         self.mats[n] = m
@@ -677,6 +715,14 @@ def _init(self, name, s, tag):
             self.grows.append((holder, b["grow"]))
     if "pin" in later:
         self.pin_obj, self.pin_co = self.anchor(later["pin"])
+    if s["pin"].get("group"):  # a pin that rides a move's group (it slides from one spot to another)
+        co, g = self.point(s["pin"])
+        e = bpy.data.objects.new(f"{tag}:pin", None)
+        scene.collection.objects.link(e)
+        e.parent = self.groups[g]
+        e.matrix_parent_inverse = self.inverse(g)
+        e.location = co
+        self.pin_obj, self.pin_co = e, Vector()
     if "focus" in later:
         self.focus = self.point(later["focus"])[0]
 

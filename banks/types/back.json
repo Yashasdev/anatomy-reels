@@ -557,7 +557,7 @@
     ],
     "sound": "thud",
     "lines": [
-     "Spinal [stenosis](stəˈnoʊsɪs). Usually after 60, the space for your nerves narrows.",
+     "Spinal [stenosis](stɛnˈoʊsɪs). Usually after 60, the space for your nerves narrows.",
      "Standing or walking makes it worse. Sitting or leaning forward helps."
     ],
     "show": {
@@ -816,7 +816,7 @@
     "lines": [
      "Stress fracture. In teens whose sport arches the back,",
      "like gymnastics, a thin bridge at the back of a vertebra can crack.",
-     "It's called [spondylolysis](ˌspɑndəˈlɑləsɪs)."
+     "It's called [spondylolysis](spˌɑːndɪlˈɑːlɪsɪs)."
     ],
     "show": {
      "model": "spine",
@@ -1087,7 +1087,7 @@
     "sound": "thud",
     "lines": [
      "Slipped vertebra. One vertebra slides forward over the one below.",
-     "It's called [spondylolisthesis](spˌɑndɪloʊlɪsθˈisɪs)."
+     "It's called [spondylolisthesis](spˌɑːndɪloʊlɪsθˈiːsɪs)."
     ],
     "show": {
      "model": "spine",
