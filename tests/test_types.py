@@ -23,6 +23,11 @@ PARTS_ITEMS = [q for q in ITEMS if q.get("scene") == "parts"]
 CELL_TYPES = re.search(r"CELL_TYPES = (\{.*?\})", (ROOT / "render" / "types_scene.py").read_text()).group(1)
 CELLS = [f"{t} {k}{m}" for t, marks in eval(CELL_TYPES).items() for k in range(1, 5)  # noqa: S307
          for m in [""] + [" " + x for x in marks.split()]]
+# the joined skeleton (fmt-types-12 on): the bones of these models, right-side parts mirrored to make the left
+SKELETON_MODELS = eval(re.search(r"SKELETON = (\(.*?\))", (ROOT / "render" / "types_scene.py").read_text()).group(1))  # noqa: S307
+SKELETON = {n for m in SKELETON_MODELS for n in PARTS[m]
+            if not any(w in n.lower() for w in ("muscle", "ligament", "tendon", "menisc", "labrum", "tensor"))}
+SKELETON |= {n[:-2] + ".l" for n in SKELETON if n.endswith(".r")}
 d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
 
 
@@ -32,7 +37,8 @@ def test_item(q):
     assert len(set(names)) == len(names), "each type once"
     if q.get("scene") != "parts":
         assert set(names) <= BUILT, "a type the fracture script builds"
-    assert set(q["flash"]) <= set(names) and 4 <= len(q["flash"]) <= 6
+    assert set(q["flash"]) <= set(names) and 4 <= len(q["flash"]) <= 6 or \
+        q["id"] == "fmt-types-12" and len(q["flash"]) == 3  # its hook names 3 moves, one shot each
     assert len(names) <= 11, "the closing chart has 11 places (rows of 4, 4 and 3)"
     assert str(len(names)) in q["intro"] and str(len(names)) in q["title"]
     for t in q["types"]:
@@ -74,8 +80,8 @@ def test_parts_items_name_real_parts(q):
     """Every part a show uses is in its model (assets/models/parts.json) or is one of its own straps."""
     for t in q["types"]:
         s = t["show"]
-        model = CELLS if s["model"] == "cells" else PARTS[s["model"]]  # red cells are built in the scene, no file
-        assert s["model"] == "cells" or (ROOT / "assets" / "models" / f"{s['model']}.blend").exists()
+        model = {"cells": CELLS, "skeleton": SKELETON}.get(s["model"]) or PARTS[s["model"]]  # built in the scene
+        assert s["model"] in ("cells", "skeleton") or (ROOT / "assets" / "models" / f"{s['model']}.blend").exists()
         parts = set(s.get("parts") or model)
         assert parts <= set(model), t["name"]
         bands = {b["name"] for b in s.get("bands", [])} | {b["name"] for b in s.get("blobs", [])}

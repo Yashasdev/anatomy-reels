@@ -1,0 +1,614 @@
+[
+ {
+  "id": "fmt-types-13",
+  "scene": "parts",
+  "for": "Anatomy, PT, nursing and kinesiology students who mix up directional terms before a practical or exam. They send it to their study partner: every pair points at two spots on real bones, with a memory hook.",
+  "title": "5 pairs of directional terms, shown on real bones",
+  "question": "5 pairs of directional terms. Which pair always trips you up?",
+  "hook": "Proximal versus distal. You'll never mix them up again.",
+  "intro": "5 pairs of directional terms, all from anatomical position.",
+  "flash": [
+   "proximal",
+   "medial",
+   "anterior",
+   "superior",
+   "superficial"
+  ],
+  "types": [
+   {
+    "name": "proximal",
+    "label": "PROXIMAL",
+    "label2": "DISTAL",
+    "chart": [
+     "Proximal",
+     "& distal"
+    ],
+    "sound": "none",
+    "lines": [
+     "Proximal. Closer to the trunk, like proximity.",
+     "Your elbow is proximal to your wrist.",
+     "Distal. Farther away, like distant: your fingers are distal to your wrist."
+    ],
+    "switch_line": 2,
+    "show": {
+     "model": "skeleton",
+     "orient": [
+      0,
+      0,
+      20
+     ],
+     "frame": [
+      [
+       -0.42,
+       -0.2,
+       0.0
+      ],
+      [
+       0.42,
+       0.2,
+       1.72
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "xyz": [
+         -0.205,
+         0.0,
+         1.09
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         0,
+         0,
+         0,
+         -0.08,
+         -0.088,
+         -0.385
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "xyz": [
+       -0.205,
+       0.0,
+       1.09
+      ],
+      "group": 1
+     },
+     "focus": {
+      "xyz": [
+       -0.2,
+       -0.03,
+       0.95
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.2,
+     "lit": [
+      "Capitate bone.r",
+      "Distal phalanx of fifth finger of hand.r",
+      "Distal phalanx of first finger of hand.r",
+      "Distal phalanx of fourth finger of hand.r",
+      "Distal phalanx of second finger of hand.r",
+      "Distal phalanx of third finger of hand.r",
+      "Fifth metacarpal bone.r",
+      "First metacarpal bone.r",
+      "Fourth metacarpal bone.r",
+      "Hamate bone.r",
+      "Humerus.r",
+      "Lunate bone.r",
+      "Middle phalanx of fifth finger of hand.r",
+      "Middle phalanx of fourth finger of hand.r",
+      "Middle phalanx of second finger of hand.r",
+      "Middle phalanx of third finger of hand.r",
+      "Pisiform bone.r",
+      "Proximal phalanx of fifth finger of hand.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Proximal phalanx of fourth finger of hand.r",
+      "Proximal phalanx of second finger of hand.r",
+      "Proximal phalanx of third finger of hand.r",
+      "Radius.r",
+      "Scaphoid bone.r",
+      "Second metacarpal bone.r",
+      "Third metacarpal bone.r",
+      "Trapezium bone.r",
+      "Trapezoid bone.r",
+      "Triquetrum bone.r",
+      "Ulna.r"
+     ],
+     "chart_frame": [
+      [
+       -0.38,
+       -0.2,
+       0.6
+      ],
+      [
+       -0.02,
+       0.15,
+       1.46
+      ]
+     ]
+    }
+   },
+   {
+    "name": "medial",
+    "label": "MEDIAL",
+    "label2": "LATERAL",
+    "chart": [
+     "Medial",
+     "& lateral"
+    ],
+    "sound": "none",
+    "lines": [
+     "Medial. Toward the midline, like median.",
+     "Lateral. Away from it, out to the side.",
+     "So with your palms forward, your thumb is lateral."
+    ],
+    "show": {
+     "model": "skeleton",
+     "orient": [
+      0,
+      0,
+      10
+     ],
+     "frame": [
+      [
+       -0.42,
+       -0.2,
+       0.0
+      ],
+      [
+       0.42,
+       0.2,
+       1.72
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "xyz": [
+         0.0,
+         -0.13,
+         1.3
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         0,
+         0,
+         0,
+         -0.327,
+         0.064,
+         -0.52
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "xyz": [
+       0.0,
+       -0.13,
+       1.3
+      ],
+      "group": 1
+     },
+     "focus": {
+      "xyz": [
+       -0.12,
+       -0.05,
+       1.05
+      ]
+     },
+     "zoom": 0.75,
+     "chart_t": 0.2,
+     "lit": [
+      "Body of sternum",
+      "Manubrium of sternum",
+      "First metacarpal bone.r",
+      "Proximal phalanx of first finger of hand.r",
+      "Distal phalanx of first finger of hand.r"
+     ],
+     "chart_frame": [
+      [
+       -0.38,
+       -0.2,
+       0.62
+      ],
+      [
+       0.38,
+       0.15,
+       1.5
+      ]
+     ]
+    }
+   },
+   {
+    "name": "anterior",
+    "label": "ANTERIOR",
+    "label2": "POSTERIOR",
+    "chart": [
+     "Anterior",
+     "& posterior"
+    ],
+    "sound": "none",
+    "lines": [
+     "Anterior, or ventral. The front.",
+     "Your breastbone is anterior to your spine.",
+     "Posterior, or dorsal. The back, like your posterior."
+    ],
+    "switch_line": 2,
+    "show": {
+     "model": "skeleton",
+     "orient": [
+      0,
+      0,
+      70
+     ],
+     "frame": [
+      [
+       -0.42,
+       -0.2,
+       0.0
+      ],
+      [
+       0.42,
+       0.2,
+       1.72
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "xyz": [
+         0.0,
+         -0.13,
+         1.3
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         0,
+         0,
+         0,
+         0.0,
+         0.226,
+         0.01
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "xyz": [
+       0.0,
+       -0.13,
+       1.3
+      ],
+      "group": 1
+     },
+     "focus": {
+      "xyz": [
+       0,
+       0,
+       1.3
+      ]
+     },
+     "zoom": 0.6,
+     "chart_t": 0.2,
+     "lit": [
+      "Body of sternum",
+      "Manubrium of sternum",
+      "Vertebra T5",
+      "Vertebra T6",
+      "Vertebra T7"
+     ],
+     "chart_frame": [
+      [
+       -0.2,
+       -0.2,
+       1.0
+      ],
+      [
+       0.2,
+       0.2,
+       1.62
+      ]
+     ]
+    }
+   },
+   {
+    "name": "superior",
+    "label": "SUPERIOR",
+    "label2": "INFERIOR",
+    "chart": [
+     "Superior",
+     "& inferior"
+    ],
+    "sound": "none",
+    "lines": [
+     "Superior, or cranial. Higher up, toward the head.",
+     "Inferior, or caudal. Lower down: your pelvis is inferior to your ribs."
+    ],
+    "show": {
+     "model": "skeleton",
+     "orient": [
+      0,
+      0,
+      15
+     ],
+     "frame": [
+      [
+       -0.42,
+       -0.2,
+       0.0
+      ],
+      [
+       0.42,
+       0.2,
+       1.72
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "xyz": [
+         0.0,
+         0.0,
+         1.68
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         0,
+         0,
+         0,
+         -0.11,
+         0.0,
+         -0.69
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "xyz": [
+       0.0,
+       0.0,
+       1.68
+      ],
+      "group": 1
+     },
+     "focus": {
+      "xyz": [
+       0,
+       0,
+       1.2
+      ]
+     },
+     "zoom": 0.95,
+     "chart_t": 0.2,
+     "lit": [
+      "Ethmoid bone",
+      "Frontal bone",
+      "Lacrimal bone.l",
+      "Lacrimal bone.r",
+      "Mandible",
+      "Maxilla.l",
+      "Maxilla.r",
+      "Nasal bone.l",
+      "Nasal bone.r",
+      "Occipital bone",
+      "Palatine bone.l",
+      "Palatine bone.r",
+      "Parietal bone.l",
+      "Parietal bone.r",
+      "Sphenoid bone",
+      "Temporal bone.l",
+      "Temporal bone.r",
+      "Vomer",
+      "Zygomatic bone.l",
+      "Zygomatic bone.r",
+      "Hip bone.r",
+      "Hip bone.l",
+      "Sacrum"
+     ]
+    }
+   },
+   {
+    "name": "superficial",
+    "label": "SUPERFICIAL",
+    "label2": "DEEP",
+    "chart": [
+     "Superficial",
+     "& deep"
+    ],
+    "sound": "none",
+    "lines": [
+     "Superficial. Closer to the surface, like a superficial cut.",
+     "Deep. Farther in: your femur is deep to your thigh muscles."
+    ],
+    "show": {
+     "model": "thigh",
+     "orient": [
+      0,
+      0,
+      10
+     ],
+     "frame": [
+      [
+       -0.2,
+       -0.08,
+       0.35
+      ],
+      [
+       0.0,
+       0.1,
+       1.0
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [],
+       "pivot": {
+        "xyz": [
+         -0.152,
+         -0.01,
+         0.65
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ]
+       ],
+       "keys2": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.45,
+         0,
+         0,
+         0,
+         0.054,
+         0.013,
+         0.0
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "xyz": [
+       -0.152,
+       -0.01,
+       0.65
+      ],
+      "group": 1
+     },
+     "focus": {
+      "xyz": [
+       -0.11,
+       0,
+       0.66
+      ]
+     },
+     "zoom": 0.55,
+     "chart_t": 0.2,
+     "parts": [
+      "Femur.r",
+      "Hip bone.r",
+      "Patella.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Vastus lateralis muscle.r",
+      "Rectus femoris muscle.r",
+      "Vastus medialis muscle.r",
+      "Sartorius muscle.r",
+      "Tensor fasciae latae.r"
+     ],
+     "ghost": [
+      "Vastus lateralis muscle.r",
+      "Rectus femoris muscle.r",
+      "Vastus medialis muscle.r",
+      "Sartorius muscle.r",
+      "Tensor fasciae latae.r"
+     ],
+     "ghost_alpha": 0.3,
+     "lit": [
+      "Femur.r"
+     ]
+    }
+   }
+  ],
+  "outro": [
+   "Which pair always trips *you* up?",
+   "Send this to your study partner before the practical."
+  ],
+  "grid_title": "DIRECTIONAL TERMS",
+  "why": "All from anatomical position (standing, palms forward). Proximal: in a limb, nearer the trunk or the point of attachment (the elbow is proximal to the wrist); distal: farther from it (the fingers are distal to the wrist). Medial: toward the midline; lateral: toward the side (the thumb is lateral to the other digits). Anterior (ventral): the front (the sternum is anterior to the vertebral column); posterior (dorsal): the back. Superior (cranial): higher, toward the head; inferior (caudal): lower (the pelvis is inferior to the ribs). Superficial: closer to the body's surface; deep: farther from it (the femur is deep to the thigh muscles).",
+  "hashtags": [
+   "#anatomy",
+   "#physicaltherapy",
+   "#nursingstudent",
+   "#kinesiology",
+   "#premed"
+  ],
+  "sources": [
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-6-anatomical-terminology"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to your study partner before the practical 📚",
+  "music": "lofi-2"
+ }
+]
