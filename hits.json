@@ -236,18 +236,18 @@
    "title": "Diagnose this",
    "kind": "formats",
    "format": "diagnose",
-   "age_hours": 46.6,
-   "views": 6350,
-   "baseline": 1351,
-   "shares": 108,
-   "reach": 5110,
-   "share_rate": 0.0211,
-   "share_baseline": 0.0025,
+   "age_hours": 70.6,
+   "views": 7695,
+   "baseline": 978,
+   "shares": 115,
+   "reach": 6161,
+   "share_rate": 0.0187,
+   "share_baseline": 0.0028,
    "compared_with": "all formats (21 posts)",
    "factor": 3,
    "by": [
-    "views",
-    "shares"
+    "shares",
+    "views"
    ],
    "series": "diagnose",
    "date": "2026-11-18",
@@ -260,13 +260,13 @@
    "title": "Diagnose this",
    "kind": "formats",
    "format": "diagnose",
-   "age_hours": 26.1,
-   "views": 1098,
-   "baseline": 1371,
-   "shares": 29,
-   "reach": 887,
-   "share_rate": 0.0327,
-   "share_baseline": 0.0025,
+   "age_hours": 50.1,
+   "views": 1437,
+   "baseline": 1000,
+   "shares": 32,
+   "reach": 1191,
+   "share_rate": 0.0269,
+   "share_baseline": 0.0028,
    "compared_with": "all formats (21 posts)",
    "factor": 3,
    "by": [
@@ -277,5 +277,5 @@
    "until": "2026-11-22"
   }
  ],
- "updated_at": "2026-11-18T19:38:32Z"
+ "updated_at": "2026-11-19T19:38:38Z"
 }
