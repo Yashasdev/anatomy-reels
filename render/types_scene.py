@@ -851,6 +851,9 @@ for seg in TL:
             for k in range(fa, fb):
                 pins[k] = {"show": n, "small": True}
                 cams[k] = look(Vector((0, 0, 0)), WIDE_D * (1.02 - 0.04 * (k - a) / max(1, b - a)))
+                if seg.get("close"):  # framed on the injury itself, pushing in (fmt-types-14)
+                    d = WIDE_D * sh.zoom * (1.08 - 0.12 * (k - fa) / max(1, fb - fa))
+                    cams[k] = look(aim(world_focus(sh), d), d)
                 pivots[k] = 0.0
     elif seg["kind"] == "intro":  # an extreme close-up on the first type, pulling back to the whole thing
         first = SHOWN[next(s["name"] for s in TL if s["kind"] == "type")]

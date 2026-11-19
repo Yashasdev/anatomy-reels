@@ -181,9 +181,12 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
         return end
 
     t = say(0.12)
-    segs.append({"kind": "flash", "start": 0.0, "end": FLASH, "types": q["flash"]})
-    end = say(max(FLASH + 0.15, t + 0.25))  # a hook longer than the montage finishes before the intro line
-    segs.append({"kind": "intro", "start": FLASH, "end": max(FLASH + INTRO_MIN, end + 0.35)})
+    flash = q.get("flash_seconds", FLASH)  # fmt-types-14: 0.5 s cuts, each framed close on its injury
+    segs.append({"kind": "flash", "start": 0.0, "end": flash, "types": q["flash"]})
+    if q.get("flash_close"):
+        segs[-1]["close"] = True
+    end = say(max(flash + 0.15, t + 0.25))  # a hook longer than the montage finishes before the intro line
+    segs.append({"kind": "intro", "start": flash, "end": max(flash + INTRO_MIN, end + 0.35)})
     t = segs[-1]["end"]
     for i, ty in enumerate(q["types"]):
         at = t + SAY_AT
@@ -387,6 +390,27 @@ def cells(n: int) -> list[tuple[float, float, float, float]]:
     return out
 
 
+def title(img: Image.Image, text: str, fade: float, s: float, outline: bool = False) -> None:
+    """The bold header (the closing chart's title, and fmt-types-14's hook title): one line at y 300 as always; a title
+    wider than the safe area (x 120-960) takes two lines, the first no higher than y 245, each within x 215-865 so
+    they clear the ANATOMY ACE mark (x 105-195, y 258-300), the font shrinking a little if it must."""
+    d = ImageDraw.Draw(img)
+    f = BOLD(int(46 * s))
+    col = tuple(int(255 * fade) for _ in range(3))
+    rows = [text]
+    if d.textlength(text, font=f) > 840 * s:
+        size = 46
+        while True:
+            f = BOLD(int(size * s))
+            rows = wrap(d, text, f, int(650 * s))
+            if size <= 34 or (len(rows) <= 2 and max(d.textlength(r, font=f) for r in rows) <= 650 * s):
+                break
+            size -= 1
+    for j, row in enumerate(rows):
+        d.text((img.width / 2, (300 - 27 * (len(rows) - 1) + 54 * j) * s), row, font=f, fill=col, anchor="mm",
+               **({"stroke_width": max(1, int(5 * s)), "stroke_fill": (18, 18, 22)} if outline else {}))  # over bone
+
+
 def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], age: float, s: float) -> None:
     """The closing chart (and the cover): every type's picture popping in one by one, its name under it."""
     d = ImageDraw.Draw(img)
@@ -570,7 +594,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             d = ImageDraw.Draw(img)
             fade = min(1.0, (t - sg["start"]) / 0.5)
             col = tuple(int(255 * fade) for _ in range(3))
-            d.text((W / 2, 300 * scale), q["grid_title"], font=BOLD(int(46 * scale)), fill=col, anchor="mm")
+            title(img, q["grid_title"], fade, scale)
             if q.get("scene") == "parts":
                 chart(img, thumbs, [charts[t["name"]] for t in q["types"]], t - sg["start"], scale)
             for g in a["grid"]:
@@ -594,6 +618,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             if sg.get("switch") is not None and t - crack >= sg["switch"]:  # the pair's second term
                 text, age = labels2[a["label"]], t - crack - sg["switch"]
             callout(img, a["xy"], text, age, fade, scale, clamp=q.get("scene") == "parts", place=spot)
+        if q.get("hook_title") and sg["kind"] in ("flash", "intro"):  # the title over the hook (fmt-types-14)
+            title(img, q["hook_title"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale, outline=True)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
             grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
@@ -620,6 +646,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             v = np.interp(np.arange(0, len(v), sr / SR), np.arange(len(v)), v).astype(np.float32)
         add(v, c["at"])
     hits = {t["name"]: t.get("sound", "thud") for t in q["types"]}
+    if q.get("flash_hit"):  # an impact on the very first cut (fmt-types-14)
+        add(event_sound(q["flash_hit"], 7), 1 / FPS, 0.9)
     for sg in segs:
         if sg["kind"] == "flash":
             for j, name in enumerate(sg["types"]):
