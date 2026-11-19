@@ -392,11 +392,20 @@ def cells(n: int) -> list[tuple[float, float, float, float]]:
 
 def title(img: Image.Image, text: str, fade: float, s: float, outline: bool = False) -> None:
     """The bold header (the closing chart's title, and fmt-types-14's hook title): one line at y 300 as always; a title
-    wider than the safe area (x 120-960) takes two lines, the first no higher than y 245."""
+    wider than the safe area (x 120-960) takes two lines, the first no higher than y 245, each within x 215-865 so
+    they clear the ANATOMY ACE mark (x 105-195, y 258-300), the font shrinking a little if it must."""
     d = ImageDraw.Draw(img)
     f = BOLD(int(46 * s))
     col = tuple(int(255 * fade) for _ in range(3))
-    rows = wrap(d, text, f, int(840 * s)) if d.textlength(text, font=f) > 840 * s else [text]
+    rows = [text]
+    if d.textlength(text, font=f) > 840 * s:
+        size = 46
+        while True:
+            f = BOLD(int(size * s))
+            rows = wrap(d, text, f, int(650 * s))
+            if size <= 34 or (len(rows) <= 2 and max(d.textlength(r, font=f) for r in rows) <= 650 * s):
+                break
+            size -= 1
     for j, row in enumerate(rows):
         d.text((img.width / 2, (300 - 27 * (len(rows) - 1) + 54 * j) * s), row, font=f, fill=col, anchor="mm",
                **({"stroke_width": max(1, int(5 * s)), "stroke_fill": (18, 18, 22)} if outline else {}))  # over bone
