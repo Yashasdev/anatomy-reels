@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T21:32:33+00:00",
+ "generated_at": "2026-11-19T22:02:44+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44619724694",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 36,
- "total": 137,
- "posted": 101,
+ "unused": 34,
+ "total": 140,
+ "posted": 106,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 14
+   "posted": 15
   },
   "formats": {
    "slots": [
@@ -42,7 +42,7 @@
     "diagnose",
     "missing"
    ],
-   "posted": 28
+   "posted": 30
   }
  },
  "banks": {
@@ -68,11 +68,11 @@
   },
   "arm": {
    "total": 11,
-   "unused": 5
+   "unused": 4
   },
   "spine": {
    "total": 10,
-   "unused": 5
+   "unused": 4
   },
   "hand": {
    "total": 10,
@@ -92,7 +92,7 @@
    ],
    "date": "2026-11-18",
    "until": "2026-11-22",
-   "left": 6,
+   "left": 5,
    "make_more": false
   },
   {
@@ -126,96 +126,6 @@
   }
  ],
  "posts": [
-  {
-   "slot": "2026-11-14T16:00:00-05:00",
-   "day": 72,
-   "id": "fmt-types-03",
-   "organ": null,
-   "title": "6 types of joint",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1600-fmt-types-03-v2015.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-14T18:00:00-05:00",
-   "day": 73,
-   "id": "dd-onetake-stove",
-   "organ": null,
-   "title": "One touch of a hot stove. One take.",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-1800-dd-onetake-stove-v2015.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-14T20:00:00-05:00",
-   "day": 74,
-   "id": "fmt-types-04",
-   "organ": null,
-   "title": "4 shoulder injuries athletes get",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-14-2000-fmt-types-04-v2015.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-15T09:30:00-05:00",
-   "day": 75,
-   "id": "fmt-types-06",
-   "organ": null,
-   "title": "7 bones people break all the time",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-0930-fmt-types-06-v2015.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-15T12:30:00-05:00",
-   "day": 76,
-   "id": "fmt-diagnose-03",
-   "organ": null,
-   "title": "Diagnose this",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-15-1230-fmt-diagnose-03-v2015.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-15T16:00:00-05:00",
    "day": 77,
@@ -637,6 +547,73 @@
    "organ": null,
    "title": "Which bone is missing?",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1230-fmt-missing-05.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-20T16:00:00-05:00",
+   "day": 102,
+   "id": "fmt-types-10",
+   "organ": null,
+   "title": "Every way you can hurt your ankle: the 6 big ones",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1600-fmt-types-10.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-20T18:00:00-05:00",
+   "day": 103,
+   "id": "dd-onetake-breath",
+   "organ": null,
+   "title": "One breath of oxygen. One take.",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1800-dd-onetake-breath.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-20T20:00:00-05:00",
+   "day": 104,
+   "id": "arm-07",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-2000-arm-07.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-21T09:30:00-05:00",
+   "day": 105,
+   "id": "spine-06",
+   "organ": "spine",
+   "title": "The Spine",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-0930-spine-06.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-21T12:30:00-05:00",
+   "day": 106,
+   "id": "fmt-missing-06",
+   "organ": null,
+   "title": "Which bone is missing?",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1230-fmt-missing-06.mp4",
    "platforms": [
     "instagram",
     "tiktok",
