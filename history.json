@@ -1637,5 +1637,86 @@
     "kind": "formats",
     "format": "missing",
     "music": "pop-1"
+  },
+  {
+    "slot": "2026-11-20T16:00:00-05:00",
+    "day": 102,
+    "id": "fmt-types-10",
+    "organ": null,
+    "title": "Every way you can hurt your ankle: the 6 big ones",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1600-fmt-types-10.mp4",
+    "video_seconds": 66.23,
+    "buffer": {
+      "instagram": "6aff71e0e01ca3a030245050",
+      "tiktok": "6aff71e1e01ca3a030245082"
+    },
+    "kind": "formats",
+    "format": "types",
+    "music": "ambient-4",
+    "hot": "types"
+  },
+  {
+    "slot": "2026-11-20T18:00:00-05:00",
+    "day": 103,
+    "id": "dd-onetake-breath",
+    "organ": null,
+    "title": "One breath of oxygen. One take.",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1800-dd-onetake-breath.mp4",
+    "video_seconds": 46.1,
+    "buffer": {
+      "instagram": "6aff71e543805190f08d78ea",
+      "tiktok": "6aff71e643805190f08d7931"
+    },
+    "kind": "deepdive",
+    "music": "pop-2"
+  },
+  {
+    "slot": "2026-11-20T20:00:00-05:00",
+    "day": 104,
+    "id": "arm-07",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-2000-arm-07.mp4",
+    "video_seconds": 20.01,
+    "buffer": {
+      "instagram": "6aff71e948bc5f5e45a385d2",
+      "tiktok": "6aff71ea0c7aa1039561728f"
+    },
+    "music": "ambient-2",
+    "look": "classic",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-21T09:30:00-05:00",
+    "day": 105,
+    "id": "spine-06",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-0930-spine-06.mp4",
+    "video_seconds": 21.4,
+    "buffer": {
+      "instagram": "6aff71ed0c7aa103956173d4",
+      "tiktok": "6aff71ed0c7aa10395617423",
+      "youtube": "6aff71ee7020505f2dec112a"
+    },
+    "music": "science-4",
+    "look": "studio"
+  },
+  {
+    "slot": "2026-11-21T12:30:00-05:00",
+    "day": 106,
+    "id": "fmt-missing-06",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1230-fmt-missing-06.mp4",
+    "video_seconds": 22.18,
+    "buffer": {
+      "instagram": "6aff71f00c7aa1039561753b",
+      "tiktok": "6aff71f1e01ca3a0302457d8",
+      "youtube": "6aff71f286abad21701f25f9"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "lofi-1"
   }
 ]
