@@ -336,5 +336,37 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "skull-12",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Nasal bone.l",
+   "Nasal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.8,
+  "focus": true,
+  "question": "Which part of the face do they form?",
+  "choices": [
+   "Chin",
+   "Cheek",
+   "Bridge of the nose",
+   "Forehead"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Pinch the top of your nose. The hard part is bone.",
+   "Watch the two small glowing bones at the front of the face.",
+   "Which part of the face do they form?",
+   "The cheek is shaped by a different bone, lower and farther out.",
+   "The lower, softer part of your nose is cartilage, not bone.",
+   "It's C. The bridge of the nose.",
+   "Why it matters: these small bones are why the top of your nose feels hard."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
