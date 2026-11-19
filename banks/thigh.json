@@ -273,5 +273,36 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "thigh-10",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Gluteus maximus muscle.r"
+  ],
+  "start_degrees": 180,
+  "distance": 2.0,
+  "focus": true,
+  "question": "What does the glowing muscle do?",
+  "choices": [
+   "Bends the hip",
+   "Points the toes",
+   "Straightens the hip",
+   "Straightens the knee"
+  ],
+  "answer_index": 2,
+  "trap_index": 3,
+  "lines": [
+   "Stand up from a chair. This big muscle does the work.",
+   "We're looking from behind at the hip.",
+   "What does the glowing muscle do?",
+   "Straightening the knee is the job of the quadriceps in front.",
+   "This one pulls the thigh backward at the hip, opening the hip joint.",
+   "It's C. It straightens the hip.",
+   "Why it matters: it powers climbing stairs and standing up."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

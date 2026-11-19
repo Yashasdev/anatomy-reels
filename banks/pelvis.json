@@ -271,5 +271,35 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-10",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Sacrum"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "How many vertebrae fused to form it?",
+  "choices": [
+   "5",
+   "7",
+   "9",
+   "12"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "This triangle at the base of your spine started as separate vertebrae.",
+   "Watch the wedge-shaped bone between the two hip bones.",
+   "How many vertebrae fused to form it?",
+   "Seven is the number of neck vertebrae, and those stay separate.",
+   "Here, five vertebrae merge into one bone, mostly by early adulthood.",
+   "It's A. Five.",
+   "Why it matters: it passes the weight of your upper body into the hips."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
