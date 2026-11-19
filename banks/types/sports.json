@@ -3,16 +3,20 @@
   "id": "fmt-types-14",
   "scene": "parts",
   "for": "Athletes and sports fans who argue about whose sport is hardest (also Ball Knowledge's audience). The ranking is our opinion, so people comment their own sport; they send it to the friend who says their sport is easy.",
-  "title": "5 sports that destroy one body part",
-  "question": "What do you think is the most anatomically challenging sport?",
-  "hook": "5 sports that destroy one body part. Number 1 might surprise you.",
-  "intro": "Our ranking, 5 to 1.",
+  "title": "Top 5 most anatomically challenging sports",
+  "question": "Which sport would you put at #1?",
+  "hook": "Top 5 most anatomically challenging sports. [#1](nˈʌmbɚ wˈʌn) isn't even close.",
+  "hook_title": "TOP 5 MOST ANATOMICALLY CHALLENGING SPORTS",
+  "intro": "Here's our top 5, from 5 to 1.",
   "flash": [
-   "swim",
-   "soccer",
+   "climb",
    "gym",
-   "climb"
+   "soccer",
+   "swim"
   ],
+  "flash_seconds": 2.0,
+  "flash_close": true,
+  "flash_hit": "snap",
   "types": [
    {
     "name": "swim",
@@ -970,7 +974,7 @@
    "Comment below.",
    "Send this to the friend who says their sport is easy."
   ],
-  "grid_title": "SPORTS VS. YOUR BODY",
+  "grid_title": "TOP 5 MOST ANATOMICALLY CHALLENGING SPORTS",
   "why": "The order is our opinion; the facts are sourced. Swimming: the average competitive swimmer swims 60,000-80,000 m a week, about 30,000 rotations of each shoulder; shoulder pain is the most frequent musculoskeletal complaint in competitive swimmers, most often supraspinatus tendinopathy (Heinlein & Cosgarea 2010). Soccer: most ACL injuries happen without direct contact, from cutting, pivoting, sudden stops or bad landings (AAOS OrthoInfo). Gymnastics: elite female gymnasts landing a back somersault took ground reaction forces of 6.8-13.3 times body weight (Wade et al. 2012); spondylolysis is a stress fracture of the pars interarticularis, a thin part of the vertebra, linked to repeated back hyperextension, and 11 of 100 young female gymnasts had it in Jackson et al. 1976 (4 times their non-athletic peers). Climbing: the finger flexor pulleys (A2, A3, A4 most at risk) tear under the crimp grip; pulley injuries are the most common climbing injury and rare outside climbing (Schöffl 2015; Miro 2021). Pitching: an adult pitch puts about 64 N·m of valgus torque on the elbow, while the UCL fails at about 33 N·m, so every pitch approaches its limit (Langer 2006); UCL reconstruction (Tommy John surgery, first done by Dr. Frank Jobe on Tommy John in 1974) uses a tendon graft, and 25% of major league pitchers had had it in a 2015 survey (Conte 2015).",
   "hashtags": [
    "#sportsinjury",
