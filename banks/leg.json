@@ -283,7 +283,7 @@
   "start_degrees": 90,
   "distance": 2.0,
   "focus": true,
-  "question": "How many ankle and heel bones are glowing?",
+  "question": "How many tarsal bones are glowing?",
   "choices": [
    "5",
    "7",
@@ -295,7 +295,7 @@
   "lines": [
    "Your ankle and heel are built from a cluster of small bones.",
    "Watch the glowing bones between the shin and the toes.",
-   "How many ankle and heel bones are glowing?",
+   "How many tarsal bones are glowing?",
    "Five is the number of long bones in front of them.",
    "They are the heel bone, talus, navicular, cuboid and three cuneiforms.",
    "It's B. Seven tarsal bones.",
