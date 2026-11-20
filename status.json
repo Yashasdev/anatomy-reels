@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-19T22:02:44+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44619724694",
+ "generated_at": "2026-11-20T19:16:15+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44800497284",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -107,20 +107,6 @@
    ],
    "date": "2026-11-18",
    "until": "2026-11-22",
-   "left": 0,
-   "make_more": true
-  },
-  {
-   "series": "dd-caffeine",
-   "kind": "deepdive",
-   "post": "dd-caffeine",
-   "views": 661,
-   "baseline": 1324,
-   "by": [
-    "shares"
-   ],
-   "date": "2026-11-15",
-   "until": "2026-11-19",
    "left": 0,
    "make_more": true
   }
@@ -496,7 +482,10 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-19T18:00:00-05:00",
@@ -510,7 +499,10 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-19T20:00:00-05:00",
@@ -524,7 +516,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-20T09:30:00-05:00",
@@ -538,7 +534,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-20T12:30:00-05:00",
@@ -552,7 +552,10 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-20T16:00:00-05:00",
@@ -623,33 +626,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-19T19:38:34Z",
+  "updated_at": "2026-11-20T19:16:11Z",
   "totals": {
-   "views": 522000,
-   "reactions": 22290,
-   "comments": 198,
-   "shares": 5221,
-   "saves": 8591
+   "views": 555425,
+   "reactions": 24018,
+   "comments": 224,
+   "shares": 5439,
+   "saves": 9009
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 96,
-    "views": 389331,
-    "watched": 27.3,
-    "watch_samples": 63
+    "posts": 101,
+    "views": 409523,
+    "watched": 26.7,
+    "watch_samples": 67
    },
    {
     "platform": "tiktok",
-    "posts": 96,
-    "views": 100991,
-    "watched": 24.1,
-    "watch_samples": 72
+    "posts": 101,
+    "views": 113104,
+    "watched": 23.8,
+    "watch_samples": 78
    },
    {
     "platform": "youtube",
-    "posts": 94,
-    "views": 31678,
+    "posts": 96,
+    "views": 32798,
     "watched": null,
     "watch_samples": 0
    }
