@@ -48,6 +48,17 @@ PATTERNS = {
     "eye": r"^(Sclera|Cornea|Iris|Lens|(Superior|Inferior|Medial|Lateral) rectus muscle|(Superior|Inferior) oblique muscle)\.r$",
     "thigh": r"^((Gluteus maximus|Gluteus medius|Rectus femoris|Vastus lateralis|Vastus medialis|Sartorius|Gracilis|Semimembranosus|Semitendinosus|Soleus|Tibialis anterior) muscle|Adductor longus|Tensor fasciae latae|Femur|Patella|Tibia|Fibula|Hip bone)\.r$",
     "teeth": r"^(Upper|Lower) (medial incisor|lateral incisor|canine|first premolar|second premolar|first molar tooth|second molar tooth)\.[lr]$",
+    # dd-brain-anger (anatomy/cinematic.py): every gyrus of the cortex, the cerebellum and brainstem as the glass
+    # shell, and the deep structures that light up inside it
+    "brain": r"^(?!.*(artery|vein|nerve|auricle|Tentorium|[Bb]ranch|bronch|palate|eyeball|kidney|testis))"
+             r"([^.]*(gyrus|gyri|lobule|pole)\b[^.]*|Cuneus|Precuneus|Insula \(.*|Amygdaloid body|Hippocampus|Hypothalamus|"
+             r"Adenohypophysis|Neurohypophysis|Thalamus|Corpus callosum|Caudate nucleus|Putamen|Fornix|Midbrain|Pons|"
+             r"Medulla oblongata|Optic chiasm|Culmen|Declive|Folium of vermis|Tuber of vermis|Pyramis of vermis|"
+             r"Uvula of vermis|Nodule of vermis|Lingula of cerebellum|Central lobule|Flocculus|Tonsil of cerebellum|"
+             r"(Inferior|Superior) colliculus)(\.[lr])?$",
+    # its stress-response shot: the adrenal glands (the atlas kidney is adapted from Lissie Cowley's CC BY-NC model,
+    # so it's never extracted; render/brain_scene.py builds a plain kidney shape under each gland instead)
+    "adrenal": r"^Suprarenal gland\.[lr]$",
 }
 import re
 for name, pat in PATTERNS.items():
@@ -78,6 +89,7 @@ for name, wanted in MODELS.items():
         o.data.transform(mw)
         o.delta_location, o.delta_rotation_euler, o.delta_scale = (0, 0, 0), (0, 0, 0), (1, 1, 1)
         o.matrix_world = mw.Identity(4)
+    # (the atlas's "Cross Section X/Y/Z" cutting planes come along into some files; scenes skip them by name)
     bpy.data.libraries.write(os.path.join(OUT, name + ".blend"), set(keep) | {o.data for o in keep},
                              fake_user=True, compress=True)
     sys.stderr.write("SAVED %s %d parts\n" % (name, len(keep)))

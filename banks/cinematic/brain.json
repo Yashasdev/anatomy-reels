@@ -1,0 +1,1322 @@
+[
+ {
+  "id": "dd-brain-anger",
+  "series": "deepdive",
+  "format": "deepdive",
+  "release": "deepdives",
+  "scene": "brain_scene.py",
+  "for": "Anyone in a relationship (and psych, neuro and premed students). The playful hook names a feeling everyone has had; the video shows the real brain and hormone chain behind snapping at someone you love, with one calm thing to do about it. They send it to their partner as a tease that also says 'this is us'.",
+  "title": "This is why you hate your boyfriend: the brain and hormones behind snapping",
+  "question": "Hungry, tired, or stressed: what makes you snap fastest?",
+  "send": "Send this to your boyfriend 😤",
+  "music": "ambient-3",
+  "hashtags": [
+   "#psychology",
+   "#neuroscience",
+   "#relationships",
+   "#brain",
+   "#premed"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0), remeshed in Blender for Anatomy Ace",
+  "why": "The amygdala flags a threat and signals the hypothalamus, which fires sympathetic nerves straight to the adrenal medulla: adrenaline and noradrenaline within seconds (heart rate and blood pressure up). The slower HPA axis follows: CRH from the hypothalamus, ACTH from the anterior pituitary, cortisol from the adrenal cortex, peaking about 20-40 minutes after a stressor starts (Dickerson & Kemeny 2004). The hippocampus stores memories with their context, and the amygdala strengthens emotional ones (McGaugh 2004). The prefrontal cortex regulates the amygdala (reappraisal studies, Buhle et al. 2014). After one night without sleep the amygdala responded about 60% more to negative images and was less coupled to the medial prefrontal cortex (Yoo et al. 2007). Everyday hunger goes with more anger and irritability (Swami et al. 2022), and putting a feeling into words lowers the amygdala's response (Lieberman et al. 2007).",
+  "sources": [
+   "https://www.ncbi.nlm.nih.gov/books/NBK537102/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK541120/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK525993/",
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-6-the-adrenal-glands",
+   "https://www.ncbi.nlm.nih.gov/books/NBK507716/",
+   "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-3-the-pituitary-gland-and-hypothalamus",
+   "https://www.ncbi.nlm.nih.gov/books/NBK538239/",
+   "https://pubmed.ncbi.nlm.nih.gov/29763207/",
+   "https://pubmed.ncbi.nlm.nih.gov/15122924/",
+   "https://pubmed.ncbi.nlm.nih.gov/29489273/",
+   "https://pubmed.ncbi.nlm.nih.gov/23635870/",
+   "https://pubmed.ncbi.nlm.nih.gov/15217324/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK499919/",
+   "https://pubmed.ncbi.nlm.nih.gov/23765157/",
+   "https://pubmed.ncbi.nlm.nih.gov/17956744/",
+   "https://pubmed.ncbi.nlm.nih.gov/35793289/",
+   "https://pubmed.ncbi.nlm.nih.gov/29888934/",
+   "https://pubmed.ncbi.nlm.nih.gov/17576282/"
+  ],
+  "hook_title": [
+   [
+    "THIS IS WHY YOU",
+    "white"
+   ],
+   [
+    "HATE YOUR",
+    "red"
+   ],
+   [
+    "BOYFRIEND",
+    "white"
+   ]
+  ],
+  "shots": {
+   "hook": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.55,
+      -1.0,
+      0.25
+     ],
+     "dist": [
+      1.85,
+      1.7
+     ],
+     "orbit": [
+      -6,
+      4
+     ],
+     "aim": "all",
+     "shift": [
+      0,
+      0,
+      0.1
+     ],
+     "fstop": 8
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.11,
+     "soft": 0.02
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       1.5
+      ],
+      [
+       0.15,
+       6
+      ],
+      [
+       0.4,
+       2.5
+      ],
+      [
+       0.6,
+       6
+      ],
+      [
+       1,
+       3
+      ]
+     ]
+    },
+    "flows": [
+     {
+      "from": "amygdala",
+      "to": "hypothalamus",
+      "color": [
+       1.0,
+       0.15,
+       0.08
+      ],
+      "head": [
+       0.2,
+       0.9
+      ],
+      "n": 50,
+      "arc": [
+       0,
+       -0.02,
+       0.03
+      ],
+      "strength": 10
+     }
+    ]
+   },
+   "tour": {
+    "kind": "brain",
+    "cam": {
+     "focus": "hypothalamus",
+     "dir": [
+      -0.55,
+      -1.0,
+      0.2
+     ],
+     "dist": [
+      1.9,
+      1.75
+     ],
+     "orbit": [
+      -35,
+      15
+     ],
+     "aim": "all",
+     "shift": [
+      0,
+      0,
+      0.0
+     ],
+     "fstop": 8
+    },
+    "window": {
+     "at": "hypothalamus",
+     "radius": 0.13,
+     "soft": 0.02
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       0
+      ],
+      [
+       0.1,
+       4
+      ],
+      [
+       0.3,
+       1
+      ]
+     ],
+     "hippocampus": [
+      [
+       0.2,
+       0
+      ],
+      [
+       0.35,
+       4
+      ],
+      [
+       0.55,
+       1
+      ]
+     ],
+     "hypothalamus": [
+      [
+       0.45,
+       0
+      ],
+      [
+       0.6,
+       4
+      ],
+      [
+       0.8,
+       1
+      ]
+     ],
+     "pituitary": [
+      [
+       0.65,
+       0
+      ],
+      [
+       0.8,
+       4
+      ],
+      [
+       1,
+       1.5
+      ]
+     ]
+    }
+   },
+   "texts": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.3,
+      -1.0,
+      0.35
+     ],
+     "dist": [
+      2.2,
+      2.0
+     ],
+     "orbit": [
+      10,
+      0
+     ],
+     "aim": "all",
+     "shift": [
+      0,
+      0,
+      0.12
+     ],
+     "fstop": 8
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.1,
+     "soft": 0.02
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       0.5
+      ],
+      [
+       1,
+       1.5
+      ]
+     ]
+    }
+   },
+   "amyg": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.75,
+      -1.0,
+      0.1
+     ],
+     "dist": [
+      1.1,
+      0.8
+     ],
+     "orbit": [
+      -5,
+      5
+     ],
+     "fstop": 5.6
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.09,
+     "soft": 0.02
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       1
+      ],
+      [
+       0.25,
+       8
+      ],
+      [
+       1,
+       6
+      ]
+     ]
+    }
+   },
+   "ping": {
+    "kind": "brain",
+    "cam": {
+     "focus": "hypothalamus",
+     "dir": [
+      -0.8,
+      -1.0,
+      0.0
+     ],
+     "dist": [
+      1.0,
+      0.9
+     ],
+     "orbit": [
+      5,
+      -5
+     ],
+     "fstop": 5.6
+    },
+    "window": {
+     "at": "hypothalamus",
+     "radius": 0.1,
+     "soft": 0.02
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       6
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "hypothalamus": [
+      [
+       0,
+       0.5
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.75,
+       6
+      ],
+      [
+       1,
+       5
+      ]
+     ]
+    },
+    "flows": [
+     {
+      "from": "amygdala",
+      "to": "hypothalamus",
+      "color": [
+       1.0,
+       0.15,
+       0.08
+      ],
+      "head": [
+       0.0,
+       1.0
+      ],
+      "n": 60,
+      "arc": [
+       0,
+       -0.02,
+       0.03
+      ],
+      "strength": 12
+     }
+    ]
+   },
+   "nerve": {
+    "kind": "adrenal",
+    "phase": "nerve"
+   },
+   "burst": {
+    "kind": "adrenal",
+    "phase": "adrenaline"
+   },
+   "slow": {
+    "kind": "brain",
+    "cam": {
+     "focus": "hypothalamus",
+     "dir": [
+      -0.6,
+      -1.0,
+      0.15
+     ],
+     "dist": [
+      1.7,
+      1.5
+     ],
+     "orbit": [
+      10,
+      -10
+     ],
+     "aim": "all",
+     "fstop": 8
+    },
+    "window": {
+     "at": "hypothalamus",
+     "radius": 0.11,
+     "soft": 0.02
+    },
+    "lit": {
+     "hypothalamus": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       3
+      ]
+     ]
+    },
+    "tint": [
+     0.62,
+     0.45,
+     1.0
+    ]
+   },
+   "crh": {
+    "kind": "brain",
+    "cam": {
+     "focus": "pituitary",
+     "dir": [
+      -0.8,
+      -1.0,
+      0.05
+     ],
+     "dist": [
+      1.4,
+      1.25
+     ],
+     "orbit": [
+      -4,
+      4
+     ],
+     "shift": [
+      0,
+      0,
+      0.06
+     ],
+     "fstop": 5.6
+    },
+    "window": {
+     "at": "hypothalamus",
+     "radius": 0.07,
+     "soft": 0.02
+    },
+    "lit": {
+     "hypothalamus": [
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       4
+      ]
+     ],
+     "pituitary": [
+      [
+       0,
+       1
+      ],
+      [
+       0.7,
+       1
+      ],
+      [
+       1,
+       3
+      ]
+     ]
+    },
+    "flows": [
+     {
+      "from": "hypothalamus",
+      "to": "pituitary",
+      "color": [
+       0.62,
+       0.3,
+       1.0
+      ],
+      "head": [
+       0.0,
+       1.0
+      ],
+      "n": 220,
+      "spread": 0.45,
+      "trail": 0.9,
+      "size": 0.002,
+      "strength": 8,
+      "arc": [
+       0,
+       -0.02,
+       0
+      ]
+     }
+    ]
+   },
+   "acth": {
+    "kind": "brain",
+    "cam": {
+     "focus": "pituitary",
+     "dir": [
+      -0.9,
+      -1.0,
+      -0.15
+     ],
+     "dist": [
+      1.2,
+      1.1
+     ],
+     "orbit": [
+      4,
+      -4
+     ],
+     "shift": [
+      0,
+      0,
+      0.02
+     ],
+     "fstop": 5.6
+    },
+    "window": {
+     "at": "hypothalamus",
+     "radius": 0.07,
+     "soft": 0.02
+    },
+    "lit": {
+     "pituitary": [
+      [
+       0,
+       3
+      ],
+      [
+       0.3,
+       6
+      ],
+      [
+       1,
+       5
+      ]
+     ]
+    },
+    "flows": [
+     {
+      "from": "pituitary",
+      "to": [
+       0.0,
+       -0.03,
+       1.38
+      ],
+      "color": [
+       0.62,
+       0.3,
+       1.0
+      ],
+      "head": [
+       0.0,
+       1.0
+      ],
+      "n": 160,
+      "spread": 0.6,
+      "trail": 0.8,
+      "size": 0.002,
+      "strength": 8,
+      "thread": false
+     }
+    ]
+   },
+   "cortisol": {
+    "kind": "adrenal",
+    "phase": "cortisol"
+   },
+   "hippo": {
+    "kind": "brain",
+    "cam": {
+     "focus": "hippocampus",
+     "dir": [
+      -0.7,
+      -1.0,
+      0.2
+     ],
+     "dist": [
+      1.3,
+      1.15
+     ],
+     "orbit": [
+      -8,
+      6
+     ],
+     "fstop": 5.6
+    },
+    "window": {
+     "at": "hippocampus",
+     "radius": 0.11,
+     "soft": 0.02
+    },
+    "lit": {
+     "hippocampus": [
+      [
+       0,
+       1
+      ],
+      [
+       0.15,
+       6
+      ],
+      [
+       1,
+       5
+      ]
+     ],
+     "amygdala": [
+      [
+       0,
+       0.5
+      ],
+      [
+       0.55,
+       0.5
+      ],
+      [
+       0.7,
+       5
+      ],
+      [
+       1,
+       5
+      ]
+     ]
+    }
+   },
+   "pfc": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.35,
+      -1.0,
+      0.3
+     ],
+     "dist": [
+      2.0,
+      1.85
+     ],
+     "orbit": [
+      -12,
+      4
+     ],
+     "aim": "all",
+     "shift": [
+      0,
+      0,
+      0.1
+     ],
+     "fstop": 8
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.1,
+     "soft": 0.02
+    },
+    "region": {
+     "at": "pfc",
+     "color": [
+      0.3,
+      0.95,
+      0.9
+     ],
+     "strength": [
+      [
+       0,
+       0
+      ],
+      [
+       0.12,
+       1.2
+      ],
+      [
+       1,
+       1.2
+      ]
+     ]
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       6
+      ],
+      [
+       0.5,
+       6
+      ],
+      [
+       0.8,
+       1.5
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "flows": [
+     {
+      "from": "pfc",
+      "to": "amygdala",
+      "color": [
+       0.3,
+       0.95,
+       0.9
+      ],
+      "head": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.45,
+        0.0
+       ],
+       [
+        0.85,
+        1.0
+       ],
+       [
+        1,
+        1.0
+       ]
+      ],
+      "n": 70,
+      "arc": [
+       0,
+       0.0,
+       0.03
+      ],
+      "strength": 10
+     }
+    ]
+   },
+   "sleep": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.55,
+      -1.0,
+      0.2
+     ],
+     "dist": [
+      1.6,
+      1.3
+     ],
+     "orbit": [
+      6,
+      -6
+     ],
+     "aim": "all",
+     "fstop": 8
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.1,
+     "soft": 0.02
+    },
+    "tint": [
+     0.35,
+     0.45,
+     1.0
+    ],
+    "region": {
+     "at": "pfc",
+     "color": [
+      0.3,
+      0.95,
+      0.9
+     ],
+     "strength": [
+      [
+       0,
+       1.0
+      ],
+      [
+       0.6,
+       1.0
+      ],
+      [
+       0.8,
+       0.25
+      ],
+      [
+       1,
+       0.3
+      ]
+     ]
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       2
+      ],
+      [
+       0.3,
+       6
+      ],
+      [
+       0.6,
+       9
+      ],
+      [
+       1,
+       9
+      ]
+     ]
+    },
+    "grow": {
+     "amygdala": [
+      [
+       0,
+       1.0
+      ],
+      [
+       0.3,
+       1.0
+      ],
+      [
+       0.6,
+       1.18
+      ],
+      [
+       1,
+       1.18
+      ]
+     ]
+    },
+    "flows": [
+     {
+      "from": "pfc",
+      "to": "amygdala",
+      "color": [
+       0.3,
+       0.95,
+       0.9
+      ],
+      "head": 1.0,
+      "n": 70,
+      "arc": [
+       0,
+       0.0,
+       0.03
+      ],
+      "strength": [
+       [
+        0,
+        10
+       ],
+       [
+        0.6,
+        10
+       ],
+       [
+        0.75,
+        1.5
+       ],
+       [
+        0.85,
+        6
+       ],
+       [
+        1,
+        1.0
+       ]
+      ],
+      "spread": [
+       [
+        0,
+        0
+       ],
+       [
+        0.6,
+        0
+       ],
+       [
+        1,
+        0.8
+       ]
+      ]
+     }
+    ]
+   },
+   "hangry": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.8,
+      -1.0,
+      0.1
+     ],
+     "dist": [
+      1.1,
+      0.95
+     ],
+     "orbit": [
+      -6,
+      6
+     ],
+     "fstop": 5.6
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.09,
+     "soft": 0.02
+    },
+    "tint": [
+     1.0,
+     0.6,
+     0.3
+    ],
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       3
+      ],
+      [
+       0.3,
+       8
+      ],
+      [
+       1,
+       8
+      ]
+     ]
+    }
+   },
+   "calm": {
+    "kind": "brain",
+    "cam": {
+     "focus": "amygdala",
+     "dir": [
+      -0.45,
+      -1.0,
+      0.25
+     ],
+     "dist": [
+      1.8,
+      1.9
+     ],
+     "orbit": [
+      -4,
+      8
+     ],
+     "aim": "all",
+     "shift": [
+      0,
+      0,
+      0.17
+     ],
+     "fstop": 8
+    },
+    "window": {
+     "at": "amygdala",
+     "radius": 0.1,
+     "soft": 0.02
+    },
+    "region": {
+     "at": "pfc",
+     "color": [
+      0.3,
+      0.95,
+      0.9
+     ],
+     "strength": [
+      [
+       0,
+       0.4
+      ],
+      [
+       0.3,
+       1.3
+      ],
+      [
+       1,
+       1.0
+      ]
+     ]
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       6
+      ],
+      [
+       0.35,
+       2
+      ],
+      [
+       0.7,
+       0.4
+      ],
+      [
+       1,
+       0.2
+      ]
+     ]
+    }
+   },
+   "outro": {
+    "kind": "brain",
+    "cam": {
+     "focus": "hypothalamus",
+     "dir": [
+      -0.5,
+      -1.0,
+      0.25
+     ],
+     "dist": [
+      2.1,
+      2.2
+     ],
+     "orbit": [
+      0,
+      25
+     ],
+     "aim": "all",
+     "shift": [
+      0,
+      0,
+      0.14
+     ],
+     "fstop": 8
+    },
+    "window": {
+     "at": "hypothalamus",
+     "radius": 0.11,
+     "soft": 0.02
+    },
+    "lit": {
+     "amygdala": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ],
+     "hippocampus": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ],
+     "hypothalamus": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ],
+     "pituitary": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    }
+   }
+  },
+  "beats": [
+   {
+    "say": "This is why you hate your boyfriend.",
+    "shot": "hook"
+   },
+   {
+    "say": "It's not him. It's your brain.",
+    "shot": "tour"
+   },
+   {
+    "say": "One heavy sigh. One late text.",
+    "shot": "texts",
+    "fx": {
+     "bubbles": [
+      "*sigh*",
+      "k.",
+      "running late"
+     ]
+    }
+   },
+   {
+    "say": "Your amygdala flags it as a threat,",
+    "shot": "amyg",
+    "label": [
+     "AMYGDALA",
+     "amygdala"
+    ],
+    "hl": {
+     "threat": "red"
+    },
+    "stage": "1/4  THE ALARM"
+   },
+   {
+    "say": "and pings your hypothalamus.",
+    "shot": "ping",
+    "label": [
+     "HYPOTHALAMUS",
+     "hypothalamus"
+    ]
+   },
+   {
+    "say": "Seconds later, nerves fire straight into your adrenal glands,",
+    "shot": "nerve",
+    "label": [
+     "ADRENAL GLAND",
+     "gland"
+    ],
+    "stage": "2/4  THE FAST WAVE"
+   },
+   {
+    "say": "flooding you with adrenaline and noradrenaline.",
+    "shot": "burst",
+    "label": [
+     "ADRENAL MEDULLA",
+     "medulla"
+    ],
+    "hl": {
+     "adrenaline": "amber",
+     "noradrenaline": "amber"
+    }
+   },
+   {
+    "say": "Heart racing. Blood pressure up.",
+    "fx": {
+     "meters": [
+      "HEART RATE",
+      "BLOOD PRESSURE"
+     ]
+    }
+   },
+   {
+    "say": "Then the slow wave.",
+    "shot": "slow",
+    "stage": "3/4  THE SLOW WAVE"
+   },
+   {
+    "say": "Your hypothalamus sends CRH,",
+    "shot": "crh",
+    "label": [
+     "HYPOTHALAMUS",
+     "hypothalamus"
+    ],
+    "hl": {
+     "CRH": "violet"
+    },
+    "fx": {
+     "tag": [
+      "CRH",
+      "stream"
+     ]
+    }
+   },
+   {
+    "say": "your pituitary answers with [ACTH](ˌeɪsˌiːtˌiːˈeɪʧ),",
+    "shot": "acth",
+    "label": [
+     "PITUITARY",
+     "pituitary"
+    ],
+    "hl": {
+     "ACTH": "violet"
+    },
+    "fx": {
+     "tag": [
+      "ACTH",
+      "stream"
+     ]
+    }
+   },
+   {
+    "say": "and your adrenals pump out cortisol.",
+    "shot": "cortisol",
+    "label": [
+     "ADRENAL CORTEX",
+     "gland"
+    ],
+    "hl": {
+     "cortisol": "violet"
+    }
+   },
+   {
+    "say": "It peaks 20 to 40 minutes later.",
+    "fx": {
+     "clock": [
+      20,
+      40
+     ]
+    }
+   },
+   {
+    "say": "Your hippocampus files memories with their context.",
+    "shot": "hippo",
+    "label": [
+     "HIPPOCAMPUS",
+     "hippocampus"
+    ],
+    "stage": "4/4  MEMORY",
+    "fx": {
+     "cards": 4
+    }
+   },
+   {
+    "say": "Emotional memories stick, so old fights come back fast.",
+    "fx": {
+     "cards_fly": 4
+    }
+   },
+   {
+    "say": "Your brake is the prefrontal [cortex](kˈɔɹtɛks).",
+    "shot": "pfc",
+    "label": [
+     "PREFRONTAL CORTEX",
+     "pfc"
+    ],
+    "hl": {
+     "brake": "teal"
+    }
+   },
+   {
+    "say": "It talks the amygdala down."
+   },
+   {
+    "say": "Unless you didn't sleep.",
+    "shot": "sleep"
+   },
+   {
+    "say": "One night without it, the amygdala reacts about 60 percent more,",
+    "label": [
+     "AMYGDALA",
+     "amygdala"
+    ],
+    "fx": {
+     "counter": [
+      "+",
+      60,
+      "%"
+     ]
+    },
+    "hl": {
+     "60": "red",
+     "percent": "red"
+    }
+   },
+   {
+    "say": "and its link to the prefrontal [cortex](kˈɔɹtɛks) gets weaker."
+   },
+   {
+    "say": "Skipped lunch? Hunger is linked to more anger and irritability. Hangry is real.",
+    "shot": "hangry",
+    "fx": {
+     "stamp": "HANGRY"
+    },
+    "hl": {
+     "Hangry": "amber"
+    }
+   },
+   {
+    "say": "Before you snap: pause, eat, sleep on it.",
+    "shot": "calm",
+    "fx": {
+     "checks": [
+      "PAUSE",
+      "EAT",
+      "SLEEP ON IT"
+     ]
+    }
+   },
+   {
+    "say": "Even naming it helps: \"I'm not mad, I'm hungry.\""
+   },
+   {
+    "say": "Hungry, tired, or stressed: what makes you snap fastest?",
+    "shot": "outro"
+   },
+   {
+    "say": "Send this to your boyfriend."
+   }
+  ]
+ }
+]
