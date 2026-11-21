@@ -210,7 +210,11 @@ def hints() -> dict[str, str]:
 def hint_for(q: dict) -> str | None:
     """A video's hint: hints.json (id -> text) first, else the video's own "hint" (a series video's release json, or
     a quiz's bank item). Always "Hint: ..."; none means no first comment."""
+    if q.get("first_comment"):  # a video can carry its own first comment (the follower series asks for the next topic)
+        return q["first_comment"].strip()
     text = (hints().get(q["id"]) or q.get("hint") or "").strip()
+    if not text and q.get("format") == "types":
+        return (CONFIG.get("first_comment") or {}).get("types")
     if not text:
         return None
     return text if text.lower().startswith("hint:") else f"Hint: {text}"
