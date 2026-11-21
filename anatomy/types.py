@@ -411,6 +411,22 @@ def title(img: Image.Image, text: str, fade: float, s: float, outline: bool = Fa
                **({"stroke_width": max(1, int(5 * s)), "stroke_fill": (18, 18, 22)} if outline else {}))  # over bone
 
 
+def banner(img: Image.Image, text: str, fade: float, s: float) -> None:
+    """The big title over the hook (fmt-types-14, Yashas Nov 20: bigger on the start page): the heaviest weight, as
+    large as fits x 120-960 in at most 3 lines, starting at y 318 so it clears the ANATOMY ACE mark (to y 300),
+    with a dark outline so it reads over bone."""
+    d = ImageDraw.Draw(img)
+    for size in range(104, 40, -2):
+        f = font("Montserrat.ttf", int(size * s), 900)
+        rows = wrap(d, text, f, int(840 * s))
+        if len(rows) <= 3 and max(d.textlength(r, font=f) for r in rows) <= 840 * s:
+            break
+    col = tuple(int(255 * fade) for _ in range(3))
+    for j, row in enumerate(rows):
+        d.text((img.width / 2, (318 + j * size * 1.08) * s), row, font=f, fill=col, anchor="mt",
+               stroke_width=max(1, int(7 * s)), stroke_fill=(14, 14, 18))
+
+
 def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], age: float, s: float) -> None:
     """The closing chart (and the cover): every type's picture popping in one by one, its name under it."""
     d = ImageDraw.Draw(img)
@@ -619,7 +635,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
                 text, age = labels2[a["label"]], t - crack - sg["switch"]
             callout(img, a["xy"], text, age, fade, scale, clamp=q.get("scene") == "parts", place=spot)
         if q.get("hook_title") and sg["kind"] in ("flash", "intro"):  # the title over the hook (fmt-types-14)
-            title(img, q["hook_title"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale, outline=True)
+            banner(img, q["hook_title"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
             grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
