@@ -635,7 +635,14 @@ class Stage:
         with bpy.data.libraries.load(str(ROOT / "assets" / "models" / "adrenal.blend")) as (src, dst):
             dst.objects = [n for n in src.objects if not n.startswith("Cross Section")]
         self.adrenal = []
-        kid = principled_mat("kidney", (0.26, 0.055, 0.045), 0.55, 0.5, coat=0.15)
+        kid = principled_mat("kidney", (0.085, 0.016, 0.011), 0.42, 0.15, coat=0.3)
+        kn = kid.node_tree
+        noise = kn.nodes.new("ShaderNodeTexNoise")
+        noise.inputs["Scale"].default_value = 180.0
+        bump = kn.nodes.new("ShaderNodeBump")
+        bump.inputs["Strength"].default_value = 0.12
+        kn.links.new(noise.outputs["Fac"], bump.inputs["Height"])
+        kn.links.new(bump.outputs["Normal"], kn.nodes["Principled BSDF"].inputs["Normal"])
         self.kidney_mat = kid
         self.gland_mat = principled_mat("gland", (0.9, 0.62, 0.2), 0.3, 0.3, alpha=0.42)
         self.med_mat = principled_mat("medulla", (0.45, 0.14, 0.08), 0.3, 0.2)
@@ -667,7 +674,9 @@ class Stage:
             med.matrix_world = Matrix.Translation(c) @ Matrix.Scale(0.5, 4) @ Matrix.Translation(-c) @ g.matrix_world
             self.adrenal.append(med)
             self.glands[g.name] = (g, med, c)
-            self.adrenal.append(bean(g.name + " kidney", c, g, kid))
+            k = bean(g.name + " kidney", c, g, kid)
+            self.adrenal.append(k)
+            self.adrenal += [bpy.data.objects[n] for n in k.get("tubes", "").split(";") if n]
 
     def show(self, which):
         for o in self.brain:
@@ -684,25 +693,50 @@ class Stage:
 
 
 def bean(name, gland_c, gland, mat):
-    """A plain kidney shape (a bean: a stretched sphere with a dent at the hilum) under a gland, for context; the
-    atlas kidney can't be used (non-commercial licence)."""
+    """A kidney under its gland, built here (the atlas kidney is adapted from a CC BY-NC model): a bean about 11 cm
+    tall with a concave hilum facing the midline, a faint lobe texture, and the renal artery (red), the renal vein
+    (blue) and the ureter (pale) leaving the hilum. Its top sits just under the gland, which caps it."""
     lo = min((gland.matrix_world @ v.co).z for v in gland.data.vertices)
+    side = 1 if gland_c.x > 0 else -1  # +x is the body's left
+    H, Wd, D = 0.055, 0.03, 0.02  # half height, half width, half depth (metres)
     bm = bmesh.new()
-    bmesh.ops.create_uvsphere(bm, u_segments=64, v_segments=40, radius=1.0)
-    side = 1 if gland_c.x > 0 else -1
+    bmesh.ops.create_uvsphere(bm, u_segments=96, v_segments=64, radius=1.0)
     for v in bm.verts:
         x, y, z = v.co
-        dent = 0.35 * math.exp(-((z / 0.45) ** 2)) * max(0.0, -x * side) ** 2  # the hilum faces the midline
-        v.co = Vector((x * 0.024 * (1 - dent), y * 0.016, z * 0.046))
+        inner = max(0.0, -x * side)  # the medial (midline) side
+        dent = 0.55 * math.exp(-((z / 0.38) ** 2)) * inner ** 1.5  # the hilum: a deep notch on the medial side
+        bulge = 1 + 0.08 * (1 - z * z)
+        v.co = Vector((x * Wd * bulge * (1 - dent), y * D, z * H * (1 + 0.06 * x * side)))
     me = bpy.data.meshes.new(name)
     bm.to_mesh(me)
     bm.free()
     for p in me.polygons:
         p.use_smooth = True
     me.materials.append(mat)
+    top = lo + 0.006  # the gland's base rests on the kidney's upper pole
+    cx = gland_c.x + side * 0.004
     o = link(bpy.data.objects.new(name, me))
-    o.matrix_world = Matrix.Translation((gland_c.x + side * 0.006, gland_c.y + 0.006, lo - 0.042)) @ \
-        Matrix.Rotation(math.radians(-12 * side), 4, "Y")
+    o.matrix_world = Matrix.Translation((cx, gland_c.y + 0.004, top - H)) @ Matrix.Rotation(math.radians(-10 * side), 4, "Y")
+    hilum = o.matrix_world @ Vector((-side * Wd * 0.5, 0.0, 0.0))
+    out = Vector((-side, 0.0, 0.0))
+    tubes = [("artery", (0.75, 0.08, 0.06), 0.0032, Vector((0, -0.006, 0.006)), out * 0.06 + Vector((0, -0.01, 0.025))),
+             ("vein", (0.1, 0.2, 0.6), 0.004, Vector((0, 0.002, 0.0)), out * 0.06 + Vector((0, 0.004, 0.012))),
+             ("ureter", (0.88, 0.8, 0.62), 0.0024, Vector((0, 0.004, -0.009)), out * 0.012 + Vector((0, 0.006, -0.11)))]
+    for tname, rgb, r, start_off, end_off in tubes:
+        cu = bpy.data.curves.new(name + " " + tname, "CURVE")
+        cu.dimensions = "3D"
+        cu.bevel_depth, cu.bevel_resolution = r, 6
+        sp = cu.splines.new("BEZIER")
+        sp.bezier_points.add(1)
+        a = hilum + start_off - out * 0.006
+        b = hilum + start_off + end_off
+        for bp, co, hd in ((sp.bezier_points[0], a, out * 0.02), (sp.bezier_points[1], b, (b - a).normalized() * 0.02)):
+            bp.co = co
+            bp.handle_left, bp.handle_right = co - hd, co + hd
+        tm = principled_mat(name + " " + tname, rgb, 0.3, 0.4, coat=0.6)
+        cu.materials.append(tm)
+        t = link(bpy.data.objects.new(name + " " + tname, cu))
+        o["tubes"] = o.get("tubes", "") + t.name + ";"
     return o
 
 
@@ -874,16 +908,21 @@ def shot_adrenal(st, sh):
     st.show("adrenal")
     phase = sh.get("phase", "nerve")
     g, med, ctr = min(st.glands.values(), key=lambda x: x[2].x)  # the gland on the camera's side
+    for o in st.adrenal:  # only this side's gland, medulla, kidney and vessels (the other kidney sat at the edge)
+        if (o.matrix_world @ (sum((v.co for v in o.data.vertices), Vector()) / max(1, len(o.data.vertices)))
+                if o.type == "MESH" else o.matrix_world.translation).x > ctr.x + 0.06:
+            o.hide_render = True
     unit = 0.12
     base = Vector((-0.55, -1.0, 0.3)).normalized()
     cam = temp(bpy.data.objects.new("cam", bpy.data.cameras.new("cam")))
     scene.camera = cam
     cam.data.lens, cam.data.sensor_fit, cam.data.sensor_height, cam.data.clip_start = 50, "VERTICAL", 24, 0.001
     cam.data.dof.use_dof, cam.data.dof.aperture_fstop = True, 16  # close up: f/16 keeps the whole gland sharp
-    look = ctr + Vector((0, 0, -0.006))
+    look = ctr + Vector((0, 0, -0.03))  # the gland in the upper third, its kidney below
     lamp("key", "AREA", ctr + Vector((-0.12, -0.15, 0.15)), ctr, 6, 0.08, (1.0, 0.9, 0.82))
     lamp("rim", "AREA", ctr + Vector((0.12, 0.15, 0.08)), ctr, 10, 0.08, (0.55, 0.72, 1.0))
     lamp("bounce", "AREA", ctr + Vector((-0.05, -0.1, -0.15)), ctr, 1.5, 0.15, (1.0, 0.7, 0.6))
+    lamp("fill", "AREA", ctr + Vector((-0.1, -0.14, -0.06)), ctr + Vector((0, 0, -0.05)), 4, 0.1, (1.0, 0.88, 0.8))
     gl = lamp("glow", "POINT", ctr, ctr, 0, 0.004, (1.0, 0.55, 0.1))
     rng = random.Random(9)
     dust(80, rng, ctr + base * 0.06, (0.08, 0.08, 0.08))
@@ -893,7 +932,7 @@ def shot_adrenal(st, sh):
     gb = st.gland_mat.node_tree.nodes["Principled BSDF"]
     amber, violet = (1.0, 0.55, 0.08), (0.62, 0.3, 1.0)
     orbit = {"nerve": [-8, 4], "adrenaline": [4, -6], "cortisol": [-6, 6]}[phase]
-    dist = {"nerve": [0.27, 0.23], "adrenaline": [0.22, 0.2], "cortisol": [0.24, 0.21]}[phase]
+    dist = {"nerve": [0.36, 0.31], "adrenaline": [0.3, 0.27], "cortisol": [0.32, 0.28]}[phase]
 
     def update(u):
         d = Matrix.Rotation(math.radians(orbit[0] + (orbit[1] - orbit[0]) * ease(u)), 3, "Z") @ base
