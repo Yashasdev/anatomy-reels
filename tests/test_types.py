@@ -38,7 +38,8 @@ def test_item(q):
     if q.get("scene") != "parts":
         assert set(names) <= BUILT, "a type the fracture script builds"
     assert set(q["flash"]) <= set(names) and 4 <= len(q["flash"]) <= 6 or \
-        q["id"] == "fmt-types-12" and len(q["flash"]) == 3  # its hook names 3 moves, one shot each
+        q["id"] == "fmt-types-12" and len(q["flash"]) == 3 or \
+        q.get("flash_single") and len(q["flash"]) == 1 and q["flash"][0] in names  # one shot (fmt-types-15)
     assert len(names) <= 11, "the closing chart has 11 places (rows of 4, 4 and 3)"
     assert str(len(names)) in q["intro"] and str(len(names)) in q["title"]
     for t in q["types"]:
@@ -52,7 +53,12 @@ def test_item(q):
         assert len(types.wrap(d, types.shown(line), types.CAPTION(52), types.CAPTION_W)) <= 3, line
         assert not set("*[]()") & set(types.shown(line)), "markup must be well formed"
     assert len(q["hashtags"]) <= 5 and q["sources"]
-    assert q["send"].startswith("Send this to") and types.shown(q["outro"][-1]).startswith("Send this to")
+    assert q["send"].startswith("Send this to")
+    if q.get("credit_card"):  # the follower series ends on how to design the next one, the card on screen
+        card = q["credit_card"]
+        assert card["handle"].startswith("@") and "designed by a follower" in types.shown(q["outro"][card["from_line"]]).lower()
+    else:
+        assert types.shown(q["outro"][-1]).startswith("Send this to")
     assert re.fullmatch(r"fmt-types-\d\d", q["id"])
     assert set(q.get("flash_mystery", [])) <= set(q["flash"])
     if "?" in types.shown(q["hook"]) or "guess" in q["hook"].lower():  # a hook that asks never shows the answer
@@ -160,7 +166,8 @@ def test_the_caption_has_no_answer_key_and_credits_the_model():
     for q, credit in [(FRACTURE, "NIH 3D")] + [(x, "made in Blender" if x["id"] == "fmt-types-09" else "Z-Anatomy") for x in PARTS_ITEMS]:
         info = types.info({**q, "music": "lofi-1"}, 64.0)
         text = publish.caption({**info, "kind": "formats", "series": "formats"})
-        assert text.startswith(types.shown(q["hook"])) and "Comment below" in text and "Answer:" not in text
+        assert text.startswith(q.get("caption_first") or types.shown(q["hook"])) and "Comment below" in text
+        assert "Answer:" not in text and (q.get("caption_extra") or "") in text
         assert credit in text and "not medical advice" in text and "Send this to" in text
         assert series.youtube_title(info).endswith("#shorts") and len(series.youtube_title(info)) <= 100
 

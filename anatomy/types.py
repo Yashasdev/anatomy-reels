@@ -185,6 +185,8 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
     segs.append({"kind": "flash", "start": 0.0, "end": flash, "types": q["flash"]})
     if q.get("flash_close"):
         segs[-1]["close"] = True
+    if q.get("flash_single"):  # fmt-types-15: one shot, played at its own pace (the crack creeping across a bone)
+        segs[-1]["single"] = True
     end = say(max(flash + 0.15, t + 0.25))  # a hook longer than the montage finishes before the intro line
     segs.append({"kind": "intro", "start": flash, "end": max(flash + INTRO_MIN, end + 0.35)})
     t = segs[-1]["end"]
@@ -375,12 +377,12 @@ def crop(img: Image.Image) -> Image.Image:
     return img.crop(box) if box else img
 
 
-def cells(n: int) -> list[tuple[float, float, float, float]]:
+def cells(n: int, bottom: float = 0) -> list[tuple[float, float, float, float]]:
     """(x centre, y top, width, height) per picture in the closing chart, in 1080 x 1920 units. Rows that reach
     below y 1100 stay within x 60-900, clear of the like/comment column."""
     rows = ROWS.get(n, [4] * (n // 4) + ([n % 4] if n % 4 else []))
     label_h, gap = 78, 26
-    h = (CHART_BOTTOM - CHART_TOP - (len(rows) - 1) * gap) / len(rows) - label_h
+    h = ((bottom or CHART_BOTTOM) - CHART_TOP - (len(rows) - 1) * gap) / len(rows) - label_h
     out = []
     for r, k in enumerate(rows):
         y = CHART_TOP + r * (h + label_h + gap)
@@ -427,10 +429,11 @@ def banner(img: Image.Image, text: str, fade: float, s: float) -> None:
                stroke_width=max(1, int(7 * s)), stroke_fill=(14, 14, 18))
 
 
-def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], age: float, s: float) -> None:
+def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], age: float, s: float,
+          bottom: float = 0) -> None:
     """The closing chart (and the cover): every type's picture popping in one by one, its name under it."""
     d = ImageDraw.Draw(img)
-    for i, (th, label, (cx, y, w, h)) in enumerate(zip(thumbs, rows, cells(len(thumbs)))):
+    for i, (th, label, (cx, y, w, h)) in enumerate(zip(thumbs, rows, cells(len(thumbs), bottom))):
         f = min(1.0, max(0.0, (age - 0.15 * i) / 0.35))
         if f <= 0:
             continue
@@ -454,6 +457,28 @@ def chart_label(d: ImageDraw.ImageDraw, xy, rows: list[str], fade: float, s: flo
         col = (255, 255, 255) if j == 0 else (190, 194, 202)
         d.text((xy[0], y), row, font=f, fill=tuple(int(c * fade) for c in col), anchor="mt")
         y += (38 if j == 0 else 29) * s
+
+
+CREDIT_TOP = 1110  # with a credit card, the chart ends here and the card fills y 1140-1390 (x 130-830)
+
+
+def credit_card(img: Image.Image, card: dict, fade: float, s: float) -> None:
+    """The follower series' card under the closing chart (fmt-types-15): who designed the video, their handle big,
+    and how to be next. Clear of the like/comment column (x > 900) and above the closing caption."""
+    if fade <= 0:
+        return
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    a = int(255 * fade)
+    d.rounded_rectangle([130 * s, 1140 * s, 830 * s, 1390 * s], radius=int(28 * s), fill=(24, 24, 28, int(235 * fade)),
+                        outline=(*YELLOW, a), width=max(1, int(4 * s)))
+    d.text((480 * s, 1180 * s), card["label"], font=BOLD(int(32 * s)), fill=(255, 255, 255, a), anchor="mm")
+    f = 76
+    while f > 40 and d.textlength(card["handle"], font=BOLD(int(f * s))) > 640 * s:
+        f -= 2
+    d.text((480 * s, 1262 * s), card["handle"], font=BOLD(int(f * s)), fill=(*YELLOW, a), anchor="mm")
+    d.text((480 * s, 1345 * s), card["note"], font=CAPTION(int(27 * s)), fill=(200, 204, 212, a), anchor="mm")
+    img.paste(layer, (0, 0), layer)
 
 
 def watermark(img: Image.Image, s: float) -> None:
@@ -548,6 +573,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     shows = spec.get("shows", {}).values()
     if not any(x.get("chips") for sh in shows for x in sh.get("tears", [])):
         text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)
+    if not any(sh.get("cracks") for sh in shows):
+        text = re.sub(r"# --- cracks .*?# --- end cracks\n\n", "", text, flags=re.S)
     if not any(sh.get("pulse") for sh in shows):
         text = re.sub(r"# --- pulse .*?# --- end pulse\n\n", "", text, flags=re.S)
     if not any(sh.get("blobs") or sh.get("chart_hide") or sh.get("ghost_alpha") or sh.get("chart_frame") or sh.get("model") in ("cells", "skeleton") or sh.get("pin", {}).get("group") for sh in shows):
@@ -612,7 +639,12 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             col = tuple(int(255 * fade) for _ in range(3))
             title(img, q["grid_title"], fade, scale)
             if q.get("scene") == "parts":
-                chart(img, thumbs, [charts[t["name"]] for t in q["types"]], t - sg["start"], scale)
+                card = q.get("credit_card")
+                chart(img, thumbs, [charts[t["name"]] for t in q["types"]], t - sg["start"], scale,
+                      CREDIT_TOP if card else 0)
+                if card:
+                    at = next(c["at"] for c in cues if c["line"] == len(q["script"]) - len(q["outro"]) + card["from_line"])
+                    credit_card(img, card, min(1.0, max(0.0, (t - at + 0.1) / 0.35)), scale)
             for g in a["grid"]:
                 for j, word in enumerate(labels[g["label"]].title().split()):
                     d.text((g["xy"][0], g["xy"][1] + j * 26 * scale), word, font=BOLD(int(20 * scale)),
@@ -664,7 +696,21 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     hits = {t["name"]: t.get("sound", "thud") for t in q["types"]}
     if q.get("flash_hit"):  # an impact on the very first cut (fmt-types-14)
         add(event_sound(q["flash_hit"], 7), 1 / FPS, 0.9)
+    shows = {t["name"]: t.get("show", {}) for t in q["types"]}
     for sg in segs:
+        if sg["kind"] == "flash" and sg.get("single"):  # one shot: its event, then each impact as it lands
+            name = sg["types"][0]
+            sh = shows[name]  # played as fast as types_scene.py plays it, so each thud lands on its jolt
+            last = max([mv["keys"][-1][0] for mv in sh.get("moves", [])] or [0.4])
+            last = max([last] + [t.get("delay", 0.0) + 0.35 for t in sh.get("tears", [])])
+            speed = max(1.0, last / ((round(sg["end"] * FPS) - 3) / FPS))
+            add(event_sound(hits[name], 0), 1 / FPS, 0.5)
+            for j, at in enumerate(sh.get("impacts", [])):
+                add(event_sound("thud", 20 + j), 1 / FPS + at / speed, 0.6)
+            continue
+        if sg["kind"] == "type":
+            for j, at in enumerate(shows[sg["name"]].get("impacts", [])):  # each impact that grows a crack
+                add(event_sound("thud", 40 + j), sg["start"] + 0.45 + at, 0.5)
         if sg["kind"] == "flash":
             for j, name in enumerate(sg["types"]):
                 at = sg["start"] + j * (sg["end"] - sg["start"]) / len(sg["types"]) + 1 / FPS
@@ -700,7 +746,8 @@ def info(q: dict, seconds: float) -> dict:
     """What the posting job needs (anatomy/series.py), like the other formats' <id>.json."""
     return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["script"][0]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
-            "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"]}
+            "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"],
+            **{k: q[k] for k in ("caption_first", "caption_extra") if q.get(k)}}
 
 
 def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:
