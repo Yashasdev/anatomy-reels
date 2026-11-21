@@ -112,3 +112,9 @@ def test_the_hints_file():
         assert re.fullmatch(r"(dd|fmt)-[a-z0-9-]+", vid), vid
         assert text.startswith("Hint: ") and len(text) <= 140, vid
         assert len(re.findall(r"[.?!](\s|$)", text)) == 1 and text[-1] in ".?!", f"{vid}: one sentence"
+
+
+def test_types_and_follower_videos_get_their_first_comment():
+    from anatomy import publish
+    assert publish.hint_for({"id": "fmt-types-99", "format": "types"}) == "Which one have you had? 👇"
+    assert publish.hint_for({"id": "x", "format": "types", "first_comment": "DM us your topic"}) == "DM us your topic"
