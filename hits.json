@@ -275,7 +275,30 @@
    "series": "diagnose",
    "date": "2026-11-18",
    "until": "2026-11-22"
+  },
+  {
+   "post": "fmt-missing-05",
+   "buffer_id": "6afe21e301ba7c5e7916c974",
+   "day": 101,
+   "title": "Which bone is missing?",
+   "kind": "formats",
+   "format": "missing",
+   "age_hours": 24.7,
+   "views": 1497,
+   "baseline": 1371,
+   "shares": 10,
+   "reach": 1255,
+   "share_rate": 0.008,
+   "share_baseline": 0.0025,
+   "compared_with": "all formats (27 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "missing",
+   "date": "2026-11-21",
+   "until": "2026-11-25"
   }
  ],
- "updated_at": "2026-11-20T19:16:15Z"
+ "updated_at": "2026-11-21T18:15:47Z"
 }

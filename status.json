@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-21T08:50:37+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44886699273",
+ "generated_at": "2026-11-21T18:15:48+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44934506780",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -79,6 +79,20 @@
   }
  },
  "hot": [
+  {
+   "series": "missing",
+   "kind": "formats",
+   "post": "fmt-missing-05",
+   "views": 1497,
+   "baseline": 1371,
+   "by": [
+    "shares"
+   ],
+   "date": "2026-11-21",
+   "until": "2026-11-25",
+   "left": 2,
+   "make_more": true
+  },
   {
    "series": "types",
    "kind": "formats",
@@ -477,7 +491,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-20T18:00:00-05:00",
@@ -490,7 +507,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-20T20:00:00-05:00",
@@ -503,7 +523,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-21T09:30:00-05:00",
@@ -517,7 +540,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-21T12:30:00-05:00",
@@ -531,7 +558,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-21T16:00:00-05:00",
@@ -602,33 +633,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-20T19:16:11Z",
+  "updated_at": "2026-11-21T18:15:42Z",
   "totals": {
-   "views": 555425,
-   "reactions": 24018,
-   "comments": 224,
-   "shares": 5439,
-   "saves": 9009
+   "views": 791176,
+   "reactions": 39137,
+   "comments": 311,
+   "shares": 7536,
+   "saves": 11792
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 101,
-    "views": 409523,
-    "watched": 26.7,
-    "watch_samples": 67
+    "posts": 106,
+    "views": 606581,
+    "watched": 26.6,
+    "watch_samples": 71
    },
    {
     "platform": "tiktok",
-    "posts": 101,
-    "views": 113104,
-    "watched": 23.8,
-    "watch_samples": 78
+    "posts": 106,
+    "views": 150747,
+    "watched": 24.1,
+    "watch_samples": 83
    },
    {
     "platform": "youtube",
-    "posts": 96,
-    "views": 32798,
+    "posts": 98,
+    "views": 33848,
     "watched": null,
     "watch_samples": 0
    }
