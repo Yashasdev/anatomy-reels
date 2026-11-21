@@ -701,9 +701,9 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         if sg["kind"] == "flash" and sg.get("single"):  # one shot: its event, then each impact as it lands
             name = sg["types"][0]
             sh = shows[name]  # played as fast as types_scene.py plays it, so each thud lands on its jolt
-            last = max([mv["keys"][-1][0] for mv in sh.get("moves", [])] or [0.4])
-            last = max([last] + [t.get("delay", 0.0) + 0.35 for t in sh.get("tears", [])])
-            speed = max(1.0, last / ((round(sg["end"] * FPS) - 3) / FPS))
+            slow = max([mv["keys"][-1][0] for mv in sh.get("moves", [])] or [0.4])  # not `last`: that's the cover
+            slow = max([slow] + [t.get("delay", 0.0) + 0.35 for t in sh.get("tears", [])])
+            speed = max(1.0, slow / ((round(sg["end"] * FPS) - 3) / FPS))
             add(event_sound(hits[name], 0), 1 / FPS, 0.5)
             for j, at in enumerate(sh.get("impacts", [])):
                 add(event_sound("thud", 20 + j), 1 / FPS + at / speed, 0.6)

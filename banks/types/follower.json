@@ -37,7 +37,6 @@
       "Distal phalanx of fourth finger of foot.r",
       "Distal phalanx of second finger of foot.r",
       "Distal phalanx of third finger of foot.r",
-      "Fibula.r",
       "Fifth metatarsal bone.r",
       "First metatarsal bone.r",
       "Fourth metatarsal bone.r",
@@ -55,13 +54,12 @@
       "Proximal phalanx of third finger of foot.r",
       "Second metatarsal bone.r",
       "Talus.r",
-      "Third metatarsal bone.r",
-      "Tibia.r"
+      "Third metatarsal bone.r"
      ],
      "orient": [
+      90,
       0,
-      0,
-      95
+      0
      ],
      "moves": [
       {
@@ -73,7 +71,6 @@
         "Distal phalanx of fourth finger of foot.r",
         "Distal phalanx of second finger of foot.r",
         "Distal phalanx of third finger of foot.r",
-        "Fibula.r",
         "Fifth metatarsal bone.r",
         "First metatarsal bone.r",
         "Fourth metatarsal bone.r",
@@ -91,8 +88,7 @@
         "Proximal phalanx of third finger of foot.r",
         "Second metatarsal bone.r",
         "Talus.r",
-        "Third metatarsal bone.r",
-        "Tibia.r"
+        "Third metatarsal bone.r"
        ],
        "pivot": {
         "part": "Second metatarsal bone.r",
@@ -257,17 +253,17 @@
        "from": {
         "part": "Second metatarsal bone.r",
         "at": [
-         0.05,
+         0.0,
          0.45,
-         0.7
+         0.6
         ]
        },
        "to": {
         "part": "Second metatarsal bone.r",
         "at": [
-         0.95,
+         1.0,
          0.5,
-         0.7
+         0.65
         ]
        },
        "steps": [
@@ -277,7 +273,7 @@
         2.7,
         3.5
        ],
-       "width": 0.0007,
+       "width": 0.0011,
        "jag": 0.0005,
        "seed": 3
       }
@@ -294,23 +290,14 @@
       "at": [
        0.5,
        0.475,
-       0.7
+       0.625
       ]
      },
-     "zoom": 0.35,
-     "chart_t": 4.0,
-     "frame": [
-      [
-       -0.15,
-       -0.135,
-       0.0
-      ],
-      [
-       -0.03,
-       0.095,
-       0.3
-      ]
-     ]
+     "lit": [
+      "Second metatarsal bone.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0
     }
    },
    {
@@ -505,19 +492,17 @@
       {
        "part": "Tibia.r",
        "from": {
-        "part": "Tibia.r",
-        "at": [
-         0.5,
-         0.0,
-         0.33
+        "xyz": [
+         -0.093,
+         0.011,
+         0.19
         ]
        },
        "to": {
-        "part": "Tibia.r",
-        "at": [
-         1.0,
-         0.45,
-         0.35
+        "xyz": [
+         -0.065,
+         0.019,
+         0.199
         ]
        },
        "steps": [
@@ -527,8 +512,8 @@
         2.7,
         3.5
        ],
-       "width": 0.0012,
-       "jag": 0.001,
+       "width": 0.0014,
+       "jag": 0.0006,
        "seed": 5
       }
      ],
@@ -540,14 +525,16 @@
       3.5
      ],
      "pin": {
-      "part": "Tibia.r",
-      "at": [
-       0.75,
-       0.225,
-       0.33999999999999997
+      "xyz": [
+       -0.079,
+       0.015,
+       0.1945
       ]
      },
-     "zoom": 0.4,
+     "lit": [
+      "Tibia.r"
+     ],
+     "zoom": 0.3,
      "chart_t": 4.0
     }
    },
@@ -803,7 +790,7 @@
         "at": [
          0.0,
          0.7,
-         0.15
+         0.1
         ]
        },
        "steps": [
@@ -813,8 +800,8 @@
         2.7,
         3.5
        ],
-       "width": 0.0009,
-       "jag": 0.0008,
+       "width": 0.0016,
+       "jag": 0.0012,
        "seed": 7
       }
      ],
@@ -830,10 +817,13 @@
       "at": [
        0.0,
        0.75,
-       0.5499999999999999
+       0.525
       ]
      },
-     "zoom": 0.4,
+     "lit": [
+      "Calcaneus.r"
+     ],
+     "zoom": 0.3,
      "chart_t": 4.0,
      "frame": [
       [
@@ -871,7 +861,6 @@
       "Distal phalanx of fourth finger of foot.r",
       "Distal phalanx of second finger of foot.r",
       "Distal phalanx of third finger of foot.r",
-      "Fibula.r",
       "Fifth metatarsal bone.r",
       "First metatarsal bone.r",
       "Fourth metatarsal bone.r",
@@ -889,13 +878,12 @@
       "Proximal phalanx of third finger of foot.r",
       "Second metatarsal bone.r",
       "Talus.r",
-      "Third metatarsal bone.r",
-      "Tibia.r"
+      "Third metatarsal bone.r"
      ],
      "orient": [
-      30,
+      90,
       0,
-      140
+      0
      ],
      "moves": [
       {
@@ -907,7 +895,6 @@
         "Distal phalanx of fourth finger of foot.r",
         "Distal phalanx of second finger of foot.r",
         "Distal phalanx of third finger of foot.r",
-        "Fibula.r",
         "Fifth metatarsal bone.r",
         "First metatarsal bone.r",
         "Fourth metatarsal bone.r",
@@ -925,8 +912,7 @@
         "Proximal phalanx of third finger of foot.r",
         "Second metatarsal bone.r",
         "Talus.r",
-        "Third metatarsal bone.r",
-        "Tibia.r"
+        "Third metatarsal bone.r"
        ],
        "pivot": {
         "part": "Navicular bone.r",
@@ -1091,7 +1077,7 @@
        "from": {
         "part": "Navicular bone.r",
         "at": [
-         0.5,
+         0.45,
          0.0,
          1.0
         ]
@@ -1099,9 +1085,9 @@
        "to": {
         "part": "Navicular bone.r",
         "at": [
-         0.5,
+         0.55,
          1.0,
-         0.9
+         0.95
         ]
        },
        "steps": [
@@ -1111,8 +1097,8 @@
         2.7,
         3.5
        ],
-       "width": 0.0007,
-       "jag": 0.0005,
+       "width": 0.0013,
+       "jag": 0.0008,
        "seed": 9
       }
      ],
@@ -1128,23 +1114,14 @@
       "at": [
        0.5,
        0.5,
-       0.95
+       0.975
       ]
      },
-     "zoom": 0.35,
-     "chart_t": 4.0,
-     "frame": [
-      [
-       -0.15,
-       -0.135,
-       0.0
-      ],
-      [
-       -0.03,
-       0.095,
-       0.3
-      ]
-     ]
+     "lit": [
+      "Navicular bone.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0
     }
    },
    {
@@ -1156,7 +1133,7 @@
     ],
     "sound": "thud",
     "lines": [
-     "Femoral neck. Hip or groin pain when you run?",
+     "Femoral neck. Hip or [groin](ɡɹˈɔɪn) pain when you run?",
      "This one can break all the way through. Get it checked fast."
     ],
     "show": {
@@ -1337,19 +1314,17 @@
       {
        "part": "Femur.r",
        "from": {
-        "part": "Femur.r",
-        "at": [
-         0.72,
-         0.3,
-         0.965
+        "xyz": [
+         -0.09,
+         -0.022,
+         0.862
         ]
        },
        "to": {
-        "part": "Femur.r",
-        "at": [
-         0.72,
-         0.7,
-         0.965
+        "xyz": [
+         -0.104,
+         -0.022,
+         0.837
         ]
        },
        "steps": [
@@ -1359,8 +1334,8 @@
         2.7,
         3.5
        ],
-       "width": 0.0012,
-       "jag": 0.0005,
+       "width": 0.002,
+       "jag": 0.0012,
        "seed": 11
       }
      ],
@@ -1372,26 +1347,19 @@
       3.5
      ],
      "pin": {
-      "part": "Femur.r",
-      "at": [
-       0.72,
-       0.5,
-       0.965
+      "xyz": [
+       -0.097,
+       -0.022,
+       0.8494999999999999
       ]
      },
-     "zoom": 0.4,
+     "lit": [
+      "Femur.r"
+     ],
+     "zoom": 0.3,
      "chart_t": 4.0,
-     "frame": [
-      [
-       -0.25,
-       -0.1,
-       0.8
-      ],
-      [
-       0.0,
-       0.12,
-       1.1
-      ]
+     "ghost": [
+      "Hip bone.r"
      ]
     }
    }
@@ -1408,7 +1376,7 @@
    "note": "DM us your topic to be next",
    "from_line": 1
   },
-  "grid_title": "WHERE FATIGUE FRACTURES HIT",
+  "grid_title": "FATIGUE FRACTURES",
   "caption_first": "Designed by @kaja_lokna 🦴 You asked, we built it.",
   "caption_extra": "Want the next one? DM us your topic.",
   "why": "A stress (fatigue) fracture comes from repeated loading, not one big hit: bone constantly remodels, and when loading outpaces repair, microdamage builds into a crack (StatPearls). First described in marching soldiers in the mid-1800s as \"march foot\". The tibia is the most frequent site overall; in the foot the metatarsals (2nd and 3rd) are the most common and the calcaneus second (OrthoInfo). The navicular has a poor blood supply and a high risk of not healing; femoral neck stress fractures on the tension side carry the highest risk of breaking completely, so early detection matters (StatPearls). Risk rises with a sudden increase in activity, not eating enough for your training (REDs), and low bone strength. Pain builds with activity and eases with rest, with tenderness over one spot; early X-rays can look normal and MRI can show it. Most heal with rest and a slow, gradual return (OrthoInfo, StatPearls).",
