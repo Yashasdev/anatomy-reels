@@ -204,6 +204,8 @@ def _caption(q: dict) -> str:
 
 
 def youtube_title(q: dict) -> str:
+    if q.get("youtube_title"):  # set by the item when title + question would be cut off (fmt-types-15)
+        return f"{q['youtube_title'][:91]} #shorts"
     title = q["title"].rstrip("?!:. ")
     head = q["question"] if title.lower() in q["question"].lower() else f"{title}: {q['question']}"
     return f"{head[:91]} #shorts"

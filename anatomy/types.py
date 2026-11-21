@@ -747,7 +747,7 @@ def info(q: dict, seconds: float) -> dict:
     return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["script"][0]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
             "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"],
-            **{k: q[k] for k in ("caption_first", "caption_extra") if q.get(k)}}
+            **{k: q[k] for k in ("caption_first", "caption_extra", "youtube_title") if q.get(k)}}
 
 
 def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:
