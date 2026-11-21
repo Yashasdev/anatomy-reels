@@ -1,0 +1,794 @@
+[
+ {
+  "id": "fmt-types-16",
+  "scene": "parts",
+  "for": "Almost everyone: nearly every home has ibuprofen and acetaminophen, and most people think they're interchangeable. They send it to the friend who takes ibuprofen for everything (tease plus protect: the stomach and liver warnings), or to the family group chat that keeps a medicine drawer.",
+  "title": "6 things to know: ibuprofen vs acetaminophen",
+  "question": "Which one do you reach for first?",
+  "hook": "[Ibuprofen](aɪbjuːpɹˈoʊfən) and [acetaminophen](əsˌiːtəmˈɪnəfən) don't do the same thing.",
+  "intro": "6 things to know.",
+  "flash": [
+   "pill_ibu",
+   "pill_ace",
+   "ibuprofen",
+   "acetaminophen"
+  ],
+  "types": [
+   {
+    "name": "ibuprofen",
+    "label": "IBUPROFEN",
+    "chart": [
+     "Ibuprofen",
+     "pain, fever, swelling"
+    ],
+    "sound": "none",
+    "lines": [
+     "[Ibuprofen](aɪbjuːpɹˈoʊfən) is an [NSAID](ˈɛnsɛd), an anti-inflammatory.",
+     "It blocks the COX enzymes that make [prostaglandins](pɹˌɑːstəɡlˈændɪnz),",
+     "the signals behind pain, fever and swelling."
+    ],
+    "show": {
+     "model": "knee",
+     "parts": [
+      "Femur.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Patella.r",
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "smooth": [
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "orient": [
+      0,
+      0,
+      -40
+     ],
+     "frame": [
+      [
+       -0.14,
+       -0.02,
+       0.33
+      ],
+      [
+       -0.03,
+       0.07,
+       0.56
+      ]
+     ],
+     "hurt": [
+      "Medial meniscus.r",
+      "Lateral meniscus.r"
+     ],
+     "lit": [],
+     "pulse": 1.2,
+     "pin": {
+      "part": "Medial meniscus.r",
+      "at": [
+       0.5,
+       0.2,
+       0.8
+      ]
+     },
+     "zoom": 0.6,
+     "calm": {
+      "parts": [
+       "Medial meniscus.r",
+       "Lateral meniscus.r"
+      ],
+      "at": [
+       6.9,
+       8.4
+      ]
+     }
+    }
+   },
+   {
+    "name": "naproxen",
+    "label": "NAPROXEN",
+    "chart": [
+     "Naproxen",
+     "same job, lasts longer"
+    ],
+    "sound": "none",
+    "lines": [
+     "[Naproxen](nəpɹˈɑːksən). Same family, just lasts longer."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      40
+     ],
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.2
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Talus.r",
+        "Calcaneus.r",
+        "Navicular bone.r",
+        "Cuboid bone.r",
+        "Medial cuneiform bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "First metatarsal bone.r",
+        "Second metatarsal bone.r",
+        "Third metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Fifth metatarsal bone.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Distal phalanx of fifth finger of foot.r"
+       ],
+       "pivot": {
+        "part": "Talus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.6
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.18,
+         0,
+         -30,
+         0
+        ],
+        [
+         1.4,
+         0,
+         -28,
+         0
+        ],
+        [
+         2.4,
+         0,
+         -12,
+         0
+        ]
+       ]
+      }
+     ],
+     "bands": [
+      {
+       "name": "ATFL",
+       "from": {
+        "part": "Fibula.r",
+        "at": [
+         0.25,
+         0.1,
+         0.02
+        ]
+       },
+       "to": {
+        "part": "Talus.r",
+        "at": [
+         0.05,
+         0.12,
+         0.55
+        ]
+       },
+       "width": 0.008,
+       "thick": 0.003
+      }
+     ],
+     "lit": [
+      "ATFL"
+     ],
+     "hurt": [
+      "ATFL"
+     ],
+     "pin": {
+      "part": "ATFL",
+      "at": [
+       0.5,
+       0.5,
+       0.5
+      ]
+     },
+     "zoom": 0.42,
+     "chart_t": 1.0,
+     "chart_frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.15
+      ]
+     ],
+     "pulse": 0.8
+    }
+   },
+   {
+    "name": "aspirin",
+    "label": "ASPIRIN",
+    "chart": [
+     "Aspirin",
+     "also blocks platelets"
+    ],
+    "sound": "none",
+    "lines": [
+     "Aspirin. Also an [NSAID](ˈɛnsɛd), but it switches off platelets for good,",
+     "so blood clots less. Some heart patients take a low dose, on a doctor's advice.",
+     "Never give it to kids or teens with a virus.",
+     "It's linked to a rare but serious illness."
+    ],
+    "show": {
+     "model": "cells",
+     "parts": [
+      "O+ 1",
+      "O+ 1 Rh",
+      "A+ 2",
+      "A+ 2 A",
+      "A+ 2 Rh",
+      "B+ 3",
+      "B+ 3 B",
+      "B+ 3 Rh"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.12,
+       -0.04,
+       -0.1
+      ],
+      [
+       0.12,
+       0.04,
+       0.1
+      ]
+     ],
+     "blobs": [
+      {
+       "name": "Platelet 1",
+       "at": {
+        "xyz": [
+         -0.03,
+         -0.05,
+         0.05
+        ]
+       },
+       "size": [
+        0.011,
+        0.004,
+        0.008
+       ],
+       "kind": "nucleus",
+       "square": 0.3
+      },
+      {
+       "name": "Platelet 2",
+       "at": {
+        "xyz": [
+         0.0,
+         -0.05,
+         -0.06
+        ]
+       },
+       "size": [
+        0.011,
+        0.004,
+        0.008
+       ],
+       "kind": "nucleus",
+       "square": 0.3
+      },
+      {
+       "name": "Platelet 3",
+       "at": {
+        "xyz": [
+         -0.07,
+         -0.04,
+         -0.03
+        ]
+       },
+       "size": [
+        0.011,
+        0.004,
+        0.008
+       ],
+       "kind": "nucleus",
+       "square": 0.3
+      }
+     ],
+     "lit": [
+      "Platelet 1",
+      "Platelet 2",
+      "Platelet 3"
+     ],
+     "hurt": [],
+     "pin": {
+      "part": "Platelet 1",
+      "at": [
+       0.5,
+       0.5,
+       1.0
+      ]
+     },
+     "focus": {
+      "xyz": [
+       -0.03,
+       -0.05,
+       0.0
+      ]
+     },
+     "zoom": 0.7,
+     "calm": {
+      "parts": [
+       "Platelet 1",
+       "Platelet 2",
+       "Platelet 3"
+      ],
+      "at": [
+       1.5,
+       2.8
+      ],
+      "to": [
+       0.34,
+       0.35,
+       0.37
+      ]
+     }
+    }
+   },
+   {
+    "name": "stomach",
+    "label": "STOMACH",
+    "chart": [
+     "Stomach",
+     "NSAIDs can irritate it"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Stomach. [Prostaglandins](pɹˌɑːstəɡlˈændɪnz) also protect its lining, so [NSAIDs](ˈɛnsɛdz) can irritate it.",
+     "With heavy use or dehydration, they're hard on your kidneys too."
+    ],
+    "show": {
+     "model": "abdomen",
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "lit": [],
+     "hurt": [
+      "Stomach"
+     ],
+     "pulse": 1.0,
+     "pin": {
+      "part": "Stomach",
+      "at": [
+       0.6,
+       0.2,
+       0.6
+      ]
+     },
+     "zoom": 0.6
+    }
+   },
+   {
+    "name": "acetaminophen",
+    "label": "ACETAMINOPHEN",
+    "chart": [
+     "Acetaminophen",
+     "pain + fever only"
+    ],
+    "sound": "none",
+    "lines": [
+     "[Acetaminophen](əsˌiːtəmˈɪnəfən), or [paracetamol](pˌæɹəsˈiːtəmɑːl), eases pain and fever,",
+     "but does little for swelling. It works mostly in the brain and spinal cord.",
+     "Exactly how isn't fully understood. It's easier on the stomach."
+    ],
+    "show": {
+     "model": "brain",
+     "orient": [
+      0,
+      0,
+      30
+     ],
+     "lit": [
+      "Adenohypophysis",
+      "Amygdaloid body.l",
+      "Amygdaloid body.r",
+      "Angular gyrus.l",
+      "Angular gyrus.r",
+      "Anterior quadrangular lobule.l",
+      "Anterior quadrangular lobule.r",
+      "Biventral lobule.l",
+      "Biventral lobule.r",
+      "Caudate nucleus.l",
+      "Caudate nucleus.r",
+      "Central lobule",
+      "Cingulate gyrus (Posteroventral part*).l",
+      "Cingulate gyrus (Posteroventral part*).r",
+      "Cingulate gyrus and sulcus (Middle anterior part).l",
+      "Cingulate gyrus and sulcus (Middle anterior part).r",
+      "Cingulate gyrus and sulcus (Middle posterior part).l",
+      "Cingulate gyrus and sulcus (Middle posterior part).r",
+      "Cingulate gyrus and sulcus (Posterior dorsal part).l",
+      "Cingulate gyrus and sulcus (Posterior dorsal part).r",
+      "Corpus callosum",
+      "Culmen",
+      "Cuneus.l",
+      "Cuneus.r",
+      "Declive",
+      "Flocculus.l",
+      "Flocculus.r",
+      "Folium of vermis",
+      "Fornix.l",
+      "Fornix.r",
+      "Gracile lobule.l",
+      "Gracile lobule.r",
+      "Hippocampus.l",
+      "Hippocampus.r",
+      "Hypothalamus",
+      "Inferior colliculus.l",
+      "Inferior colliculus.r",
+      "Inferior occipital gyrus and sulcus*.l",
+      "Inferior occipital gyrus and sulcus*.r",
+      "Inferior semilunar lobule.l",
+      "Inferior semilunar lobule.r",
+      "Inferior temporal gyrus.l",
+      "Inferior temporal gyrus.r",
+      "Insula (Subcentral gyrus and ant. and post. sulci*).l",
+      "Insula (Subcentral gyrus and ant. and post. sulci*).r",
+      "Lateral occipital gyrus (Middle occipital gyrus*).l",
+      "Lateral occipital gyrus (Middle occipital gyrus*).r",
+      "Lateral occipitotemporal gyrus.l",
+      "Lateral occipitotemporal gyrus.r",
+      "Lingual gyrus.l",
+      "Lingual gyrus.r",
+      "Lingula of cerebellum",
+      "Medial occipitotemporal gyrus (Parahippocampal*).l",
+      "Medial occipitotemporal gyrus (Parahippocampal*).r",
+      "Medulla oblongata.l",
+      "Medulla oblongata.r",
+      "Midbrain.l",
+      "Midbrain.r",
+      "Middle frontal gyrus.l",
+      "Middle frontal gyrus.r",
+      "Middle temporal gyrus.l",
+      "Middle temporal gyrus.r",
+      "Neurohypophysis",
+      "Nodule of vermis",
+      "Occipital pole.l",
+      "Occipital pole.r",
+      "Opercular part of inferior frontal gyrus.l",
+      "Opercular part of inferior frontal gyrus.r",
+      "Optic chiasm.l",
+      "Optic chiasm.r",
+      "Orbital gyri (Frontomarginal gyrus and sulcus*).l",
+      "Orbital gyri (Frontomarginal gyrus and sulcus*).r",
+      "Orbital gyri.l",
+      "Orbital gyri.r",
+      "Orbital part of  inferior frontal gyrus.l",
+      "Orbital part of  inferior frontal gyrus.r",
+      "Paracentral gyrus and sulcus*.l",
+      "Paracentral gyrus and sulcus*.r",
+      "Pons.l",
+      "Pons.r",
+      "Postcentral gyrus.l",
+      "Postcentral gyrus.r",
+      "Posterior quadrangular lobule.l",
+      "Posterior quadrangular lobule.r",
+      "Precentral gyrus.l",
+      "Precentral gyrus.r",
+      "Precuneus.l",
+      "Precuneus.r",
+      "Putamen.l",
+      "Putamen.r",
+      "Pyramis of vermis",
+      "Straight gyrus (Gyrus rectus).l",
+      "Straight gyrus (Gyrus rectus).r",
+      "Superior colliculus.l",
+      "Superior colliculus.r",
+      "Superior frontal gyrus.l",
+      "Superior frontal gyrus.r",
+      "Superior occipital gyri.l",
+      "Superior occipital gyri.r",
+      "Superior parietal lobule.l",
+      "Superior parietal lobule.r",
+      "Superior semilunar lobule.l",
+      "Superior semilunar lobule.r",
+      "Superior temporal gyrus (Lateral part).l",
+      "Superior temporal gyrus (Lateral part).r",
+      "Supramarginal gyrus.l",
+      "Supramarginal gyrus.r",
+      "Temporal pole.l",
+      "Temporal pole.r",
+      "Thalamus.l",
+      "Thalamus.r",
+      "Tonsil of cerebellum.l",
+      "Tonsil of cerebellum.r",
+      "Transverse frontopolar gyrus and sulcus*.l",
+      "Transverse frontopolar gyrus and sulcus*.r",
+      "Transverse temporal gyri.l",
+      "Transverse temporal gyri.r",
+      "Triangular part of inferior frontal gyrus.l",
+      "Triangular part of inferior frontal gyrus.r",
+      "Tuber of vermis",
+      "Uvula of vermis",
+      "Wing of central lobule.l",
+      "Wing of central lobule.r"
+     ],
+     "pin": {
+      "part": "Thalamus.r",
+      "at": [
+       0.5,
+       0.2,
+       0.9
+      ]
+     },
+     "zoom": 0.7
+    }
+   },
+   {
+    "name": "liver",
+    "label": "LIVER",
+    "chart": [
+     "Liver",
+     "too much harms it"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Liver. Too much [acetaminophen](əsˌiːtəmˈɪnəfən) can seriously damage it.",
+     "It hides in lots of cold and flu combos, so people double up.",
+     "Follow the label, and ask a pharmacist or doctor if you're unsure."
+    ],
+    "show": {
+     "model": "abdomen",
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "lit": [],
+     "hurt": [
+      "Liver"
+     ],
+     "pulse": 0.7,
+     "pin": {
+      "part": "Liver",
+      "at": [
+       0.3,
+       0.2,
+       0.7
+      ]
+     },
+     "zoom": 0.6
+    }
+   }
+  ],
+  "outro": [
+   "Sprain or swelling? An anti-inflammatory can help the swelling too.",
+   "Stomach trouble or blood thinners? Ask a pharmacist first.",
+   "Which one do *you* reach for first?",
+   "Send this to the friend who takes [ibuprofen](aɪbjuːpɹˈoʊfən) for everything."
+  ],
+  "grid_title": "WHAT EACH ONE DOES",
+  "why": "Ibuprofen and naproxen are NSAIDs: they block the COX enzymes that make prostaglandins, which drive pain, fever and inflammation, so they ease all three. Naproxen lasts longer, so it's taken less often. Prostaglandins also protect the stomach lining, so NSAIDs can irritate it (and can cause ulcers or bleeding); with heavy or long-term use, or when you're dehydrated, they're hard on the kidneys. Aspirin is also an NSAID, but it blocks platelets' COX-1 for good (the rest of each platelet's life), so blood clots less; some heart patients take a low dose, only on a doctor's advice. Don't give aspirin to children or teenagers with a viral illness like flu or chickenpox: it's linked to Reye's syndrome, which is rare but serious. Acetaminophen (paracetamol) eases pain and fever but does little for swelling; it works mostly in the brain and spinal cord, and exactly how isn't fully understood. It's easier on the stomach, but too much can seriously damage the liver, and it's in many cold and flu combination products, so check every label to avoid doubling up. For a sprain or swelling, an anti-inflammatory can help the swelling too; with stomach problems or blood thinners, ask a pharmacist first. Follow the label, and ask a pharmacist or doctor if you're unsure.",
+  "hashtags": [
+   "#ibuprofen",
+   "#acetaminophen",
+   "#painkillers",
+   "#health",
+   "#anatomy"
+  ],
+  "sources": [
+   "https://medlineplus.gov/druginfo/meds/a682159.html",
+   "https://medlineplus.gov/druginfo/meds/a681029.html",
+   "https://medlineplus.gov/druginfo/meds/a681004.html",
+   "https://medlineplus.gov/druginfo/meds/a682878.html",
+   "https://www.ncbi.nlm.nih.gov/books/NBK547742/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK542299/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK525965/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK519032/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK482369/",
+   "https://pubmed.ncbi.nlm.nih.gov/10390124/",
+   "https://www.kidney.org/kidney-topics/pain-medicines-analgesics",
+   "https://www.nhs.uk/medicines/ibuprofen-for-adults/",
+   "https://www.nhs.uk/medicines/nsaids/",
+   "https://www.nhs.uk/medicines/paracetamol-for-adults/",
+   "https://www.nhs.uk/conditions/reyes-syndrome/",
+   "https://www.nhs.uk/conditions/sprains-and-strains/",
+   "https://www.fda.gov/drugs/safe-use-aspirin/aspirin-questions-and-answers",
+   "https://www.fda.gov/consumers/consumer-updates/dont-overuse-acetaminophen",
+   "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-201/subpart-G/section-201.314"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the friend who takes ibuprofen for everything 💊",
+  "music": "ambient-2",
+  "caption_extra": "Not medical advice. Follow the label; ask a pharmacist.",
+  "hook_shows": {
+   "pill_ibu": {
+    "label": "IBUPROFEN",
+    "show": {
+     "model": "pills",
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.03,
+       -0.01,
+       -0.026
+      ],
+      [
+       0.03,
+       0.01,
+       0.026
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tablet",
+        "Caplet"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         -14
+        ],
+        [
+         0.7,
+         0,
+         0,
+         -4
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "Tablet",
+      "at": [
+       0.5,
+       0.0,
+       0.9
+      ]
+     }
+    }
+   },
+   "pill_ace": {
+    "label": "ACETAMINOPHEN",
+    "show": {
+     "model": "pills",
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "frame": [
+      [
+       -0.03,
+       -0.01,
+       -0.026
+      ],
+      [
+       0.03,
+       0.01,
+       0.026
+      ]
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tablet",
+        "Caplet"
+       ],
+       "pivot": {
+        "xyz": [
+         0,
+         0,
+         0
+        ]
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         -4
+        ],
+        [
+         0.7,
+         0,
+         0,
+         6
+        ]
+       ]
+      }
+     ],
+     "pin": {
+      "part": "Caplet",
+      "at": [
+       0.5,
+       0.0,
+       0.9
+      ]
+     }
+    }
+   }
+  }
+ }
+]

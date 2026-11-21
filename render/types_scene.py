@@ -902,6 +902,46 @@ def _binit(self, name, s, tag):
 Show.__init__ = _binit
 # --- end breaks
 
+# --- pills (fmt-types-16 on): "model": "pills": no atlas file; two plain, unbranded pills built here, side by side
+#   on x: "Tablet" (a round tablet, x < 0) and "Caplet" (an oval caplet, x > 0), matte white, faces toward the camera
+#   (-y) and tipped back a little so their tops catch the light. anatomy/types.py leaves this block out of the 3D cache
+#   key when no show uses them.
+KINDS["pill"] = ((0.90, 0.89, 0.86), 0.72, 0.08)
+_kind_of_pills, _library_pills = kind_of, library
+
+
+def kind_of(name):
+    return "pill" if name in ("Tablet", "Caplet") else _kind_of_pills(name)
+
+
+def pill_mesh(name, centre, size, square):
+    """A rounded solid like blob_mesh's, but not linked to the scene (a library part, copied by fresh())."""
+    bm = bmesh.new()
+    bmesh.ops.create_uvsphere(bm, u_segments=64, v_segments=32, radius=1.0)
+    tip = Matrix.Rotation(math.radians(-28), 3, "X")  # tipped back: the top face shows
+    for v in bm.verts:
+        x, y, z = v.co
+        r = math.hypot(x, z)
+        if r > 1e-6:  # the sides pushed out toward a puck (faces look along y)
+            k = r ** (1 - 0.7 * square) / r
+            x, z = x * k, z * k
+        y = math.copysign(abs(y) ** (1 + 1.5 * square), y)
+        v.co = centre + tip @ Vector((x * size[0], y * size[1], z * size[2]))
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    return bpy.data.objects.new(name, me)
+
+
+def library(model):
+    if model == "pills":
+        if model not in LIB:
+            LIB[model] = {"Tablet": pill_mesh("Tablet", Vector((-0.0125, 0, 0)), (0.0085, 0.0032, 0.0085), 0.8),
+                          "Caplet": pill_mesh("Caplet", Vector((0.0135, 0, 0)), (0.0105, 0.0036, 0.0048), 0.62)}
+        return LIB[model]
+    return _library_pills(model)
+# --- end pills
+
 # --- cracks (fmt-types-15 on): a hairline that grows across a bone, a step at each impact (a stress fracture).
 #   "cracks": [{"part": name, "from": P, "to": P, "steps": [t, ...], "width": m, "jag": m, "seed": n}]
 # The line runs from "from" to "to" over the part's surface, zigzagging a little ("jag"); at each step time (seconds
@@ -1268,6 +1308,45 @@ for name, frames in poses.items():
             b.inputs["Emission Strength"].default_value = 0.2 + 1.1 * beat
             b.inputs["Emission Strength"].keyframe_insert("default_value", frame=k)
 # --- end pulse
+
+# --- calm (fmt-types-16 on): "calm": {"parts", "at": [t0, t1], "to": [r, g, b]} fades those parts' glow out between
+# event + t0 and + t1: red (hurt) parts settle back to their own colour (an inflamed joint calming down), and with "to"
+# the glow's colour turns to that one instead (platelets greying out). Runs after the pulse, so it calms that too.
+# anatomy/types.py leaves this block out of the 3D cache key when no show calms.
+for name, frames in poses.items():
+    sh = SHOWN[name]
+    c = sh.s.get("calm")
+    if not c:
+        continue
+    t0, t1 = c["at"]
+    hz = sh.s.get("pulse")
+    for k in sorted(frames):
+        te = frames[k]
+        if te < t0 - 0.1:
+            continue
+        a = ease((te - t0) / max(1e-3, t1 - t0)) if te > t0 else 0.0
+        for n in c["parts"]:
+            m = sh.mats[n]
+            mix = m.node_tree.nodes[m["mix"]]
+            b = m.node_tree.nodes["Principled BSDF"]
+            hurt = n in sh.hurt
+            f = min(1.0, max(0.0, (te - 0.05) / 0.3)) if hurt else 1.0
+            if hurt and hz and te >= 0.35:
+                e = 0.2 + 1.1 * (0.5 + 0.5 * math.cos(2 * math.pi * hz * (te - 0.35)))
+            elif hurt:
+                e = (0.35 if n in sh.lit else 0.0) * (1 - f) + 0.6 * f
+            else:
+                e = 0.35
+            if c.get("to"):
+                rgb = HURT if hurt else LIT
+                mix.inputs["B"].default_value = (*[x + (y - x) * a for x, y in zip(rgb, c["to"])], 1)
+                mix.inputs["B"].keyframe_insert("default_value", frame=k)
+            else:
+                mix.inputs["Factor"].default_value = f * (1 - a)
+                mix.inputs["Factor"].keyframe_insert("default_value", frame=k)
+            b.inputs["Emission Strength"].default_value = e * (1 - a)
+            b.inputs["Emission Strength"].keyframe_insert("default_value", frame=k)
+# --- end calm
 
 for k in range(TOTAL):
     vis = shown.get(k, set())

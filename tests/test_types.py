@@ -37,7 +37,7 @@ def test_item(q):
     assert len(set(names)) == len(names), "each type once"
     if q.get("scene") != "parts":
         assert set(names) <= BUILT, "a type the fracture script builds"
-    assert set(q["flash"]) <= set(names) and 4 <= len(q["flash"]) <= 6 or \
+    assert set(q["flash"]) <= set(names) | set(q.get("hook_shows", {})) and 4 <= len(q["flash"]) <= 6 or \
         q["id"] == "fmt-types-12" and len(q["flash"]) == 3 or \
         q.get("flash_single") and len(q["flash"]) == 1 and q["flash"][0] in names  # one shot (fmt-types-15)
     assert len(names) <= 11, "the closing chart has 11 places (rows of 4, 4 and 3)"
@@ -120,7 +120,7 @@ def test_parts_items_use_the_generic_scene_and_the_fracture_keeps_its_own():
                     "frames": 10, "timeline": []}, "exactly the spec the published video was rendered with"
     for q in PARTS_ITEMS:
         script, spec = types.scene_for(q, [], 10, Path("/tmp/x"), 1080, 1920, 32)
-        assert script.name == "types_scene.py" and list(spec["shows"]) == [t["name"] for t in q["types"]]
+        assert script.name == "types_scene.py" and list(spec["shows"]) == [t["name"] for t in q["types"]] + list(q.get("hook_shows", {}))
 
 
 def test_the_fracture_video_is_unchanged():
@@ -219,3 +219,18 @@ def test_new_labels_stay_clear_of_tall_phone_crops(label):
             (ex, ey), side = types.place_label(cover, pin, w, 1.0)
             t0, t1 = (ex + 6, ex + 6 + w) if side > 0 else (ex - 6 - w, ex - 6)
             assert types.LABEL_X[0] <= t0 and t1 <= types.LABEL_X[1]
+
+
+def test_hook_shows_are_pills_with_labels_that_fit():
+    """fmt-types-16's hook: two plain pills (built in types_scene.py), each shot labelled, both named in the montage."""
+    for q in ITEMS:
+        for n, h in q.get("hook_shows", {}).items():
+            assert n in q["flash"] and n not in {t["name"] for t in q["types"]}
+            assert h["show"]["model"] == "pills" and h["show"]["pin"]["part"] in ("Tablet", "Caplet")
+            assert d.textlength(h["label"], font=types.LABEL(70)) < 480
+
+
+def test_new_scene_blocks_stay_out_of_older_videos_keys():
+    text = (ROOT / "render" / "types_scene.py").read_text()
+    for block in ("pills", "calm"):
+        assert re.search(rf"# --- {block} .*?# --- end {block}\n\n", text, re.S)
