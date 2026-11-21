@@ -1,0 +1,1401 @@
+[
+ {
+  "id": "fmt-types-15",
+  "scene": "parts",
+  "series": "designed by a follower",
+  "for": "Runners, dancers, recruits and anyone who upped their training fast: it names the pain they might be ignoring. First of the follower series (requested by Instagram follower @kaja_lokna), so followers send in topics and the requester shares it.",
+  "title": "Designed by a follower #1: fatigue fractures, the 5 spots they hit",
+  "question": "Have you ever had a stress fracture?",
+  "hook": "This bone can break without you ever falling.",
+  "intro": "It's a stress fracture. Here are 5 places it hits.",
+  "flash": [
+   "meta"
+  ],
+  "flash_single": true,
+  "flash_close": true,
+  "types": [
+   {
+    "name": "meta",
+    "label": "METATARSALS",
+    "chart": [
+     "Metatarsals",
+     "the march fracture"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Metatarsals. Every step loads these foot bones.",
+     "Bone repairs itself. Add load too fast, and the damage wins.",
+     "A crack. Soldiers got it in the 1800s: the march fracture."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r"
+     ],
+     "orient": [
+      90,
+      0,
+      0
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Calcaneus.r",
+        "Cuboid bone.r",
+        "Distal phalanx of fifth finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Fifth metatarsal bone.r",
+        "First metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "Medial cuneiform bone.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Navicular bone.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Second metatarsal bone.r",
+        "Talus.r",
+        "Third metatarsal bone.r"
+       ],
+       "pivot": {
+        "part": "Second metatarsal bone.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         0.44,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.05,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.1,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         1.2400000000000002,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.8499999999999999,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.9,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.04,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.6500000000000004,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.8400000000000003,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.45,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.5,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "cracks": [
+      {
+       "part": "Second metatarsal bone.r",
+       "from": {
+        "part": "Second metatarsal bone.r",
+        "at": [
+         0.0,
+         0.45,
+         0.6
+        ]
+       },
+       "to": {
+        "part": "Second metatarsal bone.r",
+        "at": [
+         1.0,
+         0.5,
+         0.65
+        ]
+       },
+       "steps": [
+        0.3,
+        1.1,
+        1.9,
+        2.7,
+        3.5
+       ],
+       "width": 0.0011,
+       "jag": 0.0005,
+       "seed": 3
+      }
+     ],
+     "impacts": [
+      0.3,
+      1.1,
+      1.9,
+      2.7,
+      3.5
+     ],
+     "pin": {
+      "part": "Second metatarsal bone.r",
+      "at": [
+       0.5,
+       0.475,
+       0.625
+      ]
+     },
+     "lit": [
+      "Second metatarsal bone.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0
+    }
+   },
+   {
+    "name": "tibia",
+    "label": "TIBIA",
+    "chart": [
+     "Tibia",
+     "the most common"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Tibia. Your shin is the most common spot of all.",
+     "A sudden jump in training, or not eating enough for it, raises the risk."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Tibia.r",
+      "Fibula.r",
+      "Talus.r"
+     ],
+     "orient": [
+      0,
+      0,
+      30
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Tibia.r",
+        "Fibula.r",
+        "Talus.r"
+       ],
+       "pivot": {
+        "part": "Tibia.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         0.44,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.05,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.1,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         1.2400000000000002,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.8499999999999999,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.9,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.04,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.6500000000000004,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.8400000000000003,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.45,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.5,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "cracks": [
+      {
+       "part": "Tibia.r",
+       "from": {
+        "xyz": [
+         -0.093,
+         0.011,
+         0.19
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.065,
+         0.019,
+         0.199
+        ]
+       },
+       "steps": [
+        0.3,
+        1.1,
+        1.9,
+        2.7,
+        3.5
+       ],
+       "width": 0.0014,
+       "jag": 0.0006,
+       "seed": 5
+      }
+     ],
+     "impacts": [
+      0.3,
+      1.1,
+      1.9,
+      2.7,
+      3.5
+     ],
+     "pin": {
+      "xyz": [
+       -0.079,
+       0.015,
+       0.1945
+      ]
+     },
+     "lit": [
+      "Tibia.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0
+    }
+   },
+   {
+    "name": "heel",
+    "label": "CALCANEUS",
+    "chart": [
+     "Calcaneus",
+     "the heel"
+    ],
+    "sound": "thud",
+    "lines": [
+     "[Calcaneus](kælkˈeɪniəs). The heel bone, the foot's second most common spot.",
+     "Runners and dancers get it. Pain builds as you train and eases with rest."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fibula.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r",
+      "Tibia.r"
+     ],
+     "orient": [
+      0,
+      0,
+      95
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Calcaneus.r",
+        "Cuboid bone.r",
+        "Distal phalanx of fifth finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Fibula.r",
+        "Fifth metatarsal bone.r",
+        "First metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "Medial cuneiform bone.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Navicular bone.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Second metatarsal bone.r",
+        "Talus.r",
+        "Third metatarsal bone.r",
+        "Tibia.r"
+       ],
+       "pivot": {
+        "part": "Calcaneus.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         0.44,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.05,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.1,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         1.2400000000000002,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.8499999999999999,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.9,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.04,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.6500000000000004,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.8400000000000003,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.45,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.5,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "cracks": [
+      {
+       "part": "Calcaneus.r",
+       "from": {
+        "part": "Calcaneus.r",
+        "at": [
+         0.0,
+         0.8,
+         0.95
+        ]
+       },
+       "to": {
+        "part": "Calcaneus.r",
+        "at": [
+         0.0,
+         0.7,
+         0.1
+        ]
+       },
+       "steps": [
+        0.3,
+        1.1,
+        1.9,
+        2.7,
+        3.5
+       ],
+       "width": 0.0016,
+       "jag": 0.0012,
+       "seed": 7
+      }
+     ],
+     "impacts": [
+      0.3,
+      1.1,
+      1.9,
+      2.7,
+      3.5
+     ],
+     "pin": {
+      "part": "Calcaneus.r",
+      "at": [
+       0.0,
+       0.75,
+       0.525
+      ]
+     },
+     "lit": [
+      "Calcaneus.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0,
+     "frame": [
+      [
+       -0.15,
+       -0.135,
+       0.0
+      ],
+      [
+       -0.03,
+       0.095,
+       0.3
+      ]
+     ]
+    }
+   },
+   {
+    "name": "navicular",
+    "label": "NAVICULAR",
+    "chart": [
+     "Navicular",
+     "poor blood supply"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Navicular. Its blood supply is poor, so it can fail to heal.",
+     "Early X-rays can look normal. An MRI can show it."
+    ],
+    "show": {
+     "model": "leg",
+     "parts": [
+      "Calcaneus.r",
+      "Cuboid bone.r",
+      "Distal phalanx of fifth finger of foot.r",
+      "Distal phalanx of first finger of foot.r",
+      "Distal phalanx of fourth finger of foot.r",
+      "Distal phalanx of second finger of foot.r",
+      "Distal phalanx of third finger of foot.r",
+      "Fifth metatarsal bone.r",
+      "First metatarsal bone.r",
+      "Fourth metatarsal bone.r",
+      "Intermediate cuneiform bone.r",
+      "Lateral cuneiform bone.r",
+      "Medial cuneiform bone.r",
+      "Middle phalanx of fourth finger of foot.r",
+      "Middle phalanx of second finger of foot.r",
+      "Middle phalanx of third finger of foot.r",
+      "Navicular bone.r",
+      "Proximal phalanx of fifth finger of foot.r",
+      "Proximal phalanx of first finger of foot.r",
+      "Proximal phalanx of fourth finger of foot.r",
+      "Proximal phalanx of second finger of foot.r",
+      "Proximal phalanx of third finger of foot.r",
+      "Second metatarsal bone.r",
+      "Talus.r",
+      "Third metatarsal bone.r"
+     ],
+     "orient": [
+      90,
+      0,
+      0
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Calcaneus.r",
+        "Cuboid bone.r",
+        "Distal phalanx of fifth finger of foot.r",
+        "Distal phalanx of first finger of foot.r",
+        "Distal phalanx of fourth finger of foot.r",
+        "Distal phalanx of second finger of foot.r",
+        "Distal phalanx of third finger of foot.r",
+        "Fifth metatarsal bone.r",
+        "First metatarsal bone.r",
+        "Fourth metatarsal bone.r",
+        "Intermediate cuneiform bone.r",
+        "Lateral cuneiform bone.r",
+        "Medial cuneiform bone.r",
+        "Middle phalanx of fourth finger of foot.r",
+        "Middle phalanx of second finger of foot.r",
+        "Middle phalanx of third finger of foot.r",
+        "Navicular bone.r",
+        "Proximal phalanx of fifth finger of foot.r",
+        "Proximal phalanx of first finger of foot.r",
+        "Proximal phalanx of fourth finger of foot.r",
+        "Proximal phalanx of second finger of foot.r",
+        "Proximal phalanx of third finger of foot.r",
+        "Second metatarsal bone.r",
+        "Talus.r",
+        "Third metatarsal bone.r"
+       ],
+       "pivot": {
+        "part": "Navicular bone.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         0.44,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.05,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.1,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         1.2400000000000002,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.8499999999999999,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.9,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.04,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.6500000000000004,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.8400000000000003,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.45,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.5,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "cracks": [
+      {
+       "part": "Navicular bone.r",
+       "from": {
+        "part": "Navicular bone.r",
+        "at": [
+         0.45,
+         0.0,
+         1.0
+        ]
+       },
+       "to": {
+        "part": "Navicular bone.r",
+        "at": [
+         0.55,
+         1.0,
+         0.95
+        ]
+       },
+       "steps": [
+        0.3,
+        1.1,
+        1.9,
+        2.7,
+        3.5
+       ],
+       "width": 0.0013,
+       "jag": 0.0008,
+       "seed": 9
+      }
+     ],
+     "impacts": [
+      0.3,
+      1.1,
+      1.9,
+      2.7,
+      3.5
+     ],
+     "pin": {
+      "part": "Navicular bone.r",
+      "at": [
+       0.5,
+       0.5,
+       0.975
+      ]
+     },
+     "lit": [
+      "Navicular bone.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0
+    }
+   },
+   {
+    "name": "femoral",
+    "label": "FEMORAL NECK",
+    "chart": [
+     "Femoral neck",
+     "the serious one"
+    ],
+    "sound": "thud",
+    "lines": [
+     "Femoral neck. Hip or [groin](ɡɹˈɔɪn) pain when you run?",
+     "This one can break all the way through. Get it checked fast."
+    ],
+    "show": {
+     "model": "thigh",
+     "parts": [
+      "Femur.r",
+      "Hip bone.r"
+     ],
+     "orient": [
+      0,
+      0,
+      0
+     ],
+     "moves": [
+      {
+       "parts": [
+        "Femur.r",
+        "Hip bone.r"
+       ],
+       "pivot": {
+        "part": "Femur.r",
+        "at": [
+         0.5,
+         0.5,
+         0.5
+        ],
+        "snap": false
+       },
+       "keys": [
+        [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         0.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         0.44,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.05,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.1,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         1.2400000000000002,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.8499999999999999,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         1.9,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.04,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.6500000000000004,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         2.7,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         2.8400000000000003,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.45,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         3.5,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0025
+        ],
+        [
+         3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ]
+       ]
+      }
+     ],
+     "cracks": [
+      {
+       "part": "Femur.r",
+       "from": {
+        "xyz": [
+         -0.09,
+         -0.022,
+         0.862
+        ]
+       },
+       "to": {
+        "xyz": [
+         -0.104,
+         -0.022,
+         0.837
+        ]
+       },
+       "steps": [
+        0.3,
+        1.1,
+        1.9,
+        2.7,
+        3.5
+       ],
+       "width": 0.002,
+       "jag": 0.0012,
+       "seed": 11
+      }
+     ],
+     "impacts": [
+      0.3,
+      1.1,
+      1.9,
+      2.7,
+      3.5
+     ],
+     "pin": {
+      "xyz": [
+       -0.097,
+       -0.022,
+       0.8494999999999999
+      ]
+     },
+     "lit": [
+      "Femur.r"
+     ],
+     "zoom": 0.3,
+     "chart_t": 4.0,
+     "ghost": [
+      "Hip bone.r"
+     ]
+    }
+   }
+  ],
+  "outro": [
+   "Most stress fractures heal with rest, then a slow return.",
+   "This video was designed by a follower.",
+   "Design the next one: DM us the anatomy topic you want,",
+   "follow, and yours could be next."
+  ],
+  "credit_card": {
+   "label": "DESIGNED BY A FOLLOWER",
+   "handle": "@kaja_lokna",
+   "note": "DM us your topic to be next",
+   "from_line": 1
+  },
+  "grid_title": "FATIGUE FRACTURES",
+  "caption_first": "Designed by @kaja_lokna 🦴 You asked, we built it.",
+  "caption_extra": "Want the next one? DM us your topic.",
+  "youtube_title": "Designed by a follower #1: fatigue fractures. Have you ever had one?",
+  "why": "A stress (fatigue) fracture comes from repeated loading, not one big hit: bone constantly remodels, and when loading outpaces repair, microdamage builds into a crack (StatPearls). First described in marching soldiers in the mid-1800s as \"march foot\". The tibia is the most frequent site overall; in the foot the metatarsals (2nd and 3rd) are the most common and the calcaneus second (OrthoInfo). The navicular has a poor blood supply and a high risk of not healing; femoral neck stress fractures on the tension side carry the highest risk of breaking completely, so early detection matters (StatPearls). Risk rises with a sudden increase in activity, not eating enough for your training (REDs), and low bone strength. Pain builds with activity and eases with rest, with tenderness over one spot; early X-rays can look normal and MRI can show it. Most heal with rest and a slow, gradual return (OrthoInfo, StatPearls).",
+  "hashtags": [
+   "#stressfracture",
+   "#anatomy",
+   "#running",
+   "#physicaltherapy",
+   "#sportsmedicine"
+  ],
+  "sources": [
+   "https://pubmed.ncbi.nlm.nih.gov/29939612/",
+   "https://pubmed.ncbi.nlm.nih.gov/32119425/",
+   "https://www.orthoinfo.org/en/diseases--conditions/stress-fractures/",
+   "https://www.orthoinfo.org/en/diseases--conditions/stress-fractures-of-the-foot-and-ankle/",
+   "https://pubmed.ncbi.nlm.nih.gov/37752011/"
+  ],
+  "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
+  "send": "Send this to the runner who just doubled their mileage 🏃"
+ }
+]

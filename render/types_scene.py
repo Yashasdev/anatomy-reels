@@ -748,6 +748,79 @@ def _pose(self, t_event, k=None):
 Show.__init__, Show.visible, Show.pose = _init, _visible, _pose
 # --- end extras
 
+# --- cracks (fmt-types-15 on): a hairline that grows across a bone, a step at each impact (a stress fracture).
+#   "cracks": [{"part": name, "from": P, "to": P, "steps": [t, ...], "width": m, "jag": m, "seed": n}]
+# The line runs from "from" to "to" over the part's surface, zigzagging a little ("jag"); at each step time (seconds
+# after the event) the next stretch of it appears, so it creeps further with every impact. anatomy/types.py leaves
+# this block out of the 3D cache key when no show has cracks.
+import random  # noqa: E402
+
+from mathutils.bvhtree import BVHTree  # noqa: E402
+
+CRACK = material("crack", (0.16, 0.015, 0.012), 0.6)
+_b = CRACK.node_tree.nodes["Principled BSDF"]
+_b.inputs["Emission Color"].default_value = (0.75, 0.03, 0.02, 1)
+_b.inputs["Emission Strength"].default_value = 0.9
+_crack_init, _crack_visible = Show.__init__, Show.visible
+
+
+def crack_pieces(sh, c, tag):
+    """The crack's stretches (one mesh per step), each a thin ribbon lying on the part's surface."""
+    o = sh.parts[c["part"]]
+    me = o.data
+    tree = BVHTree.FromPolygons([v.co for v in me.vertices], [tuple(f.vertices) for f in me.polygons])
+    (pa, _), (pb, _) = sh.point(c["from"]), sh.point(c["to"])
+    steps = c["steps"]
+    n = 18 * len(steps)
+    rnd = random.Random(c.get("seed", 3))
+    pts = []
+    for i in range(n + 1):
+        f = i / n
+        q = pa.lerp(pb, f)
+        if 0 < i < n:
+            q = q + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1))) * c.get("jag", 0.0006)
+        hit, nrm, _, _ = tree.find_nearest(q)
+        pts.append((hit, nrm))
+    w0 = c.get("width", 0.0007)
+    pieces = []
+    for j in range(len(steps)):
+        bm = bmesh.new()
+        lo, hi = j * 18, (j + 1) * 18
+        prev = None
+        for i in range(lo, hi + 1):
+            p, nrm = pts[i]
+            tan = (pts[min(i + 1, n)][0] - pts[max(i - 1, 0)][0]).normalized()
+            side = nrm.cross(tan).normalized()
+            w = w0 * (0.35 + 0.65 * math.sin(math.pi * min(1.0, max(0.0, i / n))) ** 0.5)
+            lift = nrm * 0.00025
+            ring = (bm.verts.new(p + lift - side * w), bm.verts.new(p + lift + side * w))
+            if prev:
+                bm.faces.new((prev[0], prev[1], ring[1], ring[0]))
+            prev = ring
+        mesh = bpy.data.meshes.new(f"{tag}:crack{j}")
+        bm.to_mesh(mesh)
+        bm.free()
+        mesh.materials.append(CRACK)
+        piece = bpy.data.objects.new(f"{tag}:crack{j}", mesh)
+        scene.collection.objects.link(piece)
+        sh.attach(piece, sh.group_of[c["part"]])
+        sh.objs.append(piece)
+        pieces.append((steps[j], piece))
+    return pieces
+
+
+def _cinit(self, name, s, tag):
+    _crack_init(self, name, s, tag)
+    self.crack_bits = [bit for c in s.get("cracks", []) for bit in crack_pieces(self, c, tag)]
+
+
+def _cvisible(self, t_event):
+    return _crack_visible(self, t_event) + [o for t, o in self.crack_bits if t_event >= t]
+
+
+Show.__init__, Show.visible = _cinit, _cvisible
+# --- end cracks
+
 SHOWN = {n: Show(n, s, n) for n, s in SHOWS.items()}
 
 
@@ -840,7 +913,7 @@ cams, pivots, pins = {}, {}, {}
 for seg in TL:
     a, b = F(seg["start"]), F(seg["end"])
     if seg["kind"] == "flash":  # the hook: every type's event, fast, one after another
-        names = seg["types"]
+        names = seg["types"][:1] if seg.get("single") else seg["types"]
         step = (b - a) / len(names)
         for i, n in enumerate(names):
             fa, fb = a + int(i * step), a + int((i + 1) * step)
@@ -981,8 +1054,9 @@ rng = random.Random(9)
 for seg in TL:
     a, b = F(seg["start"]), F(seg["end"])
     if seg["kind"] == "flash":
-        step = (b - a) / len(seg["types"])
-        for i, n in enumerate(seg["types"]):
+        names = seg["types"][:1] if seg.get("single") else seg["types"]
+        step = (b - a) / len(names)
+        for i, n in enumerate(names):
             sh = SHOWN[n]
             fa, fb = a + int(i * step), a + int((i + 1) * step)
             last = max((mv["keys"][-1][0] for mv in sh.moves), default=0.4)

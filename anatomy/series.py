@@ -185,7 +185,8 @@ def caption(q: dict) -> str:
 def _caption(q: dict) -> str:
     if q.get("format") == "types":  # a breakdown (anatomy/types.py): no choices, the comment prompt is the question
         tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]
-        return (f"{q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
+        return (f"{q.get('caption_first') or q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
+                (f"{q['caption_extra']}\n" if q.get("caption_extra") else "") +
                 f"{FOLLOW['formats']}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
                 + q["why"] + "\nFor learning only, not medical advice.\n" + f"{q.get('credit') or CONFIG['credit']}.")
     choices = "\n".join(f"{'ABCD'[k]}) {c}" for k, c in enumerate(q["choices"]))
@@ -203,6 +204,8 @@ def _caption(q: dict) -> str:
 
 
 def youtube_title(q: dict) -> str:
+    if q.get("youtube_title"):  # set by the item when title + question would be cut off (fmt-types-15)
+        return f"{q['youtube_title'][:91]} #shorts"
     title = q["title"].rstrip("?!:. ")
     head = q["question"] if title.lower() in q["question"].lower() else f"{title}: {q['question']}"
     return f"{head[:91]} #shorts"
