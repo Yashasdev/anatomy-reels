@@ -748,6 +748,159 @@ def _pose(self, t_event, k=None):
 Show.__init__, Show.visible, Show.pose = _init, _visible, _pose
 # --- end extras
 
+# --- breaks (fmt-types-15 on): a tear with "jagged": amp breaks the part the way the fracture video breaks its femur
+# (render/fracture_scene.py): a boolean cut along a jagged surface, the cut faces pink spongy marrow with an ivory
+# shell near the bone's surface, the halves pushed apart; "chips" bursts bone chips as before. anatomy/types.py leaves
+# this block out of the 3D cache key when no tear is jagged.
+from mathutils import noise  # noqa: E402
+
+MARROW = material("marrow", (0.80, 0.36, 0.30), 0.8)
+_nt = MARROW.node_tree
+_tc = _nt.nodes.new("ShaderNodeTexCoord")
+_vor = _nt.nodes.new("ShaderNodeTexVoronoi")
+_vor.inputs["Scale"].default_value = 650
+_nt.links.new(_tc.outputs["Object"], _vor.inputs["Vector"])
+_bump = _nt.nodes.new("ShaderNodeBump")
+_bump.inputs["Strength"].default_value = 0.35
+_nt.links.new(_vor.outputs["Distance"], _bump.inputs["Height"])
+_nt.links.new(_bump.outputs["Normal"], _nt.nodes["Principled BSDF"].inputs["Normal"])
+_mix = _nt.nodes.new("ShaderNodeMix")  # dark red pits in the pink spongy bone
+_mix.data_type = "RGBA"
+_mix.inputs["A"].default_value = (0.82, 0.38, 0.32, 1)
+_mix.inputs["B"].default_value = (0.45, 0.07, 0.06, 1)
+_ramp = _nt.nodes.new("ShaderNodeMapRange")
+_ramp.inputs["From Min"].default_value, _ramp.inputs["From Max"].default_value = 0.30, 0.0
+_nt.links.new(_vor.outputs["Distance"], _ramp.inputs["Value"])
+_nt.links.new(_ramp.outputs["Result"], _mix.inputs["Factor"])
+_depth = _nt.nodes.new("ShaderNodeAttribute")  # within the shell thickness of the surface the cut face is ivory
+_depth.attribute_name = "depth"
+_rim = _nt.nodes.new("ShaderNodeMapRange")
+_rim.inputs["From Min"].default_value, _rim.inputs["From Max"].default_value = 0.0012, 0.0024
+_shell = _nt.nodes.new("ShaderNodeMix")
+_shell.data_type = "RGBA"
+_shell.inputs["A"].default_value = (0.76, 0.71, 0.62, 1)
+_nt.links.new(_depth.outputs["Fac"], _rim.inputs["Value"])
+_nt.links.new(_rim.outputs["Result"], _shell.inputs["Factor"])
+_nt.links.new(_mix.outputs["Result"], _shell.inputs["B"])
+_nt.links.new(_shell.outputs["Result"], _nt.nodes["Principled BSDF"].inputs["Base Color"])
+
+
+def _jag(x, y, amp, seed, freq=110.0):
+    v = Vector((x * freq + seed * 7.1, y * freq - seed * 3.3, seed * 1.7))
+    return amp * (noise.noise(v) + 0.5 * noise.noise(v * 2.7) + 0.25 * noise.noise(v * 6.1))
+
+
+def jagged_cutter(name, point, normal, amp, seed, r, far, shell):
+    """The half-space on the normal's far side of a jagged surface through point (fracture_scene's halfspace), with
+    the jag scaled to this model's size (`shell`: body metres per metre of the fracture video's femur). The grid is
+    fine across the bone's cross-section (radius r) and coarse out to `far`, so the whole part is always cut."""
+    n = normal.normalized()
+    u = n.orthogonal().normalized()
+    v = n.cross(u)
+    frame = Matrix((u, v, n)).transposed()
+    k = 140
+    xs = [-far, -far / 3, -r * 1.6] + [-r + 2 * r * i / k for i in range(k + 1)] + [r * 1.6, far / 3, far]
+    k = len(xs) - 1
+    bm = bmesh.new()
+    def grid(z):
+        return [[bm.verts.new(point + frame @ Vector((x, y, z(x, y)))) for y in xs] for x in xs]
+    taper = lambda x, y: max(0.0, 1 - max(0.0, max(abs(x), abs(y)) - r) / (0.6 * r))  # noqa: E731
+    T = grid(lambda x, y: _jag(x / shell, y / shell, amp, seed) * taper(x, y))
+    B = grid(lambda x, y: -far)
+    for i in range(k):
+        for j in range(k):
+            bm.faces.new((T[i][j], T[i + 1][j], T[i + 1][j + 1], T[i][j + 1]))
+            bm.faces.new((B[i][j], B[i][j + 1], B[i + 1][j + 1], B[i + 1][j]))
+    edge = [(i, 0) for i in range(k)] + [(k, j) for j in range(k)] + [(i, k) for i in range(k, 0, -1)] + \
+           [(0, j) for j in range(k, 0, -1)]
+    for e, a in enumerate(edge):
+        b = edge[(e + 1) % len(edge)]
+        bm.faces.new((T[a[0]][a[1]], B[a[0]][a[1]], B[b[0]][b[1]], T[b[0]][b[1]]))
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    me.materials.append(MARROW)
+    o = bpy.data.objects.new(name, me)
+    scene.collection.objects.link(o)
+    o.hide_render = True
+    return o
+
+
+def jagged_halves(o, point, normal, amp, seed, shell):
+    """o broken in two along a jagged surface, the cut faces marrow with an ivory shell, like the fracture video."""
+    vs = [v.co for v in o.data.vertices]
+    tree = kdtree.KDTree(len(vs))
+    for i, v in enumerate(vs):
+        tree.insert(v, i)
+    tree.balance()
+    n = normal.normalized()
+    far = 2 * max((max(v[i] for v in vs) - min(v[i] for v in vs)) for i in range(3))
+    slab = [v for v in vs if abs((v - point).dot(n)) < 0.004 and (v - point).length < 0.06]
+    r = 1.3 * max([((v - point) - n * (v - point).dot(n)).length for v in slab] or [0.02])
+    cutter = jagged_cutter(o.name + ":cut", point, normal, amp, seed, r, far, shell)
+    halves = []
+    for op in ("INTERSECT", "DIFFERENCE"):
+        h = bpy.data.objects.new(o.name + (":a" if op == "INTERSECT" else ":b"), o.data.copy())
+        scene.collection.objects.link(h)
+        m = h.modifiers.new("cut", "BOOLEAN")
+        m.object, m.operation, m.solver = cutter, op, "EXACT"
+        m.material_mode = "TRANSFER"
+        dg = bpy.context.evaluated_depsgraph_get()
+        me = bpy.data.meshes.new_from_object(h.evaluated_get(dg))
+        h.modifiers.clear()
+        h.data = me
+        depth = me.attributes.get("depth") or me.attributes.new("depth", "FLOAT", "POINT")
+        depth.data.foreach_set("value", [tree.find(v.co)[2] / shell for v in me.vertices])
+        for p_ in me.polygons:
+            p_.use_smooth = True
+        halves.append(h)
+    bpy.data.objects.remove(cutter)
+    return halves  # the far side of the normal first, as split() gives the near (+) side first
+
+
+_break_init = Show.__init__
+
+
+def _binit(self, name, s, tag):
+    jagged = [t for t in s.get("tears", []) if t.get("jagged")]
+    if not jagged:
+        return _break_init(self, name, s, tag)
+    _break_init(self, name, {**s, "tears": [t for t in s["tears"] if not t.get("jagged")]}, tag)
+    self.s = json.loads(json.dumps(s))
+    plain = iter(self.tears)
+    tears = []
+    shell = (H0 / 0.45) / self.scale  # body metres per metre of the fracture video (its femur is 0.45 m on screen)
+    for t in s["tears"]:
+        if not t.get("jagged"):
+            tears.append(next(plain))
+            continue
+        o = self.parts[t["part"]]
+        p = self.point(t["at"])[0]
+        nrm = Vector(t["normal"]).normalized()
+        b, a = jagged_halves(o, p, nrm, t["jagged"] * shell, t.get("seed", 4), shell)
+        ga, gb = t.get("groups", [self.group_of[t["part"]]] * 2)
+        pieces = []
+        for h, sign, g in zip((a, b), (1, -1), (ga, gb)):
+            mats = list(h.data.materials)
+            for i, m in enumerate(mats):  # the outside keeps the part's own (lit/hurt) material
+                if m and m.name.startswith("marrow"):
+                    continue
+                h.data.materials[i] = self.mats[t["part"]]
+            rec = bpy.data.objects.new(h.name + ":recoil", None)
+            scene.collection.objects.link(rec)
+            rec.parent = self.groups[g]
+            rec.matrix_parent_inverse = self.inverse(g)
+            h.parent = rec
+            pieces.append((h, rec, nrm * sign * t.get("gap", 0.004)))
+            self.objs.append(h)
+        tears.append({"part": t["part"], "obj": o, "pieces": pieces, "delay": t.get("delay", 0.0)})
+    self.tears = tears
+
+
+Show.__init__ = _binit
+# --- end breaks
+
 # --- cracks (fmt-types-15 on): a hairline that grows across a bone, a step at each impact (a stress fracture).
 #   "cracks": [{"part": name, "from": P, "to": P, "steps": [t, ...], "width": m, "jag": m, "seed": n}]
 # The line runs from "from" to "to" over the part's surface, zigzagging a little ("jag"); at each step time (seconds
@@ -812,10 +965,12 @@ def crack_pieces(sh, c, tag):
 def _cinit(self, name, s, tag):
     _crack_init(self, name, s, tag)
     self.crack_bits = [bit for c in s.get("cracks", []) for bit in crack_pieces(self, c, tag)]
+    self.cracked = {c["part"] for c in s.get("cracks", [])}
 
 
 def _cvisible(self, t_event):
-    return _crack_visible(self, t_event) + [o for t, o in self.crack_bits if t_event >= t]
+    broken = min([t["delay"] for t in self.tears if t["part"] in self.cracked] or [1e9])
+    return _crack_visible(self, t_event) + [o for t, o in self.crack_bits if t <= t_event < broken]
 
 
 Show.__init__, Show.visible = _cinit, _cvisible

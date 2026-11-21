@@ -50,7 +50,8 @@ def test_item(q):
         if t.get("label2"):  # a pair: its second line names the second term, and starts its moves' "keys2"
             assert types.shown(t["lines"][t.get("switch_line", 1)]).upper().startswith(t["label2"].split()[0])
     for line in q["script"]:
-        assert len(types.wrap(d, types.shown(line), types.CAPTION(52), types.CAPTION_W)) <= 3, line
+        rows = 4 if line == q["hook"] and q.get("series_tag") else 3  # a series hook names the series first
+        assert len(types.wrap(d, types.shown(line), types.CAPTION(52), types.CAPTION_W)) <= rows, line
         assert not set("*[]()") & set(types.shown(line)), "markup must be well formed"
     assert len(q["hashtags"]) <= 5 and q["sources"]
     assert q["send"].startswith("Send this to")
