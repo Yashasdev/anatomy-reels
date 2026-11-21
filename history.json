@@ -1539,7 +1539,10 @@
     "look": "studio",
     "retried": {
       "youtube": "6afcd3a4c68ceea50aaa5867"
-    }
+    },
+    "gave_up": [
+      "youtube"
+    ]
   },
   {
     "slot": "2026-11-19T12:30:00-05:00",
@@ -1807,5 +1810,66 @@
     "kind": "formats",
     "format": "missing",
     "music": "pop-5"
+  },
+  {
+    "slot": "2026-11-22T16:00:00-05:00",
+    "day": 112,
+    "id": "leg-06",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1600-leg-06.mp4",
+    "video_seconds": 21.05,
+    "buffer": {
+      "instagram": "6b0203d6d5eabfb8cc5d6045",
+      "tiktok": "6b0203d7846b0ee907389099"
+    },
+    "music": "house-5",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-22T18:00:00-05:00",
+    "day": 113,
+    "id": "dd-cut-healing",
+    "organ": null,
+    "title": "How a cut heals",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1800-dd-cut-healing.mp4",
+    "video_seconds": 55.87,
+    "buffer": {
+      "tiktok": "6b0203dbd864a0110573c135"
+    },
+    "kind": "deepdive",
+    "music": "lofi-2"
+  },
+  {
+    "slot": "2026-11-22T20:00:00-05:00",
+    "day": 114,
+    "id": "pelvis-06",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-2000-pelvis-06.mp4",
+    "video_seconds": 21.84,
+    "buffer": {
+      "instagram": "6b0203de846b0ee9073891f4",
+      "tiktok": "6b0203df0247969092feff59"
+    },
+    "music": "ambient-2",
+    "look": "classic",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-23T09:30:00-05:00",
+    "day": 115,
+    "id": "chest-06",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-0930-chest-06.mp4",
+    "video_seconds": 18.99,
+    "buffer": {
+      "instagram": "6b0203e2d5eabfb8cc5d620e",
+      "tiktok": "6b0203e2cc364169c104463e",
+      "youtube": "6b0203e3c72676f5e9dd9642"
+    },
+    "music": "pop-2",
+    "look": "studio"
   }
 ]
