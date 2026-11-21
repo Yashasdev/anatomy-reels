@@ -1708,35 +1708,39 @@
   {
     "slot": "2026-11-21T12:30:00-05:00",
     "day": 106,
-    "id": "fmt-missing-06",
+    "id": "fmt-types-14",
     "organ": null,
-    "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1230-fmt-missing-06.mp4",
-    "video_seconds": 22.18,
+    "title": "Top 5 most anatomically challenging sports",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1230-fmt-types-14.mp4",
+    "video_seconds": 67.53,
     "buffer": {
       "instagram": "6aff71f00c7aa1039561753b",
       "tiktok": "6aff71f1e01ca3a0302457d8",
       "youtube": "6aff71f286abad21701f25f9"
     },
     "kind": "formats",
-    "format": "missing",
-    "music": "lofi-1"
+    "format": "types",
+    "music": "ambient-2",
+    "promoted": "2026-11-21",
+    "replaced": "fmt-missing-06"
   },
   {
     "slot": "2026-11-21T16:00:00-05:00",
     "day": 107,
-    "id": "fmt-missing-07",
+    "id": "fmt-types-11",
     "organ": null,
-    "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1600-fmt-missing-07.mp4",
-    "video_seconds": 20.01,
+    "title": "Types of back pain: 6 kinds, and the one that means the ER",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1600-fmt-types-11.mp4",
+    "video_seconds": 70.43,
     "buffer": {
       "instagram": "6b00bb555e993799d82d44c1",
       "tiktok": "6b00bb565102766245d4231c"
     },
     "kind": "formats",
-    "format": "missing",
-    "music": "pop-4"
+    "format": "types",
+    "music": "lofi-3",
+    "promoted": "2026-11-21",
+    "replaced": "fmt-missing-07"
   },
   {
     "slot": "2026-11-21T18:00:00-05:00",
@@ -1756,18 +1760,20 @@
   {
     "slot": "2026-11-21T20:00:00-05:00",
     "day": 109,
-    "id": "hand-06",
-    "organ": "hand",
-    "title": "The Hand",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-2000-hand-06.mp4",
-    "video_seconds": 20.63,
+    "id": "fmt-types-09b",
+    "organ": null,
+    "title": "Why the wrong blood type is dangerous: antigens, antibodies and who can give to whom",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-2000-fmt-types-09b.mp4",
+    "video_seconds": 63.05,
     "buffer": {
       "instagram": "6b00bb5e5e993799d82d473d",
       "tiktok": "6b00bb5edd205ed779996744"
     },
+    "kind": "formats",
+    "format": "types",
     "music": "ambient-2",
-    "look": "classic",
-    "notify": "instagram"
+    "promoted": "2026-11-21",
+    "replaced": "hand-06"
   },
   {
     "slot": "2026-11-22T09:30:00-05:00",
