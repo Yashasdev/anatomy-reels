@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-20T21:28:20+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44816986111",
+ "generated_at": "2026-11-21T08:50:37+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/44886699273",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -9,8 +9,8 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 32,
- "total": 143,
+ "unused": 33,
+ "total": 144,
  "posted": 111,
  "ramp": [
   [
@@ -39,10 +39,9 @@
    "from": "2026-11-08",
    "cycle": [
     "types",
-    "diagnose",
-    "missing"
+    "diagnose"
    ],
-   "posted": 32
+   "posted": 33
   }
  },
  "banks": {
@@ -76,7 +75,7 @@
   },
   "hand": {
    "total": 10,
-   "unused": 4
+   "unused": 5
   }
  },
  "hot": [
@@ -92,7 +91,7 @@
    ],
    "date": "2026-11-18",
    "until": "2026-11-22",
-   "left": 5,
+   "left": 4,
    "make_more": false
   },
   {
@@ -523,10 +522,10 @@
   {
    "slot": "2026-11-21T12:30:00-05:00",
    "day": 106,
-   "id": "fmt-missing-06",
+   "id": "fmt-types-14",
    "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1230-fmt-missing-06.mp4",
+   "title": "Top 5 most anatomically challenging sports",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1230-fmt-types-14.mp4",
    "platforms": [
     "instagram",
     "tiktok",
@@ -537,10 +536,10 @@
   {
    "slot": "2026-11-21T16:00:00-05:00",
    "day": 107,
-   "id": "fmt-missing-07",
+   "id": "fmt-types-11",
    "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1600-fmt-missing-07.mp4",
+   "title": "Types of back pain: 6 kinds, and the one that means the ER",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1600-fmt-types-11.mp4",
    "platforms": [
     "instagram",
     "tiktok"
@@ -563,10 +562,10 @@
   {
    "slot": "2026-11-21T20:00:00-05:00",
    "day": 109,
-   "id": "hand-06",
-   "organ": "hand",
-   "title": "The Hand",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-2000-hand-06.mp4",
+   "id": "fmt-types-09b",
+   "organ": null,
+   "title": "Why the wrong blood type is dangerous: antigens, antibodies and who can give to whom",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-2000-fmt-types-09b.mp4",
    "platforms": [
     "instagram",
     "tiktok"
