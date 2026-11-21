@@ -429,6 +429,25 @@ def banner(img: Image.Image, text: str, fade: float, s: float) -> None:
                stroke_width=max(1, int(7 * s)), stroke_fill=(14, 14, 18))
 
 
+def series_tag(img: Image.Image, text: str, fade: float, s: float) -> None:
+    """The series' name at the top from the first frame (fmt-types-15: "DESIGNED BY A FOLLOWER · VIDEO 1"): black
+    on a yellow pill, under the ANATOMY ACE mark's line (y 318-372) and inside x 120-960."""
+    if fade <= 0:
+        return
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    size = 40
+    while size > 24 and d.textlength(text, font=BOLD(int(size * s))) > 760 * s:
+        size -= 1
+    f = BOLD(int(size * s))
+    w = d.textlength(text, font=f)
+    a = int(255 * fade)
+    d.rounded_rectangle([img.width / 2 - w / 2 - 26 * s, 318 * s, img.width / 2 + w / 2 + 26 * s, 374 * s],
+                        radius=int(28 * s), fill=(*YELLOW, a))
+    d.text((img.width / 2, 346 * s), text, font=f, fill=(16, 16, 18, a), anchor="mm")
+    img.paste(layer, (0, 0), layer)
+
+
 def chart(img: Image.Image, thumbs: list[Image.Image], rows: list[list[str]], age: float, s: float,
           bottom: float = 0) -> None:
     """The closing chart (and the cover): every type's picture popping in one by one, its name under it."""
@@ -573,6 +592,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     shows = spec.get("shows", {}).values()
     if not any(x.get("chips") for sh in shows for x in sh.get("tears", [])):
         text = re.sub(r"# --- chips .*?# --- end chips\n\n", "", text, flags=re.S)
+    if not any(x.get("jagged") for sh in shows for x in sh.get("tears", [])):
+        text = re.sub(r"# --- breaks .*?# --- end breaks\n\n", "", text, flags=re.S)
     if not any(sh.get("cracks") for sh in shows):
         text = re.sub(r"# --- cracks .*?# --- end cracks\n\n", "", text, flags=re.S)
     if not any(sh.get("pulse") for sh in shows):
@@ -668,6 +689,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             callout(img, a["xy"], text, age, fade, scale, clamp=q.get("scene") == "parts", place=spot)
         if q.get("hook_title") and sg["kind"] in ("flash", "intro"):  # the title over the hook (fmt-types-14)
             banner(img, q["hook_title"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale)
+        if q.get("series_tag") and sg["kind"] in ("flash", "intro"):  # the series' name over the hook (fmt-types-15)
+            series_tag(img, q["series_tag"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
         if cue:
             grid_y = CHART_CAPTION_Y if q.get("scene") == "parts" else 1480
@@ -707,10 +730,14 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             add(event_sound(hits[name], 0), 1 / FPS, 0.5)
             for j, at in enumerate(sh.get("impacts", [])):
                 add(event_sound("thud", 20 + j), 1 / FPS + at / speed, 0.6)
+            for j, tr in enumerate(x for x in sh.get("tears", []) if x.get("jagged")):  # the bone snapping
+                add(snap(60 + j), 1 / FPS + tr.get("delay", 0.0) / speed, 0.9)
             continue
         if sg["kind"] == "type":
             for j, at in enumerate(shows[sg["name"]].get("impacts", [])):  # each impact that grows a crack
                 add(event_sound("thud", 40 + j), sg["start"] + 0.45 + at, 0.5)
+            for j, tr in enumerate(x for x in shows[sg["name"]].get("tears", []) if x.get("jagged")):
+                add(snap(80 + j), sg["start"] + 0.45 + tr.get("delay", 0.0), 0.85)
         if sg["kind"] == "flash":
             for j, name in enumerate(sg["types"]):
                 at = sg["start"] + j * (sg["end"] - sg["start"]) / len(sg["types"]) + 1 / FPS
@@ -747,7 +774,7 @@ def info(q: dict, seconds: float) -> dict:
     return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["script"][0]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
             "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"],
-            **{k: q[k] for k in ("caption_first", "caption_extra", "youtube_title") if q.get(k)}}
+            **{k: q[k] for k in ("caption_first", "caption_extra", "youtube_title", "first_comment") if q.get(k)}}
 
 
 def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:

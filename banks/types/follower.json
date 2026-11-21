@@ -6,7 +6,8 @@
   "for": "Runners, dancers, recruits and anyone who upped their training fast: it names the pain they might be ignoring. First of the follower series (requested by Instagram follower @kaja_lokna), so followers send in topics and the requester shares it.",
   "title": "Designed by a follower #1: fatigue fractures, the 5 spots they hit",
   "question": "Have you ever had a stress fracture?",
-  "hook": "This bone can break without you ever falling.",
+  "hook": "Designed by a follower, video 1. This bone can break without you ever falling.",
+  "series_tag": "DESIGNED BY A FOLLOWER · VIDEO 1",
   "intro": "It's a stress fracture. Here are 5 places it hits.",
   "flash": [
    "meta"
@@ -125,7 +126,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          0.44,
@@ -152,7 +153,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          1.2400000000000002,
@@ -179,7 +180,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.04,
@@ -206,7 +207,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.8400000000000003,
@@ -233,10 +234,37 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0035
+        ],
+        [
+         4.4399999999999995,
          0,
          0,
          0,
@@ -285,6 +313,29 @@
       2.7,
       3.5
      ],
+     "tears": [
+      {
+       "part": "Second metatarsal bone.r",
+       "at": {
+        "part": "Second metatarsal bone.r",
+        "at": [
+         0.5,
+         0.475,
+         0.625
+        ]
+       },
+       "normal": [
+        0,
+        1,
+        0.25
+       ],
+       "jagged": 0.0024,
+       "seed": 3,
+       "gap": 0.004,
+       "delay": 4.3,
+       "chips": 22
+      }
+     ],
      "pin": {
       "part": "Second metatarsal bone.r",
       "at": [
@@ -297,7 +348,7 @@
       "Second metatarsal bone.r"
      ],
      "zoom": 0.3,
-     "chart_t": 4.0
+     "chart_t": 5.2
     }
    },
    {
@@ -366,7 +417,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          0.44,
@@ -393,7 +444,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          1.2400000000000002,
@@ -420,7 +471,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.04,
@@ -447,7 +498,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.8400000000000003,
@@ -474,10 +525,37 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0035
+        ],
+        [
+         4.4399999999999995,
          0,
          0,
          0,
@@ -524,6 +602,28 @@
       2.7,
       3.5
      ],
+     "tears": [
+      {
+       "part": "Tibia.r",
+       "at": {
+        "xyz": [
+         -0.079,
+         0.015,
+         0.1945
+        ]
+       },
+       "normal": [
+        0,
+        0,
+        1
+       ],
+       "jagged": 0.0024,
+       "seed": 5,
+       "gap": 0.008,
+       "delay": 4.3,
+       "chips": 22
+      }
+     ],
      "pin": {
       "xyz": [
        -0.079,
@@ -535,7 +635,7 @@
       "Tibia.r"
      ],
      "zoom": 0.3,
-     "chart_t": 4.0
+     "chart_t": 5.2
     }
    },
    {
@@ -652,7 +752,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          0.44,
@@ -679,7 +779,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          1.2400000000000002,
@@ -706,7 +806,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.04,
@@ -733,7 +833,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.8400000000000003,
@@ -760,10 +860,37 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0035
+        ],
+        [
+         4.4399999999999995,
          0,
          0,
          0,
@@ -812,6 +939,29 @@
       2.7,
       3.5
      ],
+     "tears": [
+      {
+       "part": "Calcaneus.r",
+       "at": {
+        "part": "Calcaneus.r",
+        "at": [
+         0.0,
+         0.75,
+         0.525
+        ]
+       },
+       "normal": [
+        0,
+        1,
+        0
+       ],
+       "jagged": 0.0024,
+       "seed": 7,
+       "gap": 0.007,
+       "delay": 4.3,
+       "chips": 22
+      }
+     ],
      "pin": {
       "part": "Calcaneus.r",
       "at": [
@@ -824,7 +974,7 @@
       "Calcaneus.r"
      ],
      "zoom": 0.3,
-     "chart_t": 4.0,
+     "chart_t": 5.2,
      "frame": [
       [
        -0.15,
@@ -949,7 +1099,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          0.44,
@@ -976,7 +1126,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          1.2400000000000002,
@@ -1003,7 +1153,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.04,
@@ -1030,7 +1180,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.8400000000000003,
@@ -1057,10 +1207,37 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0035
+        ],
+        [
+         4.4399999999999995,
          0,
          0,
          0,
@@ -1109,6 +1286,29 @@
       2.7,
       3.5
      ],
+     "tears": [
+      {
+       "part": "Navicular bone.r",
+       "at": {
+        "part": "Navicular bone.r",
+        "at": [
+         0.5,
+         0.5,
+         0.975
+        ]
+       },
+       "normal": [
+        1,
+        0,
+        0
+       ],
+       "jagged": 0.0024,
+       "seed": 9,
+       "gap": 0.005,
+       "delay": 4.3,
+       "chips": 22
+      }
+     ],
      "pin": {
       "part": "Navicular bone.r",
       "at": [
@@ -1121,7 +1321,7 @@
       "Navicular bone.r"
      ],
      "zoom": 0.3,
-     "chart_t": 4.0
+     "chart_t": 5.2
     }
    },
    {
@@ -1188,7 +1388,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          0.44,
@@ -1215,7 +1415,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          1.2400000000000002,
@@ -1242,7 +1442,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.04,
@@ -1269,7 +1469,7 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          2.8400000000000003,
@@ -1296,10 +1496,37 @@
          0,
          0,
          0,
-         -0.0025
+         -0.0035
         ],
         [
          3.64,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.25,
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        [
+         4.3,
+         0,
+         0,
+         0,
+         0,
+         0,
+         -0.0035
+        ],
+        [
+         4.4399999999999995,
          0,
          0,
          0,
@@ -1346,6 +1573,28 @@
       2.7,
       3.5
      ],
+     "tears": [
+      {
+       "part": "Femur.r",
+       "at": {
+        "xyz": [
+         -0.097,
+         -0.022,
+         0.8494999999999999
+        ]
+       },
+       "normal": [
+        1,
+        0,
+        0.8
+       ],
+       "jagged": 0.0024,
+       "seed": 11,
+       "gap": 0.008,
+       "delay": 4.3,
+       "chips": 22
+      }
+     ],
      "pin": {
       "xyz": [
        -0.097,
@@ -1357,7 +1606,7 @@
       "Femur.r"
      ],
      "zoom": 0.3,
-     "chart_t": 4.0,
+     "chart_t": 5.2,
      "ghost": [
       "Hip bone.r"
      ]
@@ -1367,18 +1616,19 @@
   "outro": [
    "Most stress fractures heal with rest, then a slow return.",
    "This video was designed by a follower.",
-   "Design the next one: DM us the anatomy topic you want,",
-   "follow, and yours could be next."
+   "DM us the anatomy topic you want.",
+   "The top comment picks the next video in the series."
   ],
   "credit_card": {
    "label": "DESIGNED BY A FOLLOWER",
    "handle": "@kaja_lokna",
-   "note": "DM us your topic to be next",
+   "note": "Top comment picks video 2",
    "from_line": 1
   },
   "grid_title": "FATIGUE FRACTURES",
   "caption_first": "Designed by @kaja_lokna 🦴 You asked, we built it.",
-  "caption_extra": "Want the next one? DM us your topic.",
+  "caption_extra": "Top comment picks the next video in the series 👇",
+  "first_comment": "Designed by a follower: @kaja_lokna 🦴 Want the next one? Comment the anatomy topic you want; the top comment picks video 2 👇",
   "youtube_title": "Designed by a follower #1: fatigue fractures. Have you ever had one?",
   "why": "A stress (fatigue) fracture comes from repeated loading, not one big hit: bone constantly remodels, and when loading outpaces repair, microdamage builds into a crack (StatPearls). First described in marching soldiers in the mid-1800s as \"march foot\". The tibia is the most frequent site overall; in the foot the metatarsals (2nd and 3rd) are the most common and the calcaneus second (OrthoInfo). The navicular has a poor blood supply and a high risk of not healing; femoral neck stress fractures on the tension side carry the highest risk of breaking completely, so early detection matters (StatPearls). Risk rises with a sudden increase in activity, not eating enough for your training (REDs), and low bone strength. Pain builds with activity and eases with rest, with tenderness over one spot; early X-rays can look normal and MRI can show it. Most heal with rest and a slow, gradual return (OrthoInfo, StatPearls).",
   "hashtags": [
