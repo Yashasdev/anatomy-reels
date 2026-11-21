@@ -1,0 +1,335 @@
+[
+ {
+  "id": "fmt-types-09b",
+  "series": "formats",
+  "format": "types",
+  "release": "formats",
+  "for": "Everyone has a blood type and half-remembers it. The hook shows what a mismatched transfusion does (clumping), the middle shows why in real 3D (sugar antigens, IgM antibodies, the Rh protein), and the closing chart lets people find their own type; they send it to the family group chat to compare.",
+  "title": "Why the wrong blood type is dangerous: antigens, antibodies and who can give to whom",
+  "question": "What's your blood type?",
+  "send": "Send this to your family group chat 🩸",
+  "music": "ambient-2",
+  "hashtags": [
+   "#bloodtype",
+   "#blood",
+   "#anatomy",
+   "#health",
+   "#premed"
+  ],
+  "sources": [
+   "https://www.redcrossblood.org/donate-blood/blood-types.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/o-blood-type.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/a-blood-type.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/b-blood-type.html",
+   "https://www.redcrossblood.org/donate-blood/blood-types/ab-blood-type.html",
+   "https://www.nhs.uk/conditions/blood-groups/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK580518/",
+   "https://www.ncbi.nlm.nih.gov/books/NBK2267/"
+  ],
+  "credit": "3D red blood cells, antigens and antibodies: made in Blender for Anatomy Ace",
+  "why": "Blood type is set by two markers (antigens), A and B, on the red cells, plus the Rh factor (RhD): present is positive, absent is negative. Group A has anti-B antibodies in the plasma, group B has anti-A, group O has both and AB has neither; the wrong ABO group can be life-threatening. US share (American Red Cross): O+ 37-38% (most common), A+ about 1 in 3, B+ about 9%, O- 7%, A- 1 in 16, AB+ under 4%, B- under 2%, AB- under 1% (rarest). O negative is the universal red cell donor; AB positive is the universal recipient; Rh-negative patients get Rh-negative red cells. For plasma the rules are reversed: AB plasma can go to any type. In a mismatched (ABO-incompatible) transfusion the patient's anti-A or anti-B antibodies, mostly IgM, bind the donor red cells, clump them (agglutination) and destroy them (hemolysis).",
+  "shots": {
+   "hook": {
+    "kind": "hook"
+   },
+   "o": {
+    "kind": "cell",
+    "type": "O+",
+    "glow": "sugar",
+    "orbit": [
+     -12,
+     10
+    ]
+   },
+   "a": {
+    "kind": "cell",
+    "type": "A-",
+    "glow": "A",
+    "orbit": [
+     8,
+     -8
+    ]
+   },
+   "b": {
+    "kind": "cell",
+    "type": "B-",
+    "glow": "B",
+    "orbit": [
+     -8,
+     8
+    ]
+   },
+   "ab": {
+    "kind": "cell",
+    "type": "AB-",
+    "glow": "AB",
+    "orbit": [
+     10,
+     -6
+    ]
+   },
+   "plasma": {
+    "kind": "plasma",
+    "type": "A-",
+    "antibodies": [
+     "B",
+     "B",
+     "B",
+     "A"
+    ],
+    "orbit": [
+     -6,
+     8
+    ]
+   },
+   "rh": {
+    "kind": "cell",
+    "type": "O+",
+    "glow": "Rh",
+    "orbit": [
+     6,
+     -10
+    ],
+    "close": 0.75
+   },
+   "oneg": {
+    "kind": "cell",
+    "type": "O-",
+    "glow": "none",
+    "orbit": [
+     -10,
+     6
+    ]
+   },
+   "donor": {
+    "kind": "donor"
+   },
+   "abpos": {
+    "kind": "cell",
+    "type": "AB+",
+    "glow": "all",
+    "orbit": [
+     8,
+     -10
+    ]
+   },
+   "abplasma": {
+    "kind": "plasma",
+    "type": "AB+",
+    "antibodies": [],
+    "orbit": [
+     -6,
+     6
+    ],
+    "crowd": true
+   },
+   "chart": {
+    "kind": "chart"
+   }
+  },
+  "chart": {
+   "title": "BLOOD TYPES IN THE US",
+   "rows": [
+    [
+     "O+",
+     38,
+     "nearly 4 in 10"
+    ],
+    [
+     "A+",
+     33,
+     "about 1 in 3"
+    ],
+    [
+     "B+",
+     9,
+     "about 9%"
+    ],
+    [
+     "O-",
+     7,
+     "7% · universal donor"
+    ],
+    [
+     "A-",
+     6,
+     "1 in 16"
+    ],
+    [
+     "AB+",
+     3.5,
+     "under 4% · universal recipient"
+    ],
+    [
+     "B-",
+     1.5,
+     "under 2%"
+    ],
+    [
+     "AB-",
+     0.6,
+     "under 1% · rarest"
+    ]
+   ],
+   "source": "American Red Cross",
+   "highlight": [
+    "O+",
+    "AB-"
+   ]
+  },
+  "scene": "blood_scene.py",
+  "hook_title": [
+   [
+    "GIVE SOMEONE THE",
+    "white"
+   ],
+   [
+    "WRONG BLOOD TYPE",
+    "red"
+   ]
+  ],
+  "hook_pill": "TYPE A BLOOD  →  TYPE B PATIENT",
+  "beats": [
+   {
+    "say": "Give someone the wrong blood type, and this happens.",
+    "shot": "hook"
+   },
+   {
+    "say": "Their antibodies grab the new red cells, clump them together, and destroy them.",
+    "label": [
+     "CLUMPING",
+     "clump"
+    ],
+    "hl": {
+     "antibodies": "lime"
+    }
+   },
+   {
+    "say": "Here's why.",
+    "shot": "o"
+   },
+   {
+    "say": "Every red cell wears sugar markers called [antigens](ˈæntɪdʒənz).",
+    "label": [
+     "SUGAR ANTIGENS",
+     "sugar"
+    ],
+    "hl": {
+     "antigens": "yellow"
+    }
+   },
+   {
+    "say": "Type [A](ˈeɪ) cells carry [A](ˈeɪ) [antigens](ˈæntɪdʒənz).",
+    "shot": "a",
+    "label": [
+     "A ANTIGEN",
+     "sugar"
+    ],
+    "hl": {
+     "A": "lime"
+    },
+    "stage": "TYPE A"
+   },
+   {
+    "say": "Type B cells carry B [antigens](ˈæntɪdʒənz).",
+    "shot": "b",
+    "label": [
+     "B ANTIGEN",
+     "sugar"
+    ],
+    "hl": {
+     "B": "coral"
+    },
+    "stage": "TYPE B"
+   },
+   {
+    "say": "AB carries both. O carries neither.",
+    "shot": "ab",
+    "label": [
+     "A + B",
+     "sugar"
+    ],
+    "stage": "TYPE AB"
+   },
+   {
+    "say": "Your plasma makes antibodies against the ones you lack.",
+    "shot": "plasma",
+    "label": [
+     "ANTIBODY (IgM)",
+     "antibody"
+    ],
+    "hl": {
+     "antibodies": "yellow"
+    }
+   },
+   {
+    "say": "Type [A](ˈeɪ) has anti-B. Type B has anti-A. O has both.",
+    "hl": {
+     "anti-B": "coral",
+     "anti-A": "lime"
+    }
+   },
+   {
+    "say": "Then there's the Rh protein. Have it, you're positive. Lack it, you're negative.",
+    "shot": "rh",
+    "label": [
+     "Rh (D) PROTEIN",
+     "rh"
+    ],
+    "hl": {
+     "Rh": "blue",
+     "positive": "blue"
+    }
+   },
+   {
+    "say": "O negative has no [A](ˈeɪ), no B, and no Rh,",
+    "shot": "oneg",
+    "stage": "O NEGATIVE"
+   },
+   {
+    "say": "so almost anyone can get its red cells. The universal donor.",
+    "shot": "donor",
+    "label": [
+     "UNIVERSAL DONOR",
+     "hero"
+    ],
+    "hl": {
+     "donor": "lime"
+    }
+   },
+   {
+    "say": "AB positive has every marker, so it can take red cells from any type. The universal recipient.",
+    "shot": "abpos",
+    "stage": "AB POSITIVE",
+    "label": [
+     "EVERY MARKER",
+     "sugar"
+    ],
+    "hl": {
+     "recipient": "lime"
+    }
+   },
+   {
+    "say": "Plasma is the reverse: AB plasma can go to anyone.",
+    "shot": "abplasma",
+    "label": [
+     "NO ANTI-A, NO ANTI-B",
+     "plasma"
+    ],
+    "hl": {
+     "reverse": "yellow"
+    }
+   },
+   {
+    "say": "Nearly 4 in 10 Americans are O positive. AB negative is the rarest, under 1 percent.",
+    "shot": "chart"
+   },
+   {
+    "say": "What's *your* blood type?"
+   },
+   {
+    "say": "Send this to your family group chat."
+   }
+  ]
+ }
+]

@@ -31,6 +31,16 @@ big, different install, and 3D rendering is slow, so it lives in its own repo.
   From fmt-types-12: `"model": "skeleton"` (the head, spine, chest, pelvis, shoulder, forearm and leg bones joined,
   right side mirrored), glowing see-through panes (`"shape": "box"`, kind `slab`) for body planes, and label pins
   that ride a move's group, so a pin slides between two spots as a pair's second term is said.
+- `banks/cinematic/` and `anatomy/cinematic.py` (+ `render/brain_scene.py`, `render/blood_scene.py`): cinematic 3D
+  videos on dark backgrounds (Nov 2026): the deep dive dd-brain-anger ("This is why you hate your boyfriend") and the
+  blood types rebuild fmt-types-09b. Each item lists `beats` (a voiced line; it can start a `shot`, pin a yellow
+  `label`, colour caption words with `hl`, show a `stage` pill or a 2D `fx`: bubbles, meters, a hormone tag, the
+  cortisol clock, memory cards, a counter, a stamp, a checklist) and `shots` (what Blender animates: camera orbit and
+  push, which deep structure glows when, particle streams for nerve signals and hormones, a glass window through the
+  remeshed cortex). Captions show as short phrases timed to the voice; the last beat is the send line, held alone.
+  The brain is the Z-Anatomy gyri voxel-remeshed into smooth hemispheres (EEVEE; Cycles measured at 10+ min a frame).
+  `python -m anatomy.cinematic stills DIR` (look samples), `preview DIR ID` (half size, every third frame),
+  `release DIR ID --keep FRAMES --samples N` (full render; a stopped render resumes from the kept frames).
 - `anatomy/hits.py` and `hits.json`: the daily hit check (after the tracker). An Instagram post 12-72 hours old with 3x
   the median views of the last 30 Instagram posts of its own type (quizzes, deep dives, or that format) and 1,000+, or
   3x their median shares per person reached (and 2+ shares), makes its series hot for 5 days. A type with under 6

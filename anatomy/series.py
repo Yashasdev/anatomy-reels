@@ -183,11 +183,12 @@ def caption(q: dict) -> str:
 
 
 def _caption(q: dict) -> str:
-    if q.get("format") == "types":  # a breakdown (anatomy/types.py): no choices, the comment prompt is the question
-        tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]
+    if q.get("format") == "types" or not q.get("choices"):  # a breakdown (types.py, cinematic.py): no choices, the
+        tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]   # comment prompt is the question
+        follow = FOLLOW["formats"] if q.get("format") == "types" else FOLLOW.get(q.get("series", "deepdive"), FOLLOW["deepdive"])
         return (f"{q.get('caption_first') or q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
                 (f"{q['caption_extra']}\n" if q.get("caption_extra") else "") +
-                f"{FOLLOW['formats']}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
+                f"{follow}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
                 + q["why"] + "\nFor learning only, not medical advice.\n" + f"{q.get('credit') or CONFIG['credit']}.")
     choices = "\n".join(f"{'ABCD'[k]}) {c}" for k, c in enumerate(q["choices"]))
     tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]  # Instagram allows 5
