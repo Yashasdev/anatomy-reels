@@ -3,10 +3,10 @@
   "id": "fmt-types-16",
   "scene": "parts",
   "for": "Almost everyone: nearly every home has ibuprofen and acetaminophen, and most people think they're interchangeable. They send it to the friend who takes ibuprofen for everything (tease plus protect: the stomach and liver warnings), or to the family group chat that keeps a medicine drawer.",
-  "title": "6 things to know: ibuprofen vs acetaminophen",
+  "title": "5 things to know: ibuprofen vs acetaminophen",
   "question": "Which one do you reach for first?",
   "hook": "[Ibuprofen](aɪbjuːpɹˈoʊfən) and [acetaminophen](əsˌiːtəmˈɪnəfən) don't do the same thing.",
-  "intro": "6 things to know.",
+  "intro": "5 things to know.",
   "flash": [
    "pill_ibu",
    "pill_ace",
@@ -19,11 +19,12 @@
     "label": "IBUPROFEN",
     "chart": [
      "Ibuprofen",
-     "pain, fever, swelling"
+     "pain, fever, swelling",
+     "naproxen too"
     ],
     "sound": "none",
     "lines": [
-     "[Ibuprofen](aɪbjuːpɹˈoʊfən) is an [NSAID](ˈɛnsɛd), an anti-inflammatory.",
+     "[Ibuprofen](aɪbjuːpɹˈoʊfən) and [naproxen](nəpɹˈɑːksən) are [NSAIDs](ˈɛnsɛdz), anti-inflammatories.",
      "It blocks the COX enzymes that make [prostaglandins](pɹˌɑːstəɡlˈændɪnz),",
      "the signals behind pain, fever and swelling."
     ],
@@ -79,189 +80,10 @@
        "Lateral meniscus.r"
       ],
       "at": [
-       6.9,
-       8.4
+       7.9,
+       9.4
       ]
      }
-    }
-   },
-   {
-    "name": "naproxen",
-    "label": "NAPROXEN",
-    "chart": [
-     "Naproxen",
-     "same job, lasts longer"
-    ],
-    "sound": "none",
-    "lines": [
-     "[Naproxen](nəpɹˈɑːksən). Same family, just lasts longer."
-    ],
-    "show": {
-     "model": "leg",
-     "parts": [
-      "Calcaneus.r",
-      "Cuboid bone.r",
-      "Distal phalanx of fifth finger of foot.r",
-      "Distal phalanx of first finger of foot.r",
-      "Distal phalanx of fourth finger of foot.r",
-      "Distal phalanx of second finger of foot.r",
-      "Distal phalanx of third finger of foot.r",
-      "Fibula.r",
-      "Fifth metatarsal bone.r",
-      "First metatarsal bone.r",
-      "Fourth metatarsal bone.r",
-      "Intermediate cuneiform bone.r",
-      "Lateral cuneiform bone.r",
-      "Medial cuneiform bone.r",
-      "Middle phalanx of fourth finger of foot.r",
-      "Middle phalanx of second finger of foot.r",
-      "Middle phalanx of third finger of foot.r",
-      "Navicular bone.r",
-      "Proximal phalanx of fifth finger of foot.r",
-      "Proximal phalanx of first finger of foot.r",
-      "Proximal phalanx of fourth finger of foot.r",
-      "Proximal phalanx of second finger of foot.r",
-      "Proximal phalanx of third finger of foot.r",
-      "Second metatarsal bone.r",
-      "Talus.r",
-      "Third metatarsal bone.r",
-      "Tibia.r"
-     ],
-     "orient": [
-      0,
-      0,
-      40
-     ],
-     "frame": [
-      [
-       -0.15,
-       -0.135,
-       0.0
-      ],
-      [
-       -0.03,
-       0.095,
-       0.2
-      ]
-     ],
-     "moves": [
-      {
-       "parts": [
-        "Talus.r",
-        "Calcaneus.r",
-        "Navicular bone.r",
-        "Cuboid bone.r",
-        "Medial cuneiform bone.r",
-        "Intermediate cuneiform bone.r",
-        "Lateral cuneiform bone.r",
-        "First metatarsal bone.r",
-        "Second metatarsal bone.r",
-        "Third metatarsal bone.r",
-        "Fourth metatarsal bone.r",
-        "Fifth metatarsal bone.r",
-        "Proximal phalanx of first finger of foot.r",
-        "Distal phalanx of first finger of foot.r",
-        "Proximal phalanx of second finger of foot.r",
-        "Middle phalanx of second finger of foot.r",
-        "Distal phalanx of second finger of foot.r",
-        "Proximal phalanx of third finger of foot.r",
-        "Middle phalanx of third finger of foot.r",
-        "Distal phalanx of third finger of foot.r",
-        "Proximal phalanx of fourth finger of foot.r",
-        "Middle phalanx of fourth finger of foot.r",
-        "Distal phalanx of fourth finger of foot.r",
-        "Proximal phalanx of fifth finger of foot.r",
-        "Distal phalanx of fifth finger of foot.r"
-       ],
-       "pivot": {
-        "part": "Talus.r",
-        "at": [
-         0.5,
-         0.5,
-         0.6
-        ],
-        "snap": false
-       },
-       "keys": [
-        [
-         0,
-         0,
-         0,
-         0
-        ],
-        [
-         0.18,
-         0,
-         -30,
-         0
-        ],
-        [
-         1.4,
-         0,
-         -28,
-         0
-        ],
-        [
-         2.4,
-         0,
-         -12,
-         0
-        ]
-       ]
-      }
-     ],
-     "bands": [
-      {
-       "name": "ATFL",
-       "from": {
-        "part": "Fibula.r",
-        "at": [
-         0.25,
-         0.1,
-         0.02
-        ]
-       },
-       "to": {
-        "part": "Talus.r",
-        "at": [
-         0.05,
-         0.12,
-         0.55
-        ]
-       },
-       "width": 0.008,
-       "thick": 0.003
-      }
-     ],
-     "lit": [
-      "ATFL"
-     ],
-     "hurt": [
-      "ATFL"
-     ],
-     "pin": {
-      "part": "ATFL",
-      "at": [
-       0.5,
-       0.5,
-       0.5
-      ]
-     },
-     "zoom": 0.42,
-     "chart_t": 1.0,
-     "chart_frame": [
-      [
-       -0.15,
-       -0.135,
-       0.0
-      ],
-      [
-       -0.03,
-       0.095,
-       0.15
-      ]
-     ],
-     "pulse": 0.8
     }
    },
    {
@@ -446,7 +268,7 @@
     "lines": [
      "[Acetaminophen](əsˌiːtəmˈɪnəfən), or [paracetamol](pˌæɹəsˈiːtəmɑːl), eases pain and fever,",
      "but does little for swelling. It works mostly in the brain and spinal cord.",
-     "Exactly how isn't fully understood. It's easier on the stomach."
+     "It's easier on the stomach."
     ],
     "show": {
      "model": "brain",
@@ -629,8 +451,6 @@
    }
   ],
   "outro": [
-   "Sprain or swelling? An anti-inflammatory can help the swelling too.",
-   "Stomach trouble or blood thinners? Ask a pharmacist first.",
    "Which one do *you* reach for first?",
    "Send this to the friend who takes [ibuprofen](aɪbjuːpɹˈoʊfən) for everything."
   ],
@@ -667,7 +487,7 @@
   "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
   "send": "Send this to the friend who takes ibuprofen for everything 💊",
   "music": "ambient-2",
-  "caption_extra": "Not medical advice. Follow the label; ask a pharmacist.",
+  "caption_extra": "Sprain or swelling? An anti-inflammatory can help the swelling too. Stomach trouble, or on blood thinners? Ask a pharmacist first.\nNot medical advice. Follow the label; ask a pharmacist.",
   "hook_shows": {
    "pill_ibu": {
     "label": "IBUPROFEN",
@@ -789,6 +609,9 @@
      }
     }
    }
-  }
+  },
+  "line_gap": 0.32,
+  "type_tail": 0.05,
+  "outro_seconds": 0.5
  }
 ]

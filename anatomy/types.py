@@ -173,7 +173,11 @@ def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED)
 
 # --- timeline ----------------------------------------------------------------------------------------------
 def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[list[dict], list[dict], float]:
-    """Segments for Blender and the narration cues (line index, start, text), from how long each line takes."""
+    """Segments for Blender and the narration cues (line index, start, text), from how long each line takes. An item
+    can tighten its pace (fmt-types-16): "line_gap" (seconds between lines, default 0.42), "type_tail" (after a type's
+    last line, before its whip out; default 0.25) and "outro_seconds" (the pull back; default OUTRO)."""
+    gap = q.get("line_gap", gap)
+    tail, outro = q.get("type_tail", 0.25), q.get("outro_seconds", OUTRO)
     k = 0
     cues, segs = [], []
 
@@ -211,14 +215,14 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
         for _ in ty["lines"]:
             starts.append(at)
             at = say(at) + gap
-        seg_end = max(t + TYPE_MIN, at - gap + 0.25 + WHIP)
+        seg_end = max(t + TYPE_MIN, at - gap + tail + WHIP)
         segs.append({"kind": "type", "name": ty["name"], "label": ty["label"], "start": t, "end": seg_end,
                      "whip_in": i > 0})
         if ty.get("label2"):  # a pair (fmt-types-08): the second term's line starts its own move and label
             segs[-1]["switch"] = round(starts[ty.get("switch_line", 1)] - (t + 0.45), 3)
         t = seg_end
-    segs.append({"kind": "outro", "start": t, "end": t + OUTRO})
-    t += OUTRO
+    segs.append({"kind": "outro", "start": t, "end": t + outro})
+    t += outro
     end = t + 0.3 - gap
     for _ in q["outro"]:  # the comment question, then who to send it to
         end = say(end + gap)
