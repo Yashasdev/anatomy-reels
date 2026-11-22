@@ -918,7 +918,7 @@ def pill_mesh(name, centre, size, square):
     """A rounded solid like blob_mesh's, but not linked to the scene (a library part, copied by fresh())."""
     bm = bmesh.new()
     bmesh.ops.create_uvsphere(bm, u_segments=64, v_segments=32, radius=1.0)
-    tip = Matrix.Rotation(math.radians(-28), 3, "X")  # tipped back: the top face shows
+    tip = Matrix.Rotation(math.radians(-62), 3, "X")  # tipped back: the top face shows
     for v in bm.verts:
         x, y, z = v.co
         r = math.hypot(x, z)
