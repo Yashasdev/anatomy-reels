@@ -481,6 +481,7 @@ def sample(keys, t):
 #   "model": "skeleton": the Z-Anatomy pieces in SKELETON joined, right-side parts mirrored to make the left
 #   blobs with "shape": "box", "kind": "slab": a glowing see-through pane (a body plane, fmt-types-12)
 #   a "pin" with "group": rides that move's group, so the label's pin slides between two spots (fmt-types-13)
+#   "flash_window": [t0, t1]: in the hook montage, play this stretch of the type's timeline (fmt-types-12)
 KINDS.update({
     "disc": ((0.70, 0.80, 0.88), 0.35, 0.3),     # intervertebral disc: pale blue-white, like the menisci
     "nucleus": ((0.93, 0.85, 0.55), 0.3, 0.4),   # the disc's soft centre, pushed out
@@ -1064,18 +1065,32 @@ def act(sh, a, b, event, speed=1.0):
         poses.setdefault(sh.name, {})[k] = te
 
 
+def shot(seg, a, b, i, n):
+    """Frames of the hook montage's i-th of n shots: even cuts, or at the seg's "cuts" (seconds; fmt-types-12, a
+    shot per spoken phrase)."""
+    if seg.get("cuts"):
+        cuts = seg["cuts"]
+        return F(cuts[i]), F(cuts[i + 1]) if i + 1 < len(cuts) else b
+    step = (b - a) / n
+    return a + int(i * step), a + int((i + 1) * step)
+
+
 cams, pivots, pins = {}, {}, {}
 for seg in TL:
     a, b = F(seg["start"]), F(seg["end"])
     if seg["kind"] == "flash":  # the hook: every type's event, fast, one after another
         names = seg["types"][:1] if seg.get("single") else seg["types"]
-        step = (b - a) / len(names)
         for i, n in enumerate(names):
-            fa, fb = a + int(i * step), a + int((i + 1) * step)
+            fa, fb = shot(seg, a, b, i, len(names))
             sh = SHOWN[n]
             last = max((mv["keys"][-1][0] for mv in sh.moves), default=0.4)
             last = max([last] + [t["delay"] + 0.35 for t in sh.tears])
-            act(sh, fa, fb, fa + 1, speed=max(1.0, last / ((fb - fa - 3) / FPS)))
+            if sh.s.get("flash_window"):  # play just this stretch of the type's timeline (seconds after its event)
+                w0, w1 = sh.s["flash_window"]
+                speed = (w1 - w0) / max(1e-3, (fb - fa) / FPS)
+                act(sh, fa, fb, fa - w0 * FPS / speed, speed=speed)
+            else:
+                act(sh, fa, fb, fa + 1, speed=max(1.0, last / ((fb - fa - 3) / FPS)))
             for k in range(fa, fb):
                 pins[k] = {"show": n, "small": True}
                 cams[k] = look(Vector((0, 0, 0)), WIDE_D * (1.02 - 0.04 * (k - a) / max(1, b - a)))
@@ -1210,10 +1225,9 @@ for seg in TL:
     a, b = F(seg["start"]), F(seg["end"])
     if seg["kind"] == "flash":
         names = seg["types"][:1] if seg.get("single") else seg["types"]
-        step = (b - a) / len(names)
         for i, n in enumerate(names):
             sh = SHOWN[n]
-            fa, fb = a + int(i * step), a + int((i + 1) * step)
+            fa, fb = shot(seg, a, b, i, len(names))
             last = max((mv["keys"][-1][0] for mv in sh.moves), default=0.4)
             last = max([last] + [t["delay"] + 0.35 for t in sh.tears])
             speed = max(1.0, last / ((fb - fa - 3) / FPS))

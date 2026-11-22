@@ -52,6 +52,7 @@ VOICE, SPEED = "af_heart", 0.95  # the Deep Dives pace Yashas picked (Nov 6)
 YELLOW = (246, 222, 64)
 FLASH, INTRO_MIN, TYPE_MIN, WHIP, OUTRO, COVER_TAIL = 2.9, 3.0, 3.4, 0.27, 0.8, 0.5
 SAY_AT = 0.32  # each type's name is said just as the bone breaks (the break is at 0.45 s)
+HOOK_BEAT = 0.35  # the pause between a phrased hook's phrases (fmt-types-12)
 CAPTION_Y, CAPTION_W = 1335, 720  # inside the phone's safe area: the like/comment column covers x > 900 down here
 LABEL_X = (120, 960)  # where the new items' yellow names stay: tall phones crop about 100 px off each side (Nov 13)
 
@@ -61,7 +62,8 @@ def items() -> list[dict]:
     out = []
     for p in sorted((ROOT / "banks" / "types").glob("*.json")):
         for q in json.loads(p.read_text()):
-            out.append({**q, "script": [q["hook"], q["intro"]] + [x for t in q["types"] for x in t["lines"]] + q["outro"]})
+            hook = q.get("hook_lines") or [q["hook"]]  # fmt-types-12: the hook said phrase by phrase
+            out.append({**q, "script": hook + [q["intro"]] + [x for t in q["types"] for x in t["lines"]] + q["outro"]})
     return out
 
 
@@ -180,14 +182,25 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
         k += 1
         return end
 
-    t = say(0.12)
-    flash = q.get("flash_seconds", FLASH)  # fmt-types-14: 0.5 s cuts, each framed close on its injury
-    segs.append({"kind": "flash", "start": 0.0, "end": flash, "types": q["flash"]})
-    if q.get("flash_close"):
-        segs[-1]["close"] = True
-    if q.get("flash_single"):  # fmt-types-15: one shot, played at its own pace (the crack creeping across a bone)
-        segs[-1]["single"] = True
-    end = say(max(flash + 0.15, t + 0.25))  # a hook longer than the montage finishes before the intro line
+    if q.get("hook_lines"):  # fmt-types-12: a phrase per montage shot, a beat between phrases, then the rest
+        starts, t = [], 0.12
+        for _ in q["hook_lines"]:
+            starts.append(t)
+            t = say(t) + HOOK_BEAT
+        n = len(q["flash"])
+        flash = starts[n] - 0.05 if len(starts) > n else t
+        segs.append({"kind": "flash", "start": 0.0, "end": flash, "types": q["flash"],
+                     "cuts": [0.0] + [round(x - 0.05, 3) for x in starts[1:n]]})
+        end = say(t - HOOK_BEAT + 0.35)
+    else:
+        t = say(0.12)
+        flash = q.get("flash_seconds", FLASH)  # fmt-types-14: 0.5 s cuts, each framed close on its injury
+        segs.append({"kind": "flash", "start": 0.0, "end": flash, "types": q["flash"]})
+        if q.get("flash_close"):
+            segs[-1]["close"] = True
+        if q.get("flash_single"):  # fmt-types-15: one shot, played at its own pace (the crack creeping across a bone)
+            segs[-1]["single"] = True
+        end = say(max(flash + 0.15, t + 0.25))  # a hook longer than the montage finishes before the intro line
     segs.append({"kind": "intro", "start": flash, "end": max(flash + INTRO_MIN, end + 0.35)})
     t = segs[-1]["end"]
     for i, ty in enumerate(q["types"]):
@@ -740,7 +753,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
                 add(snap(80 + j), sg["start"] + 0.45 + tr.get("delay", 0.0), 0.85)
         if sg["kind"] == "flash":
             for j, name in enumerate(sg["types"]):
-                at = sg["start"] + j * (sg["end"] - sg["start"]) / len(sg["types"]) + 1 / FPS
+                at = (sg["cuts"][j] if sg.get("cuts") else sg["start"] + j * (sg["end"] - sg["start"]) / len(sg["types"])) + 1 / FPS
                 if q.get("scene") == "parts":
                     add(event_sound(hits[name], j), at, 0.5)
                     continue
@@ -771,7 +784,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
 
 def info(q: dict, seconds: float) -> dict:
     """What the posting job needs (anatomy/series.py), like the other formats' <id>.json."""
-    return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["script"][0]), "question": q["question"],
+    return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["hook"]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
             "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"],
             **{k: q[k] for k in ("caption_first", "caption_extra", "youtube_title", "first_comment") if q.get(k)}}

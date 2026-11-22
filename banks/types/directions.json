@@ -5,7 +5,7 @@
   "for": "Anatomy, PT, nursing and kinesiology students who mix up directional terms before a practical or exam. They send it to their study partner: every pair points at two spots on real bones, with a memory hook.",
   "title": "5 pairs of directional terms, shown on real bones",
   "question": "5 pairs of directional terms. Which pair always trips you up?",
-  "hook": "Proximal versus distal. You'll never mix them up again.",
+  "hook": "Proximal versus [distal](dˈɪstəl). You'll never mix them up again.",
   "intro": "5 pairs of directional terms, all from anatomical position.",
   "flash": [
    "proximal",
@@ -27,7 +27,7 @@
     "lines": [
      "Proximal. Closer to the trunk, like proximity.",
      "Your elbow is proximal to your wrist.",
-     "Distal. Farther away, like distant: your fingers are distal to your wrist."
+     "[Distal](dˈɪstəl). Farther away, like distant: your fingers are [distal](dˈɪstəl) to your wrist."
     ],
     "switch_line": 2,
     "show": {
@@ -609,6 +609,6 @@
   ],
   "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
   "send": "Send this to your study partner before the practical 📚",
-  "music": "lofi-2"
+  "music": "ambient-2"
  }
 ]
