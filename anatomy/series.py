@@ -193,10 +193,12 @@ def _caption(q: dict) -> str:
     choices = "\n".join(f"{'ABCD'[k]}) {c}" for k, c in enumerate(q["choices"]))
     tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]  # Instagram allows 5
     medical = "Educational, not medical advice." if q.get("format") == "diagnose" else "For learning only, not medical advice."
-    credit = f"\n{CONFIG['credit']}." if q.get("format") in ("missing", "zoom") else ""
+    credit = f"\n{CONFIG['credit']}." if q.get("format") in ("missing", "zoom") else \
+        f"\n{q['credit']}." if q.get("credit") else ""  # the studio Diagnose videos (anatomy/diagnose.py) show 3D models
     hook = "" if q["hook"].strip().rstrip(".?!") == q["question"].strip().rstrip(".?!") else f"{q['hook']}\n\n"
     return (hook + f"{q['question']}\n{choices}\n"
             "Comment your answer 👇 (answer at the bottom)\n"
+            + (f"{q['send']}\n" if q.get("send") else "") +
             f"{FOLLOW.get(q.get('series', 'deepdive'), FOLLOW['deepdive'])}\n\n"
             + " ".join(tags) + "\n\n.\n.\n.\n"
             f"✅ Answer: {answer_text(q)}\n"
