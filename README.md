@@ -41,6 +41,13 @@ big, different install, and 3D rendering is slow, so it lives in its own repo.
   The brain is the Z-Anatomy gyri voxel-remeshed into smooth hemispheres (EEVEE; Cycles measured at 10+ min a frame).
   `python -m anatomy.cinematic stills DIR` (look samples), `preview DIR ID` (half size, every third frame),
   `release DIR ID --keep FRAMES --samples N` (full render; a stopped render resumes from the kept frames).
+- `banks/diagnose/` and `anatomy/diagnose.py`: "Diagnose this" in the gray studio (fmt-diagnose-09 on; 01-08 were
+  Remotion cards): a short case read by Kokoro af_heart sentence by sentence, a pulsing red spot where it hurts, four
+  choices on a card under the 3D, a 3-2-1 countdown, the answer lit yellow and the trap turned red on Z-Anatomy parts
+  (`render/types_scene.py` draws the five shots), then a send line. The cover repeats the question, never the answer.
+  The bank is written by `scripts/diagnose_bank.py` (edit that, then rerun it). `python -m anatomy.diagnose say ID`
+  (whisper check), `stills ID DIR`, `preview ID DIR`, `release DIR [ids]` (each video's json has `"hold": true` until
+  Yashas approves). Models `elbow`, `foot`, `hamstring` and `neck` come from `scripts/extract_organ.py`.
 - `anatomy/hits.py` and `hits.json`: the daily hit check (after the tracker). An Instagram post 12-72 hours old with 3x
   the median views of the last 30 Instagram posts of its own type (quizzes, deep dives, or that format) and 1,000+, or
   3x their median shares per person reached (and 2+ shares), makes its series hot for 5 days. A type with under 6

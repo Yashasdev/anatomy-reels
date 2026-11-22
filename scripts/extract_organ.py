@@ -60,11 +60,47 @@ PATTERNS = {
     # so it's never extracted; render/brain_scene.py builds a plain kidney shape under each gland instead)
     "adrenal": r"^Suprarenal gland\.[lr]$",
 }
+# "Diagnose this" in the gray studio (anatomy/diagnose.py, fmt-diagnose-09 on): the bones of a region with the muscles
+# and tendons its cases ask about. Atlas names without "muscle"/"ligament" are renamed (RENAME) so the scenes' kind_of
+# gives them the right material; the parts keep the same meshes and places.
+DIAGNOSE = {
+    "elbow": ["Humerus.r", "Radius.r", "Ulna.r", "Extensor carpi radialis brevis.r", "Extensor carpi radialis longus.r",
+              "Flexor carpi radialis.r", "Brachioradialis muscle.r"],
+    "foot": ["Tibia.r", "Fibula.r", "Plantar aponeurosis.r", "Calcaneal tendon.r"],
+    "hamstring": ["Hip bone.r", "Femur.r", "Patella.r", "Tibia.r", "Fibula.r", "Semitendinosus muscle.r",
+                  "Semimembranosus muscle.r", "Long head of biceps femoris.r", "Short head of biceps femoris.r",
+                  "Rectus femoris muscle.r", "Medial head of gastrocnemius.r", "Lateral head of gastrocnemius.r"],
+    "neck": ["Clavicle.r", "Scapula.r", "Humerus.r", "First rib.r", "Manubrium of sternum",
+             "Ascending part of trapezius muscle.r", "Transverse part of trapezius muscle.r",
+             "Descending part of trapezius muscle.r", "Supraspinatus muscle.r", "Acromial part of deltoid muscle.r",
+             "Clavicular part of deltoid muscle.r", "Scapular spinal part of deltoid muscle.r"],
+}
+# Z-Anatomy swaps the trapezius's parts: its "Ascending part" is the one from the skull to the collarbone (the upper,
+# descending fibres) and its "Descending part" is the lower one, so they get plain names here
+RENAME = {"Ascending part of trapezius muscle.r": "Upper trapezius muscle.r",
+          "Transverse part of trapezius muscle.r": "Middle trapezius muscle.r",
+          "Descending part of trapezius muscle.r": "Lower trapezius muscle.r",
+          "Extensor carpi radialis brevis.r": "Extensor carpi radialis brevis muscle.r",
+          "Extensor carpi radialis longus.r": "Extensor carpi radialis longus muscle.r",
+          "Flexor carpi radialis.r": "Flexor carpi radialis muscle.r",
+          "Plantar aponeurosis.r": "Plantar aponeurosis ligament.r",
+          "Calcaneal tendon.r": "Calcaneal tendon.r",
+          "Long head of biceps femoris.r": "Long head of biceps femoris muscle.r",
+          "Short head of biceps femoris.r": "Short head of biceps femoris muscle.r",
+          "Medial head of gastrocnemius.r": "Medial head of gastrocnemius muscle.r",
+          "Lateral head of gastrocnemius.r": "Lateral head of gastrocnemius muscle.r"}
+MODELS.update(DIAGNOSE)
+
 import re
 for name, pat in PATTERNS.items():
     MODELS[name] = sorted(o.name for o in bpy.data.objects if o.type == "MESH" and re.match(pat, o.name)
                           and max(o.dimensions) > 0.005)
 MODELS["forearm"] += MODELS["hand"]
+MODELS["elbow"] += MODELS["hand"]
+FOOT = [n for n in MODELS["leg"] if n not in ("Femur.r", "Patella.r", "Tibia.r", "Fibula.r")]
+MODELS["foot"] += FOOT
+MODELS["hamstring"] += FOOT
+MODELS["neck"] += MODELS["head"] + [n for n in MODELS["spine"] if re.match(r"^(Atlas|Axis|Vertebra C|Vertebra T[1-6]$)", n)]
 
 only = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 bpy.context.view_layer.update()
@@ -89,6 +125,8 @@ for name, wanted in MODELS.items():
         o.data.transform(mw)
         o.delta_location, o.delta_rotation_euler, o.delta_scale = (0, 0, 0), (0, 0, 0), (1, 1, 1)
         o.matrix_world = mw.Identity(4)
+        if name in DIAGNOSE and o.name in RENAME:
+            o.name = RENAME[o.name]
     # (the atlas's "Cross Section X/Y/Z" cutting planes come along into some files; scenes skip them by name)
     bpy.data.libraries.write(os.path.join(OUT, name + ".blend"), set(keep) | {o.data for o in keep},
                              fake_user=True, compress=True)
