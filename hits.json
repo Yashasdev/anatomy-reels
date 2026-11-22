@@ -298,7 +298,75 @@
    "series": "missing",
    "date": "2026-11-21",
    "until": "2026-11-25"
+  },
+  {
+   "post": "fmt-types-10",
+   "buffer_id": "6aff71e0e01ca3a030245050",
+   "day": 102,
+   "title": "Every way you can hurt your ankle: the 6 big ones",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 45.6,
+   "views": 71712,
+   "baseline": 3455,
+   "shares": 551,
+   "reach": 65139,
+   "share_rate": 0.0085,
+   "share_baseline": 0.0059,
+   "compared_with": "types (9 posts)",
+   "factor": 3,
+   "by": [
+    "views"
+   ],
+   "series": "types",
+   "date": "2026-11-22",
+   "until": "2026-11-26"
+  },
+  {
+   "post": "spine-06",
+   "buffer_id": "6aff71ed0c7aa103956173d4",
+   "day": 105,
+   "title": "The Spine",
+   "kind": "quiz",
+   "age_hours": 28.1,
+   "views": 1791,
+   "baseline": 1114,
+   "shares": 5,
+   "reach": 1435,
+   "share_rate": 0.0035,
+   "share_baseline": 0.001,
+   "compared_with": "quiz (30 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": null,
+   "date": "2026-11-22",
+   "until": "2026-11-26"
+  },
+  {
+   "post": "fmt-types-14",
+   "buffer_id": "6aff71f00c7aa1039561753b",
+   "day": 106,
+   "title": "Top 5 most anatomically challenging sports",
+   "kind": "formats",
+   "format": "types",
+   "age_hours": 25.1,
+   "views": 11183,
+   "baseline": 3455,
+   "shares": 19,
+   "reach": 8196,
+   "share_rate": 0.0023,
+   "share_baseline": 0.0085,
+   "compared_with": "types (9 posts)",
+   "factor": 3,
+   "by": [
+    "views"
+   ],
+   "series": "types",
+   "date": "2026-11-22",
+   "until": "2026-11-26"
   }
  ],
- "updated_at": "2026-11-21T18:15:47Z"
+ "updated_at": "2026-11-22T18:40:21Z"
 }
