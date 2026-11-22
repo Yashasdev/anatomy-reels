@@ -1816,17 +1816,20 @@
   {
     "slot": "2026-11-22T16:00:00-05:00",
     "day": 112,
-    "id": "leg-06",
-    "organ": "leg",
-    "title": "The Leg",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1600-leg-06.mp4",
-    "video_seconds": 21.05,
+    "id": "fmt-types-13",
+    "organ": null,
+    "title": "5 pairs of directional terms, shown on real bones",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1600-fmt-types-13.mp4",
+    "video_seconds": 61.4,
     "buffer": {
       "instagram": "6b0203d6d5eabfb8cc5d6045",
       "tiktok": "6b0203d7846b0ee907389099"
     },
-    "music": "house-5",
-    "look": "classic"
+    "kind": "formats",
+    "format": "types",
+    "music": "ambient-2",
+    "promoted": "2026-11-22",
+    "replaced": "leg-06"
   },
   {
     "slot": "2026-11-22T18:00:00-05:00",
