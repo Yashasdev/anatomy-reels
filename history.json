@@ -1589,10 +1589,13 @@
     "buffer": {
       "instagram": "6afe21d9c462756e9e2120dc",
       "tiktok": "6afe21daa588bd66879d8034",
-      "youtube": "6afe21dba588bd66879d8079"
+      "youtube": "6b0358d1846b0ee907b9f72c"
     },
     "kind": "deepdive",
-    "music": "ambient-5"
+    "music": "ambient-5",
+    "retried": {
+      "youtube": "6afe21dba588bd66879d8079"
+    }
   },
   {
     "slot": "2026-11-19T20:00:00-05:00",
@@ -1876,5 +1879,85 @@
     },
     "music": "pop-2",
     "look": "studio"
+  },
+  {
+    "slot": "2026-11-23T12:30:00-05:00",
+    "day": 116,
+    "id": "fmt-missing-06",
+    "organ": null,
+    "title": "Which bone is missing?",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-1230-fmt-missing-06.mp4",
+    "video_seconds": 22.18,
+    "buffer": {
+      "tiktok": "6b0358bcd864a01105f607e8",
+      "youtube": "6b0358bdc72676f5e95df2fb"
+    },
+    "kind": "formats",
+    "format": "missing",
+    "music": "lofi-1",
+    "hot": "missing"
+  },
+  {
+    "slot": "2026-11-23T16:00:00-05:00",
+    "day": 117,
+    "id": "thigh-06",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-1600-thigh-06.mp4",
+    "video_seconds": 19.2,
+    "buffer": {
+      "instagram": "6b0358bfbf5d5a73b6c0a1b1",
+      "tiktok": "6b0358c0846b0ee907b9efce"
+    },
+    "music": "ambient-1",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-23T18:00:00-05:00",
+    "day": 118,
+    "id": "dd-brain-anger",
+    "organ": null,
+    "title": "This is why you hate your boyfriend: the brain and hormones behind snapping",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-1800-dd-brain-anger.mp4",
+    "video_seconds": 70.89,
+    "buffer": {
+      "instagram": "6b0358c6d5eabfb8ccdd1081",
+      "tiktok": "6b0358c7846b0ee907b9f2f1"
+    },
+    "kind": "deepdive",
+    "format": "deepdive",
+    "music": "ambient-3"
+  },
+  {
+    "slot": "2026-11-23T20:00:00-05:00",
+    "day": 119,
+    "id": "arm-08",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-2000-arm-08.mp4",
+    "video_seconds": 21.61,
+    "buffer": {
+      "instagram": "6b0358cacc364169c185df40",
+      "tiktok": "6b0358cbc72676f5e95df8c6"
+    },
+    "music": "ambient-2",
+    "look": "classic",
+    "notify": "instagram"
+  },
+  {
+    "slot": "2026-11-24T09:30:00-05:00",
+    "day": 120,
+    "id": "spine-07",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-0930-spine-07.mp4",
+    "video_seconds": 20.74,
+    "buffer": {
+      "instagram": "6b0358cec72676f5e95dfa1c",
+      "tiktok": "6b0358cebf5d5a73b6c0a972",
+      "youtube": "6b0358cfd5eabfb8ccdd1546"
+    },
+    "music": "science-1",
+    "look": "classic"
   }
 ]
