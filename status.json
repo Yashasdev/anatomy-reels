@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-22T08:05:10+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45001108597",
+ "generated_at": "2026-11-22T08:06:09+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45001179260",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -9,8 +9,8 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 30,
- "total": 145,
+ "unused": 31,
+ "total": 146,
  "posted": 115,
  "ramp": [
   [
@@ -41,7 +41,7 @@
     "types",
     "diagnose"
    ],
-   "posted": 33
+   "posted": 34
   }
  },
  "banks": {
@@ -51,7 +51,7 @@
   },
   "leg": {
    "total": 10,
-   "unused": 4
+   "unused": 5
   },
   "pelvis": {
    "total": 9,
@@ -105,8 +105,8 @@
    ],
    "date": "2026-11-18",
    "until": "2026-11-22",
-   "left": 3,
-   "make_more": false
+   "left": 2,
+   "make_more": true
   },
   {
    "series": "diagnose",
@@ -562,10 +562,10 @@
   {
    "slot": "2026-11-22T16:00:00-05:00",
    "day": 112,
-   "id": "leg-06",
-   "organ": "leg",
-   "title": "The Leg",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1600-leg-06.mp4",
+   "id": "fmt-types-13",
+   "organ": null,
+   "title": "5 pairs of directional terms, shown on real bones",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1600-fmt-types-13.mp4",
    "platforms": [
     "instagram",
     "tiktok"
