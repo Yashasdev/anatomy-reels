@@ -5,7 +5,13 @@
   "for": "Anatomy, PT, nursing and kinesiology students who mix up the body planes before a practical or exam. They send it to their study partner: each plane slices a real skeleton, with the move that happens in it and a memory hook.",
   "title": "The 3 planes of the body, and the move that happens in each",
   "question": "The 3 planes of the body. Which plane always trips you up?",
-  "hook": "*Nod* yes, shake no, do a jumping jack. 3 different planes.",
+  "hook": "Nod yes, shake no, do a jumping jack. 3 different planes.",
+  "hook_lines": [
+   "Nod yes,",
+   "shake no,",
+   "do a jumping jack.",
+   "3 different planes."
+  ],
   "intro": "Here are the 3 planes of the body, and the move that happens in each.",
   "flash": [
    "sagittal",
@@ -272,7 +278,11 @@
       ]
      },
      "zoom": 0.62,
-     "chart_t": 0.45
+     "chart_t": 0.45,
+     "flash_window": [
+      0.7,
+      2.1
+     ]
     }
    },
    {
@@ -879,7 +889,11 @@
       ]
      },
      "zoom": 0.85,
-     "chart_t": 0.45
+     "chart_t": 0.45,
+     "flash_window": [
+      0.9,
+      2.5
+     ]
     }
    },
    {
@@ -1123,7 +1137,11 @@
       ]
      },
      "zoom": 0.7,
-     "chart_t": 0.45
+     "chart_t": 0.45,
+     "flash_window": [
+      0.7,
+      2.1
+     ]
     }
    }
   ],
