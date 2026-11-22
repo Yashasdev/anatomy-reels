@@ -19,6 +19,8 @@ Items with "scene": "parts" (knee injuries, joints...) use the same timeline and
 render/types_scene.py: each type carries a "show" block (which Z-Anatomy parts, how they move, tear or light up,
 where the label pins; see that file), an optional "chart" (the lines under it in the closing chart) and "sound"
 ("pop", "thud" or "none" at its event). The fracture item has no "scene" and renders exactly as before.
+An item's "hook_shows" ({name: {"label", "show", "sound"}}) are extra shots only the hook montage uses (fmt-types-16's
+plain pills before the body shots); "flash" can name them.
 """
 
 from __future__ import annotations
@@ -171,7 +173,11 @@ def speak(texts: list[str], out: Path, voice: str = VOICE, speed: float = SPEED)
 
 # --- timeline ----------------------------------------------------------------------------------------------
 def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[list[dict], list[dict], float]:
-    """Segments for Blender and the narration cues (line index, start, text), from how long each line takes."""
+    """Segments for Blender and the narration cues (line index, start, text), from how long each line takes. An item
+    can tighten its pace (fmt-types-16): "line_gap" (seconds between lines, default 0.42), "type_tail" (after a type's
+    last line, before its whip out; default 0.25) and "outro_seconds" (the pull back; default OUTRO)."""
+    gap = q.get("line_gap", gap)
+    tail, outro = q.get("type_tail", 0.25), q.get("outro_seconds", OUTRO)
     k = 0
     cues, segs = [], []
 
@@ -209,14 +215,14 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
         for _ in ty["lines"]:
             starts.append(at)
             at = say(at) + gap
-        seg_end = max(t + TYPE_MIN, at - gap + 0.25 + WHIP)
+        seg_end = max(t + TYPE_MIN, at - gap + tail + WHIP)
         segs.append({"kind": "type", "name": ty["name"], "label": ty["label"], "start": t, "end": seg_end,
                      "whip_in": i > 0})
         if ty.get("label2"):  # a pair (fmt-types-08): the second term's line starts its own move and label
             segs[-1]["switch"] = round(starts[ty.get("switch_line", 1)] - (t + 0.45), 3)
         t = seg_end
-    segs.append({"kind": "outro", "start": t, "end": t + OUTRO})
-    t += OUTRO
+    segs.append({"kind": "outro", "start": t, "end": t + outro})
+    t += outro
     end = t + 0.3 - gap
     for _ in q["outro"]:  # the comment question, then who to send it to
         end = say(end + gap)
@@ -589,6 +595,8 @@ def scene_for(q: dict, segs: list[dict], frames: int, out: Path, W: int, H: int,
     if q.get("scene") == "parts":
         spec["shows"] = {t["name"]: paired(t["show"], next((s.get("switch") for s in segs if s.get("name") == t["name"]), None))
                          for t in q["types"]}
+        for n, h in q.get("hook_shows", {}).items():  # shots only the hook uses (fmt-types-16's pills)
+            spec["shows"][n] = h["show"]
         return ROOT / "render" / "types_scene.py", spec
     return ROOT / "render" / "fracture_scene.py", spec
 
@@ -611,6 +619,10 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         text = re.sub(r"# --- cracks .*?# --- end cracks\n\n", "", text, flags=re.S)
     if not any(sh.get("pulse") for sh in shows):
         text = re.sub(r"# --- pulse .*?# --- end pulse\n\n", "", text, flags=re.S)
+    if not any(sh.get("model") == "pills" for sh in shows):
+        text = re.sub(r"# --- pills .*?# --- end pills\n\n", "", text, flags=re.S)
+    if not any(sh.get("calm") for sh in shows):
+        text = re.sub(r"# --- calm .*?# --- end calm\n\n", "", text, flags=re.S)
     if not any(sh.get("blobs") or sh.get("chart_hide") or sh.get("ghost_alpha") or sh.get("chart_frame") or sh.get("model") in ("cells", "skeleton") or sh.get("pin", {}).get("group") for sh in shows):
         text = re.sub(r"# --- extras .*?# --- end extras\n\n", "", text, flags=re.S)
     key = hashlib.sha256((json.dumps({**spec, "out": ""}, sort_keys=True) + text).encode()).hexdigest()
@@ -634,7 +646,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             shutil.copytree(work / "frames", keep / "frames")
             (keep / "key.txt").write_text(key)
     anchors = {int(k): v for k, v in json.loads((work / "frames" / "anchors.json").read_text()).items()}
-    labels = {t["name"]: t["label"] for t in q["types"]}
+    labels = {t["name"]: t["label"] for t in q["types"]} | {n: h["label"] for n, h in q.get("hook_shows", {}).items()}
     labels2 = {t["name"]: t["label2"] for t in q["types"] if t.get("label2")}
     charts = {t["name"]: t.get("chart") or [t["label"].title()] for t in q["types"]}
     places: dict[int, tuple] = {}  # segment -> where its label sits (new items)
@@ -729,7 +741,7 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
         if sr != SR:
             v = np.interp(np.arange(0, len(v), sr / SR), np.arange(len(v)), v).astype(np.float32)
         add(v, c["at"])
-    hits = {t["name"]: t.get("sound", "thud") for t in q["types"]}
+    hits = {t["name"]: t.get("sound", "thud") for t in q["types"]} | {n: h.get("sound", "none") for n, h in q.get("hook_shows", {}).items()}
     if q.get("flash_hit"):  # an impact on the very first cut (fmt-types-14)
         add(event_sound(q["flash_hit"], 7), 1 / FPS, 0.9)
     shows = {t["name"]: t.get("show", {}) for t in q["types"]}
