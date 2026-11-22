@@ -1797,19 +1797,21 @@
   {
     "slot": "2026-11-22T12:30:00-05:00",
     "day": 111,
-    "id": "fmt-missing-08",
+    "id": "fmt-types-12",
     "organ": null,
-    "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1230-fmt-missing-08.mp4",
-    "video_seconds": 19.27,
+    "title": "The 3 planes of the body, and the move that happens in each",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1230-fmt-types-12.mp4",
+    "video_seconds": 60.17,
     "buffer": {
       "instagram": "6b00bb659ffbc8503cd860bd",
       "tiktok": "6b00bb655e993799d82d4905",
       "youtube": "6b00bb66dd205ed779996991"
     },
     "kind": "formats",
-    "format": "missing",
-    "music": "pop-5"
+    "format": "types",
+    "music": "lofi-4",
+    "promoted": "2026-11-22",
+    "replaced": "fmt-missing-08"
   },
   {
     "slot": "2026-11-22T16:00:00-05:00",
