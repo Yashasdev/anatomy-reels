@@ -328,12 +328,12 @@
    "day": 105,
    "title": "The Spine",
    "kind": "quiz",
-   "age_hours": 28.1,
-   "views": 1791,
-   "baseline": 1114,
-   "shares": 5,
-   "reach": 1435,
-   "share_rate": 0.0035,
+   "age_hours": 56.4,
+   "views": 2514,
+   "baseline": 1208,
+   "shares": 6,
+   "reach": 2031,
+   "share_rate": 0.003,
    "share_baseline": 0.001,
    "compared_with": "quiz (30 posts)",
    "factor": 3,
@@ -351,13 +351,13 @@
    "title": "Top 5 most anatomically challenging sports",
    "kind": "formats",
    "format": "types",
-   "age_hours": 25.1,
-   "views": 11183,
-   "baseline": 3455,
-   "shares": 19,
-   "reach": 8196,
-   "share_rate": 0.0023,
-   "share_baseline": 0.0085,
+   "age_hours": 53.4,
+   "views": 75468,
+   "baseline": 3024,
+   "shares": 269,
+   "reach": 65266,
+   "share_rate": 0.0041,
+   "share_baseline": 0.0067,
    "compared_with": "types (9 posts)",
    "factor": 3,
    "by": [
@@ -368,5 +368,5 @@
    "until": "2026-11-26"
   }
  ],
- "updated_at": "2026-11-22T18:40:21Z"
+ "updated_at": "2026-11-23T22:56:19Z"
 }
