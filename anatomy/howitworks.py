@@ -129,7 +129,7 @@ def label_spot(pin, text: str, s: float) -> tuple:
     from .types import LABEL
     w = ImageDraw.Draw(Image.new("RGB", (8, 8))).textlength(text, font=LABEL(74))
     px, py = pin[0] / s, pin[1] / s
-    ey = min(max(py - 170, 330), CAPTION_Y - 190)
+    ey = min(max(py - 170, 400), CAPTION_Y - 190)  # below the ANATOMY ACE mark (y 258-300)
     side = 1 if px + 90 + w + 40 <= 960 else -1
     ex = px + 90 if side > 0 else px - 90
     if side < 0 and ex - w - 10 < 120:
