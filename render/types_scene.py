@@ -902,44 +902,177 @@ def _binit(self, name, s, tag):
 Show.__init__ = _binit
 # --- end breaks
 
-# --- pills (fmt-types-16 on): "model": "pills": no atlas file; two plain, unbranded pills built here, side by side
-#   on x: "Tablet" (a round tablet, x < 0) and "Caplet" (an oval caplet, x > 0), matte white, faces toward the camera
-#   (-y) and tipped back a little so their tops catch the light. anatomy/types.py leaves this block out of the 3D cache
-#   key when no show uses them.
-KINDS["pill"] = ((0.90, 0.89, 0.86), 0.72, 0.08)
-_kind_of_pills, _library_pills = kind_of, library
+# --- pills (fmt-types-16 on): "model": "pills": no atlas file; a generic pharmacy still life built here, z up, front -y:
+#   two plain white bottles ("Bottle I" at x < 0, "Bottle A" at x > 0, each with a ribbed "Cap", a paper "Label" and
+#   dark "Text" naming the medicine: IBUPROFEN / ACETAMINOPHEN, no brand, logo or trade dress), reddish-brown sugar-coated
+#   round "Tablet 1-3" in front of the first and white oblong "Caplet 1-3" in front of the second, with a soft contact
+#   "Shadow" under each. anatomy/types.py leaves this block out of the 3D cache key when no show uses them.
+KINDS.update({
+    "bottle": ((0.93, 0.93, 0.91), 0.38, 0.2),     # white HDPE
+    "cap": ((0.95, 0.95, 0.94), 0.5, 0.1),
+    "label": ((0.97, 0.965, 0.95), 0.65, 0.0),     # paper
+    "ink": ((0.05, 0.06, 0.08), 0.55, 0.0),
+    "coat": ((0.24, 0.065, 0.028), 0.2, 0.05),    # a glossy reddish-brown sugar coat
+    "caplet": ((0.92, 0.91, 0.88), 0.7, 0.08),     # matte white
+    "shadow": ((0.0, 0.0, 0.0), 1.0, 0.0),
+})
+_kind_of_pills, _library_pills, _material_pills, _init_pills = kind_of, library, part_material, Show.__init__
+PILL_KINDS = (("Caplet", "caplet"), ("Tablet", "coat"), ("Bottle", "bottle"), ("Cap ", "cap"), ("Label", "label"),
+              ("Text", "ink"), ("Shadow", "shadow"))
 
 
 def kind_of(name):
-    return "pill" if name in ("Tablet", "Caplet") else _kind_of_pills(name)
+    return next((k for pre, k in PILL_KINDS if name.startswith(pre)), None) or _kind_of_pills(name)
 
 
-def pill_mesh(name, centre, size, square):
-    """A rounded solid like blob_mesh's, but not linked to the scene (a library part, copied by fresh())."""
+def part_material(tag, kind, lit=False, hurt=False):
+    if kind != "shadow":
+        return _material_pills(tag, kind, lit, hurt)
+    m = bpy.data.materials.new(tag)  # black, its alpha from the disc's "shade" (1 in the middle, 0 at the rim)
+    m.use_nodes = True
+    nt = m.node_tree
+    b = nt.nodes["Principled BSDF"]
+    b.inputs["Base Color"].default_value = (0, 0, 0, 1)
+    b.inputs["Roughness"].default_value = 1.0
+    at = nt.nodes.new("ShaderNodeAttribute")
+    at.attribute_name = "shade"
+    mul = nt.nodes.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY"
+    mul.inputs[1].default_value = 0.65
+    nt.links.new(at.outputs["Fac"], mul.inputs[0])
+    nt.links.new(mul.outputs["Value"], b.inputs["Alpha"])
+    m.surface_render_method = "BLENDED"
+    return m
+
+
+def _pinit(self, name, s, tag):
+    _init_pills(self, name, s, tag)
+    for n, o in self.parts.items():
+        if kind_of(n) == "shadow":
+            o.visible_shadow = False
+
+
+def _mesh(name, verts, faces, shade=None):
+    me = bpy.data.meshes.new(name)
+    me.from_pydata([tuple(v) for v in verts], [], faces)
+    if shade is not None:
+        a = me.attributes.new("shade", "FLOAT", "POINT")
+        a.data.foreach_set("value", shade)
+    me.validate()
+    o = bpy.data.objects.new(name, me)
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-7)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(me)
+    bm.free()
+    return o
+
+
+def lathe(name, prof, centre, seg=96, a0=0.0, a1=360.0, ribs=0, closed=True):
+    """A solid (or, with a0/a1, a band) turned about the vertical through centre; angle 0 faces the camera (-y)."""
+    n = seg if closed else seg + 1
+    verts = []
+    for i in range(n):
+        th = math.radians(a0 + (a1 - a0) * i / seg)
+        for r, z in prof:
+            rr = r * (1 + (0.014 * math.cos(th * ribs) if ribs and 0 < r and z > prof[0][1] + 1e-4 and z < prof[-1][1] - 1e-4 else 0))
+            verts.append(centre + Vector((rr * math.sin(th), -rr * math.cos(th), z)))
+    m = len(prof)
+    faces = [(i * m + j, ((i + 1) % n) * m + j, ((i + 1) % n) * m + j + 1, i * m + j + 1)
+             for i in range(seg) for j in range(m - 1)]
+    return _mesh(name, verts, faces)
+
+
+def disc(name, centre, rx, ry, seg=48, rings=6):
+    """A flat, soft shadow: rings of vertices whose "shade" falls from 1 in the middle to 0 at the rim."""
+    verts, shade = [centre + Vector((0, 0, 0.0002))], [1.0]
+    for k in range(1, rings + 1):
+        f = k / rings
+        for i in range(seg):
+            th = 2 * math.pi * i / seg
+            verts.append(centre + Vector((rx * f * math.cos(th), ry * f * math.sin(th), 0.0002)))
+            shade.append((1 - f) ** 1.6)
+    faces = [(0, 1 + i, 1 + (i + 1) % seg) for i in range(seg)]
+    for k in range(rings - 1):
+        a, b = 1 + k * seg, 1 + (k + 1) * seg
+        faces += [(a + i, b + i, b + (i + 1) % seg, a + (i + 1) % seg) for i in range(seg)]
+    return _mesh(name, verts, faces, shade)
+
+
+def pill(name, centre, size, square, yaw):
+    """A rounded solid lying flat (thin along z): a biconvex tablet or, longer in x, a caplet."""
     bm = bmesh.new()
     bmesh.ops.create_uvsphere(bm, u_segments=64, v_segments=32, radius=1.0)
-    tip = Matrix.Rotation(math.radians(-62), 3, "X")  # tipped back: the top face shows
+    turn = Matrix.Rotation(math.radians(yaw), 3, "Z")
     for v in bm.verts:
         x, y, z = v.co
-        r = math.hypot(x, z)
-        if r > 1e-6:  # the sides pushed out toward a puck (faces look along y)
+        r = math.hypot(x, y)
+        if r > 1e-6:
             k = r ** (1 - 0.7 * square) / r
-            x, z = x * k, z * k
-        y = math.copysign(abs(y) ** (1 + 1.5 * square), y)
-        v.co = centre + tip @ Vector((x * size[0], y * size[1], z * size[2]))
+            x, y = x * k, y * k
+        z = math.copysign(abs(z) ** (1 + 1.2 * square), z)
+        v.co = centre + turn @ Vector((x * size[0], y * size[1], z * size[2]))
     me = bpy.data.meshes.new(name)
     bm.to_mesh(me)
     bm.free()
     return bpy.data.objects.new(name, me)
 
 
+def words(name, text, size, z, radius, width, centre):
+    """Flat text (Inter Bold) wrapped onto the bottle's curve at height z, centred on the front, at most `width` wide."""
+    cu = bpy.data.curves.new(name, "FONT")
+    cu.body, cu.size, cu.align_x, cu.align_y = text, 1.0, "CENTER", "CENTER"
+    cu.font = bpy.data.fonts.load(str(ROOT / "assets" / "fonts" / "Inter-Bold.otf"), check_existing=True)
+    tmp = bpy.data.objects.new(name + "-tmp", cu)
+    scene.collection.objects.link(tmp)
+    me = bpy.data.meshes.new_from_object(tmp.evaluated_get(bpy.context.evaluated_depsgraph_get()))
+    bpy.data.objects.remove(tmp)
+    xs = [v.co.x for v in me.vertices]
+    k = min(size, width / max(1e-6, max(xs) - min(xs)))
+    for v in me.vertices:
+        th = v.co.x * k / radius
+        v.co = centre + Vector((radius * math.sin(th), -radius * math.cos(th), z + v.co.y * k))
+    for p_ in me.polygons:
+        p_.use_smooth = False
+    return bpy.data.objects.new(name, me)
+
+
+BOTTLE = [(0, 0), (0.0195, 0), (0.0214, 0.0012), (0.022, 0.004), (0.022, 0.050), (0.0214, 0.054), (0.0186, 0.0585),
+          (0.0146, 0.0612), (0.0136, 0.0622), (0, 0.0622)]
+CAP = [(0, 0.0605), (0.0150, 0.0605), (0.0156, 0.0614), (0.0156, 0.0755), (0.0149, 0.0766), (0, 0.0766)]
+
+
+def pills_library():
+    out = {}
+    for tag, x, name, line2 in (("I", -0.027, "IBUPROFEN", "Pain reliever / fever reducer"),
+                                ("A", 0.027, "ACETAMINOPHEN", "Pain reliever / fever reducer")):
+        c = Vector((x, 0.014, 0))
+        out[f"Bottle {tag}"] = lathe(f"Bottle {tag}", BOTTLE, c)
+        out[f"Cap {tag}"] = lathe(f"Cap {tag}", CAP, c, seg=144, ribs=60)
+        out[f"Label {tag}"] = lathe(f"Label {tag}", [(0.02215, 0.011), (0.02215, 0.047)], c, seg=64, a0=-82, a1=82,
+                                    closed=False)
+        out[f"Text {tag}"] = words(f"Text {tag}", name, 0.0066, 0.0335, 0.02235, 0.040, c)
+        out[f"Text {tag}2"] = words(f"Text {tag}2", line2, 0.0026, 0.0225, 0.02235, 0.034, c)
+        out[f"Shadow {tag}"] = disc(f"Shadow {tag}", c + Vector((0.004, 0.004, 0)), 0.031, 0.027)
+    for i, (x, y, yaw) in enumerate(((-0.036, -0.026, 10), (-0.022, -0.033, 40), (-0.017, -0.019, 75)), 1):
+        out[f"Tablet {i}"] = pill(f"Tablet {i}", Vector((x, y, 0.0024)), (0.0054, 0.0054, 0.0024), 0.5, yaw)
+        out[f"Shadow t{i}"] = disc(f"Shadow t{i}", Vector((x + 0.0008, y + 0.0008, 0)), 0.0075, 0.0075, rings=4)
+    for i, (x, y, yaw) in enumerate(((0.018, -0.027, 25), (0.034, -0.032, -30), (0.031, -0.018, 80)), 1):
+        out[f"Caplet {i}"] = pill(f"Caplet {i}", Vector((x, y, 0.0031)), (0.0096, 0.0042, 0.0031), 0.62, yaw)
+        out[f"Shadow c{i}"] = disc(f"Shadow c{i}", Vector((x + 0.0008, y + 0.0008, 0)), 0.0115, 0.0065, rings=4)
+    return out
+
+
 def library(model):
     if model == "pills":
         if model not in LIB:
-            LIB[model] = {"Tablet": pill_mesh("Tablet", Vector((-0.0125, 0, 0)), (0.0085, 0.0032, 0.0085), 0.8),
-                          "Caplet": pill_mesh("Caplet", Vector((0.0135, 0, 0)), (0.0105, 0.0036, 0.0048), 0.62)}
+            LIB[model] = pills_library()
         return LIB[model]
     return _library_pills(model)
+
+
+Show.__init__ = _pinit
 # --- end pills
 
 # --- cracks (fmt-types-15 on): a hairline that grows across a bone, a step at each impact (a stress fracture).

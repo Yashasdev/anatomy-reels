@@ -2,14 +2,14 @@
  {
   "id": "fmt-types-16",
   "scene": "parts",
-  "for": "Almost everyone: nearly every home has ibuprofen and acetaminophen, and most people think they're interchangeable. They send it to the friend who takes ibuprofen for everything (tease plus protect: the stomach and liver warnings), or to the family group chat that keeps a medicine drawer.",
+  "for": "The general public and their families: nearly every home has ibuprofen and acetaminophen, and many people think they're interchangeable. They send it to someone in the family who mixes them up (protect: the stomach, liver and kids-and-aspirin warnings), or to the friend who takes ibuprofen for everything.",
   "title": "5 things to know: ibuprofen vs acetaminophen",
   "question": "Which one do you reach for first?",
   "hook": "[Ibuprofen](aɪbjuːpɹˈoʊfən) and [acetaminophen](əsˌiːtəmˈɪnəfən) don't do the same thing.",
   "intro": "5 things to know.",
   "flash": [
-   "pill_ibu",
-   "pill_ace",
+   "bottles",
+   "bottles_2",
    "ibuprofen",
    "acetaminophen"
   ],
@@ -19,14 +19,12 @@
     "label": "IBUPROFEN",
     "chart": [
      "Ibuprofen",
-     "pain, fever, swelling",
-     "naproxen too"
+     "pain, fever, swelling"
     ],
     "sound": "none",
     "lines": [
-     "[Ibuprofen](aɪbjuːpɹˈoʊfən) and [naproxen](nəpɹˈɑːksən) are [NSAIDs](ˈɛnsɛdz), anti-inflammatories.",
-     "It blocks the COX enzymes that make [prostaglandins](pɹˌɑːstəɡlˈændɪnz),",
-     "the signals behind pain, fever and swelling."
+     "[Ibuprofen](aɪbjuːpɹˈoʊfən), like Advil or [Motrin](mˈoʊtɹɪn), is an anti-inflammatory.",
+     "It calms swelling as well as pain and fever."
     ],
     "show": {
      "model": "knee",
@@ -80,8 +78,8 @@
        "Lateral meniscus.r"
       ],
       "at": [
-       7.9,
-       9.4
+       4.3,
+       5.6
       ]
      }
     }
@@ -91,12 +89,12 @@
     "label": "ASPIRIN",
     "chart": [
      "Aspirin",
-     "also blocks platelets"
+     "blood clots less"
     ],
     "sound": "none",
     "lines": [
-     "Aspirin. Also an [NSAID](ˈɛnsɛd), but it switches off platelets for good,",
-     "so blood clots less. Some heart patients take a low dose, on a doctor's advice.",
+     "Aspirin eases pain too, and it makes blood clot less,",
+     "so some heart patients take it, but only on a doctor's advice.",
      "Never give it to kids or teens with a virus.",
      "It's linked to a rare but serious illness."
     ],
@@ -211,8 +209,8 @@
        "Platelet 3"
       ],
       "at": [
-       1.5,
-       2.8
+       1.6,
+       2.6
       ],
       "to": [
        0.34,
@@ -227,12 +225,12 @@
     "label": "STOMACH",
     "chart": [
      "Stomach",
-     "NSAIDs can irritate it"
+     "ibuprofen can upset it"
     ],
     "sound": "thud",
     "lines": [
-     "Stomach. [Prostaglandins](pɹˌɑːstəɡlˈændɪnz) also protect its lining, so [NSAIDs](ˈɛnsɛdz) can irritate it.",
-     "With heavy use or dehydration, they're hard on your kidneys too."
+     "Stomach. [Ibuprofen](aɪbjuːpɹˈoʊfən) and aspirin can upset it,",
+     "and heavy use is hard on your kidneys."
     ],
     "show": {
      "model": "abdomen",
@@ -269,9 +267,8 @@
     ],
     "sound": "none",
     "lines": [
-     "[Acetaminophen](əsˌiːtəmˈɪnəfən), or [paracetamol](pˌæɹəsˈiːtəmɑːl), eases pain and fever,",
-     "but does little for swelling. It works mostly in the brain and spinal cord.",
-     "It's easier on the stomach."
+     "[Acetaminophen](əsˌiːtəmˈɪnəfən), like Tylenol, eases pain and fever, but not swelling.",
+     "It's gentler on the stomach."
     ],
     "show": {
      "model": "brain",
@@ -561,7 +558,7 @@
     "sound": "thud",
     "lines": [
      "Liver. Too much [acetaminophen](əsˌiːtəmˈɪnəfən) can seriously damage it.",
-     "It hides in lots of cold and flu combos, so people double up.",
+     "It hides in many cold and flu medicines, so people double up.",
      "Follow the label, and ask a pharmacist or doctor if you're unsure."
     ],
     "show": {
@@ -593,10 +590,10 @@
   ],
   "outro": [
    "Which one do *you* reach for first?",
-   "Send this to the friend who takes [ibuprofen](aɪbjuːpɹˈoʊfən) for everything."
+   "Send this to someone in your family who mixes these up."
   ],
   "grid_title": "WHAT EACH ONE DOES",
-  "why": "Ibuprofen and naproxen are NSAIDs: they block the COX enzymes that make prostaglandins, which drive pain, fever and inflammation, so they ease all three. Naproxen lasts longer, so it's taken less often. Prostaglandins also protect the stomach lining, so NSAIDs can irritate it (and can cause ulcers or bleeding); with heavy or long-term use, or when you're dehydrated, they're hard on the kidneys. Aspirin is also an NSAID, but it blocks platelets' COX-1 for good (the rest of each platelet's life), so blood clots less; some heart patients take a low dose, only on a doctor's advice. Don't give aspirin to children or teenagers with a viral illness like flu or chickenpox: it's linked to Reye's syndrome, which is rare but serious. Acetaminophen (paracetamol) eases pain and fever but does little for swelling; it works mostly in the brain and spinal cord, and exactly how isn't fully understood. It's easier on the stomach, but too much can seriously damage the liver, and it's in many cold and flu combination products, so check every label to avoid doubling up. For a sprain or swelling, an anti-inflammatory can help the swelling too; with stomach problems or blood thinners, ask a pharmacist first. Follow the label, and ask a pharmacist or doctor if you're unsure.",
+  "why": "Ibuprofen (like Advil or Motrin) and naproxen are NSAIDs, anti-inflammatories: they block the COX enzymes that make prostaglandins, the body's signals behind pain, fever and swelling, so they ease all three. Prostaglandins also protect the stomach lining, so NSAIDs can upset or irritate it (and can cause ulcers or bleeding); with heavy or long-term use, or when you're dehydrated, they're hard on the kidneys. Aspirin is an NSAID too, and it switches off platelets for the rest of their life, so blood clots less; some heart patients take a low dose, only on a doctor's advice. Don't give aspirin to children or teenagers with a viral illness like flu or chickenpox: it's linked to Reye's syndrome, which is rare but serious. Acetaminophen (paracetamol; like Tylenol) eases pain and fever but not swelling; it works mostly in the brain and spinal cord, and exactly how isn't fully understood. It's gentler on the stomach, but too much can seriously damage the liver, and it's in many cold and flu medicines, so check every label to avoid doubling up. Follow the label, and ask a pharmacist or doctor if you're unsure.",
   "hashtags": [
    "#ibuprofen",
    "#acetaminophen",
@@ -626,126 +623,68 @@
    "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-201/subpart-G/section-201.314"
   ],
   "credit": "3D model: Z-Anatomy / BodyParts3D (CC BY-SA 4.0)",
-  "send": "Send this to the friend who takes ibuprofen for everything 💊",
+  "send": "Send this to someone in your family who mixes these up 💊",
   "music": "ambient-2",
-  "caption_extra": "Sprain or swelling? An anti-inflammatory can help the swelling too. Stomach trouble, or on blood thinners? Ask a pharmacist first.\nNot medical advice. Follow the label; ask a pharmacist.",
+  "caption_extra": "Or send it to the friend who takes ibuprofen for everything.\nSprain or swelling? An anti-inflammatory can help the swelling too. Stomach trouble, or on blood thinners? Ask a pharmacist first.\nBrand names mentioned for recognition only; not sponsored or affiliated.\nNot medical advice. Follow the label; ask a pharmacist.",
   "hook_shows": {
-   "pill_ibu": {
-    "label": "IBUPROFEN",
+   "bottles": {
+    "label": "",
     "show": {
      "model": "pills",
      "orient": [
-      0,
+      20,
       0,
       0
      ],
      "frame": [
       [
-       -0.0215,
-       -0.01,
-       -0.013
+       -0.056,
+       -0.045,
+       -0.04
       ],
       [
-       0.0235,
-       0.01,
-       0.013
+       0.056,
+       0.04,
+       0.078
       ]
      ],
-     "moves": [
-      {
-       "parts": [
-        "Tablet",
-        "Caplet"
-       ],
-       "pivot": {
-        "xyz": [
-         0,
-         0,
-         0
-        ]
-       },
-       "keys": [
-        [
-         0,
-         0,
-         0,
-         -14
-        ],
-        [
-         0.7,
-         0,
-         0,
-         -4
-        ]
-       ]
-      }
-     ],
      "pin": {
-      "part": "Tablet",
+      "part": "Bottle I",
       "at": [
        0.5,
        0.0,
-       0.9
+       0.6
       ]
      }
     }
    },
-   "pill_ace": {
-    "label": "ACETAMINOPHEN",
+   "bottles_2": {
+    "label": "",
     "show": {
      "model": "pills",
      "orient": [
-      0,
+      20,
       0,
       0
      ],
      "frame": [
       [
-       -0.0215,
-       -0.01,
-       -0.013
+       -0.056,
+       -0.045,
+       -0.04
       ],
       [
-       0.0235,
-       0.01,
-       0.013
+       0.056,
+       0.04,
+       0.078
       ]
      ],
-     "moves": [
-      {
-       "parts": [
-        "Tablet",
-        "Caplet"
-       ],
-       "pivot": {
-        "xyz": [
-         0,
-         0,
-         0
-        ]
-       },
-       "keys": [
-        [
-         0,
-         0,
-         0,
-         -4
-        ],
-        [
-         0.7,
-         0,
-         0,
-         6
-        ]
-       ]
-      }
-     ],
      "pin": {
-      "part": "Caplet",
+      "part": "Bottle I",
       "at": [
        0.5,
        0.0,
-       0.9
+       0.6
       ]
      }
     }

@@ -695,6 +695,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
                 for j, word in enumerate(labels[g["label"]].title().split()):
                     d.text((g["xy"][0], g["xy"][1] + j * 26 * scale), word, font=BOLD(int(20 * scale)),
                            fill=col, anchor="mt")
+        elif a and a.get("small") and not labels[a["label"]]:  # a hook shot that names itself (fmt-types-16's bottles)
+            pass
         elif a and a.get("small"):
             mystery = a["label"] in q.get("flash_mystery", [])  # the hook asks about it: no answer in second 1
             small_label(img, a["xy"], "?" if mystery else labels[a["label"]], scale, big=q.get("scene") == "parts")
