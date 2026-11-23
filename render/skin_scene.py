@@ -11,7 +11,7 @@ What's built (units are arbitrary; the block is 3.2 wide, the skin's top is z = 
   a hair follicle    slanting down to its bulb, a sebaceous gland beside it and an apocrine gland whose duct joins
                      the follicle above it (apocrine glands empty into hair follicles, eccrine glands onto the skin)
   props              sweat droplets on pores, odor bacteria (rods), fragrance motes, aluminum salt crystals, skin
-                     flakes, and an unbranded stick ("ANTIPERSPIRANT / DEODORANT") off to the side for the hook
+                     flakes, and the hook's hero: an unbranded electric-blue stick whose cap pops off, mist around it
 
 spec: {"root", "out", "fps", "width", "height", "samples", "frames", "shots": [{"kind", "start", "end"}],
        "cues": [{"line", "at", "dur"}], "only": [frames]}
@@ -313,7 +313,6 @@ M_BACT = principled("bacteria", (0.45, 0.55, 0.16), 0.3, sss=0.6, radius=(0.02, 
 M_SCENT = principled("fragrance", (0.95, 0.70, 0.90), 0.3, alpha=0.7, emit=2.0)
 M_SALT = principled("salt", (0.96, 0.97, 1.0), 0.15, trans=0.5, ior=1.5, emit=0.15)
 M_FLAKE = principled("flake", (0.93, 0.85, 0.76), 0.6, alpha=0.85, sss=0.3)
-M_STICK = principled("stick", (0.80, 0.86, 0.93), 0.25, spec=0.6)
 M_WAX = principled("product", (0.97, 0.97, 0.98), 0.55, sss=0.4, radius=(0.05, 0.05, 0.05))
 M_INK = principled("ink", (0.10, 0.12, 0.16), 0.35)
 M_INK2 = principled("ink accent", (0.20, 0.45, 0.80), 0.35)
@@ -642,55 +641,99 @@ for i in range(14):
     o["seed"] = [rng.uniform(-0.25, 0.25), rng.uniform(0.0, 0.25), rng.uniform(0, 0.6), rng.uniform(-1, 1)]
     FLAKES.append(o)
 
-# the stick, off to the side for the hook: a rounded white case, the product domed on top, two lines of print
+# the stick, off to the side for the hook (Nov 23: a hero shot): a glossy electric-blue oval case with plain white
+# print, the cap pops off, the white product twists up, fine mist hangs in the rim light. No brand, logo or trade dress.
 STICK_AT = Vector((60.0, 0.0, 0.0))
+SA, SB, SZ = 0.78, 0.38, 1.3  # the case's half width, half depth and half height
+M_STICK = principled("stick", (0.004, 0.11, 0.9), 0.16, spec=0.6)
+bsdf(M_STICK).inputs["Coat Weight"].default_value = 1.0
+bsdf(M_STICK).inputs["Coat Roughness"].default_value = 0.04
+M_PRINT = principled("print", (0.95, 0.96, 0.98), 0.3)
+M_PRINT2 = principled("print accent", (0.55, 0.85, 1.0), 0.3, emit=0.15)
+M_MIST = principled("mist", (0.85, 0.93, 1.0), 0.3, alpha=0.4, emit=1.0)
 
 
-def stick():
-    """An oval stick (a superellipse in section, flat enough at the front for the print), the product domed on top."""
-    me = bpy.data.meshes.new("stick")
+def oval(name, z0, z1, a, b, mat, top=True, bottom=True):
+    """An oval prism (a superellipse in section, flat enough at the front for print) from z0 to z1."""
+    me = bpy.data.meshes.new(name)
     bm = bmesh.new()
-    n, A, B, Z = 96, 0.78, 0.38, 1.3
+    n = 96
     ring = []
     for i in range(n):
-        a = 2 * math.pi * i / n
-        c, s_ = math.cos(a), math.sin(a)
-        ring.append((A * math.copysign(abs(c) ** 0.5, c), B * math.copysign(abs(s_) ** 0.5, s_)))
-    lo = [bm.verts.new((x, y, -Z)) for x, y in ring]
-    hi = [bm.verts.new((x, y, Z)) for x, y in ring]
+        t = 2 * math.pi * i / n
+        c, s_ = math.cos(t), math.sin(t)
+        ring.append((a * math.copysign(abs(c) ** 0.5, c), b * math.copysign(abs(s_) ** 0.5, s_)))
+    lo = [bm.verts.new((x, y, z0)) for x, y in ring]
+    hi = [bm.verts.new((x, y, z1)) for x, y in ring]
     for i in range(n):
         bm.faces.new((lo[i], lo[(i + 1) % n], hi[(i + 1) % n], hi[i]))
-    bm.faces.new(hi)
-    bm.faces.new(lo[::-1])
+    if top:
+        bm.faces.new(hi)
+    if bottom:
+        bm.faces.new(lo[::-1])
     bm.normal_update()
     bm.to_mesh(me)
     bm.free()
     for p in me.polygons:
         p.use_smooth = len(p.vertices) == 4
-    me.materials.append(M_STICK)
-    o = bpy.data.objects.new("stick", me)
-    o.location = STICK_AT
+    me.materials.append(mat)
+    o = bpy.data.objects.new(name, me)
     scene.collection.objects.link(o)
     bev = o.modifiers.new("bevel", "BEVEL")
-    bev.width, bev.segments, bev.limit_method = 0.06, 4, "ANGLE"
+    bev.width, bev.segments, bev.limit_method = 0.05, 4, "ANGLE"
     o.modifiers.new("smooth", "WEIGHTED_NORMAL")
-    dome = sphere("product", STICK_AT + Vector((0, 0, Z)), 1.0, M_WAX, seg=48)
-    dome.scale = (A * 0.9, B * 0.85, 0.16)
+    return o
+
+
+def pivot(name, at):
+    e = bpy.data.objects.new(name, None)
+    e.location = at
+    scene.collection.objects.link(e)
+    return e
+
+
+def stick():
+    case = oval("stick", -SZ, SZ, SA, SB, M_STICK)
+    case.location = STICK_AT
+    prod = pivot("product pivot", STICK_AT + Vector((0, 0, SZ)))  # the product: a column with a domed top
+    col = oval("product column", -0.45, 0.02, SA * 0.9, SB * 0.84, M_WAX, top=False)
+    col.parent = prod
+    dome = sphere("product", Vector((0, 0, 0.02)), 1.0, M_WAX, seg=48)
+    dome.scale = (SA * 0.88, SB * 0.82, 0.17)
+    dome.parent = prod
+    cap = pivot("cap pivot", STICK_AT + Vector((0, 0, SZ - 0.06)))
+    shell = oval("cap", 0.0, 0.78, SA * 1.025, SB * 1.06, M_STICK)
+    shell.parent = cap
+    lid = sphere("cap top", Vector((0, 0, 0.78)), 1.0, M_STICK, seg=48)
+    lid.scale = (SA * 1.02, SB * 1.05, 0.1)
+    lid.parent = cap
     font = bpy.data.fonts.load(str(ROOT / "assets" / "fonts" / "Inter-ExtraBold.otf"))
-    for text, z, size, mat in (("ANTIPERSPIRANT", 0.62, 0.105, M_INK2), ("+", 0.44, 0.12, M_INK2),
-                               ("DEODORANT", 0.16, 0.17, M_INK)):
+    for text, z, size, mat in (("ANTIPERSPIRANT", 1.0, 0.1, M_PRINT2), ("+", 0.86, 0.11, M_PRINT2),
+                               ("DEODORANT", 0.66, 0.19, M_PRINT)):
         cu = bpy.data.curves.new(text, "FONT")
         cu.body, cu.font, cu.size, cu.align_x, cu.align_y = text, font, size, "CENTER", "CENTER"
         cu.extrude = 0.003
         cu.materials.append(mat)
         t = bpy.data.objects.new(text, cu)
-        t.location = STICK_AT + Vector((0, -B - 0.004, z))
+        t.location = STICK_AT + Vector((0, -SB - 0.004, z))
         t.rotation_euler = (math.pi / 2, 0, 0)
         scene.collection.objects.link(t)
-    return o
+    return case, prod, cap
 
 
-STICK = stick()
+MIST = []
+for i in range(150):
+    burst = i < 60  # these fly out of the cap's rim when it pops; the rest hang in the air
+    o = sphere(f"mist {i}", STICK_AT, rng.uniform(0.006, 0.02), M_MIST, seg=8)
+    if burst:
+        a_ = rng.uniform(0, 2 * math.pi)
+        o["seed"] = [1, math.cos(a_), math.sin(a_) * 0.6, rng.uniform(0.3, 1.2), rng.uniform(0.6, 1.6), rng.uniform(0, 6.28)]
+    else:
+        o["seed"] = [0, rng.uniform(-2.2, 2.2), rng.uniform(-1.8, 1.6), rng.uniform(-0.6, 3.2), rng.uniform(0.05, 0.16),
+                     rng.uniform(0, 6.28)]
+    MIST.append(o)
+
+STICK, PRODUCT, CAP = stick()
 
 
 # --- stage -------------------------------------------------------------------------------------------------------
@@ -708,9 +751,11 @@ KEY = light("key", (-4.5, -5.0, 4.0), spec.get("key", 1500), 4.0)
 FILL = light("fill", (5.0, -4.0, 0.5), spec.get("fill", 260), 6.0, (0.95, 0.97, 1.0))
 RIM = light("rim", (1.5, 6.0, 4.5), spec.get("rim", 1500), 3.0)
 TOP = light("top", (0.0, 1.0, 6.0), 400, 5.0, (1.0, 0.98, 0.95))
-light("stick key", tuple(STICK_AT + Vector((-4, -6, 3))), 1500, 4.0, at=STICK_AT)
-light("stick fill", tuple(STICK_AT + Vector((5, -4, 0))), 350, 6.0, (0.95, 0.97, 1.0), at=STICK_AT)
-light("stick rim", tuple(STICK_AT + Vector((1, 5, 4))), 1500, 3.0, at=STICK_AT)
+light("stick key", tuple(STICK_AT + Vector((-4, -6, 3))), 1300, 3.0, at=STICK_AT)
+light("stick fill", tuple(STICK_AT + Vector((5, -4, 0))), 300, 6.0, (0.95, 0.97, 1.0), at=STICK_AT)
+light("stick rim L", tuple(STICK_AT + Vector((-3.5, 3.5, 2.5))), 2600, 1.5, (0.8, 0.9, 1.0), at=STICK_AT + Vector((0, 0, 1)))
+light("stick rim R", tuple(STICK_AT + Vector((3.5, 3.5, 2.0))), 2600, 1.5, (0.8, 0.9, 1.0), at=STICK_AT + Vector((0, 0, 1)))
+light("stick top", tuple(STICK_AT + Vector((0, 1.0, 6.0))), 900, 2.0, at=STICK_AT + Vector((0, 0, 1.5)))
 scene.world = bpy.data.worlds.new("world")
 scene.world.use_nodes = True
 BG = scene.world.node_tree.nodes["Background"]
@@ -762,10 +807,10 @@ def keys_for(s):
     E, H = Vector((PORE_E.x, YF, 0)), Vector((PORE_H.x, YF, 0))
     B = Vector((BACT_AT.x, BACT_AT.y - 0.05, 0.0))
     if k == "stick":
-        top, word = STICK_AT + Vector((0, -0.38, 0.32)), STICK_AT + Vector((0, -0.38, 0.1))
-        return [(a, view(word, 0, 3, 6.2, 5.0)), (L(1), view(word, -4, 4, 5.9, 5.0)),
-                (L(1) + 0.9, view(top, 10, 6, 5.6, 5.0)), (b - 0.25, view(top, 14, 6, 5.4, 5.0)),
-                (b, view(top + Vector((3.0, 0, 0)), 45, 6, 5.4, 5.0))]
+        hero, top = STICK_AT + Vector((0, -0.38, 1.1)), STICK_AT + Vector((0, -0.1, 1.55))
+        return [(a, view(hero, -10, 4, 7.6, 1.6)), (L(1), view(hero, -7, 5, 6.7, 1.6)),  # a slow push-in
+                (L(1) + 1.3, view(top, 2, 12, 5.0, 1.6)), (b - 0.25, view(top, 6, 12, 4.7, 1.6)),
+                (b, view(top + Vector((3.0, 0, 0)), 45, 12, 4.7, 1.6))]
     if k == "surface":
         far = view(E + Vector((0.12, 0.42, 0.0)), 205, -17, 1.25, 1.1)
         return [(a, view(E + Vector((-1.2, 0.5, 0)), 175, -17, 1.25, 1.1)), (a + 0.27, far),
@@ -813,6 +858,8 @@ def on_path(pts, f):
 T_SURF, T_APO, T_DEO, T_ECC, T_REN, T_NIGHT = (shot(k)["start"] for k in ("surface", "apocrine", "deodorant", "eccrine", "renew", "night"))
 T_SALT, T_PLUG, T_LESS = L(7), L(8), L(9)
 T_BACT = L(4)
+T_POP = 0.5  # the cap pops; before it, a capped stick that reads as a stick on its own
+T_HERO_END = shot("stick")["end"] + 0.1
 PLUG_TOP = 0.55  # the plug fills the top 45% of the clear window
 
 
@@ -852,6 +899,30 @@ for k in range(TOTAL):
     cam.data.dof.keyframe_insert("focus_distance", frame=k)
     cam.data.dof.keyframe_insert("aperture_fstop", frame=k)
     st = state(t)
+    # the hero stick: the cap pops off at T_POP and flies up and away, the product twists up, mist drifts
+    hero = t <= T_HERO_END
+    up = ease((t - T_POP) / 0.9) if t >= T_POP else 0.0
+    jig = 0.015 * math.sin(t * 60) * ramp(t, T_POP - 0.2, T_POP) if t < T_POP else 0.0
+    CAP.location = STICK_AT + Vector((0.6 * up, 0.3 * up, SZ - 0.06 + jig + 2.6 * up))
+    CAP.rotation_euler = (math.radians(-35) * up, math.radians(20) * up, math.radians(25) * up)
+    rise = smooth((t - T_POP - 0.35) / 1.3)
+    PRODUCT.location = STICK_AT + Vector((0, 0, SZ + 0.4 * rise))
+    PRODUCT.rotation_euler = (0, 0, 0)  # it slides straight up (an oval can't turn inside an oval case)
+    for o in (CAP, PRODUCT) if hero else ():
+        o.keyframe_insert("location", frame=k)
+        o.keyframe_insert("rotation_euler", frame=k)
+    for o in MIST if hero else ():
+        sd = o["seed"]
+        if sd[0]:  # out of the cap's rim
+            f = ease((t - T_POP) / 1.6) if t >= T_POP else 0.0
+            o.location = STICK_AT + Vector((sd[1] * (SA + sd[3] * f), sd[2] * (SB + sd[3] * f) - 0.1, SZ + sd[4] * f))
+            g = (1 - ramp(t, T_POP + 0.6, T_POP + 2.4)) if t >= T_POP else 0.0
+        else:
+            o.location = STICK_AT + Vector((sd[1] + 0.06 * math.sin(t * 0.7 + sd[5]), sd[2], sd[3] + sd[4] * t))
+            g = 1.0
+        o.scale = (max(g, 0.001),) * 3
+        o.keyframe_insert("location", frame=k)
+        o.keyframe_insert("scale", frame=k)
     for j, o in enumerate(DROPS):
         g = st["drop_e"] if o is DROP_E else st["drops"] * (0.85 + 0.15 * math.sin(j * 1.7 + t * 0.8))
         sx, sy, sz = SHAPES[o.name]
