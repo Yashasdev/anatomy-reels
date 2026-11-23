@@ -1,0 +1,187 @@
+[
+ {
+  "id": "fmt-hiw-01",
+  "series": "How it works on your body",
+  "for": "Everyone who wears deodorant (nearly everyone over 12). They send it to the friend who forgets deodorant (a tease) or the one who swears deodorant 'doesn't work' (it might be the wrong product), and the night tip is something they can use tonight.",
+  "title": "Deodorant vs antiperspirant: how it works on your body",
+  "question": "Do you use deodorant, antiperspirant, or both?",
+  "hook": "Your deodorant might not be a deodorant.",
+  "lines": [
+   "Your deodorant might not be a deodorant.",
+   "Check the label: lots are [antiperspirants](ˌæntipˈɜɹspəɹənts), or both.",
+   "Sweat itself barely smells.",
+   "Your armpits' [apocrine](ˈæpəkɹɪn) glands make an oily sweat.",
+   "Skin bacteria break it down, and that's the smell.",
+   "Deodorant fights the smell: it targets bacteria and adds fragrance.",
+   "[Antiperspirant](ˌæntipˈɜɹspəɹənt) fights the sweat.",
+   "Its aluminum salts [dissolve](dɪzˈɑlv) in your sweat.",
+   "They form soft gel plugs near the top of the duct.",
+   "Less sweat gets out.",
+   "The plugs wear away over time, so you reapply.",
+   "Tip: apply it at night, on dry skin, when you sweat least.",
+   "And no, research hasn't found a clear link to breast cancer.",
+   "Deodorant, [antiperspirant](ˌæntipˈɜɹspəɹənt), or both? Which do *you* use?",
+   "Send this to the friend who forgets deodorant."
+  ],
+  "shots": {
+   "stick": [
+    0,
+    1
+   ],
+   "surface": [
+    2
+   ],
+   "apocrine": [
+    3,
+    4
+   ],
+   "deodorant": [
+    5
+   ],
+   "eccrine": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "renew": [
+    10
+   ],
+   "night": [
+    11
+   ],
+   "calm": [
+    12
+   ],
+   "chart": [
+    13,
+    14
+   ]
+  },
+  "labels": [
+   {
+    "text": "APOCRINE GLAND",
+    "pin": "apocrine",
+    "from": [
+     3,
+     0.35
+    ],
+    "to": [
+     4,
+     -0.15
+    ]
+   },
+   {
+    "text": "BACTERIA",
+    "pin": "bacteria",
+    "from": [
+     4,
+     0.5
+    ],
+    "to": [
+     5,
+     0.0
+    ]
+   },
+   {
+    "text": "SWEAT GLAND",
+    "pin": "eccrine",
+    "from": [
+     6,
+     0.5
+    ],
+    "to": [
+     7,
+     -0.1
+    ]
+   },
+   {
+    "text": "ALUMINUM SALTS",
+    "pin": "salts",
+    "from": [
+     7,
+     0.4
+    ],
+    "to": [
+     8,
+     0.0
+    ]
+   },
+   {
+    "text": "GEL PLUG",
+    "pin": "plug",
+    "from": [
+     8,
+     1.0
+    ],
+    "to": [
+     10,
+     -0.1
+    ]
+   },
+   {
+    "text": "WEARS AWAY OVER TIME",
+    "pin": "plug",
+    "from": [
+     10,
+     0.1
+    ],
+    "to": [
+     11,
+     -0.1
+    ]
+   }
+  ],
+  "chart_title": "WHICH ONE DO YOU USE?",
+  "chart": [
+   {
+    "name": "Deodorant",
+    "lines": [
+     "fights the smell",
+     "bacteria + fragrance"
+    ],
+    "shot": "deodorant",
+    "at": 0.85
+   },
+   {
+    "name": "Antiperspirant",
+    "lines": [
+     "fights the sweat",
+     "aluminum gel plugs"
+    ],
+    "shot": "eccrine",
+    "at": 0.97
+   },
+   {
+    "name": "Both",
+    "lines": [
+     "many sticks",
+     "check the label"
+    ],
+    "shot": "stick",
+    "at": 0.55
+   }
+  ],
+  "music": "ambient-2",
+  "why": "Sweat itself is odorless: underarm odor comes from bacteria on the skin breaking down sweat from the apocrine glands, which sit in the armpits and groin and switch on at puberty (Cleveland Clinic; MSD Manual). A deodorant targets the smell: antibacterial ingredients and fragrance, but it doesn't stop sweat. An antiperspirant reduces sweat: its aluminum salts temporarily block the top of the sweat ducts with a gel plug (American Academy of Dermatology). The plugs wear away over time, so you reapply. In the US, antiperspirants are over-the-counter drugs, and many products are both (FDA). Dermatologists suggest applying it at bedtime on dry skin, when you sweat least, so it has time to work (AAD; Cleveland Clinic). The National Cancer Institute says no scientific evidence links antiperspirants or deodorants to breast cancer, and the American Cancer Society calls the evidence limited.",
+  "hashtags": [
+   "#deodorant",
+   "#antiperspirant",
+   "#skincare",
+   "#anatomy",
+   "#howitworks"
+  ],
+  "sources": [
+   "https://my.clevelandclinic.org/health/symptoms/17865-body-odor",
+   "https://www.msdmanuals.com/professional/dermatologic-disorders/sweating-disorders/bromhidrosis",
+   "https://health.clevelandclinic.org/antiperspirant-vs-deodorant",
+   "https://www.aad.org/public/diseases/a-z/hyperhidrosis-treatment",
+   "https://www.fda.gov/cosmetics/cosmetics-laws-regulations/it-cosmetic-drug-or-both-or-it-soap",
+   "https://www.cancer.gov/about-cancer/causes-prevention/risk/myths/antiperspirants-fact-sheet",
+   "https://www.cancer.org/cancer/risk-prevention/chemicals/antiperspirants-and-breast-cancer-risk.html"
+  ],
+  "credit": "3D skin: made in Blender for Anatomy Ace",
+  "send": "Send this to the friend who forgets deodorant 😅",
+  "youtube_title": "Your deodorant might not be a deodorant. Which do you use?"
+ }
+]
