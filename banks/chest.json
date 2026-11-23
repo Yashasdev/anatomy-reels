@@ -340,5 +340,68 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "chest-10",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "distance": 1.2,
+  "focus": true,
+  "question": "What is the breastbone's lowest tip called?",
+  "choices": [
+   "Manubrium",
+   "Body",
+   "Xiphoid process",
+   "Costal cartilage"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "You can feel a small point at the bottom of your breastbone.",
+   "Watch the tiny glowing tip at the bottom of the chest.",
+   "What is the breastbone's lowest tip called?",
+   "The manubrium is the top part. The body is the long middle.",
+   "The glowing tip hangs below the body, between the lower ribs.",
+   "It's C. The xiphoid process.",
+   "Why it matters: it starts as cartilage and slowly hardens into bone."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-11",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "First rib.l",
+   "First rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which true rib is shortest and broadest?",
+  "choices": [
+   "First",
+   "Second",
+   "Fourth",
+   "Seventh"
+  ],
+  "answer_index": 0,
+  "trap_index": 1,
+  "lines": [
+   "The top of your rib cage holds a very special pair of ribs.",
+   "Watch the glowing ribs at the very top of the chest.",
+   "Which true rib is shortest and broadest?",
+   "True ribs are the top seven. The lower ones get longer.",
+   "The glowing pair sits right under the collarbones.",
+   "It's A. The first rib.",
+   "Why it matters: it's the most sharply curved rib of all."
+  ],
+  "ask_line": 2,
+  "answer_line": 5,
+  "distance": 1.3,
+  "focus": true
  }
 ]

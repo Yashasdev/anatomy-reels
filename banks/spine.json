@@ -339,5 +339,45 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "spine-11",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra T1",
+   "Vertebra T2",
+   "Vertebra T3",
+   "Vertebra T4",
+   "Vertebra T5",
+   "Vertebra T6",
+   "Vertebra T7",
+   "Vertebra T8",
+   "Vertebra T9",
+   "Vertebra T10",
+   "Vertebra T11",
+   "Vertebra T12"
+  ],
+  "start_degrees": 90,
+  "question": "How many thoracic vertebrae are there?",
+  "choices": [
+   "5",
+   "12",
+   "7",
+   "9"
+  ],
+  "answer_index": 1,
+  "trap_index": 2,
+  "lines": [
+   "The middle of your spine has a set number of bones. Count them.",
+   "Watch the glowing section between the neck and the lower back.",
+   "How many thoracic vertebrae are there?",
+   "The neck has 7. The lower back has 5.",
+   "The glowing section is the longest of the three.",
+   "It's B. There are 12.",
+   "Why it matters: each one connects to a pair of ribs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

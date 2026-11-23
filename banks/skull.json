@@ -336,5 +336,66 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "skull-12",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Zygomatic bone.l",
+   "Zygomatic bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.0,
+  "question": "What's their everyday name?",
+  "choices": [
+   "Brow bones",
+   "Cheekbones",
+   "Jawbones",
+   "Nose bridge"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Smile and feel the hard ridge just under your eyes.",
+   "Watch the two glowing bones on the sides of the face.",
+   "What's their everyday name?",
+   "The brow bones sit higher, above the eyes.",
+   "The glowing pair forms the widest part of the face.",
+   "It's B. The cheekbones, or zygomatic bones.",
+   "Why it matters: they shape the face and help protect the eye sockets."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-13",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Temporal bone.l",
+   "Temporal bone.r"
+  ],
+  "start_degrees": 90,
+  "question": "Which bone forms the jaw's hinge joint?",
+  "choices": [
+   "Temporal",
+   "Parietal",
+   "Sphenoid",
+   "Zygomatic"
+  ],
+  "answer_index": 0,
+  "trap_index": 3,
+  "lines": [
+   "Open and close your jaw while touching just in front of your ear.",
+   "Watch the glowing bones on the sides of the skull.",
+   "Which bone forms the jaw's hinge joint?",
+   "The cheekbones are close by, but they aren't part of the joint.",
+   "The jaw's hinge fits into a hollow in the glowing bones.",
+   "It's A. The temporal bones.",
+   "Why it matters: this hinge is what lets you chew and talk."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

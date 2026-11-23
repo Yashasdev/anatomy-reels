@@ -303,5 +303,40 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "leg-11",
+  "model": "leg",
+  "title": "The Leg",
+  "highlight": [
+   "First metatarsal bone.r",
+   "Second metatarsal bone.r",
+   "Third metatarsal bone.r",
+   "Fourth metatarsal bone.r",
+   "Fifth metatarsal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.0,
+  "focus": true,
+  "question": "How many metatarsal bones are in one foot?",
+  "choices": [
+   "5",
+   "3",
+   "7",
+   "14"
+  ],
+  "answer_index": 0,
+  "trap_index": 2,
+  "lines": [
+   "Wiggle your toes. The long bones behind them do the pushing.",
+   "Watch the glowing bones in the middle of the foot.",
+   "How many metatarsal bones are in one foot?",
+   "The ankle and heel have 7 bones. Those are the tarsals.",
+   "The glowing bones run from the arch to the toes.",
+   "It's A. Five.",
+   "Why it matters: they take your weight every time your foot pushes off."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
