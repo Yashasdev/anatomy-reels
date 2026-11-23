@@ -327,5 +327,65 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "arm-12",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Ulna.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "Which forearm bone is on the pinky side?",
+  "choices": [
+   "Radius",
+   "Ulna",
+   "Humerus",
+   "Clavicle"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Hold your palm up. Which forearm bone runs along the pinky side?",
+   "Watch the glowing bone in the right forearm.",
+   "Which forearm bone is on the pinky side?",
+   "The radius is its partner, on the thumb side.",
+   "The glowing bone is on the inner side of the forearm.",
+   "It's B. The ulna.",
+   "Why it matters: it forms the pointed tip of your elbow."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "arm-13",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Scapula.r"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "Which bone has the shoulder's socket?",
+  "choices": [
+   "Clavicle",
+   "Radius",
+   "Scapula",
+   "Ribs"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your shoulder is a ball and socket. Which bone has the socket?",
+   "Watch the flat glowing bone on the back of the shoulder.",
+   "Which bone has the shoulder's socket?",
+   "The collarbone braces the shoulder, but it has no socket.",
+   "The socket is a shallow cup on the glowing bone.",
+   "It's C. The scapula.",
+   "Why it matters: that shallow socket lets your arm swing in every direction."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

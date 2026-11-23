@@ -273,5 +273,67 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "thigh-10",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Rectus femoris muscle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.4,
+  "focus": true,
+  "question": "Which quad muscle also crosses the hip?",
+  "choices": [
+   "Vastus lateralis",
+   "Vastus medialis",
+   "Rectus femoris",
+   "Sartorius"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Four muscles make up your quads, but only one is special.",
+   "Watch the glowing muscle running down the front of the thigh.",
+   "Which quad muscle also crosses the hip?",
+   "The vasti only cross the knee. Sartorius isn't a quad muscle.",
+   "The glowing one starts on the pelvis, so it also bends the hip.",
+   "It's C. The rectus femoris.",
+   "Why it matters: it helps both lift your thigh and straighten your knee."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-11",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Gluteus medius muscle.r"
+  ],
+  "start_degrees": -60,
+  "distance": 1.8,
+  "focus": true,
+  "question": "What does the glowing muscle do?",
+  "choices": [
+   "Pulls the leg outward",
+   "Straightens the knee",
+   "Points the toes",
+   "Pulls the leg inward"
+  ],
+  "answer_index": 0,
+  "trap_index": 3,
+  "lines": [
+   "Stand on one leg. This muscle works hard to keep you level.",
+   "Watch the glowing muscle on the side of the hip.",
+   "What does the glowing muscle do?",
+   "The inner thigh muscles pull the leg inward. This does the opposite.",
+   "It lifts the leg out to the side and steadies your pelvis.",
+   "It's A. It pulls the leg outward.",
+   "Why it matters: it keeps your pelvis level each time you take a step."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

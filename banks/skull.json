@@ -336,5 +336,66 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "skull-12",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Nasal bone.l",
+   "Nasal bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 2.6,
+  "question": "Which bones form the bridge of the nose?",
+  "choices": [
+   "Lacrimal",
+   "Maxilla",
+   "Nasal",
+   "Zygomatic"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Pinch the top of your nose. Feel that hard part? Name the bones.",
+   "Watch the two small glowing bones at the front of the face.",
+   "Which bones form the bridge of the nose?",
+   "The maxilla is nearby, but it holds the upper teeth.",
+   "The glowing pair meets in the middle, between the eyes.",
+   "It's C. The nasal bones.",
+   "Why it matters: below them, the nose is flexible cartilage, not bone."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-13",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Temporal bone.l",
+   "Temporal bone.r"
+  ],
+  "start_degrees": 90,
+  "question": "Which bone forms the jaw's hinge joint?",
+  "choices": [
+   "Temporal",
+   "Parietal",
+   "Sphenoid",
+   "Zygomatic"
+  ],
+  "answer_index": 0,
+  "trap_index": 3,
+  "lines": [
+   "Open and close your jaw while touching just in front of your ear.",
+   "Watch the glowing bones on the sides of the skull.",
+   "Which bone forms the jaw's hinge joint?",
+   "The cheekbones are close by, but they aren't part of the joint.",
+   "The jaw's hinge fits into a hollow in the glowing bones.",
+   "It's A. The temporal bones.",
+   "Why it matters: this hinge is what lets you chew and talk."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

@@ -271,5 +271,35 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-10",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Sacrum"
+  ],
+  "start_degrees": 180,
+  "distance": 3.0,
+  "question": "Which joint joins this bone to the hip bones?",
+  "choices": [
+   "Hip joint",
+   "Pubic symphysis",
+   "Knee joint",
+   "Sacroiliac joint"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Your spine passes its weight down to your legs through this bone.",
+   "Watch the glowing triangle at the back of the pelvis.",
+   "Which joint joins this bone to the hip bones?",
+   "The hip joint is where the thighbone meets the pelvis.",
+   "The glowing bone is wedged between the two hip bones at the back.",
+   "It's D. The sacroiliac joint.",
+   "Why it matters: it passes body weight from your spine into your pelvis."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

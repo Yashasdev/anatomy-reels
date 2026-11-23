@@ -339,5 +339,36 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "spine-11",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)"
+  ],
+  "start_degrees": 90,
+  "distance": 1.8,
+  "focus": true,
+  "question": "Which vertebra holds up the skull?",
+  "choices": [
+   "Axis",
+   "Atlas",
+   "Sacrum",
+   "Vertebra T1"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "One neck bone is named after a Greek Titan who held up the sky.",
+   "Watch the glowing ring at the very top of the spine.",
+   "Which vertebra holds up the skull?",
+   "The axis sits just below it and works like a pivot.",
+   "The glowing ring is the top bone, right under the skull.",
+   "It's B. The atlas.",
+   "Why it matters: it lets you nod yes, with the skull rocking on it."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
