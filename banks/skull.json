@@ -342,28 +342,28 @@
   "model": "skull",
   "title": "The Skull",
   "highlight": [
-   "Nasal bone.l",
-   "Nasal bone.r"
+   "Zygomatic bone.l",
+   "Zygomatic bone.r"
   ],
   "start_degrees": 0,
-  "distance": 2.6,
-  "question": "Which bones form the bridge of the nose?",
+  "distance": 3.0,
+  "question": "What's their everyday name?",
   "choices": [
-   "Lacrimal",
-   "Maxilla",
-   "Nasal",
-   "Zygomatic"
+   "Brow bones",
+   "Cheekbones",
+   "Jawbones",
+   "Nose bridge"
   ],
-  "answer_index": 2,
-  "trap_index": 1,
+  "answer_index": 1,
+  "trap_index": 0,
   "lines": [
-   "Pinch the top of your nose. Feel that hard part? Name the bones.",
-   "Watch the two small glowing bones at the front of the face.",
-   "Which bones form the bridge of the nose?",
-   "The maxilla is nearby, but it holds the upper teeth.",
-   "The glowing pair meets in the middle, between the eyes.",
-   "It's C. The nasal bones.",
-   "Why it matters: below them, the nose is flexible cartilage, not bone."
+   "Smile and feel the hard ridge just under your eyes.",
+   "Watch the two glowing bones on the sides of the face.",
+   "What's their everyday name?",
+   "The brow bones sit higher, above the eyes.",
+   "The glowing pair forms the widest part of the face.",
+   "It's B. The cheekbones, or zygomatic bones.",
+   "Why it matters: they shape the face and help protect the eye sockets."
   ],
   "ask_line": 2,
   "answer_line": 5

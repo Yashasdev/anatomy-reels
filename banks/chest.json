@@ -349,7 +349,7 @@
    "Xiphoid process"
   ],
   "start_degrees": 0,
-  "distance": 1.6,
+  "distance": 1.2,
   "focus": true,
   "question": "What is the breastbone's lowest tip called?",
   "choices": [
@@ -400,6 +400,8 @@
    "Why it matters: it's the most sharply curved rib of all."
   ],
   "ask_line": 2,
-  "answer_line": 5
+  "answer_line": 5,
+  "distance": 1.3,
+  "focus": true
  }
 ]

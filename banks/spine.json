@@ -345,28 +345,37 @@
   "model": "spine",
   "title": "The Spine",
   "highlight": [
-   "Atlas (C1)"
+   "Vertebra T1",
+   "Vertebra T2",
+   "Vertebra T3",
+   "Vertebra T4",
+   "Vertebra T5",
+   "Vertebra T6",
+   "Vertebra T7",
+   "Vertebra T8",
+   "Vertebra T9",
+   "Vertebra T10",
+   "Vertebra T11",
+   "Vertebra T12"
   ],
   "start_degrees": 90,
-  "distance": 1.8,
-  "focus": true,
-  "question": "Which vertebra holds up the skull?",
+  "question": "How many thoracic vertebrae are there?",
   "choices": [
-   "Axis",
-   "Atlas",
-   "Sacrum",
-   "Vertebra T1"
+   "5",
+   "12",
+   "7",
+   "9"
   ],
   "answer_index": 1,
-  "trap_index": 0,
+  "trap_index": 2,
   "lines": [
-   "One neck bone is named after a Greek Titan who held up the sky.",
-   "Watch the glowing ring at the very top of the spine.",
-   "Which vertebra holds up the skull?",
-   "The axis sits just below it and works like a pivot.",
-   "The glowing ring is the top bone, right under the skull.",
-   "It's B. The atlas.",
-   "Why it matters: it lets you nod yes, with the skull rocking on it."
+   "The middle of your spine has a set number of bones. Count them.",
+   "Watch the glowing section between the neck and the lower back.",
+   "How many thoracic vertebrae are there?",
+   "The neck has 7. The lower back has 5.",
+   "The glowing section is the longest of the three.",
+   "It's B. There are 12.",
+   "Why it matters: each one connects to a pair of ribs."
   ],
   "ask_line": 2,
   "answer_line": 5
