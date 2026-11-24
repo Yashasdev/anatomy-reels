@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T23:00:29+00:00",
+ "generated_at": "2026-11-24T23:21:14+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45506090967",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 26,
- "total": 153,
- "posted": 127,
+ "unused": 24,
+ "total": 156,
+ "posted": 132,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 19
+   "posted": 20
   },
   "formats": {
    "slots": [
@@ -41,7 +41,7 @@
     "types",
     "diagnose"
    ],
-   "posted": 39
+   "posted": 41
   }
  },
  "banks": {
@@ -51,11 +51,11 @@
   },
   "leg": {
    "total": 10,
-   "unused": 5
+   "unused": 4
   },
   "pelvis": {
    "total": 9,
-   "unused": 3
+   "unused": 2
   },
   "chest": {
    "total": 9,
@@ -104,8 +104,8 @@
    ],
    "date": "2026-11-22",
    "until": "2026-11-26",
-   "left": 3,
-   "make_more": false
+   "left": 2,
+   "make_more": true
   },
   {
    "series": "missing",
@@ -123,93 +123,6 @@
   }
  ],
  "posts": [
-  {
-   "slot": "2026-11-19T18:00:00-05:00",
-   "day": 98,
-   "id": "dd-blind-spot",
-   "organ": null,
-   "title": "Your blind spot",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-1800-dd-blind-spot.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-19T20:00:00-05:00",
-   "day": 99,
-   "id": "chest-05",
-   "organ": "chest",
-   "title": "The Rib Cage",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-19-2000-chest-05.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-20T09:30:00-05:00",
-   "day": 100,
-   "id": "thigh-05",
-   "organ": "thigh",
-   "title": "Leg Muscles",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-0930-thigh-05.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-20T12:30:00-05:00",
-   "day": 101,
-   "id": "fmt-missing-05",
-   "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1230-fmt-missing-05.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-20T16:00:00-05:00",
-   "day": 102,
-   "id": "fmt-types-10",
-   "organ": null,
-   "title": "Every way you can hurt your ankle: the 6 big ones",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-20-1600-fmt-types-10.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
   {
    "slot": "2026-11-20T18:00:00-05:00",
    "day": 103,
@@ -601,6 +514,73 @@
    "organ": null,
    "title": "Diagnose this",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1600-fmt-diagnose-10.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-25T18:00:00-05:00",
+   "day": 128,
+   "id": "dd-heart-electric",
+   "organ": null,
+   "title": "Your heart's own electricity",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1800-dd-heart-electric.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-25T20:00:00-05:00",
+   "day": 129,
+   "id": "leg-06",
+   "organ": "leg",
+   "title": "The Leg",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-2000-leg-06.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-26T09:30:00-05:00",
+   "day": 130,
+   "id": "pelvis-07",
+   "organ": "pelvis",
+   "title": "The Pelvis",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-0930-pelvis-07.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-26T12:30:00-05:00",
+   "day": 131,
+   "id": "fmt-hiw-01",
+   "organ": null,
+   "title": "Deodorant vs antiperspirant: how it works on your body",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-1230-fmt-hiw-01.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-26T16:00:00-05:00",
+   "day": 132,
+   "id": "fmt-diagnose-12",
+   "organ": null,
+   "title": "Diagnose this",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-1600-fmt-diagnose-12.mp4",
    "platforms": [
     "instagram",
     "tiktok"
