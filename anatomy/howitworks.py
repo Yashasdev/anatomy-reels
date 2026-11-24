@@ -41,6 +41,7 @@ SEND_HOLD = 2.0  # the send line stays on screen this long after it's said
 COVER_TAIL = 0.5
 ORDER = ("stick", "surface", "apocrine", "deodorant", "eccrine", "renew", "night", "calm", "chart")
 CHART_TOP, CHART_BOTTOM, CHART_Y = 400, 1180, 1335
+STICK_CAPTION_Y = 1460  # under the stick's printed label, so "Check the label" doesn't cover it (ends by y ~1520)
 
 
 def items() -> list[dict]:
@@ -121,7 +122,8 @@ def compose(q: dict, k: int, frames_dir: Path, anchors: dict, shots, cues, s: fl
     cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + c["dur"] + (SEND_HOLD if c is cues[-1] else 0.35)), None)
     if cue:
         from .types import caption
-        caption(img, shown(q["lines"][cue["line"]]), s, CHART_Y if sh["kind"] == "chart" else CAPTION_Y)
+        y = CHART_Y if sh["kind"] == "chart" else STICK_CAPTION_Y if sh["kind"] == "stick" else CAPTION_Y
+        caption(img, shown(q["lines"][cue["line"]]), s, y)
     watermark(img, s)
     return img
 

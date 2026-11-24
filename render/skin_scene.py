@@ -808,9 +808,9 @@ def keys_for(s):
     B = Vector((BACT_AT.x, BACT_AT.y - 0.05, 0.0))
     if k == "stick":
         hero, top = STICK_AT + Vector((0, -0.38, 1.1)), STICK_AT + Vector((0, -0.1, 1.55))
-        return [(a, view(hero, -10, 4, 7.6, 1.6)), (L(1), view(hero, -7, 5, 6.7, 1.6)),  # a slow push-in
-                (L(1) + 1.3, view(top, 2, 12, 5.0, 1.6)), (b - 0.25, view(top, 6, 12, 4.7, 1.6)),
-                (b, view(top + Vector((3.0, 0, 0)), 45, 12, 4.7, 1.6))]
+        # a slow push-in that keeps the print in view for "Check the label", then the whip into the skin
+        return [(a, view(hero, -10, 4, 7.6, 1.6)), (b - 0.25, view(hero + Vector((0, 0, 0.1)), -3, 6, 6.6, 1.6)),
+                (b, view(hero + Vector((3.0, 0, 0.1)), 40, 6, 6.6, 1.6))]
     if k == "surface":
         far = view(E + Vector((0.12, 0.42, 0.0)), 205, -17, 1.25, 1.1)
         return [(a, view(E + Vector((-1.2, 0.5, 0)), 175, -17, 1.25, 1.1)), (a + 0.27, far),
