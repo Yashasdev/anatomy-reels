@@ -1893,12 +1893,15 @@
     "video_seconds": 22.18,
     "buffer": {
       "tiktok": "6b0358bcd864a01105f607e8",
-      "youtube": "6b0358bdc72676f5e95df2fb"
+      "youtube": "6b061bdeba5f0a2c87fd907f"
     },
     "kind": "formats",
     "format": "missing",
     "music": "lofi-1",
-    "hot": "missing"
+    "hot": "missing",
+    "retried": {
+      "youtube": "6b0358bdc72676f5e95df2fb"
+    }
   },
   {
     "slot": "2026-11-23T16:00:00-05:00",
@@ -2008,10 +2011,13 @@
     "video_seconds": 55.28,
     "buffer": {
       "tiktok": "6b04e889c43c1f2f5c7a1f2f",
-      "instagram": "6b053485060d9b64825357cf"
+      "instagram": "6b061be3ba5f0a2c87fd9586"
     },
     "kind": "deepdive",
-    "music": "lofi-4"
+    "music": "lofi-4",
+    "retried": {
+      "instagram": "6b053485060d9b64825357cf"
+    }
   },
   {
     "slot": "2026-11-24T20:00:00-05:00",
@@ -2078,5 +2084,85 @@
     "kind": "formats",
     "format": "diagnose",
     "music": "house-3"
+  },
+  {
+    "slot": "2026-11-25T18:00:00-05:00",
+    "day": 128,
+    "id": "dd-heart-electric",
+    "organ": null,
+    "title": "Your heart's own electricity",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1800-dd-heart-electric.mp4",
+    "video_seconds": 56.09,
+    "buffer": {
+      "instagram": "6b061bca7faf0162163416a9",
+      "tiktok": "6b061bcba97afa2452094f83"
+    },
+    "kind": "deepdive",
+    "music": "lofi-4"
+  },
+  {
+    "slot": "2026-11-25T20:00:00-05:00",
+    "day": 129,
+    "id": "leg-06",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-2000-leg-06.mp4",
+    "video_seconds": 21.05,
+    "buffer": {
+      "instagram": "6b061bcd493dfdd145fdfcbd",
+      "tiktok": "6b061bceba5f0a2c87fd8805"
+    },
+    "music": "ambient-2",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-26T09:30:00-05:00",
+    "day": 130,
+    "id": "pelvis-07",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-0930-pelvis-07.mp4",
+    "video_seconds": 22.5,
+    "buffer": {
+      "instagram": "6b061bd07faf01621634186c",
+      "tiktok": "6b061bd17faf016216341939",
+      "youtube": "6b061bd2ec28dbadf4d01309"
+    },
+    "music": "pop-3",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-26T12:30:00-05:00",
+    "day": 131,
+    "id": "fmt-hiw-01",
+    "organ": null,
+    "title": "Deodorant vs antiperspirant: how it works on your body",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-1230-fmt-hiw-01.mp4",
+    "video_seconds": 48.73,
+    "buffer": {
+      "instagram": "6b061bd4ba5f0a2c87fd8af8",
+      "tiktok": "6b061bd4dccb7033eaf23ec4",
+      "youtube": "6b061bd5ec28dbadf4d01419"
+    },
+    "kind": "formats",
+    "format": "types",
+    "music": "ambient-2",
+    "hot": "types"
+  },
+  {
+    "slot": "2026-11-26T16:00:00-05:00",
+    "day": 132,
+    "id": "fmt-diagnose-12",
+    "organ": null,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-1600-fmt-diagnose-12.mp4",
+    "video_seconds": 29.87,
+    "buffer": {
+      "instagram": "6b061bd8493dfdd145fe00ad",
+      "tiktok": "6b061bd8493dfdd145fe00e1"
+    },
+    "kind": "formats",
+    "format": "diagnose",
+    "music": "science-2"
   }
 ]
