@@ -8,7 +8,7 @@
   "question": "Have you ever had a stress fracture?",
   "hook": "Designed by a follower, video 1. This bone can break without you ever falling.",
   "series_tag": "DESIGNED BY A FOLLOWER · VIDEO 1",
-  "intro": "It's a stress fracture. Here are 5 places it hits.",
+  "intro": "It's called a stress fracture. Here are 5 places it hits.",
   "flash": [
    "meta"
   ],
@@ -25,8 +25,10 @@
     "sound": "thud",
     "lines": [
      "Metatarsals. Every step loads these foot bones.",
-     "Bone repairs itself. Add load too fast, and the damage wins.",
-     "A crack. Soldiers got it in the 1800s: the march fracture."
+     "Bone repairs small damage all the time.",
+     "Pile on miles too fast, and the cracks win.",
+     "It was first described in marching soldiers in the [1800s](ˈeɪtiːn hˈʌndɹədz),",
+     "so it's called the march fracture."
     ],
     "show": {
      "model": "leg",
@@ -360,8 +362,9 @@
     ],
     "sound": "thud",
     "lines": [
-     "Tibia. Your shin is the most common spot of all.",
-     "A sudden jump in training, or not eating enough for it, raises the risk."
+     "Tibia. Your shin bone is the most common spot of all.",
+     "Training too much, too fast raises the risk.",
+     "So does not eating enough to fuel it."
     ],
     "show": {
      "model": "leg",
@@ -647,8 +650,9 @@
     ],
     "sound": "thud",
     "lines": [
-     "[Calcaneus](kælkˈeɪniəs). The heel bone, the foot's second most common spot.",
-     "Runners and dancers get it. Pain builds as you train and eases with rest."
+     "[Calcaneus](kælkˈeɪniəs). Your heel bone is the foot's second most common spot.",
+     "Runners and dancers get it.",
+     "The pain builds as you train and eases when you rest."
     ],
     "show": {
      "model": "leg",
@@ -998,8 +1002,8 @@
     ],
     "sound": "thud",
     "lines": [
-     "Navicular. Its blood supply is poor, so it can fail to heal.",
-     "Early X-rays can look normal. An MRI can show it."
+     "Navicular. This bone has a poor blood supply, so a crack here may not heal.",
+     "Early X-rays can look normal, but an MRI can show the crack."
     ],
     "show": {
      "model": "leg",
@@ -1333,8 +1337,8 @@
     ],
     "sound": "thud",
     "lines": [
-     "Femoral neck. Hip or [groin](ɡɹˈɔɪn) pain when you run?",
-     "This one can break all the way through. Get it checked fast."
+     "Femoral neck, at the top of your thigh bone. Hip or [groin](ɡɹˈɔɪn) pain when you run?",
+     "A crack here can break all the way through. Get it checked fast."
     ],
     "show": {
      "model": "thigh",
@@ -1614,7 +1618,7 @@
    }
   ],
   "outro": [
-   "Most stress fractures heal with rest, then a slow return.",
+   "Most stress fractures heal with rest, then a slow return to training.",
    "This video was designed by a follower.",
    "DM us the anatomy topic you want.",
    "The top comment picks the next video in the series."
