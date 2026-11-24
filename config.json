@@ -134,10 +134,10 @@
     "until": "2026-11-23"
   },
   "first_comment": {
-    "instagram": true,
+    "instagram": false,
     "from": "2026-11-22",
     "types": "Which one have you had? 👇",
-    "note": "Yashas, Nov 21, 2026: first comments on. Quizzes get their hint (hints.json); Types videos get their own first_comment or this line; a video's json can set first_comment (the follower series asks for the next topic).",
+    "note": "Yashas, Nov 21, 2026: first comments on. Quizzes get their hint (hints.json); Types videos get their own first_comment or this line; a video's json can set first_comment (the follower series asks for the next topic). Nov 24, 2026: OFF. Buffer's free plan refuses any post with a first comment ('First comment requires a paid plan'), so those Instagram posts were never queued.",
     "diagnose": "What's your diagnosis? Comment before you check the answer 👇",
     "quiz": "A, B, C or D? Comment your answer 👇",
     "deepdive": "Did you know this? Tell us what surprised you 👇",
