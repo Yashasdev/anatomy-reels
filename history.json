@@ -1966,19 +1966,20 @@
   {
     "slot": "2026-11-24T12:30:00-05:00",
     "day": 121,
-    "id": "fmt-missing-07",
+    "id": "fmt-types-16",
     "organ": null,
-    "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1230-fmt-missing-07.mp4",
-    "video_seconds": 20.01,
+    "title": "5 things to know: ibuprofen vs acetaminophen",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1230-fmt-types-16.mp4",
+    "video_seconds": 58.43,
     "buffer": {
       "tiktok": "6b04e882c43c1f2f5c7a1d9a",
       "youtube": "6b04e883bc151fa8ad127aa9"
     },
     "kind": "formats",
-    "format": "missing",
-    "music": "pop-4",
-    "hot": "missing"
+    "format": "types",
+    "music": "ambient-2",
+    "promoted": "2026-11-24",
+    "replaced": "fmt-missing-07"
   },
   {
     "slot": "2026-11-24T16:00:00-05:00",
@@ -2044,19 +2045,20 @@
   {
     "slot": "2026-11-25T12:30:00-05:00",
     "day": 126,
-    "id": "fmt-missing-08",
+    "id": "fmt-diagnose-11",
     "organ": null,
-    "title": "Which bone is missing?",
-    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1230-fmt-missing-08.mp4",
-    "video_seconds": 19.27,
+    "title": "Diagnose this",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1230-fmt-diagnose-11.mp4",
+    "video_seconds": 29.43,
     "buffer": {
       "tiktok": "6b04e8909a4bd32ca3e39900",
       "youtube": "6b04e8916734c08a269ff6ca"
     },
     "kind": "formats",
-    "format": "missing",
-    "music": "pop-5",
-    "hot": "missing"
+    "format": "diagnose",
+    "music": "pop-2",
+    "promoted": "2026-11-24",
+    "replaced": "fmt-missing-08"
   },
   {
     "slot": "2026-11-25T16:00:00-05:00",
