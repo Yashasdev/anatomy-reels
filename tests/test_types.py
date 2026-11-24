@@ -222,11 +222,12 @@ def test_new_labels_stay_clear_of_tall_phone_crops(label):
 
 
 def test_hook_shows_are_pills_with_labels_that_fit():
-    """fmt-types-16's hook: two plain pills (built in types_scene.py), each shot labelled, both named in the montage."""
+    """fmt-types-16's hook: two plain pharmacy bottles with their pills (built in types_scene.py), named in the montage;
+    the bottles' own labels name them, so the shot's yellow label can stay empty."""
     for q in ITEMS:
         for n, h in q.get("hook_shows", {}).items():
             assert n in q["flash"] and n not in {t["name"] for t in q["types"]}
-            assert h["show"]["model"] == "pills" and h["show"]["pin"]["part"] in ("Tablet", "Caplet")
+            assert h["show"]["model"] == "pills" and h["show"]["pin"]["part"] in ("Bottle I", "Bottle A")
             assert d.textlength(h["label"], font=types.LABEL(70)) < 480
 
 
