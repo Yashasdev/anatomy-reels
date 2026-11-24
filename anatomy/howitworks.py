@@ -28,12 +28,12 @@ from pathlib import Path
 
 import numpy as np
 import soundfile as sf
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 from . import music
 from .make import blender, ffmpeg
-from .types import (BOLD, CAPTION, CAPTION_Y, CONFIG, FPS, SR, callout, chart_label, heard, shown, speak, studio,
-                    thud, watermark, whoosh)
+from .types import (BOLD, CAPTION, CAPTION_Y, CONFIG, FPS, SR, callout, chart_label, heard, pop, shown, speak,
+                    studio, thud, watermark, whoosh)
 
 ROOT = Path(__file__).resolve().parent.parent
 GAP = 0.36  # between lines (types uses 0.42; this one has more lines)
@@ -41,6 +41,7 @@ SEND_HOLD = 2.0  # the send line stays on screen this long after it's said
 COVER_TAIL = 0.5
 ORDER = ("stick", "surface", "apocrine", "deodorant", "eccrine", "renew", "night", "calm", "chart")
 CHART_TOP, CHART_BOTTOM, CHART_Y = 400, 1180, 1335
+STICK_CAPTION_Y = 1460  # under the stick's printed label, so "Check the label" doesn't cover it (ends by y ~1520)
 
 
 def items() -> list[dict]:
@@ -114,14 +115,35 @@ def compose(q: dict, k: int, frames_dir: Path, anchors: dict, shots, cues, s: fl
             if not (60 * s < pin[0] < 1020 * s and 200 * s < pin[1] < 1250 * s):
                 continue
             callout(img, pin, lb["text"], t - t0, fade, s, clamp=True, place=label_spot(pin, lb["text"], s))
+    if sh["kind"] == "stick" and q.get("hook_title"):  # "DEODORANT?" lands big over the hero stick
+        slam(img, q["hook_title"], t, min(1.0, max(0.0, (sh["end"] - 0.05 - t) / 0.25)), s)
     if sh["kind"] == "chart":
         cards(img, q, thumbs or [], t - sh["start"], s)
     cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + c["dur"] + (SEND_HOLD if c is cues[-1] else 0.35)), None)
     if cue:
         from .types import caption
-        caption(img, shown(q["lines"][cue["line"]]), s, CHART_Y if sh["kind"] == "chart" else CAPTION_Y)
+        y = CHART_Y if sh["kind"] == "chart" else STICK_CAPTION_Y if sh["kind"] == "stick" else CAPTION_Y
+        caption(img, shown(q["lines"][cue["line"]]), s, y)
     watermark(img, s)
     return img
+
+
+def slam(img: Image.Image, text: str, t: float, fade: float, s: float) -> None:
+    """The hook's title: the heaviest weight, as big as fits x 120-960, top edge at y 318 (under the ANATOMY ACE mark),
+    landing from 112% to full size in the first 0.2 s (already there, readable, on the first frame), then holding."""
+    from .types import font
+    d = ImageDraw.Draw(img)
+    size = 190
+    while size > 60 and d.textlength(text, font=font("Montserrat.ttf", size, 900)) > 740:
+        size -= 2
+    k = 1 + 0.12 * (1 - min(1.0, t / 0.2)) ** 2  # at its biggest it still fits x 120-960
+    f = font("Montserrat.ttf", int(size * k * s), 900)
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(layer).text((img.width / 2, (318 + size * 0.5) * s), text, font=f, fill=(255, 255, 255, int(255 * fade)),
+                               anchor="mm", stroke_width=max(1, int(8 * s)), stroke_fill=(14, 14, 18, int(255 * fade)))
+    shadow = layer.getchannel("A").filter(ImageFilter.GaussianBlur(10 * s))
+    img.paste((0, 0, 0), mask=shadow.point(lambda a: a * 0.4))
+    img.paste(layer, mask=layer)
 
 
 def label_spot(pin, text: str, s: float) -> tuple:
@@ -190,6 +212,7 @@ def sound(q: dict, shots, cues, lines, total: float, out: Path) -> None:
             v = np.interp(np.arange(0, len(v), sr / SR), np.arange(len(v)), v).astype(np.float32)
         add(v, c["at"])
     starts = {s["kind"]: s["start"] for s in shots}
+    add(pop(1), 0.5, 0.7)  # the cap pops off (skin_scene.T_POP)
     add(whoosh(), starts["surface"] - 0.12, 0.6)  # the whip from the stick into the skin
     for kind in ("apocrine", "eccrine", "calm"):  # moving to a new part of the skin
         add(whoosh(0.6), starts[kind], 0.3)
