@@ -568,6 +568,34 @@ def promote(spec: str, now: datetime | None = None) -> int:
     return 1 if failed else 0
 
 
+def fill_missing(now: datetime | None = None) -> int:
+    """Queued posts missing a platform in CONFIG["platforms"] (a network refused it, or its channel was down): schedule
+    that platform now with the post's own video, caption and time. History gets the new post id."""
+    from . import buffer
+    now = now or datetime.now(ZoneInfo("UTC"))
+    hist, channels, failed = history(), buffer.channels(), 0
+    for h in hist:
+        at = datetime.fromisoformat(h["slot"])
+        if at <= now + timedelta(minutes=20):
+            continue
+        missing = [s for s in CONFIG["platforms"] if s not in h["buffer"]]
+        if not missing:
+            continue
+        q = queued_question(h)
+        cover_ms = int((h["video_seconds"] - 0.25) * 1000)
+        for service in missing:
+            try:
+                ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
+                pid, _ = queue_post(ch, q, h["video_url"], at.astimezone(ZoneInfo("UTC")).isoformat(), cover_ms)
+                h["buffer"][service] = pid
+                print(f"added {service} for Day {h['day']} {h['id']} at {at:%a %b %d %I:%M %p}: {pid}")
+            except Exception as e:
+                failed += 1
+                print(f"::error::{service} still failed for {h['id']}: {e}", file=sys.stderr)
+        HISTORY.write_text(json.dumps(hist, indent=2) + "\n")
+    return 1 if failed else 0
+
+
 def write_status() -> None:
     """status.json: what Reels HQ shows for Anatomy Ace (stock, daily rate, recent and queued posts). The daily
     workflow commits it, so the dashboard reads one public file instead of every bank."""
@@ -622,6 +650,8 @@ def main() -> int:
         return render_queued(sys.argv[2])
     if action == "swap-queued":
         return swap_queued()
+    if action == "fill-missing":
+        return fill_missing()
     if action == "promote":
         return promote(os.environ.get("PROMOTE", ""))
     if action == "post":
