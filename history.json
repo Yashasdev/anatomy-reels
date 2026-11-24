@@ -1973,7 +1973,8 @@
     "video_seconds": 58.43,
     "buffer": {
       "tiktok": "6b04e882c43c1f2f5c7a1d9a",
-      "youtube": "6b04e883bc151fa8ad127aa9"
+      "youtube": "6b04e883bc151fa8ad127aa9",
+      "instagram": "6b053483286252d7383dc097"
     },
     "kind": "formats",
     "format": "types",
@@ -2006,7 +2007,8 @@
     "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1800-dd-skin-layers.mp4",
     "video_seconds": 55.28,
     "buffer": {
-      "tiktok": "6b04e889c43c1f2f5c7a1f2f"
+      "tiktok": "6b04e889c43c1f2f5c7a1f2f",
+      "instagram": "6b053485060d9b64825357cf"
     },
     "kind": "deepdive",
     "music": "lofi-4"
@@ -2052,7 +2054,8 @@
     "video_seconds": 29.43,
     "buffer": {
       "tiktok": "6b04e8909a4bd32ca3e39900",
-      "youtube": "6b04e8916734c08a269ff6ca"
+      "youtube": "6b04e8916734c08a269ff6ca",
+      "instagram": "6b053487ca4899309e65910f"
     },
     "kind": "formats",
     "format": "diagnose",
