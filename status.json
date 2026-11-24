@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24T01:30:11+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45300317733",
+ "generated_at": "2026-11-24T06:52:00+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45343561849",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -90,7 +90,7 @@
    ],
    "date": "2026-11-22",
    "until": "2026-11-26",
-   "left": 4,
+   "left": 3,
    "make_more": false
   },
   {
@@ -104,7 +104,7 @@
    ],
    "date": "2026-11-21",
    "until": "2026-11-25",
-   "left": 0,
+   "left": 2,
    "make_more": true
   }
  ],
@@ -485,10 +485,10 @@
   {
    "slot": "2026-11-24T12:30:00-05:00",
    "day": 121,
-   "id": "fmt-missing-07",
+   "id": "fmt-types-16",
    "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1230-fmt-missing-07.mp4",
+   "title": "5 things to know: ibuprofen vs acetaminophen",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1230-fmt-types-16.mp4",
    "platforms": [
     "tiktok",
     "youtube"
@@ -550,10 +550,10 @@
   {
    "slot": "2026-11-25T12:30:00-05:00",
    "day": 126,
-   "id": "fmt-missing-08",
+   "id": "fmt-diagnose-11",
    "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1230-fmt-missing-08.mp4",
+   "title": "Diagnose this",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1230-fmt-diagnose-11.mp4",
    "platforms": [
     "tiktok",
     "youtube"
