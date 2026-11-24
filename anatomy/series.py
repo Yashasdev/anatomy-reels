@@ -189,7 +189,8 @@ def _caption(q: dict) -> str:
     if q.get("format") == "types" or not q.get("choices"):  # a breakdown (types.py, cinematic.py): no choices, the
         tags = (q.get("hashtags") or CONFIG["hashtags"])[:5]   # comment prompt is the question
         follow = FOLLOW["formats"] if q.get("format") == "types" else FOLLOW.get(q.get("series", "deepdive"), FOLLOW["deepdive"])
-        return (f"{q.get('caption_first') or q['hook']}\n\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
+        return (f"{q.get('caption_first') or q['hook']}\n" + (f"{q['caption_second']}\n" if q.get("caption_second") else "") +
+                f"\n{q['question']} Comment below 👇\n" + (f"{q['send']}\n" if q.get("send") else "") +
                 (f"{q['caption_extra']}\n" if q.get("caption_extra") else "") +
                 f"{follow}\n\n" + " ".join(tags) + "\n\n.\n.\n.\n"
                 + q["why"] + "\nFor learning only, not medical advice.\n" + f"{q.get('credit') or CONFIG['credit']}.")

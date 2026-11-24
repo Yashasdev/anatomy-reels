@@ -59,12 +59,34 @@ CAPTION_Y, CAPTION_W = 1335, 720  # inside the phone's safe area: the like/comme
 LABEL_X = (120, 960)  # where the new items' yellow names stay: tall phones crop about 100 px off each side (Nov 13)
 
 
+NUMBER_PH = {1: "wˈʌn", 2: "tˈuː", 3: "θɹˈiː", 4: "fˈɔːɹ", 5: "fˈaɪv", 6: "sˈɪks", 7: "sˈɛvən", 8: "ˈeɪt", 9: "nˈaɪn",
+             10: "tˈɛn", 11: "ɪlˈɛvən", 12: "twˈɛlv"}
+
+
+def ask_the_ace(q: dict) -> dict:
+    """An "Ask the Ace" episode (config.json "ask_the_ace"): the item gives only its "ask" (episode, handle,
+    request, topic); the opener, the sign-off after its own outro, the card and the caption lines come from the shared
+    settings, so every episode looks and sounds the same."""
+    a, cfg = q["ask"], CONFIG["ask_the_ace"]
+    n = a["episode"]
+    f = {"n": n, "next": n + 1, "n_ph": NUMBER_PH[n], "next_ph": NUMBER_PH[n + 1], "handle": a["handle"],
+         "topic": a.get("topic", "")}
+    return {**q, "opener": cfg["opener"].format(**f),
+            "outro": q["outro"] + [x.format(**f) for x in cfg["signoff"]],
+            "credit_card": {"label": cfg["card"]["label"], "handle": a["handle"], "note": cfg["card"]["note"].format(**f),
+                            "from_line": len(q["outro"]), "color": cfg["color"]},
+            "caption_first": cfg["caption_first"].format(**f), "caption_second": cfg["caption_second"].format(**f),
+            "caption_extra": cfg["caption_extra"], "youtube_title": q.get("youtube_title") or cfg["youtube_title"].format(**f)}
+
+
 def items() -> list[dict]:
     """Every video in banks/types/, with its script in speaking order: hook, intro, each type's lines, outro."""
     out = []
     for p in sorted((ROOT / "banks" / "types").glob("*.json")):
         for q in json.loads(p.read_text()):
-            hook = q.get("hook_lines") or [q["hook"]]  # fmt-types-12: the hook said phrase by phrase
+            if q.get("ask"):
+                q = ask_the_ace(q)
+            hook = q.get("hook_lines") or ([q["opener"]] if q.get("opener") else []) + [q["hook"]]  # fmt-types-12: phrase by phrase
             out.append({**q, "script": hook + [q["intro"]] + [x for t in q["types"] for x in t["lines"]] + q["outro"]})
     return out
 
@@ -200,7 +222,9 @@ def plan(q: dict, lines: list[tuple[Path, float]], gap: float = 0.42) -> tuple[l
         end = say(t - HOOK_BEAT + 0.35)
     else:
         t = say(0.12)
-        flash = q.get("flash_seconds", FLASH)  # fmt-types-14: 0.5 s cuts, each framed close on its injury
+        if q.get("opener"):  # Ask the Ace: the series' opener, then the hook, both over the one-shot hook visual
+            t = say(t + 0.2)
+        flash = max(q.get("flash_seconds", FLASH), t + 0.1 if q.get("opener") else 0)  # fmt-types-14: 0.5 s cuts
         segs.append({"kind": "flash", "start": 0.0, "end": flash, "types": q["flash"]})
         if q.get("flash_close"):
             segs[-1]["close"] = True
@@ -448,6 +472,63 @@ def banner(img: Image.Image, text: str, fade: float, s: float) -> None:
                stroke_width=max(1, int(7 * s)), stroke_fill=(14, 14, 18))
 
 
+def ace_card(img: Image.Image, ask: dict, fade: float, s: float) -> None:
+    """Ask the Ace's title card (config.json "ask_the_ace"), from frame 0: the series' name big and heavy on its
+    signature badge with the episode number beside it, and under it the follower's question as a social reply. Inside
+    x 120-960 and y 318-760, under the ANATOMY ACE mark."""
+    if fade <= 0:
+        return
+    cfg = CONFIG["ask_the_ace"]
+    col = tuple(cfg["color"])
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    a = int(255 * fade)
+    heavy = lambda z: font("Montserrat.ttf", int(z * s), 900)  # noqa: E731
+    title, num = cfg["title"], f"#{ask['episode']}"
+    size = 92
+    while size > 50 and d.textlength(title, font=heavy(size)) + d.textlength(num, font=heavy(size)) + 150 * s > 840 * s:
+        size -= 2
+    tw, nw = d.textlength(title, font=heavy(size)), d.textlength(num, font=heavy(size))
+    w = tw + nw + 150 * s
+    x0, y0, h = img.width / 2 - w / 2, 330 * s, (size + 50) * s
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], radius=int(26 * s), fill=(*col, a))
+    d.text((x0 + 36 * s, y0 + h / 2), title, font=heavy(size), fill=(255, 255, 255, a), anchor="lm")
+    cx = x0 + 36 * s + tw + 30 * s  # the number on a white tag at the badge's end
+    d.rounded_rectangle([cx, y0 + 14 * s, cx + nw + 44 * s, y0 + h - 14 * s], radius=int(18 * s), fill=(255, 255, 255, a))
+    d.text((cx + 22 * s + nw / 2, y0 + h / 2), num, font=heavy(size), fill=(*col, a), anchor="mm")
+    # the reply bubble: an avatar dot, the handle, "asked:", then the question
+    by = y0 + h + 34 * s
+    body = CAPTION(int(38 * s))
+    rows = wrap(d, ask["request"], body, int(600 * s))
+    bh = (96 + 50 * len(rows)) * s
+    bx0, bx1 = 150 * s, 930 * s
+    d.rounded_rectangle([bx0, by, bx1, by + bh], radius=int(30 * s), fill=(255, 255, 255, int(245 * fade)))
+    d.polygon([(bx0 + 70 * s, by + bh - 2), (bx0 + 70 * s, by + bh + 30 * s), (bx0 + 110 * s, by + bh - 2)],
+              fill=(255, 255, 255, int(245 * fade)))
+    d.ellipse([bx0 + 28 * s, by + 28 * s, bx0 + 92 * s, by + 92 * s], fill=(*col, a))
+    d.text((bx0 + 60 * s, by + 60 * s), ask["handle"][1:2].upper(), font=BOLD(int(34 * s)), fill=(255, 255, 255, a), anchor="mm")
+    hx = bx0 + 112 * s
+    d.text((hx, by + 44 * s), ask["handle"], font=BOLD(int(36 * s)), fill=(20, 20, 24, a), anchor="lm")
+    d.text((hx + d.textlength(ask["handle"], font=BOLD(int(36 * s))) + 12 * s, by + 44 * s), cfg["asked"],
+           font=CAPTION(int(34 * s)), fill=(110, 114, 122, a), anchor="lm")
+    for j, row in enumerate(rows):
+        d.text((hx, by + (96 + 50 * j) * s), row, font=body, fill=(20, 20, 24, a), anchor="lm")
+    img.paste(layer, (0, 0), layer)
+
+
+def ace_sting(length: float = 0.55) -> np.ndarray:
+    """Ask the Ace's signature sound: a quick rising swish into two bright notes (a fifth apart), all synthesized."""
+    t = np.arange(int(length * SR)) / SR
+    rng = np.random.default_rng(11)
+    swish = np.convolve(rng.uniform(-1, 1, len(t)), np.ones(30) / 30, mode="same") * np.clip(t / 0.12, 0, 1) * np.exp(-np.clip(t - 0.12, 0, None) * 30)
+    out = 0.5 * swish
+    for at, hz in ((0.12, 659.25), (0.24, 987.77)):
+        u = np.clip(t - at, 0, None)
+        env = (t >= at) * np.exp(-u * 9) * np.clip(u / 0.006, 0, 1)
+        out = out + env * (np.sin(2 * np.pi * hz * u) + 0.35 * np.sin(4 * np.pi * hz * u)) * 0.45
+    return (out / max(1e-6, np.abs(out).max()) * 0.8).astype(np.float32)
+
+
 def series_tag(img: Image.Image, text: str, fade: float, s: float) -> None:
     """The series' name at the top from the first frame (fmt-types-15: "DESIGNED BY A FOLLOWER · VIDEO 1"): black
     on a yellow pill, under the ANATOMY ACE mark's line (y 318-372) and inside x 120-960."""
@@ -509,12 +590,12 @@ def credit_card(img: Image.Image, card: dict, fade: float, s: float) -> None:
     d = ImageDraw.Draw(layer)
     a = int(255 * fade)
     d.rounded_rectangle([130 * s, 1140 * s, 830 * s, 1390 * s], radius=int(28 * s), fill=(24, 24, 28, int(235 * fade)),
-                        outline=(*YELLOW, a), width=max(1, int(4 * s)))
+                        outline=(*card.get("color", YELLOW), a), width=max(1, int(4 * s)))
     d.text((480 * s, 1180 * s), card["label"], font=BOLD(int(32 * s)), fill=(255, 255, 255, a), anchor="mm")
     f = 76
     while f > 40 and d.textlength(card["handle"], font=BOLD(int(f * s))) > 640 * s:
         f -= 2
-    d.text((480 * s, 1262 * s), card["handle"], font=BOLD(int(f * s)), fill=(*YELLOW, a), anchor="mm")
+    d.text((480 * s, 1262 * s), card["handle"], font=BOLD(int(f * s)), fill=(*card.get("color", YELLOW), a), anchor="mm")
     d.text((480 * s, 1345 * s), card["note"], font=CAPTION(int(27 * s)), fill=(200, 204, 212, a), anchor="mm")
     img.paste(layer, (0, 0), layer)
 
@@ -716,6 +797,9 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
             callout(img, a["xy"], text, age, fade, scale, clamp=q.get("scene") == "parts", place=spot)
         if q.get("hook_title") and sg["kind"] in ("flash", "intro"):  # the title over the hook (fmt-types-14)
             banner(img, q["hook_title"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale)
+        if q.get("ask") and sg["kind"] == "flash":  # Ask the Ace's title card, until the opener has been said
+            ends = cues[0]["at"] + lines[cues[0]["line"]][1] + 0.4
+            ace_card(img, q["ask"], min(1.0, max(0.0, (ends - t) / 0.3)), scale)
         if q.get("series_tag") and sg["kind"] in ("flash", "intro"):  # the series' name over the hook (fmt-types-15)
             series_tag(img, q["series_tag"], min(1.0, max(0.0, (segs[1]["end"] - t) / 0.3)), scale)
         cue = next((c for c in reversed(cues) if c["at"] - 0.05 <= t < c["at"] + lines[c["line"]][1] + 0.35), None)
@@ -746,6 +830,8 @@ def build(q: dict, out: Path, scale: float = 1.0, samples: int = 48) -> float:
     hits = {t["name"]: t.get("sound", "thud") for t in q["types"]} | {n: h.get("sound", "none") for n, h in q.get("hook_shows", {}).items()}
     if q.get("flash_hit"):  # an impact on the very first cut (fmt-types-14)
         add(event_sound(q["flash_hit"], 7), 1 / FPS, 0.9)
+    if q.get("ask"):  # Ask the Ace's signature sound on frame 0
+        add(ace_sting(), 0.0, 0.85)
     shows = {t["name"]: t.get("show", {}) for t in q["types"]}
     for sg in segs:
         if sg["kind"] == "flash" and sg.get("single"):  # one shot: its event, then each impact as it lands
@@ -801,7 +887,7 @@ def info(q: dict, seconds: float) -> dict:
     return {"id": q["id"], "format": "types", "title": q["title"], "hook": shown(q["hook"]), "question": q["question"],
             "choices": [], "answer": "", "why": q["why"], "seconds": round(seconds, 2), "music": q["music"],
             "hashtags": q["hashtags"][:5], "sources": q["sources"], "credit": q["credit"], "send": q["send"],
-            **{k: q[k] for k in ("caption_first", "caption_extra", "youtube_title", "first_comment") if q.get(k)}}
+            **{k: q[k] for k in ("caption_first", "caption_second", "caption_extra", "youtube_title", "first_comment") if q.get(k)}}
 
 
 def release(folder: Path, ids: list[str], scale: float = 1.0) -> None:

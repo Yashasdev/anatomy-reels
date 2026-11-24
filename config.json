@@ -158,5 +158,28 @@
       "from": "2026-11-17",
       "note": "Yashas, Nov 15: the 20:00 quiz uses the background track of our most viral post (11 types of fracture, ambient-2)."
     }
+  },
+  "ask_the_ace": {
+    "note": "The follower series (fmt-types-15 on). An episode item only sets \"ask\": {\"episode\", \"handle\", \"request\"}; anatomy/types.py fills in the rest from here: the title card and badge at frame 0, the sting, the spoken opener, the sign-off, the credit card and the caption lines.",
+    "title": "ASK THE ACE",
+    "color": [
+      0,
+      132,
+      255
+    ],
+    "opener": "Ask the Ace, [#{n}](nˈʌmbɚ {n_ph}). You pick it, we dissect it.",
+    "signoff": [
+      "Comment your topic. The top comment picks [#{next}](nˈʌmbɚ {next_ph}).",
+      "Follow to see if yours gets picked."
+    ],
+    "asked": "asked:",
+    "card": {
+      "label": "ASKED BY",
+      "note": "Top comment picks #{next}"
+    },
+    "caption_first": "ASK THE ACE #{n}: you pick it, we dissect it 🦴",
+    "caption_second": "Requested by {handle}",
+    "caption_extra": "Top comment picks the next video in the series 👇",
+    "youtube_title": "Ask the Ace #{n}: {topic}"
   }
 }
