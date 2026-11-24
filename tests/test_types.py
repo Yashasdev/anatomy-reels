@@ -57,7 +57,7 @@ def test_item(q):
     assert q["send"].startswith("Send this to")
     if q.get("credit_card"):  # the follower series ends on how to design the next one, the card on screen
         card = q["credit_card"]
-        assert card["handle"].startswith("@") and "designed by a follower" in types.shown(q["outro"][card["from_line"]]).lower()
+        assert card["handle"].startswith("@") and "comment" in types.shown(q["outro"][card["from_line"]]).lower()
     else:
         assert types.shown(q["outro"][-1]).startswith("Send this to")
     assert re.fullmatch(r"fmt-types-\d\d", q["id"])
@@ -235,3 +235,22 @@ def test_new_scene_blocks_stay_out_of_older_videos_keys():
     text = (ROOT / "render" / "types_scene.py").read_text()
     for block in ("pills", "calm"):
         assert re.search(rf"# --- {block} .*?# --- end {block}\n\n", text, re.S)
+
+
+def test_ask_the_ace_episodes_share_the_series_look():
+    """An episode sets only its "ask"; the opener, sign-off, card and caption lines come from config.json."""
+    cfg = types.CONFIG["ask_the_ace"]
+    eps = [q for q in ITEMS if q.get("ask")]
+    assert eps, "fmt-types-15 is episode 1"
+    for q in eps:
+        n = q["ask"]["episode"]
+        assert q["script"][0] == q["opener"] and types.shown(q["opener"]).startswith(f"Ask the Ace, #{n}.")
+        assert q["outro"][-2:] == [x.format(next=n + 1, next_ph=types.NUMBER_PH[n + 1]) for x in cfg["signoff"]]
+        assert q["caption_first"].startswith(f"ASK THE ACE #{n}") and q["ask"]["handle"] in q["caption_second"]
+        assert not q.get("first_comment"), "Buffer's free plan refuses first comments"
+        img = Image.new("RGB", (1080, 1920))
+        types.ace_card(img, q["ask"], 1.0, 1.0)
+        import numpy as np
+        ys, xs = np.nonzero(np.array(img).sum(2))
+        assert xs.min() >= 120 and xs.max() <= 960 and ys.min() >= 300 and ys.max() <= 800
+    assert 0.4 < len(types.ace_sting()) / types.SR < 0.7
