@@ -366,7 +366,51 @@
    "series": "types",
    "date": "2026-11-22",
    "until": "2026-11-26"
+  },
+  {
+   "post": "chest-06",
+   "buffer_id": "6b0203e2d5eabfb8cc5d620e",
+   "day": 115,
+   "title": "The Rib Cage",
+   "kind": "quiz",
+   "age_hours": 31.0,
+   "views": 1821,
+   "baseline": 1226,
+   "shares": 19,
+   "reach": 1443,
+   "share_rate": 0.0132,
+   "share_baseline": 0.001,
+   "compared_with": "quiz (30 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": null,
+   "date": "2026-11-24",
+   "until": "2026-11-28"
+  },
+  {
+   "post": "dd-brain-anger",
+   "buffer_id": "6b0358c6d5eabfb8ccdd1081",
+   "day": 118,
+   "title": "This is why you hate your boyfriend: the brain and hormones behind snapping",
+   "kind": "deepdive",
+   "age_hours": 22.5,
+   "views": 2254,
+   "baseline": 1258,
+   "shares": 21,
+   "reach": 1623,
+   "share_rate": 0.0129,
+   "share_baseline": 0.0037,
+   "compared_with": "deepdive (15 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "dd-brain-anger",
+   "date": "2026-11-24",
+   "until": "2026-11-28"
   }
  ],
- "updated_at": "2026-11-23T22:56:19Z"
+ "updated_at": "2026-11-24T21:33:50Z"
 }

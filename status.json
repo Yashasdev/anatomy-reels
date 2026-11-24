@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24T06:52:00+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45343561849",
+ "generated_at": "2026-11-24T21:33:51+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45492313202",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -79,6 +79,20 @@
   }
  },
  "hot": [
+  {
+   "series": "dd-brain-anger",
+   "kind": "deepdive",
+   "post": "dd-brain-anger",
+   "views": 2254,
+   "baseline": 1258,
+   "by": [
+    "shares"
+   ],
+   "date": "2026-11-24",
+   "until": "2026-11-28",
+   "left": 0,
+   "make_more": true
+  },
   {
    "series": "types",
    "kind": "formats",
@@ -344,7 +358,8 @@
    ],
    "sent": [
     "instagram",
-    "tiktok"
+    "tiktok",
+    "youtube"
    ]
   },
   {
@@ -453,7 +468,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-23T20:00:00-05:00",
@@ -466,7 +484,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-24T09:30:00-05:00",
@@ -480,7 +501,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-24T12:30:00-05:00",
@@ -490,10 +515,14 @@
    "title": "5 things to know: ibuprofen vs acetaminophen",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1230-fmt-types-16.mp4",
    "platforms": [
+    "instagram",
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-24T16:00:00-05:00",
@@ -506,7 +535,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-24T18:00:00-05:00",
@@ -516,6 +548,7 @@
    "title": "Why you get wrinkles",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-24-1800-dd-skin-layers.mp4",
    "platforms": [
+    "instagram",
     "tiktok"
    ],
    "sent": []
@@ -555,6 +588,7 @@
    "title": "Diagnose this",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-25-1230-fmt-diagnose-11.mp4",
    "platforms": [
+    "instagram",
     "tiktok",
     "youtube"
    ],
@@ -575,33 +609,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-23T22:56:15Z",
+  "updated_at": "2026-11-24T21:33:44Z",
   "totals": {
-   "views": 1720888,
-   "reactions": 99818,
-   "comments": 777,
-   "shares": 15173,
-   "saves": 19455
+   "views": 1773443,
+   "reactions": 104125,
+   "comments": 823,
+   "shares": 15512,
+   "saves": 19708
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 115,
-    "views": 1316645,
+    "posts": 120,
+    "views": 1341138,
     "watched": 25.8,
-    "watch_samples": 80
+    "watch_samples": 82
    },
    {
     "platform": "tiktok",
-    "posts": 117,
-    "views": 368755,
+    "posts": 122,
+    "views": 396241,
     "watched": 23.6,
-    "watch_samples": 94
+    "watch_samples": 99
    },
    {
     "platform": "youtube",
-    "posts": 101,
-    "views": 35488,
+    "posts": 103,
+    "views": 36064,
     "watched": null,
     "watch_samples": 0
    }
