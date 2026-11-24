@@ -137,7 +137,11 @@
     "instagram": true,
     "from": "2026-11-22",
     "types": "Which one have you had? 👇",
-    "note": "Yashas, Nov 21, 2026: first comments on. Quizzes get their hint (hints.json); Types videos get their own first_comment or this line; a video's json can set first_comment (the follower series asks for the next topic)."
+    "note": "Yashas, Nov 21, 2026: first comments on. Quizzes get their hint (hints.json); Types videos get their own first_comment or this line; a video's json can set first_comment (the follower series asks for the next topic).",
+    "diagnose": "What's your diagnosis? Comment before you check the answer 👇",
+    "quiz": "A, B, C or D? Comment your answer 👇",
+    "deepdive": "Did you know this? Tell us what surprised you 👇",
+    "default": "Comment your answer 👇"
   },
   "hits_note": "Hit check (anatomy/hits.py, daily after the tracker): an Instagram post 12-72 h old with 3x the median views (and 1,000+) or 3x the median shares per reach (and 2+ shares) of the last 30 Instagram posts of its own type makes its series hot for 5 days; a type with under 6 posts is compared with all Instagram posts at 2x. Deep dive series come from series.json. Hot series post first in their slots; hits.json keeps the record.",
   "quiz_look": {

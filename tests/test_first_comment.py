@@ -118,3 +118,10 @@ def test_types_and_follower_videos_get_their_first_comment():
     from anatomy import publish
     assert publish.hint_for({"id": "fmt-types-99", "format": "types"}) == "Which one have you had? 👇"
     assert publish.hint_for({"id": "x", "format": "types", "first_comment": "DM us your topic"}) == "DM us your topic"
+
+
+def test_every_kind_gets_a_first_comment():
+    from anatomy import publish
+    assert publish.hint_for({"id": "zz-quiz", "organ": "arm"}).startswith("A, B, C or D")
+    assert "diagnosis" in publish.hint_for({"id": "fmt-diagnose-99", "format": "diagnose"})
+    assert publish.hint_for({"id": "dd-x", "kind": "deepdive"})

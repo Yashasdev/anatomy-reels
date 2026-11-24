@@ -138,7 +138,10 @@ def next_video(name: str, at: datetime, used: list[str], today: tuple[str, ...] 
     with a video in stock goes before the usual pick (formats: the caller passes only formats not used that day)."""
     videos = index(name)
     fresh = [v for v in videos if v["id"] not in used and not v.get("hold")]  # "hold": waiting for Yashas's OK
+    cycle_now = settings(name).get("cycle")
     for s in hot:
+        if name == "formats" and cycle_now and s not in cycle_now:
+            continue  # a dropped format stays dropped even when its old posts were a hit (Nov 24, 2026)
         pick = next((v for v in fresh if series_name(name, v, videos) == s), None)
         if pick:
             return {**pick, "hot": s}

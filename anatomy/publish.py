@@ -213,8 +213,10 @@ def hint_for(q: dict) -> str | None:
     if q.get("first_comment"):  # a video can carry its own first comment (the follower series asks for the next topic)
         return q["first_comment"].strip()
     text = (hints().get(q["id"]) or q.get("hint") or "").strip()
-    if not text and q.get("format") == "types":
-        return (CONFIG.get("first_comment") or {}).get("types")
+    if not text:  # no hint written: every post still gets a question that invites a reply
+        fc = CONFIG.get("first_comment") or {}
+        kind = q.get("format") or ("deepdive" if q.get("kind") == "deepdive" else "quiz")
+        return fc.get(kind) or fc.get("default")
     if not text:
         return None
     return text if text.lower().startswith("hint:") else f"Hint: {text}"
