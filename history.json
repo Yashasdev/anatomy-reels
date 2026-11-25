@@ -1901,7 +1901,10 @@
     "hot": "missing",
     "retried": {
       "youtube": "6b0358bdc72676f5e95df2fb"
-    }
+    },
+    "gave_up": [
+      "youtube"
+    ]
   },
   {
     "slot": "2026-11-23T16:00:00-05:00",
@@ -2164,5 +2167,67 @@
     "kind": "formats",
     "format": "diagnose",
     "music": "science-2"
+  },
+  {
+    "slot": "2026-11-26T18:00:00-05:00",
+    "day": 133,
+    "id": "dd-membrane-transport",
+    "organ": null,
+    "title": "Getting into a cell",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-1800-dd-membrane-transport.mp4",
+    "video_seconds": 53.14,
+    "buffer": {
+      "instagram": "6b076b5807071a606736d02e",
+      "tiktok": "6b076b59b8e2338b856f47c6"
+    },
+    "kind": "deepdive",
+    "music": "ambient-3"
+  },
+  {
+    "slot": "2026-11-26T20:00:00-05:00",
+    "day": 134,
+    "id": "chest-07",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-26-2000-chest-07.mp4",
+    "video_seconds": 23.48,
+    "buffer": {
+      "instagram": "6b076b5ca791bea1b2351bb3",
+      "tiktok": "6b076b5cb96dd8d3516dc215"
+    },
+    "music": "ambient-2",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-27T09:30:00-05:00",
+    "day": 135,
+    "id": "thigh-07",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-0930-thigh-07.mp4",
+    "video_seconds": 19.51,
+    "buffer": {
+      "instagram": "6b076b5eb96dd8d3516dc27c",
+      "tiktok": "6b076b5fd4eda4b659bb7d6e",
+      "youtube": "6b076b5fb96dd8d3516dc2ae"
+    },
+    "music": "pop-1",
+    "look": "studio"
+  },
+  {
+    "slot": "2026-11-27T12:30:00-05:00",
+    "day": 136,
+    "id": "arm-09",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-1230-arm-09.mp4",
+    "video_seconds": 20.03,
+    "buffer": {
+      "instagram": "6b076b61d4eda4b659bb7e44",
+      "tiktok": "6b076b61b8e2338b856f5094",
+      "youtube": "6b076b629f6dda31cca5320d"
+    },
+    "music": "house-4",
+    "look": "classic"
   }
 ]
