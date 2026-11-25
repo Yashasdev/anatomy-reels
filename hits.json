@@ -373,12 +373,12 @@
    "day": 115,
    "title": "The Rib Cage",
    "kind": "quiz",
-   "age_hours": 31.0,
-   "views": 1821,
-   "baseline": 1226,
+   "age_hours": 54.2,
+   "views": 1840,
+   "baseline": 1260,
    "shares": 19,
-   "reach": 1443,
-   "share_rate": 0.0132,
+   "reach": 1457,
+   "share_rate": 0.013,
    "share_baseline": 0.001,
    "compared_with": "quiz (30 posts)",
    "factor": 3,
@@ -395,13 +395,13 @@
    "day": 118,
    "title": "This is why you hate your boyfriend: the brain and hormones behind snapping",
    "kind": "deepdive",
-   "age_hours": 22.5,
-   "views": 2254,
-   "baseline": 1258,
-   "shares": 21,
-   "reach": 1623,
-   "share_rate": 0.0129,
-   "share_baseline": 0.0037,
+   "age_hours": 45.6,
+   "views": 2334,
+   "baseline": 1233,
+   "shares": 23,
+   "reach": 1661,
+   "share_rate": 0.0138,
+   "share_baseline": 0.0033,
    "compared_with": "deepdive (15 posts)",
    "factor": 3,
    "by": [
@@ -412,5 +412,5 @@
    "until": "2026-11-28"
   }
  ],
- "updated_at": "2026-11-24T21:33:50Z"
+ "updated_at": "2026-11-25T20:41:42Z"
 }

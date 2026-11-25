@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24T23:21:14+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45506090967",
+ "generated_at": "2026-11-25T20:41:43+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45697324235",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -83,8 +83,8 @@
    "series": "dd-brain-anger",
    "kind": "deepdive",
    "post": "dd-brain-anger",
-   "views": 2254,
-   "baseline": 1258,
+   "views": 2334,
+   "baseline": 1233,
    "by": [
     "shares"
    ],
@@ -464,7 +464,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-24T20:00:00-05:00",
@@ -477,7 +480,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-25T09:30:00-05:00",
@@ -491,7 +497,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-25T12:30:00-05:00",
@@ -505,7 +515,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-25T16:00:00-05:00",
@@ -589,33 +603,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-24T21:33:44Z",
+  "updated_at": "2026-11-25T20:41:37Z",
   "totals": {
-   "views": 1773443,
-   "reactions": 104125,
-   "comments": 823,
-   "shares": 15512,
-   "saves": 19708
+   "views": 1917267,
+   "reactions": 115238,
+   "comments": 965,
+   "shares": 16417,
+   "saves": 20072
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 120,
-    "views": 1341138,
-    "watched": 25.8,
-    "watch_samples": 82
+    "posts": 124,
+    "views": 1375304,
+    "watched": 25.6,
+    "watch_samples": 85
    },
    {
     "platform": "tiktok",
-    "posts": 122,
-    "views": 396241,
+    "posts": 126,
+    "views": 505496,
     "watched": 23.6,
-    "watch_samples": 99
+    "watch_samples": 103
    },
    {
     "platform": "youtube",
-    "posts": 103,
-    "views": 36064,
+    "posts": 105,
+    "views": 36467,
     "watched": null,
     "watch_samples": 0
    }
