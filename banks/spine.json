@@ -339,5 +339,119 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "spine-11",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Vertebra C7"
+  ],
+  "start_degrees": 180,
+  "distance": 1.5,
+  "focus": true,
+  "question": "Which vertebra is the neck-base bump?",
+  "choices": [
+   "C1",
+   "C5",
+   "C7",
+   "T6"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Tilt your head forward. Feel the bump at the base of your neck.",
+   "Watch the glowing vertebra at the bottom of the neck.",
+   "Which vertebra makes that bump?",
+   "C1 is the top vertebra, right under the skull.",
+   "Its long spike points back under your skin.",
+   "It's C. C7.",
+   "Why it matters: doctors and students use it to count other vertebrae."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-12",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Atlas (C1)",
+   "Axis (C2)",
+   "Vertebra C3",
+   "Vertebra C4",
+   "Vertebra C5",
+   "Vertebra C6",
+   "Vertebra C7",
+   "Vertebra T1",
+   "Vertebra T2",
+   "Vertebra T3",
+   "Vertebra T4",
+   "Vertebra T5",
+   "Vertebra T6",
+   "Vertebra T7",
+   "Vertebra T8",
+   "Vertebra T9",
+   "Vertebra T10",
+   "Vertebra T11",
+   "Vertebra T12",
+   "Vertebra L1",
+   "Vertebra L2",
+   "Vertebra L3",
+   "Vertebra L4",
+   "Vertebra L5"
+  ],
+  "start_degrees": 90,
+  "question": "How many vertebrae are not fused?",
+  "choices": [
+   "24",
+   "28",
+   "31",
+   "33"
+  ],
+  "answer_index": 0,
+  "trap_index": 3,
+  "lines": [
+   "The spine has a few fused bones and many that move.",
+   "Watch every glowing vertebra from the neck to the lower back.",
+   "How many separate vertebrae are glowing?",
+   "Thirty-three counts the fused sacrum and tailbone too.",
+   "Seven neck, twelve chest and five lower back.",
+   "It's A. Twenty-four.",
+   "Why it matters: these separate bones give the spine its movement."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "spine-13",
+  "model": "spine",
+  "title": "The Spine",
+  "highlight": [
+   "Axis (C2)"
+  ],
+  "start_degrees": 90,
+  "distance": 1.5,
+  "focus": true,
+  "question": "Which vertebra has the tooth-like peg?",
+  "choices": [
+   "Atlas",
+   "Axis",
+   "C7",
+   "T1"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "You shake your head no by turning on one small peg.",
+   "Watch the glowing second bone of the neck.",
+   "Which vertebra has the tooth-like peg?",
+   "The atlas is above it. It turns around the peg, it doesn't have one.",
+   "The peg is called the dens, and the atlas rotates on it.",
+   "It's B. The axis, C2.",
+   "Why it matters: most head turning to each side happens at this joint."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

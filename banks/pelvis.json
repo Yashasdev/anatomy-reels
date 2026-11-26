@@ -271,5 +271,97 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-10",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Sacrum",
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 180,
+  "question": "Which joint links sacrum and hip bones?",
+  "choices": [
+   "Pubic symphysis",
+   "Hip joint",
+   "Lumbosacral joint",
+   "Sacroiliac joint"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Two joints in your lower back and hips carry your upper body's weight.",
+   "Watch the glowing sacrum and the two hip bones beside it.",
+   "Which joint links the sacrum to the hip bones?",
+   "The hip joint is the ball and socket for the thighbone.",
+   "Each side of the sacrum meets a hip bone at one joint.",
+   "It's D. The sacroiliac joint.",
+   "Why it matters: it passes weight from the spine down to the legs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-11",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.2,
+  "question": "Where do the hip bones meet in front?",
+  "choices": [
+   "Sacroiliac joint",
+   "Pubic symphysis",
+   "Hip socket",
+   "Sacral promontory"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The two sides of your pelvis meet at the front, low in the middle.",
+   "Watch the two glowing hip bones.",
+   "Where do they meet at the front?",
+   "The sacroiliac joint is at the back, joining them to the sacrum.",
+   "At the front, a cartilage joint joins the two pubic bones.",
+   "It's B. The pubic symphysis.",
+   "Why it matters: it gives a little, which helps the pelvis absorb force."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-12",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l"
+  ],
+  "start_degrees": 0,
+  "distance": 3.2,
+  "question": "Which side of the patient is it?",
+  "choices": [
+   "Right",
+   "Left",
+   "Both sides",
+   "Neither"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Left or right? It's trickier than it looks.",
+   "Remember: we say the patient's side, not yours.",
+   "Which side of the patient is this hip bone?",
+   "From the front, the patient's left appears on your right.",
+   "It's the one on the patient's left.",
+   "It's B. Left.",
+   "Why it matters: medicine always uses the patient's left and right."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
