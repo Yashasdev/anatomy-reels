@@ -1979,14 +1979,17 @@
     "video_seconds": 58.43,
     "buffer": {
       "tiktok": "6b04e882c43c1f2f5c7a1d9a",
-      "youtube": "6b04e883bc151fa8ad127aa9",
+      "youtube": "6b08b884a30b64e55ea4059b",
       "instagram": "6b053483286252d7383dc097"
     },
     "kind": "formats",
     "format": "types",
     "music": "ambient-2",
     "promoted": "2026-11-24",
-    "replaced": "fmt-missing-07"
+    "replaced": "fmt-missing-07",
+    "retried": {
+      "youtube": "6b04e883bc151fa8ad127aa9"
+    }
   },
   {
     "slot": "2026-11-24T16:00:00-05:00",
@@ -2228,6 +2231,83 @@
       "youtube": "6b076b629f6dda31cca5320d"
     },
     "music": "house-4",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-27T16:00:00-05:00",
+    "day": 137,
+    "id": "spine-08",
+    "organ": "spine",
+    "title": "The Spine",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-1600-spine-08.mp4",
+    "video_seconds": 20.87,
+    "buffer": {
+      "instagram": "6b08b8756fabe326fab8faf3",
+      "tiktok": "6b08b876548b6e180d3c626a"
+    },
+    "music": "lofi-4",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-27T18:00:00-05:00",
+    "day": 138,
+    "id": "dd-transcription",
+    "organ": null,
+    "title": "Transcription",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-1800-dd-transcription.mp4",
+    "video_seconds": 57.24,
+    "buffer": {
+      "instagram": "6b08b879c281f698381da1ee",
+      "tiktok": "6b08b87aa30b64e55ea4034c"
+    },
+    "kind": "deepdive",
+    "music": "ambient-4"
+  },
+  {
+    "slot": "2026-11-27T20:00:00-05:00",
+    "day": 139,
+    "id": "hand-07",
+    "organ": "hand",
+    "title": "The Hand",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-2000-hand-07.mp4",
+    "video_seconds": 21.04,
+    "buffer": {
+      "instagram": "6b08b87cc281f698381da29b",
+      "tiktok": "6b08b87c548b6e180d3c63a8"
+    },
+    "music": "ambient-2",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-28T09:30:00-05:00",
+    "day": 140,
+    "id": "skull-10",
+    "organ": "skull",
+    "title": "The Skull",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-0930-skull-10.mp4",
+    "video_seconds": 20.44,
+    "buffer": {
+      "instagram": "6b08b87ec281f698381da39c",
+      "tiktok": "6b08b87f548b6e180d3c646b",
+      "youtube": "6b08b880e44dd487fc035914"
+    },
+    "music": "house-1",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-28T12:30:00-05:00",
+    "day": 141,
+    "id": "leg-07",
+    "organ": "leg",
+    "title": "The Leg",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1230-leg-07.mp4",
+    "video_seconds": 22.19,
+    "buffer": {
+      "instagram": "6b08b881a30b64e55ea4049e",
+      "tiktok": "6b08b881c281f698381da41e",
+      "youtube": "6b08b882e44dd487fc035987"
+    },
+    "music": "lofi-5",
     "look": "classic"
   }
 ]
