@@ -281,8 +281,8 @@
   "highlight": [
    "Gluteus medius muscle.r"
   ],
-  "start_degrees": 60,
-  "distance": 1.6,
+  "start_degrees": 90,
+  "distance": 1.2,
   "focus": true,
   "question": "Which muscle is glowing?",
   "choices": [

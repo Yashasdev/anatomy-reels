@@ -347,8 +347,8 @@
   "highlight": [
    "Vertebra C7"
   ],
-  "start_degrees": 180,
-  "distance": 1.5,
+  "start_degrees": 160,
+  "distance": 1.2,
   "focus": true,
   "question": "Which vertebra is the neck-base bump?",
   "choices": [
