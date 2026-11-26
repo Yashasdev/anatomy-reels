@@ -273,5 +273,98 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "thigh-10",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Gluteus medius muscle.r"
+  ],
+  "start_degrees": 90,
+  "distance": 1.2,
+  "focus": true,
+  "question": "Which muscle is glowing?",
+  "choices": [
+   "Gluteus maximus",
+   "Gluteus medius",
+   "Sartorius",
+   "Gracilis"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "This muscle keeps your hips level when you stand on one leg.",
+   "Watch the glowing muscle at the side of the hip.",
+   "Which muscle is it?",
+   "The gluteus maximus is bigger, and it sits behind.",
+   "This one is on the side of the hip, under the pelvis rim.",
+   "It's B. The gluteus medius.",
+   "Why it matters: it lifts the thigh out to the side."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-11",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Rectus femoris muscle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.4,
+  "focus": true,
+  "question": "Which quad muscle crosses the hip?",
+  "choices": [
+   "Vastus lateralis",
+   "Vastus medialis",
+   "Rectus femoris",
+   "Vastus intermedius"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "One of your four quad muscles crosses two joints.",
+   "Watch the glowing quad muscle in the middle of the front thigh.",
+   "Which one also crosses the hip?",
+   "The vastus muscles only cross the knee.",
+   "This one starts on the pelvis and reaches the kneecap.",
+   "It's C. The rectus femoris.",
+   "Why it matters: it helps bend the hip and also straightens the knee."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "thigh-12",
+  "model": "thigh",
+  "title": "Leg Muscles",
+  "highlight": [
+   "Gracilis muscle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which muscle is glowing?",
+  "choices": [
+   "Sartorius",
+   "Adductor longus",
+   "Rectus femoris",
+   "Gracilis"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Thin and long, this muscle runs down the inside of your thigh.",
+   "Watch the slim glowing strap on the inner thigh.",
+   "Which muscle is it?",
+   "The sartorius is also long, but it crosses the front diagonally.",
+   "This one runs straight down the inner thigh to below the knee.",
+   "It's D. The gracilis.",
+   "Why it matters: it's one of the groin muscles and also crosses the knee."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

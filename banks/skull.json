@@ -336,5 +336,114 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "skull-12",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Zygomatic bone.l",
+   "Zygomatic bone.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which two bones are glowing?",
+  "choices": [
+   "Maxilla",
+   "Nasal",
+   "Temporal",
+   "Zygomatic"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Smile and feel the bones that make your cheeks stand out.",
+   "Watch the two bones glowing at the sides of the face.",
+   "Which two bones are they?",
+   "The maxillae sit in the middle, holding the upper teeth.",
+   "These two form the prominence of your cheeks.",
+   "It's D. The zygomatic bones.",
+   "Why it matters: they form part of the eye sockets' outer rim."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-13",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Occipital bone"
+  ],
+  "start_degrees": 160,
+  "question": "Which bone has the hole for the spinal cord?",
+  "choices": [
+   "Sphenoid",
+   "Temporal",
+   "Occipital",
+   "Parietal"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "Your brain meets your spinal cord through one hole in the skull.",
+   "Watch the glowing bone at the back and base of the skull.",
+   "Which bone has that hole?",
+   "The sphenoid sits in the middle of the skull base, further forward.",
+   "The big opening, the foramen magnum, is in this bone.",
+   "It's C. The occipital bone.",
+   "Why it matters: the spinal cord leaves the skull through this opening."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "skull-14",
+  "model": "skull",
+  "title": "The Skull",
+  "highlight": [
+   "Mandible",
+   "Maxilla.l",
+   "Maxilla.r",
+   "Zygomatic bone.l",
+   "Zygomatic bone.r",
+   "Nasal bone.l",
+   "Nasal bone.r",
+   "Lacrimal bone.l",
+   "Lacrimal bone.r",
+   "Palatine bone.l",
+   "Palatine bone.r",
+   "Inferior nasal concha bone.l",
+   "Inferior nasal concha bone.r",
+   "Vomer",
+   "Frontal bone",
+   "Parietal bone.l",
+   "Parietal bone.r",
+   "Temporal bone.l",
+   "Temporal bone.r",
+   "Occipital bone",
+   "Sphenoid bone",
+   "Ethmoid bone"
+  ],
+  "start_degrees": 0,
+  "question": "How many skull bones, not ear bones?",
+  "choices": [
+   "20",
+   "22",
+   "26",
+   "33"
+  ],
+  "answer_index": 1,
+  "trap_index": 3,
+  "lines": [
+   "Your head looks like one solid piece. It isn't.",
+   "Every bone glowing here is a separate bone of the adult skull.",
+   "How many bones is that?",
+   "Thirty-three is the count for the whole spine, not the skull.",
+   "Eight in the cranium plus fourteen in the face.",
+   "It's B. Twenty-two.",
+   "Why it matters: most skull bones lock together at joints that barely move."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

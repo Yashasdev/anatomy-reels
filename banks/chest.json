@@ -340,5 +340,100 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "chest-10",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Xiphoid process"
+  ],
+  "start_degrees": 0,
+  "distance": 1.2,
+  "focus": true,
+  "question": "Which part of the breastbone is it?",
+  "choices": [
+   "Manubrium",
+   "Body",
+   "Xiphoid process",
+   "Costal cartilage"
+  ],
+  "answer_index": 2,
+  "trap_index": 1,
+  "lines": [
+   "The lowest tip of your breastbone is small and pointed.",
+   "Watch the tiny glowing tip at the bottom of the breastbone.",
+   "Which part of the breastbone is it?",
+   "The manubrium is the top, near the collarbones.",
+   "The body is the long middle. This is the small tip below it.",
+   "It's C. The xiphoid process.",
+   "Why it matters: it starts as cartilage and turns to bone later in life."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-11",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Eighth rib.l",
+   "Eighth rib.r",
+   "Ninth rib.l",
+   "Ninth rib.r",
+   "Tenth rib.l",
+   "Tenth rib.r"
+  ],
+  "start_degrees": 0,
+  "question": "Which ribs are glowing?",
+  "choices": [
+   "Ribs 1 to 7",
+   "Ribs 5 to 9",
+   "Ribs 8 to 10",
+   "Ribs 11 and 12"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Three pairs of ribs hang from one shared cartilage arch.",
+   "Watch the three pairs of ribs glowing on each side.",
+   "Which ribs are they?",
+   "Ribs 1 to 7 reach the breastbone with their own cartilage.",
+   "These join the cartilage of the rib above them.",
+   "It's C. Ribs 8 to 10.",
+   "Why it matters: that is why ribs 8 to 10 are called false ribs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "chest-12",
+  "model": "chest",
+  "title": "The Rib Cage",
+  "highlight": [
+   "Twelfth rib.l",
+   "Twelfth rib.r"
+  ],
+  "start_degrees": 180,
+  "question": "Which rib pair is the lowest?",
+  "choices": [
+   "Tenth",
+   "Eleventh",
+   "Ninth",
+   "Twelfth"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Count the ribs down your side. Where do they end?",
+   "Watch the glowing pair at the very bottom of the rib cage.",
+   "Which rib is this?",
+   "The eleventh rib is just above, and it's short and floating too.",
+   "The last of the twelve pairs.",
+   "It's D. The twelfth rib.",
+   "Why it matters: it connects only to the spine in back, not to the front."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

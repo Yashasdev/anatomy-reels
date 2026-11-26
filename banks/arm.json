@@ -327,5 +327,96 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "arm-12",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Scapula.r"
+  ],
+  "start_degrees": 120,
+  "distance": 2.4,
+  "question": "Which bone holds the shoulder socket?",
+  "choices": [
+   "Clavicle",
+   "Scapula",
+   "Humerus",
+   "Ulna"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "Your shoulder is a ball and socket. Where is the socket?",
+   "Watch the glowing flat bone behind the shoulder.",
+   "Which bone holds the socket?",
+   "The collarbone connects at the shoulder, but it holds no socket.",
+   "The ball is the top of the arm bone. The socket is part of this bone.",
+   "It's B. The scapula.",
+   "Why it matters: the socket is shallow, so the shoulder moves widely."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "arm-13",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Clavicle.r"
+  ],
+  "start_degrees": 0,
+  "distance": 1.6,
+  "focus": true,
+  "question": "Which bone links the arm to the chest?",
+  "choices": [
+   "Scapula",
+   "Humerus",
+   "Radius",
+   "Clavicle"
+  ],
+  "answer_index": 3,
+  "trap_index": 0,
+  "lines": [
+   "Muscles hold most of your arm to your body. One bone does too.",
+   "Watch the long thin bone glowing near the top of the chest.",
+   "Which bone links the arm bones to the chest?",
+   "The scapula floats on the back, held mostly by muscles.",
+   "Only this bone joins the arm's skeleton to the breastbone.",
+   "It's D. The clavicle.",
+   "Why it matters: that joint is the arm's only bony link to the trunk."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "arm-14",
+  "model": "arm",
+  "title": "The Arm",
+  "highlight": [
+   "Ulna.r"
+  ],
+  "start_degrees": -30,
+  "distance": 3.0,
+  "question": "Which bone is on the pinky side?",
+  "choices": [
+   "Humerus",
+   "Radius",
+   "Clavicle",
+   "Ulna"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Hold out your hand, palm up. Look at your pinky side.",
+   "Watch the glowing forearm bone.",
+   "Which forearm bone lies on the pinky side?",
+   "The radius is the other forearm bone, on the thumb side.",
+   "This one forms the point of the elbow too.",
+   "It's D. The ulna.",
+   "Why it matters: the radius turns around it when you flip your palm."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]

@@ -271,5 +271,97 @@
   ],
   "ask_line": 2,
   "answer_line": 5
+ },
+ {
+  "id": "pelvis-10",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Sacrum",
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 180,
+  "question": "Which joint links sacrum and hip bones?",
+  "choices": [
+   "Pubic symphysis",
+   "Hip joint",
+   "Lumbosacral joint",
+   "Sacroiliac joint"
+  ],
+  "answer_index": 3,
+  "trap_index": 1,
+  "lines": [
+   "Joints at the back of your pelvis carry your upper body's weight.",
+   "Watch the glowing sacrum and the two hip bones beside it.",
+   "Which joint links the sacrum to the hip bones?",
+   "The hip joint is the thighbone's ball and socket. Not this one.",
+   "Each side of the sacrum meets a hip bone at one joint.",
+   "It's D. The sacroiliac joint.",
+   "Why it matters: it passes weight from the spine down to the legs."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-11",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l",
+   "Hip bone.r"
+  ],
+  "start_degrees": 0,
+  "distance": 3.2,
+  "question": "Where do the hip bones meet in front?",
+  "choices": [
+   "Sacroiliac joint",
+   "Pubic symphysis",
+   "Hip socket",
+   "Sacral promontory"
+  ],
+  "answer_index": 1,
+  "trap_index": 0,
+  "lines": [
+   "The two sides of your pelvis meet at the front, low in the middle.",
+   "Watch the two glowing hip bones.",
+   "Where do they meet at the front?",
+   "The sacroiliac joint is at the back, joining them to the sacrum.",
+   "At the front, a cartilage joint joins the two pubic bones.",
+   "It's B. The pubic symphysis.",
+   "Why it matters: it gives a little, which helps the pelvis absorb force."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
+ },
+ {
+  "id": "pelvis-12",
+  "model": "pelvis",
+  "title": "The Pelvis",
+  "highlight": [
+   "Hip bone.l"
+  ],
+  "start_degrees": 0,
+  "distance": 3.2,
+  "question": "What is the hip socket called?",
+  "choices": [
+   "Glenoid cavity",
+   "Iliac crest",
+   "Acetabulum",
+   "Obturator foramen"
+  ],
+  "answer_index": 2,
+  "trap_index": 0,
+  "lines": [
+   "Your thighbone's ball sits in a deep cup in the pelvis.",
+   "Watch the two glowing hip bones.",
+   "What is the cup-shaped hip socket called?",
+   "The glenoid cavity is the shoulder's socket, on the scapula.",
+   "The ball of the thighbone fits into this socket on the hip bone.",
+   "It's C. The acetabulum.",
+   "Why it matters: it's a deep socket, so the hip joint is very stable."
+  ],
+  "ask_line": 2,
+  "answer_line": 5
  }
 ]
