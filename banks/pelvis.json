@@ -292,10 +292,10 @@
   "answer_index": 3,
   "trap_index": 1,
   "lines": [
-   "Two joints in your lower back and hips carry your upper body's weight.",
+   "Joints at the back of your pelvis carry your upper body's weight.",
    "Watch the glowing sacrum and the two hip bones beside it.",
    "Which joint links the sacrum to the hip bones?",
-   "The hip joint is the ball and socket for the thighbone.",
+   "The hip joint is the thighbone's ball and socket. Not this one.",
    "Each side of the sacrum meets a hip bone at one joint.",
    "It's D. The sacroiliac joint.",
    "Why it matters: it passes weight from the spine down to the legs."
@@ -343,23 +343,23 @@
   ],
   "start_degrees": 0,
   "distance": 3.2,
-  "question": "Which side of the patient is it?",
+  "question": "What is the hip socket called?",
   "choices": [
-   "Right",
-   "Left",
-   "Both sides",
-   "Neither"
+   "Glenoid cavity",
+   "Iliac crest",
+   "Acetabulum",
+   "Obturator foramen"
   ],
-  "answer_index": 1,
+  "answer_index": 2,
   "trap_index": 0,
   "lines": [
-   "Left or right? It's trickier than it looks.",
-   "Remember: we say the patient's side, not yours.",
-   "Which side of the patient is this hip bone?",
-   "From the front, the patient's left appears on your right.",
-   "It's the one on the patient's left.",
-   "It's B. Left.",
-   "Why it matters: medicine always uses the patient's left and right."
+   "Your thighbone's ball sits in a deep cup in the pelvis.",
+   "Watch the two glowing hip bones.",
+   "What is the cup-shaped hip socket called?",
+   "The glenoid cavity is the shoulder's socket, on the scapula.",
+   "The ball of the thighbone fits into this socket on the hip bone.",
+   "It's C. The acetabulum.",
+   "Why it matters: it's a deep socket, so the hip joint is very stable."
   ],
   "ask_line": 2,
   "answer_line": 5

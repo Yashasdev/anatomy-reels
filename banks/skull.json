@@ -427,11 +427,11 @@
    "Ethmoid bone"
   ],
   "start_degrees": 0,
-  "question": "How many bones are in the adult skull?",
+  "question": "How many skull bones, not ear bones?",
   "choices": [
    "20",
    "22",
-   "28",
+   "26",
    "33"
   ],
   "answer_index": 1,

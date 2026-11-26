@@ -395,7 +395,7 @@
   "answer_index": 2,
   "trap_index": 0,
   "lines": [
-   "Not every rib reaches your breastbone directly.",
+   "Three pairs of ribs hang from one shared cartilage arch.",
    "Watch the three pairs of ribs glowing on each side.",
    "Which ribs are they?",
    "Ribs 1 to 7 reach the breastbone with their own cartilage.",
@@ -415,7 +415,7 @@
    "Twelfth rib.r"
   ],
   "start_degrees": 180,
-  "question": "Which is the lowest rib?",
+  "question": "Which rib pair is the lowest?",
   "choices": [
    "Tenth",
    "Eleventh",
@@ -428,7 +428,7 @@
    "Count the ribs down your side. Where do they end?",
    "Watch the glowing pair at the very bottom of the rib cage.",
    "Which rib is this?",
-   "The eleventh is just above it. It is also short and floating.",
+   "The eleventh rib is just above, and it's short and floating too.",
    "The last of the twelve pairs.",
    "It's D. The twelfth rib.",
    "Why it matters: it connects only to the spine in back, not to the front."
