@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T22:20:37+00:00",
+ "generated_at": "2026-11-26T22:54:11+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45904139022",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 39,
- "total": 175,
- "posted": 136,
+ "unused": 35,
+ "total": 176,
+ "posted": 141,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 21
+   "posted": 22
   },
   "formats": {
    "slots": [
@@ -47,11 +47,11 @@
  "banks": {
   "skull": {
    "total": 14,
-   "unused": 5
+   "unused": 4
   },
   "leg": {
    "total": 10,
-   "unused": 4
+   "unused": 3
   },
   "pelvis": {
    "total": 12,
@@ -71,11 +71,11 @@
   },
   "spine": {
    "total": 13,
-   "unused": 6
+   "unused": 5
   },
   "hand": {
    "total": 10,
-   "unused": 4
+   "unused": 3
   }
  },
  "hot": [
@@ -109,90 +109,6 @@
   }
  ],
  "posts": [
-  {
-   "slot": "2026-11-21T16:00:00-05:00",
-   "day": 107,
-   "id": "fmt-types-11",
-   "organ": null,
-   "title": "Types of back pain: 6 kinds, and the one that means the ER",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1600-fmt-types-11.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-21T18:00:00-05:00",
-   "day": 108,
-   "id": "dd-stomach-acid",
-   "organ": null,
-   "title": "Why your stomach doesn't digest itself",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-1800-dd-stomach-acid.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-21T20:00:00-05:00",
-   "day": 109,
-   "id": "fmt-types-09b",
-   "organ": null,
-   "title": "Why the wrong blood type is dangerous: antigens, antibodies and who can give to whom",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-21-2000-fmt-types-09b.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-22T09:30:00-05:00",
-   "day": 110,
-   "id": "skull-08",
-   "organ": "skull",
-   "title": "The Skull",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-0930-skull-08.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-22T12:30:00-05:00",
-   "day": 111,
-   "id": "fmt-types-12",
-   "organ": null,
-   "title": "The 3 planes of the body, and the move that happens in each",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1230-fmt-types-12.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
   {
    "slot": "2026-11-22T16:00:00-05:00",
    "day": 112,
@@ -582,6 +498,73 @@
    "organ": "arm",
    "title": "The Arm",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-1230-arm-09.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-27T16:00:00-05:00",
+   "day": 137,
+   "id": "spine-08",
+   "organ": "spine",
+   "title": "The Spine",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-1600-spine-08.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-27T18:00:00-05:00",
+   "day": 138,
+   "id": "dd-transcription",
+   "organ": null,
+   "title": "Transcription",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-1800-dd-transcription.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-27T20:00:00-05:00",
+   "day": 139,
+   "id": "hand-07",
+   "organ": "hand",
+   "title": "The Hand",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-27-2000-hand-07.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-28T09:30:00-05:00",
+   "day": 140,
+   "id": "skull-10",
+   "organ": "skull",
+   "title": "The Skull",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-0930-skull-10.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-28T12:30:00-05:00",
+   "day": 141,
+   "id": "leg-07",
+   "organ": "leg",
+   "title": "The Leg",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1230-leg-07.mp4",
    "platforms": [
     "instagram",
     "tiktok",
