@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T21:57:44+00:00",
+ "generated_at": "2026-11-27T22:43:27+00:00",
  "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/46073583129",
  "publishing": true,
  "name": "Anatomy Ace",
@@ -9,9 +9,9 @@
   "youtube"
  ],
  "per_day": 5,
- "unused": 35,
- "total": 176,
- "posted": 141,
+ "unused": 31,
+ "total": 177,
+ "posted": 146,
  "ramp": [
   [
    0,
@@ -29,7 +29,7 @@
    ],
    "from": "2026-11-07",
    "cycle": null,
-   "posted": 22
+   "posted": 23
   },
   "formats": {
    "slots": [
@@ -55,19 +55,19 @@
   },
   "pelvis": {
    "total": 12,
-   "unused": 5
+   "unused": 4
   },
   "chest": {
    "total": 12,
-   "unused": 5
+   "unused": 4
   },
   "thigh": {
    "total": 12,
-   "unused": 5
+   "unused": 4
   },
   "arm": {
    "total": 14,
-   "unused": 5
+   "unused": 4
   },
   "spine": {
    "total": 13,
@@ -123,85 +123,6 @@
   }
  ],
  "posts": [
-  {
-   "slot": "2026-11-22T16:00:00-05:00",
-   "day": 112,
-   "id": "fmt-types-13",
-   "organ": null,
-   "title": "5 pairs of directional terms, shown on real bones",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1600-fmt-types-13.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-22T18:00:00-05:00",
-   "day": 113,
-   "id": "dd-cut-healing",
-   "organ": null,
-   "title": "How a cut heals",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-1800-dd-cut-healing.mp4",
-   "platforms": [
-    "tiktok"
-   ],
-   "sent": [
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-22T20:00:00-05:00",
-   "day": 114,
-   "id": "pelvis-06",
-   "organ": "pelvis",
-   "title": "The Pelvis",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-22-2000-pelvis-06.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "slot": "2026-11-23T09:30:00-05:00",
-   "day": 115,
-   "id": "chest-06",
-   "organ": "chest",
-   "title": "The Rib Cage",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-0930-chest-06.mp4",
-   "platforms": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "instagram",
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "slot": "2026-11-23T12:30:00-05:00",
-   "day": 116,
-   "id": "fmt-missing-06",
-   "organ": null,
-   "title": "Which bone is missing?",
-   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-23-1230-fmt-missing-06.mp4",
-   "platforms": [
-    "tiktok",
-    "youtube"
-   ],
-   "sent": [
-    "tiktok"
-   ]
-  },
   {
    "slot": "2026-11-23T16:00:00-05:00",
    "day": 117,
@@ -596,6 +517,73 @@
    "organ": "leg",
    "title": "The Leg",
    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1230-leg-07.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-28T16:00:00-05:00",
+   "day": 142,
+   "id": "pelvis-08",
+   "organ": "pelvis",
+   "title": "The Pelvis",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1600-pelvis-08.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-28T18:00:00-05:00",
+   "day": 143,
+   "id": "dd-translation",
+   "organ": null,
+   "title": "Translation",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1800-dd-translation.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-28T20:00:00-05:00",
+   "day": 144,
+   "id": "chest-08",
+   "organ": "chest",
+   "title": "The Rib Cage",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-2000-chest-08.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-29T09:30:00-05:00",
+   "day": 145,
+   "id": "thigh-08",
+   "organ": "thigh",
+   "title": "Leg Muscles",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-29-0930-thigh-08.mp4",
+   "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ],
+   "sent": []
+  },
+  {
+   "slot": "2026-11-29T12:30:00-05:00",
+   "day": 146,
+   "id": "arm-10",
+   "organ": "arm",
+   "title": "The Arm",
+   "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-29-1230-arm-10.mp4",
    "platforms": [
     "instagram",
     "tiktok",
