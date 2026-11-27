@@ -30,6 +30,15 @@ HISTORY = ROOT / "history.json"
 HINTS = ROOT / "hints.json"  # id -> "Hint: ..." for the Instagram first comment (first_comment_for)
 
 
+def platforms_for(at: datetime) -> list[str]:
+    """The platforms a post at `at` goes to. Buffer refuses more than 2 YouTube posts a day per channel (from about
+    Nov 22, 2026 every daily run failed on the 3rd-5th), so config "platform_slots" keeps YouTube to its two best
+    times (16:00 and 20:00 by views). Instagram and TikTok get every slot."""
+    rules = CONFIG.get("platform_slots", {})
+    hhmm = at.astimezone(ZoneInfo("America/New_York")).strftime("%H:%M")
+    return [p for p in CONFIG["platforms"] if p not in rules or hhmm in rules[p]]
+
+
 def history() -> list[dict]:
     return json.loads(HISTORY.read_text()) if HISTORY.exists() else []
 
@@ -293,6 +302,8 @@ def retry_failed(hist: list[dict], channels: list[dict]) -> int:
         if datetime.fromisoformat(h["slot"]) < now - timedelta(days=3):
             continue
         for service, pid in list(h["buffer"].items()):
+            if service not in platforms_for(datetime.fromisoformat(h["slot"])) or service in h.get("dropped", []):
+                continue  # a YouTube post outside its two daily slots: Buffer would refuse a retry too
             try:
                 if buffer.post_status(pid).get("status") != "error":
                     continue
@@ -353,7 +364,7 @@ def post() -> int:
         url = storage.upload_to_r2(out, out.name, CONFIG["r2"])
         cover_ms = int((seconds - 0.25) * 1000)  # the designed cover frame is the last half second
         posts, sent_comment = {}, {}
-        for service in CONFIG["platforms"]:
+        for service in platforms_for(at):
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
                 hand = notify_for(at)
@@ -401,7 +412,7 @@ def publish(dry: bool) -> int:
         url = storage.upload_to_r2(out, f"{name}.mp4", CONFIG["r2"])
         cover_ms = int((seconds - 0.25) * 1000)  # the designed cover frame is the last half second
         posts, sent_comment = {}, {}
-        for service in CONFIG["platforms"]:
+        for service in platforms_for(at):
             try:
                 ch = buffer.channel_for(service, channels, CONFIG["channels"].get(service))
                 hand = notify_for(at)
@@ -578,7 +589,7 @@ def fill_missing(now: datetime | None = None) -> int:
         at = datetime.fromisoformat(h["slot"])
         if at <= now + timedelta(minutes=20):
             continue
-        missing = [s for s in CONFIG["platforms"] if s not in h["buffer"]]
+        missing = [s for s in platforms_for(at) if s not in h["buffer"]]
         if not missing:
             continue
         q = queued_question(h)

@@ -36,6 +36,12 @@
     "tiktok",
     "youtube"
   ],
+  "platform_slots": {
+    "youtube": [
+      "16:00",
+      "20:00"
+    ]
+  },
   "channels": {
     "instagram": "6ae1203a2f1f5ed648f190d3",
     "tiktok": "6ae120752f1f5ed648f198f2",

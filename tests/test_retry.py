@@ -19,3 +19,14 @@ def test_retry_once_then_report_once(monkeypatch, tmp_path):
     assert hist[0]["buffer"]["tiktok"] == "new1" and hist[0]["retried"] == {"tiktok": "old"}
     assert publish.retry_failed(hist, []) == 1 and hist[0]["gave_up"] == ["tiktok"]
     assert publish.retry_failed(hist, []) == 0 and len(sent) == 1
+
+
+def test_youtube_gets_two_posts_a_day_and_the_rest_every_slot():
+    """Buffer refuses a 3rd YouTube post a day per channel, which failed every daily run from about Nov 22, 2026."""
+    from zoneinfo import ZoneInfo
+    et = ZoneInfo("America/New_York")
+    yt = [t for t in publish.CONFIG["slots"] if "youtube" in publish.platforms_for(datetime(2026, 11, 28, int(t[:2]), int(t[3:]), tzinfo=et))]
+    assert sorted(yt) == ["16:00", "20:00"]
+    for t in publish.CONFIG["slots"]:
+        at = datetime(2026, 11, 28, int(t[:2]), int(t[3:]), tzinfo=et)
+        assert {"instagram", "tiktok"} <= set(publish.platforms_for(at))
