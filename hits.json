@@ -410,7 +410,74 @@
    "series": "dd-brain-anger",
    "date": "2026-11-24",
    "until": "2026-11-28"
+  },
+  {
+   "post": "fmt-diagnose-12",
+   "buffer_id": "6b061bd8493dfdd145fe00ad",
+   "day": 132,
+   "title": "Diagnose this",
+   "kind": "formats",
+   "format": "diagnose",
+   "age_hours": 23.3,
+   "views": 1820,
+   "baseline": 1346,
+   "shares": 16,
+   "reach": 1501,
+   "share_rate": 0.0107,
+   "share_baseline": 0.0024,
+   "compared_with": "diagnose (11 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "diagnose",
+   "date": "2026-11-27",
+   "until": "2026-12-01"
+  },
+  {
+   "post": "dd-membrane-transport",
+   "buffer_id": "6b076b5807071a606736d02e",
+   "day": 133,
+   "title": "Getting into a cell",
+   "kind": "deepdive",
+   "age_hours": 21.3,
+   "views": 1856,
+   "baseline": 1233,
+   "shares": 52,
+   "reach": 1543,
+   "share_rate": 0.0337,
+   "share_baseline": 0.0044,
+   "compared_with": "deepdive (18 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": "dd-membrane-transport",
+   "date": "2026-11-27",
+   "until": "2026-12-01"
+  },
+  {
+   "post": "chest-07",
+   "buffer_id": "6b076b5ca791bea1b2351bb3",
+   "day": 134,
+   "title": "The Rib Cage",
+   "kind": "quiz",
+   "age_hours": 19.3,
+   "views": 1507,
+   "baseline": 1320,
+   "shares": 6,
+   "reach": 1223,
+   "share_rate": 0.0049,
+   "share_baseline": 0.0014,
+   "compared_with": "quiz (30 posts)",
+   "factor": 3,
+   "by": [
+    "shares"
+   ],
+   "series": null,
+   "date": "2026-11-27",
+   "until": "2026-12-01"
   }
  ],
- "updated_at": "2026-11-26T20:34:25Z"
+ "updated_at": "2026-11-27T20:20:41Z"
 }

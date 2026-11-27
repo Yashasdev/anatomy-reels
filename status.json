@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-26T22:54:11+00:00",
- "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/45904139022",
+ "generated_at": "2026-11-27T20:20:42+00:00",
+ "run_url": "https://github.com/Yashasdev/anatomy-reels/actions/runs/46062949402",
  "publishing": true,
  "name": "Anatomy Ace",
  "platforms": [
@@ -80,6 +80,34 @@
  },
  "hot": [
   {
+   "series": "dd-membrane-transport",
+   "kind": "deepdive",
+   "post": "dd-membrane-transport",
+   "views": 1856,
+   "baseline": 1233,
+   "by": [
+    "shares"
+   ],
+   "date": "2026-11-27",
+   "until": "2026-12-01",
+   "left": 0,
+   "make_more": true
+  },
+  {
+   "series": "diagnose",
+   "kind": "formats",
+   "post": "fmt-diagnose-12",
+   "views": 1820,
+   "baseline": 1346,
+   "by": [
+    "shares"
+   ],
+   "date": "2026-11-27",
+   "until": "2026-12-01",
+   "left": 0,
+   "make_more": true
+  },
+  {
    "series": "dd-brain-anger",
    "kind": "deepdive",
    "post": "dd-brain-anger",
@@ -91,20 +119,6 @@
    "date": "2026-11-24",
    "until": "2026-11-28",
    "left": 0,
-   "make_more": true
-  },
-  {
-   "series": "types",
-   "kind": "formats",
-   "post": "fmt-types-14",
-   "views": 75468,
-   "baseline": 3024,
-   "by": [
-    "views"
-   ],
-   "date": "2026-11-22",
-   "until": "2026-11-26",
-   "left": 2,
    "make_more": true
   }
  ],
@@ -268,7 +282,8 @@
    ],
    "sent": [
     "instagram",
-    "tiktok"
+    "tiktok",
+    "youtube"
    ]
   },
   {
@@ -449,7 +464,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-26T18:00:00-05:00",
@@ -462,7 +480,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-26T20:00:00-05:00",
@@ -475,7 +496,10 @@
     "instagram",
     "tiktok"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-27T09:30:00-05:00",
@@ -489,7 +513,10 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "slot": "2026-11-27T12:30:00-05:00",
@@ -503,7 +530,11 @@
     "tiktok",
     "youtube"
    ],
-   "sent": []
+   "sent": [
+    "instagram",
+    "tiktok",
+    "youtube"
+   ]
   },
   {
    "slot": "2026-11-27T16:00:00-05:00",
@@ -574,33 +605,33 @@
   }
  ],
  "metrics": {
-  "updated_at": "2026-11-26T20:34:19Z",
+  "updated_at": "2026-11-27T20:20:35Z",
   "totals": {
-   "views": 1974780,
-   "reactions": 118891,
-   "comments": 1027,
-   "shares": 16762,
-   "saves": 20371
+   "views": 2042443,
+   "reactions": 123466,
+   "comments": 1067,
+   "shares": 17174,
+   "saves": 20733
   },
   "by_platform": [
    {
     "platform": "instagram",
-    "posts": 129,
-    "views": 1407329,
-    "watched": 25.5,
-    "watch_samples": 90
+    "posts": 134,
+    "views": 1442437,
+    "watched": 25.2,
+    "watch_samples": 95
    },
    {
     "platform": "tiktok",
-    "posts": 131,
-    "views": 530155,
-    "watched": 23.7,
-    "watch_samples": 108
+    "posts": 136,
+    "views": 561869,
+    "watched": 23.8,
+    "watch_samples": 113
    },
    {
     "platform": "youtube",
-    "posts": 106,
-    "views": 37296,
+    "posts": 108,
+    "views": 38137,
     "watched": null,
     "watch_samples": 0
    }
