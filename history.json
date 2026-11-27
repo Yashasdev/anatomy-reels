@@ -2148,12 +2148,15 @@
     "buffer": {
       "instagram": "6b061bd4ba5f0a2c87fd8af8",
       "tiktok": "6b061bd4dccb7033eaf23ec4",
-      "youtube": "6b061bd5ec28dbadf4d01419"
+      "youtube": "6b0a078541454797eacd2b1c"
     },
     "kind": "formats",
     "format": "types",
     "music": "ambient-2",
-    "hot": "types"
+    "hot": "types",
+    "retried": {
+      "youtube": "6b061bd5ec28dbadf4d01419"
+    }
   },
   {
     "slot": "2026-11-26T16:00:00-05:00",
@@ -2308,6 +2311,83 @@
       "youtube": "6b08b882e44dd487fc035987"
     },
     "music": "lofi-5",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-28T16:00:00-05:00",
+    "day": 142,
+    "id": "pelvis-08",
+    "organ": "pelvis",
+    "title": "The Pelvis",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1600-pelvis-08.mp4",
+    "video_seconds": 22.84,
+    "buffer": {
+      "instagram": "6b0a077370e80ae8f1afd919",
+      "tiktok": "6b0a077470e80ae8f1afd94e"
+    },
+    "music": "lofi-3",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-28T18:00:00-05:00",
+    "day": 143,
+    "id": "dd-translation",
+    "organ": null,
+    "title": "Translation",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-1800-dd-translation.mp4",
+    "video_seconds": 59.48,
+    "buffer": {
+      "instagram": "6b0a0778eada83daa6a4b1b1",
+      "tiktok": "6b0a0779f3bfab63eaba8ac1"
+    },
+    "kind": "deepdive",
+    "music": "ambient-3"
+  },
+  {
+    "slot": "2026-11-28T20:00:00-05:00",
+    "day": 144,
+    "id": "chest-08",
+    "organ": "chest",
+    "title": "The Rib Cage",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-28-2000-chest-08.mp4",
+    "video_seconds": 22.56,
+    "buffer": {
+      "instagram": "6b0a077a41454797eacd2809",
+      "tiktok": "6b0a077beada83daa6a4b281"
+    },
+    "music": "ambient-2",
+    "look": "classic"
+  },
+  {
+    "slot": "2026-11-29T09:30:00-05:00",
+    "day": 145,
+    "id": "thigh-08",
+    "organ": "thigh",
+    "title": "Leg Muscles",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-29-0930-thigh-08.mp4",
+    "video_seconds": 21.0,
+    "buffer": {
+      "instagram": "6b0a077deab081a3f501888e",
+      "tiktok": "6b0a077e41454797eacd2923",
+      "youtube": "6b0a077eeada83daa6a4b35b"
+    },
+    "music": "science-5",
+    "look": "studio"
+  },
+  {
+    "slot": "2026-11-29T12:30:00-05:00",
+    "day": 146,
+    "id": "arm-10",
+    "organ": "arm",
+    "title": "The Arm",
+    "video_url": "https://pub-29e025e1501c4c32be883ee5f3f1a013.r2.dev/2026-11-29-1230-arm-10.mp4",
+    "video_seconds": 23.28,
+    "buffer": {
+      "instagram": "6b0a0780f3bfab63eaba8d09",
+      "tiktok": "6b0a078070e80ae8f1afdca4",
+      "youtube": "6b0a0781eab081a3f50189b6"
+    },
+    "music": "science-3",
     "look": "classic"
   }
 ]
